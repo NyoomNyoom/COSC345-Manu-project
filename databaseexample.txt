@@ -1,0 +1,100 @@
+***** Start of VideoManager class *****
+
+VideoManager.cpp:
+
+	// Constructor for VideoManager class.
+	VideoManager::VideoManager()
+	{
+
+	}
+	
+	// Adds the sent video clip to the videoClip list.
+	void VideoManager::addVideo(VideoClip video)
+	{
+		videoClips.push_back(video);
+	}
+
+	// Removes the video clip from the videoClip list.
+	void VideoManager::deleteVideo(VideoClip video)
+	{
+		videoClips.remove(video);
+	}
+	
+	// Gets a videoClip based on the name.
+	VideoClip& getClip(string name)
+	{
+		// This assumes that videoName sent in the constructor of VideoClip is stored and 		// easily accessible to use as an identifier for each video clip.
+		for(VideoClip const& i : videoClips)
+		{
+			if(i.videoName == name)
+			{
+				return(i);
+			}
+		}
+
+		return null;
+	}
+	// Gets a videoClip based on the name.
+	VideoClip& getClip(int index)
+	{
+		int j = 0;
+		for(VideoClip const& i : videoClips)
+		{
+			if(j == index)
+			{
+				return(i);
+			}
+			j ++;
+		}
+		return null;
+	}
+	// Gets a videoClip based on the whole video clip.
+	VideoClip& getClip(VideoClip video)
+	{
+		for(VideoClip const& i : videoClips)
+		{
+			if(i == video)
+			{
+				return(i);
+			}
+		}
+		return null;
+	}
+***** Start of .hpp file for VideoManager *****
+
+VideoManager.hpp:
+
+#ifndef VIDEOMANAGER_H
+#define VIDEOMANAGER_H
+
+#include <list>
+#include "VideoClip.hpp"
+
+class VideoManager 
+{	
+	// Initialises videoClips
+	private static std::list<VideoClip> videoClips = std::list<VideoClip>();
+
+public:
+	
+	VideoManager(){}
+
+	void addVideo(VideoClip video){}
+
+	void deleteVideo(){}	
+	
+	VideoClip getClip(string name) {}
+
+	VideoClip getClip(int index) {}
+
+	VideoClip getClip(VideoClip video) {}
+	
+};
+
+Choice of implementation: Monostate
+
+The way we have implemented VideoManager is beneficial in that other coders within other teams can treat it as a normal class that can be instantiated under different variable names as usual. However every instantiated version of this class will share data with one another due to the static videoClip list. This also means that if the project changes and a requirement for multiple independent video clip databases is needed only the VideoManager class needs to be changed to accommodate this. The issues this can pose however is that coders might not be aware they are working with a single database across multiple different VideoManager instances, which could pose problems depending how information is retrieved from VideoManager (a coder might make multiple instances and then try retrieve video clips based on index and find they retrieve the same clip from both VideoManager instances when differing clips are expected, this same issue can occur with names too.)
+
+Although a disadvantage of this type of implementation is that this class always takes up space in ram regardless if it is being used or not this is not much of a concern as with a video editing software the storage of videos is key to its function and so it would be extremely rare for video manager to not be used and so this space occupancy when not in use is barely a concern. Then the other issue of ensuring other coders are aware video clips will be stored and retrieved only through the getClip_ methods and set through addVideo methods will be down to the documentation provided so that coders are aware how to use this class, however this issue will persist with any unfamiliar code, but ensuring awareness of this would be important and is rather convenient due to the simplicity to understand these methods.
+
+Code and "report" was written by Will, edits and reviewing done by Daniel.
