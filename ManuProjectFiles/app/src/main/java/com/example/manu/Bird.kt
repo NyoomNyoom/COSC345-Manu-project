@@ -12,7 +12,7 @@ package com.example.manu
 */
 
 data class Bird(val Name: String, val fileName: String, val altName: String, val infoFile: String) {
-    private var nameOfBird = Name
+    /*private var nameOfBird = Name
     private var birdFile = fileName
     private var alternativeName = altName
     private var birdInfoFile = infoFile
@@ -20,16 +20,16 @@ data class Bird(val Name: String, val fileName: String, val altName: String, val
     fun birdName(): String{
         return nameOfBird
     }
-
+/*
     fun getFile(fileType : String): String{
 
     }
-
+*/
     fun getAltName(){
 
     }
 
     fun getInfoFile(){
 
-    }
+    }*/
 }
