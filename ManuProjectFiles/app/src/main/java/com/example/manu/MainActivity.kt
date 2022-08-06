@@ -9,7 +9,7 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.info_graphic_activity)
+        setContentView(R.layout.activity_main)
 
         //btn_reading_text.setOnClickListener {
            // readFromAsset()
