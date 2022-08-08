@@ -6,5 +6,7 @@ class Question(val birdIn: Bird) {
     var optionList = mutableListOf<Bird>()
     var correctIndex = 1
 
+    fun getOptions(optionListIn: MutableList<Bird>){
 
+    }
 }
