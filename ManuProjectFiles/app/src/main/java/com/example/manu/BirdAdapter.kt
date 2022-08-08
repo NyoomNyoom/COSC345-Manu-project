@@ -46,7 +46,7 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
         }else {
             validBird = false
         }
-
+            //this is a SICK comment
         return validBird
     }
 
