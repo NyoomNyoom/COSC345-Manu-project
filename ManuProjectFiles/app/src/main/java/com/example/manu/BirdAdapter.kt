@@ -24,7 +24,7 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
         var tempBird = createBird(questionType,birdNum)
         var birdOut = createBird(1, 1) //initialising the variable with default values
 
-        if(isValid(questionType,tempBird)){
+        if(isValid(questionType,tempBird, birdNum)){
             birdOut = tempBird
         }else{
             randomBird(questionType)
@@ -33,14 +33,14 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
     }
 
     //function checks if the bird that is given is a valid bird for the question.
-    private fun isValid(questionType : Int, bird : Bird): Boolean{
+    private fun isValid(questionType: Int, bird: Bird, birdNum: Int): Boolean{
         var validBird= false
         if(questionType == 1){
-            if(bird.getFile(questionType) != "null"){
+            if(bird.getFile(questionType, birdNum) != "null"){
                 validBird = true
             }
         }else if(questionType == 2){
-            if(bird.getFile(questionType) != "null"){
+            if(bird.getFile(questionType, birdNum) != "null"){
                 validBird = true
             }
         }else {

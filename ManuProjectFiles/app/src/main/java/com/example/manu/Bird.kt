@@ -25,7 +25,7 @@ data class Bird(val Name: String, val fileName: String, val altName: String, val
     }
 
     //returns the file name for referencing in the question.
-    fun getFile(questionType: Int, birdnumIn: Int): String{
+    fun getFile(questionType: Int, birdNumIn: Int): String{
         val fileName = "src/main/assets/bird-data.csv"
         val lines: List<String> = File(fileName).readLines()
         var birdNumber = birdNumIn
