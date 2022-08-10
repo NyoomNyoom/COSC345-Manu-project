@@ -20,7 +20,7 @@ data class Bird(val Name: String, val fileName: String, val altName: String, val
     private var birdInfoFile = infoFile
     private var birdNum = birdNumIn
 
-    fun birdName(){
+    fun getBirdName(){
 
     }
 
