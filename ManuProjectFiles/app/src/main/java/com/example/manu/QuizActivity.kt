@@ -76,10 +76,10 @@ class QuizActivity : AppCompatActivity() {
                     intent.putExtra("totalQuestions", questions.size)
                     startActivity(intent)
                     finish()
+                } else {
+                    resetOptionButtons()
+                    presentQuestion(questions[currentQuestionIndex])
                 }
-
-                resetOptionButtons()
-                presentQuestion(questions[currentQuestionIndex])
             } else {
                 if (optionSelected) {
                     optionSelected = false
