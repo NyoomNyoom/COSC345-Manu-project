@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/question_text"
@@ -12,19 +14,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="x - y"
-        android:layout_marginTop="35sp"
         android:textStyle="bold"
         android:textSize="75sp"
         android:textColor="@color/black"
         />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:trackThickness="10sp"
+        app:trackColor="@color/grey"
+        app:indicatorColor="@color/black"
         android:paddingTop="55sp"
         android:paddingHorizontal="50sp"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         />
 
     <Button
@@ -78,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="130sp"
         android:layout_marginBottom="15sp"
-        android:layout_marginTop="70sp"
+        android:layout_marginTop="30sp"
         android:text="Submit"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"

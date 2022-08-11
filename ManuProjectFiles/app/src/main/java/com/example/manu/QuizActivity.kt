@@ -2,13 +2,11 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_quiz.*
-import kotlinx.android.synthetic.main.activity_quiz.view.*
 
 class QuizActivity : AppCompatActivity() {
 
