@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="55sp"
         android:paddingHorizontal="50sp"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
 
     <Button
         android:id="@+id/btn_opt_0"
