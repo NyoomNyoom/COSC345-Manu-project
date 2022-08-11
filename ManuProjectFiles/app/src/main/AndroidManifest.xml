@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".HelloWorld"/>
+        <activity android:name=".QuizActivity"/>
     </application>
 
 </manifest>
