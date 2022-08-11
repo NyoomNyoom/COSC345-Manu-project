@@ -5,6 +5,8 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_quiz.*
 
@@ -13,6 +15,8 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var correctOptionIndex: Int = -1
+    private var correctAnswerAnimationDuration:Int = 350
+    private var submitButtonAnimationDuration:Int = 150
     var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
@@ -22,6 +26,10 @@ class QuizActivity : AppCompatActivity() {
     private val nextText: String = "Next"
     private lateinit var optionButtons: ArrayList<Button>
     private lateinit var questions: ArrayList<QuestionData>
+    lateinit var scaleDownInitial:Animation
+    lateinit var scaleDownReturn:Animation
+    lateinit var scaleUpInitial:Animation
+    lateinit var scaleUpReturn:Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,17 +43,22 @@ class QuizActivity : AppCompatActivity() {
         questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
         questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
 
-        setupVariables()
+        initialiseVariables()
         setupOnClickListeners()
         presentQuestion(questions[currentQuestionIndex])
     }
 
-    private fun setupVariables() {
+    private fun initialiseVariables() {
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
         optionButtons.add(btn_opt_1)
         optionButtons.add(btn_opt_2)
         optionButtons.add(btn_opt_3)
+
+        scaleDownInitial = AnimationUtils.loadAnimation(this, R.anim.scale_down_initial)
+        scaleDownReturn = AnimationUtils.loadAnimation(this, R.anim.scale_down_return)
+        scaleUpInitial = AnimationUtils.loadAnimation(this, R.anim.scale_up_initial)
+        scaleUpReturn = AnimationUtils.loadAnimation(this, R.anim.scale_up_return)
     }
 
     private fun setupOnClickListeners() {
@@ -62,6 +75,11 @@ class QuizActivity : AppCompatActivity() {
             selectOption(3)
         }
         btn_submit.setOnClickListener {
+            scaleDownInitial.duration = submitButtonAnimationDuration.toLong()
+            scaleDownReturn.duration = submitButtonAnimationDuration.toLong()
+            btn_submit.startAnimation(scaleDownInitial)
+            btn_submit.startAnimation(scaleDownReturn)
+
             if (markedCurrentQuestion) {
                 markedCurrentQuestion = false
                 currentQuestionIndex++
@@ -134,6 +152,10 @@ class QuizActivity : AppCompatActivity() {
     private fun markAnswer() {
         if (selectedOptionIndex == correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.GREEN)
+            scaleUpInitial.duration = correctAnswerAnimationDuration.toLong()
+            scaleUpReturn.duration = correctAnswerAnimationDuration.toLong()
+            optionButtons[selectedOptionIndex].startAnimation(scaleUpInitial)
+            optionButtons[selectedOptionIndex].startAnimation(scaleUpReturn)
             score++
         } else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.RED)
