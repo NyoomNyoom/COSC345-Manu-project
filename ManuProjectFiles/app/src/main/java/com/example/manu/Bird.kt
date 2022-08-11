@@ -13,47 +13,66 @@ import java.io.File
 * RETURNED.
 */
 
-data class Bird(val Name: String, val fileName: String, val altName: String, val infoFile: String, val birdNumIn: Int) {
-    private var nameOfBird = Name
-    private var birdFile = fileName
-    private var alternativeName = altName
-    private var birdInfoFile = infoFile
+data class Bird(val birdNumIn: Int) {
+    private var nameOfBird = ""
+    private var birdFilePic = ""
+    private var birdFileSong = ""
+    private var alternativeName = ""
+    private var birdInfoFile = ""
     private var birdNum = birdNumIn
 
-    fun getBirdName(){
+    fun updateValues(){
+        val fileName = "src/main/assets/bird-data.csv"
+        val lines: List<String> = File(fileName).readLines()
+        var birdNumber = birdNum
+        var birdInfo: MutableList<String> = mutableListOf()
 
+        birdNumber -= 1
+        var birdNumString = birdNumber.toString()
+
+        //finds the correct line that was asked for and adds the info into a variable
+        lines.forEach{ iter ->
+            if(iter[0] == birdNumString.first()){
+                iter.split(",").forEach{
+                    birdInfo.add(it)
+                }
+            }
+        }
+
+        nameOfBird = birdInfo[1]
+        birdFilePic = birdInfo[2]
+        birdFileSong = birdInfo[3]
+        alternativeName = birdInfo[4]
+        birdInfoFile = birdInfo[5]
+    }
+
+    fun getBirdName(): String{
+        return nameOfBird
     }
 
     //returns the file name for referencing in the question.
     fun getFile(questionType: Int, birdNumIn: Int): String{
-        val fileName = "src/main/assets/bird-data.csv"
-        val lines: List<String> = File(fileName).readLines()
-        var birdNumber = birdNumIn
-        birdNumber -= 1
-        var birdNumString = birdNumber.toString()
-
         var output = ""
 
-        lines.forEach{
-            if(it[0] == birdNumString.first()){
-                output = it
-            }
+        //adds the filetype to the end of the string
+        if(questionType == 1){
+            output = "$birdFilePic.jpg" //only using jpg because I do not know what filetype we will use for pictures.
+        }else if(questionType == 2){
+            output = "$birdFileSong.mp3"
         }
-
-        //check output for the file of either jpg or mp3.
 
         return output
     }
 
-    fun getAltName(){
-
+    fun getAltName(): String{
+        return alternativeName
     }
 
-    fun getInfoFile(){
-
+    fun getInfoFile(): String{
+        return birdInfoFile
     }
 
-    fun getBirdNum(){
-
+    fun getBirdNum(): Int{
+        return birdNum
     }
 }

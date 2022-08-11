@@ -52,7 +52,13 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
 
     //creates a random bird from the given bird number and question type.
     private fun createBird(questionType: Int, birdNumber : Int): Bird{
-        var bird = Bird("Kiwi", "birdTest.txt", "null", "birdTest.txt", 1)
+        var name = ""
+        var fileName = ""
+        var altName = ""
+        var infoFile = ""
+        var bird = Bird(birdNumber)
+
+        name =
         return bird
     }
 }
