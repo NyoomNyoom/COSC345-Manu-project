@@ -21,6 +21,12 @@ class QuizResultsActivity : AppCompatActivity() {
         Log.d("results, score", score.toString())
         Log.d("results, total", totalQuestions.toString())
         text_score.text = "$score / $totalQuestions"
+
+        btn_play_again.setOnClickListener {
+            var intent = Intent(this, QuizActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }
