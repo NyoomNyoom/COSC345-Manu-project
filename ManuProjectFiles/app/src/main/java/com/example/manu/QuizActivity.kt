@@ -2,19 +2,18 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_quiz.*
-import kotlinx.android.synthetic.main.activity_quiz.view.*
 
 class QuizActivity : AppCompatActivity() {
 
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var correctOptionIndex: Int = -1
+    var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
     private val optionNormalAlpha: Float = 1f
@@ -69,12 +68,16 @@ class QuizActivity : AppCompatActivity() {
 
                 if (currentQuestionIndex == questions.size) {
                     var intent = Intent(this, QuizResultsActivity::class.java)
+                    Log.d("score", score.toString())
+                    Log.d("totalQuestions", questions.size.toString())
+                    intent.putExtra("score", score)
+                    intent.putExtra("totalQuestions", questions.size)
                     startActivity(intent)
                     finish()
+                } else {
+                    resetOptionButtons()
+                    presentQuestion(questions[currentQuestionIndex])
                 }
-
-                resetOptionButtons()
-                presentQuestion(questions[currentQuestionIndex])
             } else {
                 if (optionSelected) {
                     optionSelected = false
@@ -131,6 +134,7 @@ class QuizActivity : AppCompatActivity() {
     private fun markAnswer() {
         if (selectedOptionIndex == correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.GREEN)
+            score++
         } else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.RED)
             optionButtons[correctOptionIndex].setBackgroundColor(Color.GREEN)
