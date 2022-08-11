@@ -18,6 +18,14 @@
         android:textColor="@color/black"
         />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="55sp"
+        android:paddingHorizontal="50sp"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
     <Button
         android:id="@+id/btn_opt_0"
         android:layout_width="match_parent"

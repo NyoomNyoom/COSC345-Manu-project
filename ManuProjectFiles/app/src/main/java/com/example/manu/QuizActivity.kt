@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.activity_quiz.view.*
 
 class QuizActivity : AppCompatActivity() {
 
@@ -128,6 +129,8 @@ class QuizActivity : AppCompatActivity() {
 
         btn_submit.text = nextText
         markedCurrentQuestion = true
+        progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+        Log.d("QuizActivity", "progress = " + progress_bar.progress)
     }
 
 }
