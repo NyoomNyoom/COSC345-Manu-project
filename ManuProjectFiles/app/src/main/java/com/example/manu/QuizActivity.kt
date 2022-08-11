@@ -67,6 +67,12 @@ class QuizActivity : AppCompatActivity() {
                 markedCurrentQuestion = false
                 currentQuestionIndex++
 
+                if (currentQuestionIndex == questions.size) {
+                    var intent = Intent(this, QuizResultsActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
                 resetOptionButtons()
                 presentQuestion(questions[currentQuestionIndex])
             } else {

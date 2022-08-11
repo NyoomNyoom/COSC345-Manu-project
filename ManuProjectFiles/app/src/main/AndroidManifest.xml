@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".HelloWorld"/>
         <activity android:name=".QuizActivity"/>
+        <activity android:name=".QuizResultsActivity"/>
     </application>
 
 </manifest>
