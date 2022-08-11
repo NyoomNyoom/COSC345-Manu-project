@@ -1,6 +1,8 @@
 package com.example.manu
 
+import android.content.Intent
 import android.graphics.Color
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -64,6 +66,7 @@ class QuizActivity : AppCompatActivity() {
             if (markedCurrentQuestion) {
                 markedCurrentQuestion = false
                 currentQuestionIndex++
+
                 resetOptionButtons()
                 presentQuestion(questions[currentQuestionIndex])
             } else {
