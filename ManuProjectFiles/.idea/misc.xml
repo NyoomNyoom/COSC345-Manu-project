@@ -3,12 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Jackson North/Desktop/COSC345/COSC345-Manu-project/ManuProjectFiles/app/src/main/res/layout/activity_main.xml" value="0.161231884057971" />
         <entry key="..\:/Users/Jackson North/Desktop/Current uni work/COSC345/COSC345-Manu-project/ManuProjectFiles/app/src/main/res/layout/activity_main.xml" value="0.3625" />
-        <entry key="..\:/Users/danie/OneDrive/Documents/GitHub/COSC345-Manu-project/ManuProjectFiles/app/src/main/res/layout/activity_quiz.xml" value="0.3125" />
-        <entry key="..\:/Users/danie/OneDrive/Documents/GitHub/COSC345-Manu-project/ManuProjectFiles/app/src/main/res/layout/activity_quiz_results.xml" value="0.3125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11930091185410334" />
-        <entry key="app/src/main/res/layout/info_graphic_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/info_graphic_activity.xml" value="0.10280797101449275" />
+        <entry key="app/src/main/res/layout/menu_background.xml" value="0.10729166666666666" />
         <entry key="app/src/main/res/layout/test.xml" value="0.10280797101449275" />
       </map>
     </option>
