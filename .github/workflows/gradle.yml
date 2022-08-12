@@ -27,10 +27,12 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x ./ManuProjectFiles/gradlew
+    - name: cd dir
+      run: cd ManuProjectFiles
+      - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
     - name: Build with Gradle
-      run: ./ManuProjectFiles/gradlew build
+      run: ./gradlew build
 
   android_tests:
     runs-on: ubuntu-latest
