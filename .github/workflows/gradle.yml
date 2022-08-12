@@ -52,7 +52,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
-        run: chmod +x ./ManuProjectFiles/gradlew
         working-directory: ./ManuProjectFiles
+        run: chmod +x gradlew
       - name: Unit tests
+        working-directory: ./ManuProjectFiles
         run: ./gradlew test
