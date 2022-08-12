@@ -13,7 +13,7 @@ class HelloWorld : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)  // Change "activity_main" to your desired view.
+        setContentView(R.layout.activity_menu)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
     }
 

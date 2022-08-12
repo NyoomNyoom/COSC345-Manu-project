@@ -27,6 +27,12 @@ class QuizResultsActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        btn_menu.setOnClickListener {
+            var intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }
