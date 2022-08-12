@@ -2,6 +2,7 @@
 
 package com.example.manu
 
+import android.graphics.Color
 import android.util.Log
 import android.os.Bundle
 import android.view.View
@@ -23,6 +24,7 @@ class InfoGraphicActivity : AppCompatActivity() {
 
         for(i in 0 until size){
             //Get bird image and add it to button
+            allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundC
         }
     }
 }
