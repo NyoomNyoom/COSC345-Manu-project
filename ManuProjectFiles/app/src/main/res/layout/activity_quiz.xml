@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="x - y"
+        android:textStyle="bold"
+        android:textSize="75sp"
+        android:textColor="@color/black"
+        />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:trackThickness="10sp"
+        app:trackColor="@color/grey"
+        app:indicatorColor="@color/black"
+        android:paddingTop="55sp"
+        android:paddingHorizontal="50sp"
+        />
+
+    <Button
+        android:id="@+id/btn_opt_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginTop="70sp"
+        android:layout_marginBottom="15sp"
+        android:backgroundTint="@color/black"
+        android:text="0"
+        android:textColor="@color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_opt_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginBottom="15sp"
+        android:text="1"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        />
+
+    <Button
+        android:id="@+id/btn_opt_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginBottom="15sp"
+        android:text="2"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        />
+
+    <Button
+        android:id="@+id/btn_opt_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginBottom="15sp"
+        android:text="3"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="130sp"
+        android:layout_marginBottom="15sp"
+        android:layout_marginTop="30sp"
+        android:text="Submit"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        />
+
+</LinearLayout>
