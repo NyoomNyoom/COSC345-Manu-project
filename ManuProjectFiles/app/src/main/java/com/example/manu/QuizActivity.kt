@@ -1,6 +1,8 @@
 package com.example.manu
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
 
 class QuizActivity : AppCompatActivity() {
@@ -26,7 +29,7 @@ class QuizActivity : AppCompatActivity() {
     private val selectedOptionAlpha: Float = 0.5f
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
-    private lateinit var optionButtons: ArrayList<Button>
+    private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var questions: ArrayList<QuestionData>
     lateinit var scaleDownInitial:Animation
     lateinit var scaleDownReturn:Animation
@@ -34,6 +37,9 @@ class QuizActivity : AppCompatActivity() {
     lateinit var scaleUpReturn:Animation
     lateinit var shakeHorizontallyAnimation:Animation
     lateinit var shakeVerticallyAnimation:Animation
+    private var blueHexadecimalCode:String = "#0000FF"
+    private var greenHexadecimalCode:String = "#00FF00"
+    private var redHexadecimalCode:String = "#FF0000"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,14 +117,14 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun resetOptionButtons() {
-        btn_opt_0.alpha = optionNormalAlpha
-        btn_opt_1.alpha = optionNormalAlpha
-        btn_opt_2.alpha = optionNormalAlpha
-        btn_opt_3.alpha = optionNormalAlpha
         btn_opt_0.setBackgroundColor(Color.BLACK)
         btn_opt_1.setBackgroundColor(Color.BLACK)
         btn_opt_2.setBackgroundColor(Color.BLACK)
         btn_opt_3.setBackgroundColor(Color.BLACK)
+        btn_opt_0.setStrokeColorResource(R.color.black)
+        btn_opt_1.setStrokeColorResource(R.color.black)
+        btn_opt_2.setStrokeColorResource(R.color.black)
+        btn_opt_3.setStrokeColorResource(R.color.black)
     }
 
     private fun presentQuestion(question: QuestionData) {
@@ -140,32 +146,37 @@ class QuizActivity : AppCompatActivity() {
         optionSelected = true
 
         if (optionNumber == 0) {
-            btn_opt_0.alpha = selectedOptionAlpha
+            btn_opt_0.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
+            btn_opt_0.setStrokeColorResource(R.color.blue)
             selectedOptionIndex = 0
         } else if (optionNumber == 1) {
-            btn_opt_1.alpha = selectedOptionAlpha
+            btn_opt_1.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
+            btn_opt_1.setStrokeColorResource(R.color.blue)
             selectedOptionIndex = 1
         } else if (optionNumber == 2) {
-            btn_opt_2.alpha = selectedOptionAlpha
+            btn_opt_2.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
+            btn_opt_2.setStrokeColorResource(R.color.blue)
             selectedOptionIndex = 2
         } else if (optionNumber == 3) {
-            btn_opt_3.alpha = selectedOptionAlpha
+            btn_opt_3.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
+            btn_opt_3.setStrokeColorResource(R.color.blue)
             selectedOptionIndex = 3
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
         if (selectedOptionIndex == correctOptionIndex) {
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.GREEN)
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(greenHexadecimalCode))
+            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.green)
             scaleUpInitial.duration = correctAnswerAnimationDuration.toLong()
             scaleUpReturn.duration = correctAnswerAnimationDuration.toLong()
             optionButtons[selectedOptionIndex].startAnimation(shakeVerticallyAnimation)
-            // Below is for out then in animation.
-            //runScaleUpAndDownAnimation(optionButtons[selectedOptionIndex], correctAnswerAnimationDuration)
             score++
         } else {
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.RED)
-            optionButtons[correctOptionIndex].setBackgroundColor(Color.GREEN)
+            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.red)
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(redHexadecimalCode))
+            optionButtons[correctOptionIndex].setStrokeColorResource(R.color.green)
             optionButtons[selectedOptionIndex].startAnimation(shakeHorizontallyAnimation)
         }
 
