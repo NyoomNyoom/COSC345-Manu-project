@@ -15,7 +15,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         }
         for(i in 1..questionAmount){
             questionList[i] = Question(randomBird(questionType), questionType)
-            questionList[i]
+            questionList[i].addOption(randomBird(0))
         }
 
         return questionList
@@ -24,13 +24,17 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     //function that finds a random bird for the question type.
     private fun randomBird(questionType : Int): Bird {
         var birdNum = Random.nextInt(0,47)
-        var tempBird = createBird(questionType,birdNum)
-        var birdOut = createBird(1, 1) //initialising the variable with default values
+        var tempBird = createBird(birdNum)
+        lateinit var birdOut: Bird
 
-        if(isValid(questionType,tempBird, birdNum)){
+        if (questionType == 0){
+            return createBird(birdNum)
+        }
+
+        if(isValid(questionType,tempBird)){
             birdOut = tempBird
         }else{
-            randomBird(questionType)
+            return randomBird(questionType)
         }
 
         birdOut.updateValues()
@@ -39,7 +43,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     }
 
     //function checks if the bird that is given is a valid bird for the question.
-    private fun isValid(questionType: Int, bird: Bird, birdNum: Int): Boolean{
+    private fun isValid(questionType: Int, bird: Bird): Boolean{
         var validBird= false
         if(questionType == 1){
             if(bird.getFile(questionType) != "null"){
@@ -57,14 +61,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     }
 
     //creates a random bird from the given bird number and question type.
-    private fun createBird(questionType: Int, birdNumber : Int): Bird{
-        var name = ""
-        var fileName = ""
-        var altName = ""
-        var infoFile = ""
-        var bird = Bird(birdNumber)
-
-        name =
-        return bird
+    private fun createBird(birdNumber : Int): Bird{
+        return Bird(birdNumber)
     }
 }
