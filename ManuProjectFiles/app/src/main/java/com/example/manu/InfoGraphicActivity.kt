@@ -18,7 +18,11 @@ class InfoGraphicActivity : AppCompatActivity() {
 
         val allButtons: ArrayList<View>
         allButtons = (findViewById<View>(R.id.scrollView1) as ScrollView).touchables // Size is 48 (birds 47 + 1)
+        val size = allButtons.size // Checking how many items there are.
+        //Log.d("Layout Check", size.toString())
 
-        //Log.d("Layout Check", size)
+        for(i in 0 until size){
+            //Get bird image and add it to button
+        }
     }
 }
