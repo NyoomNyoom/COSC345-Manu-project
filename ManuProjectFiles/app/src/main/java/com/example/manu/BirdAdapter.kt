@@ -1,42 +1,67 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
+import android.util.Log
 import  kotlin.random.Random
 
 /* Class takes an empty list in of type bird, and then the function create quiz to be called which
 will create the quiz. */
-class BirdAdapter(val questionList : MutableList<Bird>) {
+class BirdAdapter(val questionList : MutableList<Question>) {
 
     //Creates a quiz using the amount of questions and type that the creator wants.
-    fun createQuiz(questionAmount: Int, questionType: Int){
-        for(i in 1..questionAmount){
-            questionList[i] = randomBird(questionType)
+    fun createQuiz(questionAmount: Int, questionType: Int): MutableList<Question>{
+        if(questionType !in 1..4){
+            Log.d("Question Error", "Please enter a valid question number(1-4).")
         }
+        for(i in 1..questionAmount){
+            questionList[i] = Question(randomBird(questionType), questionType)
+            questionList[i].addOption(randomBird(0))
+        }
+
+        return questionList
     }
 
     //function that finds a random bird for the question type.
     private fun randomBird(questionType : Int): Bird {
         var birdNum = Random.nextInt(0,47)
-        var bird = createBird(1,birdNum)
+        var tempBird = createBird(birdNum)
+        lateinit var birdOut: Bird
 
-        if(isValid(questionType,bird)){
-            return bird
-        }else{
-            randomBird(questionType)
+        if (questionType == 0){
+            return createBird(birdNum)
         }
-        return bird //only here to stop kotlin from throwing an error, SHOUlD never reach this.
+
+        if(isValid(questionType,tempBird)){
+            birdOut = tempBird
+        }else{
+            return randomBird(questionType)
+        }
+
+        birdOut.updateValues()
+
+        return birdOut
     }
 
     //function checks if the bird that is given is a valid bird for the question.
-    private fun isValid(questionType : Int, bird : Bird): Boolean{
+    private fun isValid(questionType: Int, bird: Bird): Boolean{
+        var validBird= false
         if(questionType == 1){
-
+            if(bird.getFile(questionType) != "null"){
+                validBird = true
+            }
+        }else if(questionType == 2){
+            if(bird.getFile(questionType) != "null"){
+                validBird = true
+            }
+        }else {
+            validBird = false
         }
+            //this is a SICK comment
+        return validBird
     }
 
     //creates a random bird from the given bird number and question type.
-    private fun createBird(questionType: Int, birdNumber : Int): Bird{
-        var bird = Bird("Kiwi", "birdTest.txt", "null", "birdTest.txt")
-        return bird
+    private fun createBird(birdNumber : Int): Bird{
+        return Bird(birdNumber)
     }
 }
