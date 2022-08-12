@@ -17,6 +17,11 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        button2.setOnClickListener {
+            val intent = Intent(this, InfoGraphicActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }
