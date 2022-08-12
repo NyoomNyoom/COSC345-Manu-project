@@ -6,16 +6,19 @@ import  kotlin.random.Random
 
 /* Class takes an empty list in of type bird, and then the function create quiz to be called which
 will create the quiz. */
-class BirdAdapter(val questionList : MutableList<Bird>) {
+class BirdAdapter(val questionList : MutableList<Question>) {
 
     //Creates a quiz using the amount of questions and type that the creator wants.
-    fun createQuiz(questionAmount: Int, questionType: Int){
+    fun createQuiz(questionAmount: Int, questionType: Int): MutableList<Question>{
         if(questionType !in 1..4){
             Log.d("Question Error", "Please enter a valid question number(1-4).")
         }
         for(i in 1..questionAmount){
-            questionList[i] = randomBird(questionType)
+            questionList[i] = Question(randomBird(questionType), questionType)
+            questionList[i]
         }
+
+        return questionList
     }
 
     //function that finds a random bird for the question type.
@@ -29,6 +32,9 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
         }else{
             randomBird(questionType)
         }
+
+        birdOut.updateValues()
+
         return birdOut
     }
 
@@ -36,11 +42,11 @@ class BirdAdapter(val questionList : MutableList<Bird>) {
     private fun isValid(questionType: Int, bird: Bird, birdNum: Int): Boolean{
         var validBird= false
         if(questionType == 1){
-            if(bird.getFile(questionType, birdNum) != "null"){
+            if(bird.getFile(questionType) != "null"){
                 validBird = true
             }
         }else if(questionType == 2){
-            if(bird.getFile(questionType, birdNum) != "null"){
+            if(bird.getFile(questionType) != "null"){
                 validBird = true
             }
         }else {
