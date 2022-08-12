@@ -4,11 +4,6 @@ package com.example.manu
 import java.io.File
 
 /*
-* Need to change the constructor to be a constructor with only a number inputed which refers to a
-* number from a csv file that has all the information currently in the folder name and then saves
-* the information to a string which will then be able to be called out by the functions in
-* birdAdapter.
-*
 * NEED TO HAVE A LIST THAT HAS 4 BIRDS (1 CORRECT 3 WRONG) WITH THE CORRECT INDEX AS A SECOND NUMBER
 * RETURNED.
 */
@@ -51,7 +46,7 @@ data class Bird(val birdNumIn: Int) {
     }
 
     //returns the file name for referencing in the question.
-    fun getFile(questionType: Int, birdNumIn: Int): String{
+    fun getFile(questionType: Int): String{
         var output = ""
 
         //adds the filetype to the end of the string
@@ -74,5 +69,9 @@ data class Bird(val birdNumIn: Int) {
 
     fun getBirdNum(): Int{
         return birdNum
+    }
+
+    override fun toString(): String {
+        return "$nameOfBird, $alternativeName, $birdNum, $birdFilePic, $birdFileSong, $birdInfoFile"
     }
 }
