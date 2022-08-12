@@ -2,7 +2,6 @@ package com.example.manu
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +9,6 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
 
@@ -21,12 +19,9 @@ class QuizActivity : AppCompatActivity() {
     private var correctOptionIndex: Int = -1
     private var correctAnswerAnimationDuration:Long = 750
     private var submitButtonAnimationDuration:Long = 150
-    private val scaleInDuration:Long = 350
     var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
-    private val optionNormalAlpha: Float = 1f
-    private val selectedOptionAlpha: Float = 0.5f
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
     private lateinit var optionButtons: ArrayList<MaterialButton>
@@ -185,27 +180,11 @@ class QuizActivity : AppCompatActivity() {
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
     }
 
-    private fun runScaleUpAndDownAnimation(view:View, duration:Long) {
-        Log.d("QuizActivity", view.toString())
-        scaleUpInitial.duration = duration
-        scaleUpReturn.duration = duration
-        view.startAnimation(scaleUpInitial)
-        view.startAnimation(scaleUpReturn)
-        return
-    }
-
     private fun runScaleDownAndUpAnimation(view:View, duration:Long) {
         scaleDownInitial.duration = duration
         scaleDownReturn.duration = duration
         view.startAnimation(scaleDownInitial)
         view.startAnimation(scaleDownReturn)
-    }
-
-    private fun runInstantScaleUpTransitionScaleDownAnimation(view:View, duration:Long) {
-        scaleUpInitial.duration = 0
-        scaleUpReturn.duration = duration
-        view.startAnimation(scaleUpInitial)
-        view.startAnimation(scaleUpReturn)
     }
 
 }
