@@ -27,10 +27,6 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: cd dir
-      run: cd ManuProjectFiles
-    - name: Grant execute permission for gradlew
-      run: ls -lrt
     - name: Grant execute permission for gradlew
       working-directory: ./ManuProjectFiles
       run: chmod +x gradlew
@@ -43,12 +39,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
-        run: chmod +x ./ManuProjectFiles/gradlew
+        working-directory: ./ManuProjectFiles
+        run: chmod +x gradlew
       - name: Instrumentation Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
-          script: ./ManuProjectFiles/gradlew connectedAndroidTest
+          script: ./gradlew connectedAndroidTest
 
   unit_tests:
     runs-on: ubuntu-latest
@@ -56,5 +53,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
         run: chmod +x ./ManuProjectFiles/gradlew
+        working-directory: ./ManuProjectFiles
       - name: Unit tests
-        run: ./ManuProjectFiles/gradlew test
+        run: ./gradlew test
