@@ -4,7 +4,7 @@ package com.example.manu
 class Question(private val birdIn: Bird, val questionType: Int) {
     var correctBirdObject = birdIn
     var optionList = mutableListOf<Bird>()
-    var correctIndex = -1
+    var correctIndex = 0
 
 
 
