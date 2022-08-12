@@ -1,7 +1,7 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
-import android.util.Log
+import  android.util.Log
 import  kotlin.random.Random
 
 /* Class takes an empty list in of type bird, and then the function create quiz to be called which
