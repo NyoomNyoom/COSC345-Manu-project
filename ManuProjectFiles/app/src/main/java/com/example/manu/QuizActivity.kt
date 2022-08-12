@@ -5,18 +5,21 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_menu.view.*
 import kotlinx.android.synthetic.main.activity_quiz.*
+import java.time.Duration
 
 class QuizActivity : AppCompatActivity() {
 
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var correctOptionIndex: Int = -1
-    private var correctAnswerAnimationDuration:Int = 350
-    private var submitButtonAnimationDuration:Int = 150
+    private var correctAnswerAnimationDuration:Long = 350
+    private var submitButtonAnimationDuration:Long = 150
     var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
@@ -30,6 +33,7 @@ class QuizActivity : AppCompatActivity() {
     lateinit var scaleDownReturn:Animation
     lateinit var scaleUpInitial:Animation
     lateinit var scaleUpReturn:Animation
+    private val scaleInDuration:Long = 350
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,8 +81,7 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.setOnClickListener {
             scaleDownInitial.duration = submitButtonAnimationDuration.toLong()
             scaleDownReturn.duration = submitButtonAnimationDuration.toLong()
-            btn_submit.startAnimation(scaleDownInitial)
-            btn_submit.startAnimation(scaleDownReturn)
+            runScaleDownAndUpAnimation(btn_submit, submitButtonAnimationDuration)
 
             if (markedCurrentQuestion) {
                 markedCurrentQuestion = false
@@ -154,8 +157,7 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.GREEN)
             scaleUpInitial.duration = correctAnswerAnimationDuration.toLong()
             scaleUpReturn.duration = correctAnswerAnimationDuration.toLong()
-            optionButtons[selectedOptionIndex].startAnimation(scaleUpInitial)
-            optionButtons[selectedOptionIndex].startAnimation(scaleUpReturn)
+            runScaleUpAndDownAnimation(optionButtons[selectedOptionIndex], correctAnswerAnimationDuration)
             score++
         } else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.RED)
@@ -165,6 +167,27 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.text = nextText
         markedCurrentQuestion = true
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+    }
+
+    private fun runScaleUpAndDownAnimation(view:View, duration:Long) {
+        scaleUpInitial.duration = duration
+        scaleUpReturn.duration = duration
+        view.startAnimation(scaleUpInitial)
+        view.startAnimation(scaleUpReturn)
+    }
+
+    private fun runScaleDownAndUpAnimation(view:View, duration:Long) {
+        scaleDownInitial.duration = duration
+        scaleDownReturn.duration = duration
+        view.startAnimation(scaleDownInitial)
+        view.startAnimation(scaleDownReturn)
+    }
+
+    private fun runInstantScaleUpTransitionScaleDownAnimation(view:View, duration:Long) {
+        scaleUpInitial.duration = 0
+        scaleUpReturn.duration = duration
+        view.startAnimation(scaleUpInitial)
+        view.startAnimation(scaleUpReturn)
     }
 
 }
