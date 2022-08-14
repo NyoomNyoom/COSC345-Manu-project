@@ -9,10 +9,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log  // ADDED: Allows you to print debugging statements.
 
+/**
+ * An example script for how to start programming a content view. Disregarding the code with a comment saying
+ * "ADDED:...", such a script must do the following: be in the specified package, import the specified modules, extend
+ * the specified class, and contain the specified function with its specified instructions.
+ * specified
+ */
 class HelloWorld : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
         setContentView(R.layout.activity_menu)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
     }
