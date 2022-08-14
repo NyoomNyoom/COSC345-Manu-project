@@ -8,9 +8,14 @@ import kotlinx.android.synthetic.main.activity_quiz_results.*
 
 class QuizResultsActivity : AppCompatActivity() {
 
-    private var score:Int = -1
-    private var totalQuestions:Int = -1
+    private var score: Int = -1
+    private var totalQuestions: Int = -1
 
+    /**
+     * Is run when this class is instantiated. It loads the quiz results activity layout and presents the results.
+     *
+     * @param Bundle Saves information between separate loads of this activity view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_results)

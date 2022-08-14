@@ -10,30 +10,66 @@ import android.view.animation.AnimationUtils
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
 
+/**
+ * Runs the quiz's logic and controls its GUI.
+ */
 class QuizActivity : AppCompatActivity() {
 
+    /** The index of the current quiz question. */
     private var currentQuestionIndex: Int = 0
+
+    /** The index of the selected option. */
     private var selectedOptionIndex: Int = -1
+
+    /** The player's score, measured in correct answers. */
     private var score: Int = 0
+
+    /** True if the current question has been marked. */
     private var markedCurrentQuestion: Boolean = false
+
+    /** True if the player has tapped on one of the options. */
     private var optionSelected: Boolean = false
+
+    /** The text to display on the submit button when the player has not submitted an answer to the current question. */
     private val submitText: String = "Submit"
+
+    /** The text to display on the submit button when the player has had their current question marked. */
     private val nextText: String = "Next"
+
+    /** The text to display on the submit button when the player has had the last question marked. */
     private val finishText: String = "Finish"
+
+    /** A list containing the answer option buttons. */
     private lateinit var optionButtons: ArrayList<MaterialButton>
+
+    /** A list containing this quiz's questions. */
     private lateinit var questions: ArrayList<QuestionData>
-    private lateinit var buttonPress:Animation
-    private lateinit var incorrectAnswerShake:Animation
-    private lateinit var correctAnswerNod:Animation
-    private lateinit var answerOptionEnter:Animation
-    private lateinit var answerOptionExit:Animation
-    private var correctAnswerHexCode:String = "#00FF00"
-    private var incorrectAnswerHexCode:String = "#FF0000"
 
+    /** The button press animation. */
+    private lateinit var buttonPress: Animation
+
+    /** Should the player select the incorrect option, that button will play this animation. */
+    private lateinit var incorrectAnswerShake: Animation
+
+    /** Should the player select the correct option, that button will play this animation. */
+    private lateinit var correctAnswerNod: Animation
+
+    /** The animation for an option button coming into view. */
+    private lateinit var answerOptionEnter: Animation
+
+    /** The animation for an option button leaving the screen. */
+    private lateinit var answerOptionExit: Animation
+
+    /**
+     * Is run when this class is instantiated. It loads the quiz activity layout and starts the quiz.
+     *
+     * @param Bundle Saves information between separate loads of this activity view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
+        setContentView(R.layout.activity_quiz)  // Loads the quiz activity layout.
 
+        // Assembles a simple math quiz.
         questions = ArrayList()
         questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
         questions.add(QuestionData("4 + 2", "5", "9", "17", "6", 3))
@@ -41,13 +77,13 @@ class QuizActivity : AppCompatActivity() {
         questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
         questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
 
-        initialiseVariables()
-        setupOnClickListeners()
-        presentQuestion(questions[currentQuestionIndex])
+        initialiseVariables()  // Initialise the variables tagged with late initialisation.
+        setupOnClickListeners()  // Setup the button listeners.
+        presentQuestion(questions[currentQuestionIndex])  // Present the first question.
     }
 
     /**
-     * Initialises the "lateinit" variables.
+     * Initialises the option buttons variable and loads the animations.
      */
     private fun initialiseVariables() {
         // Initialise and fill with the four option buttons.
