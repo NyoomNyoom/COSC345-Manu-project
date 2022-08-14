@@ -28,11 +28,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var questions: ArrayList<QuestionData>
     lateinit var scaleDownInitial:Animation
     lateinit var scaleDownReturn:Animation
-    lateinit var scaleUpInitial:Animation
-    lateinit var scaleUpReturn:Animation
     lateinit var shakeHorizontallyAnimation:Animation
     lateinit var shakeVerticallyAnimation:Animation
-    lateinit var opacityUp:Animation
     private var blueHexadecimalCode:String = "#0000FF"
     private var greenHexadecimalCode:String = "#00FF00"
     private var redHexadecimalCode:String = "#FF0000"
@@ -61,13 +58,10 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_2)
         optionButtons.add(btn_opt_3)
 
-        scaleDownInitial = AnimationUtils.loadAnimation(this, R.anim.scale_down_initial)
-        scaleDownReturn = AnimationUtils.loadAnimation(this, R.anim.scale_down_return)
-        scaleUpInitial = AnimationUtils.loadAnimation(this, R.anim.scale_up_initial)
-        scaleUpReturn = AnimationUtils.loadAnimation(this, R.anim.scale_up_return)
-        shakeHorizontallyAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_horizontal)
-        shakeVerticallyAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_vertical)
-        opacityUp = AnimationUtils.loadAnimation(this, R.anim.opacity_up)
+        scaleDownInitial = AnimationUtils.loadAnimation(this, R.anim.button_press_down)
+        scaleDownReturn = AnimationUtils.loadAnimation(this, R.anim.button_press_up)
+        shakeHorizontallyAnimation = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
+        shakeVerticallyAnimation = AnimationUtils.loadAnimation(this, R.anim.correct_answer_nod)
     }
 
     private fun setupOnClickListeners() {
@@ -133,13 +127,8 @@ class QuizActivity : AppCompatActivity() {
         correctOptionIndex = question.correctOptionIndex
         btn_submit.text = submitText
 
-        btn_opt_0.startAnimation(opacityUp)
-        btn_opt_1.startAnimation(opacityUp)
-        btn_opt_2.startAnimation(opacityUp)
-        btn_opt_3.startAnimation(opacityUp)
-
         for (i in 0..3) {
-            optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_from_zero))
+            optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_enter))
         }
     }
 
@@ -178,8 +167,6 @@ class QuizActivity : AppCompatActivity() {
         if (selectedOptionIndex == correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(greenHexadecimalCode))
             optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.green)
-            scaleUpInitial.duration = correctAnswerAnimationDuration.toLong()
-            scaleUpReturn.duration = correctAnswerAnimationDuration.toLong()
             optionButtons[selectedOptionIndex].startAnimation(shakeVerticallyAnimation)
             score++
         } else {
@@ -191,7 +178,7 @@ class QuizActivity : AppCompatActivity() {
 
         for (i in 0..3) {
             if (selectedOptionIndex != i && correctOptionIndex != i) {
-                optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_to_zero))
+                optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_exit))
             }
         }
 
