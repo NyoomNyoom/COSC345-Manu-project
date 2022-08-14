@@ -32,6 +32,7 @@ class QuizActivity : AppCompatActivity() {
     lateinit var scaleUpReturn:Animation
     lateinit var shakeHorizontallyAnimation:Animation
     lateinit var shakeVerticallyAnimation:Animation
+    lateinit var opacityUp:Animation
     private var blueHexadecimalCode:String = "#0000FF"
     private var greenHexadecimalCode:String = "#00FF00"
     private var redHexadecimalCode:String = "#FF0000"
@@ -66,6 +67,7 @@ class QuizActivity : AppCompatActivity() {
         scaleUpReturn = AnimationUtils.loadAnimation(this, R.anim.scale_up_return)
         shakeHorizontallyAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_horizontal)
         shakeVerticallyAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_vertical)
+        opacityUp = AnimationUtils.loadAnimation(this, R.anim.opacity_up)
     }
 
     private fun setupOnClickListeners() {
@@ -130,6 +132,15 @@ class QuizActivity : AppCompatActivity() {
         btn_opt_3.text = question.option3
         correctOptionIndex = question.correctOptionIndex
         btn_submit.text = submitText
+
+        btn_opt_0.startAnimation(opacityUp)
+        btn_opt_1.startAnimation(opacityUp)
+        btn_opt_2.startAnimation(opacityUp)
+        btn_opt_3.startAnimation(opacityUp)
+
+        for (i in 0..3) {
+            optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_from_zero))
+        }
     }
 
     private fun selectOption(optionNumber: Int) {
@@ -173,6 +184,12 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(redHexadecimalCode))
             optionButtons[correctOptionIndex].setStrokeColorResource(R.color.green)
             optionButtons[selectedOptionIndex].startAnimation(shakeHorizontallyAnimation)
+        }
+
+        for (i in 0..3) {
+            if (selectedOptionIndex != i && correctOptionIndex != i) {
+                optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.scale_to_zero))
+            }
         }
 
         btn_submit.text = nextText

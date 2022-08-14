@@ -2,7 +2,7 @@
     <translate
         android:duration="50"
         android:fromYDelta="-5.5%"
-        android:repeatCount="2"
+        android:repeatCount="4"
         android:repeatMode="reverse"
         android:toYDelta="5.5%"
         />
