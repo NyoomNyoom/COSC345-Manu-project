@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.google.android.material.button.MaterialButton
@@ -28,9 +27,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var correctAnswerNod:Animation
     private lateinit var answerOptionEnter:Animation
     private lateinit var answerOptionExit:Animation
-    private var blueHexadecimalCode:String = "#0000FF"
-    private var greenHexadecimalCode:String = "#00FF00"
-    private var redHexadecimalCode:String = "#FF0000"
+    private var correctAnswerHexCode:String = "#00FF00"
+    private var incorrectAnswerHexCode:String = "#FF0000"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +47,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
-     * Initialises the variables containing the answer option buttons and the animations.
+     * Initialises the "lateinit" variables.
      */
     private fun initialiseVariables() {
         // Initialise and fill with the four option buttons.
@@ -86,8 +84,8 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun resetOptionButtons() {
         for (button in optionButtons) {
-            button.setBackgroundColor(Color.BLACK)  // Set the background colour to black.
-            button.setStrokeColorResource(R.color.black)  // Set the outline colour to black.
+            button.setBackgroundColor(Color.parseColor(resources.getString(R.string.option_background_colour)))  // Set the background colour to black.
+            button.setStrokeColorResource(R.color.option_background_colour)  // Set the outline colour to black.
         }
     }
 
@@ -126,8 +124,8 @@ class QuizActivity : AppCompatActivity() {
         selectedOptionIndex = optionNumber  // Save the index of the option button the user has clicked on.
 
         // Fill the selected option button with blue, and paint its outline blue as well.
-        optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(blueHexadecimalCode))
-        optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.blue)
+        optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(resources.getString(R.string.option_selected_colour)))
+        optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_selected_colour)
 
         optionButtons[selectedOptionIndex].startAnimation(buttonPress)  // Start the button press animation.
     }
@@ -173,20 +171,20 @@ class QuizActivity : AppCompatActivity() {
     private fun markAnswer() {
         if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {  // If correct.
             // Fill the correct answer with green, and paint its outline green as well.
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(greenHexadecimalCode))
-            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.green)
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(resources.getString(R.string.option_correct_colour)))
+            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_correct_colour)
 
             optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)  // Make the correct answer nod.
             score++  // Award the player one point.
         } else {  // If incorrect.
             // Fill the incorrect answer with red, and paint its outline red as well.
-            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.red)
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(redHexadecimalCode))
+            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_incorrect_colour)
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(resources.getString(R.string.option_incorrect_colour)))
 
             // Outline the correct answer with green.
-            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setStrokeColorResource(R.color.green)
+            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setStrokeColorResource(R.color.option_correct_colour)
 
-            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)  // Make the inorrect answer shake.
+            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)  // Make the incorrect answer shake.
         }
 
         /**
