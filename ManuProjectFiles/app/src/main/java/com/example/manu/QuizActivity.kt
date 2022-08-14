@@ -19,17 +19,18 @@ class QuizActivity : AppCompatActivity() {
     private var correctOptionIndex: Int = -1
     private var correctAnswerAnimationDuration:Long = 750
     private var submitButtonAnimationDuration:Long = 150
-    var score: Int = 0
+    private var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var questions: ArrayList<QuestionData>
-    lateinit var scaleDownInitial:Animation
-    lateinit var scaleDownReturn:Animation
-    lateinit var shakeHorizontallyAnimation:Animation
-    lateinit var shakeVerticallyAnimation:Animation
+    private lateinit var buttonPress:Animation
+    private lateinit var incorrectAnswerShake:Animation
+    private lateinit var correctAnswerNod:Animation
+    private lateinit var answerOptionEnter:Animation
+    private lateinit var answerOptionExit:Animation
     private var blueHexadecimalCode:String = "#0000FF"
     private var greenHexadecimalCode:String = "#00FF00"
     private var redHexadecimalCode:String = "#FF0000"
@@ -58,10 +59,11 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_2)
         optionButtons.add(btn_opt_3)
 
-        scaleDownInitial = AnimationUtils.loadAnimation(this, R.anim.button_press_down)
-        scaleDownReturn = AnimationUtils.loadAnimation(this, R.anim.button_press_up)
-        shakeHorizontallyAnimation = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
-        shakeVerticallyAnimation = AnimationUtils.loadAnimation(this, R.anim.correct_answer_nod)
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+        incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
+        correctAnswerNod = AnimationUtils.loadAnimation(this, R.anim.correct_answer_nod)
+        answerOptionEnter = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
+        answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
     }
 
     private fun setupOnClickListeners() {
@@ -78,9 +80,7 @@ class QuizActivity : AppCompatActivity() {
             selectOption(3)
         }
         btn_submit.setOnClickListener {
-            scaleDownInitial.duration = submitButtonAnimationDuration.toLong()
-            scaleDownReturn.duration = submitButtonAnimationDuration.toLong()
-            runScaleDownAndUpAnimation(btn_submit, submitButtonAnimationDuration)
+            btn_submit.startAnimation(buttonPress)
 
             if (markedCurrentQuestion) {
                 markedCurrentQuestion = false
@@ -108,14 +108,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun resetOptionButtons() {
-        btn_opt_0.setBackgroundColor(Color.BLACK)
-        btn_opt_1.setBackgroundColor(Color.BLACK)
-        btn_opt_2.setBackgroundColor(Color.BLACK)
-        btn_opt_3.setBackgroundColor(Color.BLACK)
-        btn_opt_0.setStrokeColorResource(R.color.black)
-        btn_opt_1.setStrokeColorResource(R.color.black)
-        btn_opt_2.setStrokeColorResource(R.color.black)
-        btn_opt_3.setStrokeColorResource(R.color.black)
+        for (button in optionButtons) {
+            button.setBackgroundColor(Color.BLACK)  // Set the background colour to black.
+            button.setStrokeColorResource(R.color.black)  // Set the outline colour to black.
+        }
     }
 
     private fun presentQuestion(question: QuestionData) {
@@ -139,27 +135,11 @@ class QuizActivity : AppCompatActivity() {
 
         resetOptionButtons()
         optionSelected = true
+        selectedOptionIndex = optionNumber
 
-        if (optionNumber == 0) {
-            btn_opt_0.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
-            btn_opt_0.setStrokeColorResource(R.color.blue)
-            selectedOptionIndex = 0
-        } else if (optionNumber == 1) {
-            btn_opt_1.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
-            btn_opt_1.setStrokeColorResource(R.color.blue)
-            selectedOptionIndex = 1
-        } else if (optionNumber == 2) {
-            btn_opt_2.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
-            btn_opt_2.setStrokeColorResource(R.color.blue)
-            selectedOptionIndex = 2
-        } else if (optionNumber == 3) {
-            btn_opt_3.setBackgroundColor(Color.parseColor(blueHexadecimalCode))
-            btn_opt_3.setStrokeColorResource(R.color.blue)
-            selectedOptionIndex = 3
-        }
-
-        optionButtons[selectedOptionIndex].startAnimation(scaleDownInitial)
-        optionButtons[selectedOptionIndex].startAnimation(scaleDownReturn)
+        optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(blueHexadecimalCode))
+        optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.blue)
+        optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
 
     @SuppressLint("ResourceAsColor")
@@ -167,13 +147,13 @@ class QuizActivity : AppCompatActivity() {
         if (selectedOptionIndex == correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(greenHexadecimalCode))
             optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.green)
-            optionButtons[selectedOptionIndex].startAnimation(shakeVerticallyAnimation)
+            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)
             score++
         } else {
             optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.red)
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(redHexadecimalCode))
             optionButtons[correctOptionIndex].setStrokeColorResource(R.color.green)
-            optionButtons[selectedOptionIndex].startAnimation(shakeHorizontallyAnimation)
+            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
         }
 
         for (i in 0..3) {
@@ -185,13 +165,6 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.text = nextText
         markedCurrentQuestion = true
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
-    }
-
-    private fun runScaleDownAndUpAnimation(view:View, duration:Long) {
-        scaleDownInitial.duration = duration
-        scaleDownReturn.duration = duration
-        view.startAnimation(scaleDownInitial)
-        view.startAnimation(scaleDownReturn)
     }
 
 }
