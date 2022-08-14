@@ -28,9 +28,11 @@
         app:indicatorColor="@color/black"
         android:paddingTop="55sp"
         android:paddingHorizontal="50sp"
+        app:strokeWidth="1sp"
+        app:strokeColor="@color/black"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_opt_0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,9 +42,11 @@
         android:backgroundTint="@color/black"
         android:text="0"
         android:textColor="@color/white"
+        app:strokeWidth="6sp"
+        app:strokeColor="@color/black"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_opt_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,9 +55,11 @@
         android:text="1"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
+        app:strokeWidth="6sp"
+        app:strokeColor="@color/black"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_opt_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,9 +68,11 @@
         android:text="2"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
+        app:strokeWidth="6sp"
+        app:strokeColor="@color/black"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_opt_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,9 +81,11 @@
         android:text="3"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
+        app:strokeWidth="6sp"
+        app:strokeColor="@color/black"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +95,8 @@
         android:text="Submit"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"
+        app:strokeWidth="4sp"
+        app:strokeColor="@color/black"
         />
 
 </LinearLayout>
