@@ -6,7 +6,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.google.android.material.button.MaterialButton
@@ -16,14 +15,12 @@ class QuizActivity : AppCompatActivity() {
 
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
-    private var correctOptionIndex: Int = -1
-    private var correctAnswerAnimationDuration:Long = 750
-    private var submitButtonAnimationDuration:Long = 150
     private var score: Int = 0
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
+    private val finishText: String = "Finish"
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var questions: ArrayList<QuestionData>
     private lateinit var buttonPress:Animation
@@ -38,7 +35,6 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        Log.d("QuizActivity", "Quiz launched!")
 
         questions = ArrayList()
         questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
@@ -52,13 +48,18 @@ class QuizActivity : AppCompatActivity() {
         presentQuestion(questions[currentQuestionIndex])
     }
 
+    /**
+     * Initialises the variables containing the answer option buttons and the animations.
+     */
     private fun initialiseVariables() {
+        // Initialise and fill with the four option buttons.
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
         optionButtons.add(btn_opt_1)
         optionButtons.add(btn_opt_2)
         optionButtons.add(btn_opt_3)
 
+        // Load the necessary animations into the respective variables.
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
         correctAnswerNod = AnimationUtils.loadAnimation(this, R.anim.correct_answer_nod)
@@ -66,47 +67,23 @@ class QuizActivity : AppCompatActivity() {
         answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
     }
 
+    /**
+     * Defines the behaviour for a button when it is clicked.
+     */
     private fun setupOnClickListeners() {
-        btn_opt_0.setOnClickListener {
-            selectOption(0)
-        }
-        btn_opt_1.setOnClickListener {
-            selectOption(1)
-        }
-        btn_opt_2.setOnClickListener {
-            selectOption(2)
-        }
-        btn_opt_3.setOnClickListener {
-            selectOption(3)
-        }
-        btn_submit.setOnClickListener {
-            btn_submit.startAnimation(buttonPress)
+        // The behaviour for the answer option buttons.
+        btn_opt_0.setOnClickListener { selectOption(0) }
+        btn_opt_1.setOnClickListener { selectOption(1) }
+        btn_opt_2.setOnClickListener { selectOption(2) }
+        btn_opt_3.setOnClickListener { selectOption(3) }
 
-            if (markedCurrentQuestion) {
-                markedCurrentQuestion = false
-                currentQuestionIndex++
-
-                if (currentQuestionIndex == questions.size) {
-                    var intent = Intent(this, QuizResultsActivity::class.java)
-                    Log.d("score", score.toString())
-                    Log.d("totalQuestions", questions.size.toString())
-                    intent.putExtra("score", score)
-                    intent.putExtra("totalQuestions", questions.size)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    resetOptionButtons()
-                    presentQuestion(questions[currentQuestionIndex])
-                }
-            } else {
-                if (optionSelected) {
-                    optionSelected = false
-                    markAnswer()
-                }
-            }
-        }
+        btn_submit.setOnClickListener { submitButtonClickHandler() }  // The behaviour for the submit button.
     }
 
+    /**
+     * Resets the colour presentation of each answer option button. This removes any green and red left behind from when
+     * the answers are marked.
+     */
     private fun resetOptionButtons() {
         for (button in optionButtons) {
             button.setBackgroundColor(Color.BLACK)  // Set the background colour to black.
@@ -114,56 +91,123 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Resets the screen with the next question.
+     */
     private fun presentQuestion(question: QuestionData) {
-        question_text.text = question.question
+        question_text.text = question.question  // Present the next question.
+
+        // Present the answer options.
         btn_opt_0.text = question.option0
         btn_opt_1.text = question.option1
         btn_opt_2.text = question.option2
         btn_opt_3.text = question.option3
-        correctOptionIndex = question.correctOptionIndex
-        btn_submit.text = submitText
 
-        for (i in 0..3) {
-            optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_enter))
+        btn_submit.text = submitText  // Make sure the submit button says "Submit" rather than "Next".
+
+        // Start the entry animation for all the option buttons.
+        for (button in optionButtons) {
+            button.startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_enter))
         }
     }
 
+    /**
+     * Selects the option the user has tapped.
+     *
+     * @param optionNumber The index of the answer option button.
+     */
     private fun selectOption(optionNumber: Int) {
-        // Only mark the option if we haven't marked the answer.
+        // Only select the option if we haven't marked the answer.
         if (markedCurrentQuestion)
             return
 
-        resetOptionButtons()
-        optionSelected = true
-        selectedOptionIndex = optionNumber
+        resetOptionButtons()  // Reset all option buttons.
+        optionSelected = true  // Flag this so we know the user has selected an option.
+        selectedOptionIndex = optionNumber  // Save the index of the option button the user has clicked on.
 
+        // Fill the selected option button with blue, and paint its outline blue as well.
         optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(blueHexadecimalCode))
         optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.blue)
-        optionButtons[selectedOptionIndex].startAnimation(buttonPress)
+
+        optionButtons[selectedOptionIndex].startAnimation(buttonPress)  // Start the button press animation.
     }
 
+    /**
+     * Is called when the submit button is pressed. If necessary, it will mark the answer, and
+     */
+    private fun submitButtonClickHandler() {
+        btn_submit.startAnimation(buttonPress)
+
+        if (markedCurrentQuestion) {  // If we have already marked the current question.
+            markedCurrentQuestion = false  // Reset this.
+            currentQuestionIndex++  // Move to the next question.
+
+            if (currentQuestionIndex == questions.size) {  // If this was the last question.
+                var intent = Intent(this, QuizResultsActivity::class.java)  // Prepare the results screen.
+
+                // Pass through the score.
+                intent.putExtra("score", score)
+                intent.putExtra("totalQuestions", questions.size)
+
+                // Load the results screen and terminate this script.
+                startActivity(intent)
+                finish()
+            } else {
+                resetOptionButtons()  // Reset the answer option buttons for the next question.
+                presentQuestion(questions[currentQuestionIndex])  // Load the next question.
+            }
+        } else {  // If we have not marked this question.
+            if (optionSelected) {  // If the user has selected an option.
+                optionSelected = false  // Reset this.
+                markAnswer()  // Mark the answer.
+            }
+        }
+    }
+
+    /**
+     * Marks the players answer and updates the screen accordingly. If they are correct, their answer will be coloured
+     * green. If they are incorrect, their answer will be coloured red, with the correct answer outlined in green. Other
+     * answer options will disappear.
+     */
     @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
-        if (selectedOptionIndex == correctOptionIndex) {
+        if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {  // If correct.
+            // Fill the correct answer with green, and paint its outline green as well.
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(greenHexadecimalCode))
             optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.green)
-            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)
-            score++
-        } else {
+
+            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)  // Make the correct answer nod.
+            score++  // Award the player one point.
+        } else {  // If incorrect.
+            // Fill the incorrect answer with red, and paint its outline red as well.
             optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.red)
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(redHexadecimalCode))
-            optionButtons[correctOptionIndex].setStrokeColorResource(R.color.green)
-            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
+
+            // Outline the correct answer with green.
+            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setStrokeColorResource(R.color.green)
+
+            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)  // Make the inorrect answer shake.
         }
 
-        for (i in 0..3) {
-            if (selectedOptionIndex != i && correctOptionIndex != i) {
+        /**
+         * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
+         * incorrect selection.
+         */
+        for (i in 0..optionButtons.size - 1) {
+            if (selectedOptionIndex != i && questions[currentQuestionIndex].correctOptionIndex != i) {
                 optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_exit))
             }
         }
 
-        btn_submit.text = nextText
-        markedCurrentQuestion = true
+        // Make the submit button say "Finish" if this question was the last, or "Next" if there are more to come.
+        if (currentQuestionIndex == questions.size - 1)
+            btn_submit.text = finishText
+        else
+            btn_submit.text = nextText
+
+        markedCurrentQuestion = true  // Flag this so we know we've marked the answer.
+
+        // Increment the progress bar.
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
     }
 
