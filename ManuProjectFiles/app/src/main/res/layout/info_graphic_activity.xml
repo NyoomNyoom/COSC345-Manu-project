@@ -404,8 +404,6 @@
                     android:layout_height="175dp"
                     android:layout_marginEnd="20dp"></ImageButton>
             </TableRow>
-
-
         </TableLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
