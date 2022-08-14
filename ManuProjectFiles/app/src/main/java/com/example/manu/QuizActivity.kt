@@ -168,6 +168,9 @@ class QuizActivity : AppCompatActivity() {
             btn_opt_3.setStrokeColorResource(R.color.blue)
             selectedOptionIndex = 3
         }
+
+        optionButtons[selectedOptionIndex].startAnimation(scaleDownInitial)
+        optionButtons[selectedOptionIndex].startAnimation(scaleDownReturn)
     }
 
     @SuppressLint("ResourceAsColor")
