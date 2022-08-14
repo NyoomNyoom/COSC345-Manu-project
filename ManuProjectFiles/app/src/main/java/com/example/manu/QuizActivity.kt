@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 class QuizActivity : AppCompatActivity() {
 
     /** The index of the current quiz question. */
-    private var currentQuestionIndex: Int = 0
+    var currentQuestionIndex: Int = 0
 
     /** The index of the selected option. */
     private var selectedOptionIndex: Int = -1
@@ -89,7 +89,7 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Initialises the option buttons variable and loads the animations.
      */
-    private fun initialiseVariables() {
+    fun initialiseVariables() {
         // Initialise and fill with the four option buttons.
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
