@@ -34,7 +34,7 @@ jobs:
       working-directory: ./ManuProjectFiles
       run: ./gradlew build
       
-    - name: Send mail
+    - name: Send email
       if: always()
       uses: dawidd6/action-send-mail@v2
       with:
@@ -49,7 +49,7 @@ jobs:
         # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
         # comma-separated string, send email to
-        to: jacksonnorth1275@gmail.com,doejohn@gmail.com
+        to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
         # from email name
         from: Jackson North
 
@@ -67,6 +67,24 @@ jobs:
           api-level: 28
           working-directory: ./ManuProjectFiles
           script: ./gradlew connectedAndroidTest
+      - name: Send email
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+        # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+        # user credentials
+          username: ${{ secrets.USERNAME  }}
+          password: ${{ secrets.PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
+          # from email name
+          from: Jackson North
 
   unit_tests:
     runs-on: ubuntu-latest
@@ -78,3 +96,21 @@ jobs:
       - name: Unit tests
         working-directory: ./ManuProjectFiles
         run: ./gradlew test
+      - name: Send email
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+        # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+        # user credentials
+          username: ${{ secrets.USERNAME  }}
+          password: ${{ secrets.PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
+          # from email name
+          from: Jackson North
