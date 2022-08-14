@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.annotation.SuppressLint
@@ -228,10 +232,8 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)  // Make the incorrect answer shake.
         }
 
-        /**
-         * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
-         * incorrect selection.
-         */
+        /* Start the answer option exit animation for all buttons that are not the correct answer, or the player's
+           incorrect selection. */
         for (i in 0..optionButtons.size - 1) {
             if (selectedOptionIndex != i && questions[currentQuestionIndex].correctOptionIndex != i) {
                 optionButtons[i].startAnimation(AnimationUtils.loadAnimation(this, R.anim.answer_option_exit))
