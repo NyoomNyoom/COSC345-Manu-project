@@ -31,4 +31,11 @@ class InfoGraphicActivity : AppCompatActivity() {
             }
         }
     }
+
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
+    }
 }

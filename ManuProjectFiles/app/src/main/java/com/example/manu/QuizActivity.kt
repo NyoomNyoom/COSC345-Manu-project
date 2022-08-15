@@ -7,10 +7,10 @@ package com.example.manu
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
 
@@ -99,6 +99,13 @@ class QuizActivity : AppCompatActivity() {
         initialiseVariables()  // Initialise the variables tagged with late initialisation.
         setupOnClickListeners()  // Setup the button listeners.
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
+    }
+
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
     }
 
     /**
@@ -220,7 +227,6 @@ class QuizActivity : AppCompatActivity() {
     private fun returnToMenu() {
         var intent = Intent(this, Pop::class.java)
         startActivity(intent)
-        //finish()
     }
 
     /**
