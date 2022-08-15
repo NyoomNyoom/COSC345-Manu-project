@@ -41,27 +41,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:1.7.10")
 }
 
-// https://www.appsloveworld.com/kotlin/100/31/kdoc-dokka-ignore-inherited-methods-in-subclass
 dokkaHtml {
-    moduleName = "${project.name}"
-
-    dokkaSourceSets {
-        configureEach {
-            // Suppress a package
-            perPackageOption {
-                // will match all packages and sub-packages
-                matchingRegex.set(".*\\.internal.*")
-                suppress.set(true)
-            }
-
-            // separate inherited members to avoid polluting our public API
-            // https://github.com/Kotlin/dokka/issues/1501
-            pluginsMapConfiguration.set(
-                ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
-            )
-
-        }
-    }
+    suppressInheritedMembers.set(true)
 }
