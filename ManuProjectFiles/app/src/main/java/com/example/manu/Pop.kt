@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -27,8 +28,18 @@ class Pop : AppCompatActivity() {
 
         getWindow().setAttributes(params)
 
-        //val dm:DisplayMetrics = DisplayMetrics()
-        //getWindow().setLayout(800, 600)
+        btn_yes.setOnClickListener { returnToMenu() }
+        btn_no.setOnClickListener { closePopup() }
+    }
+
+    private fun returnToMenu() {
+        var intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun closePopup() {
+        finish()
     }
 
 }
