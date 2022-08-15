@@ -10,12 +10,9 @@
         android:layout_width="300dp"
         android:layout_height="480dp"
         android:layout_gravity="center"
-        android:background="@color/cardview_dark_background"
+        android:background="@drawable/rounded_background"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
         <TextView
             android:layout_width="match_parent"
