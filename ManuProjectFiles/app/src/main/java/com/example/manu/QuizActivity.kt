@@ -122,16 +122,15 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
-     * Defines the behaviour for a button when it is clicked.
+     * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        // The behaviour for the answer option buttons.
         btn_opt_0.setOnClickListener { selectOption(0) }
         btn_opt_1.setOnClickListener { selectOption(1) }
         btn_opt_2.setOnClickListener { selectOption(2) }
         btn_opt_3.setOnClickListener { selectOption(3) }
-
-        btn_submit.setOnClickListener { submitButtonClickHandler() }  // The behaviour for the submit button.
+        btn_submit.setOnClickListener { submitButtonClickHandler() }
+        btn_back.setOnClickListener { returnToMenu() }
     }
 
     /**
@@ -213,6 +212,15 @@ class QuizActivity : AppCompatActivity() {
                 markAnswer()  // Mark the answer.
             }
         }
+    }
+
+    /**
+     * Loads the menu screen.
+     */
+    private fun returnToMenu() {
+        var intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     /**
