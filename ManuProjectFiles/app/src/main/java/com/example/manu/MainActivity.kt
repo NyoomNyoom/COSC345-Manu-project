@@ -4,17 +4,27 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
+/**
+ * This is run when the app is launched. It hands control to another script.
+ */
 class MainActivity : AppCompatActivity() {
+    /**
+     * This is run when the class is instantiated. It loads the script to which this script transfers control.
+     *
+     * @param Bundle Saves information between separate loads of this activity view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /**
-         * Change "HelloWorld" below to the class you wish to instantiate when the app is launched.
-         * Make sure your chosen class specifies which view to use. See HelloWorld.kt for an
-         * example.
-         */
-        val intent = Intent(this, HelloWorld::class.java)
-        startActivity(intent)  // Launch the class script.
-        finish()  // Terminate this class script.
+        val intent = Intent(this, QuizActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
     }
 }

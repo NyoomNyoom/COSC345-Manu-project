@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-->This animation snaps its elements scale to 0.95 and scales it back to 1.</-->
 <scale xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXScale="0.95"
     android:fromYScale="0.95"

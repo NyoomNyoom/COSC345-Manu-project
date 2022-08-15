@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-->This animation starts with a slightly popped out view before scaling it back to normal.</-->
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXScale="1.1"
+    android:fromYScale="1.1"
+    android:toXScale="1"
+    android:toYScale="1"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:duration="325"
+    android:fillAfter="true">
+</scale> 

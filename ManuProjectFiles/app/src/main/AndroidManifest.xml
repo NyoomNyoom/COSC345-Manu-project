@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.manu">
@@ -26,8 +27,11 @@
         <activity android:name=".QuizActivity"/>
         <activity android:name=".QuizResultsActivity"/>
         <activity android:name=".MenuActivity"/>
-        <activity android:name=".InfoGraphicActivity">
-        </activity>
+        <activity android:name=".InfoGraphicActivity"/>
+        <activity
+            android:name=".Pop"
+            android:theme="@style/Theme.Manu.popupWindow"
+            />
     </application>
 
 </manifest>

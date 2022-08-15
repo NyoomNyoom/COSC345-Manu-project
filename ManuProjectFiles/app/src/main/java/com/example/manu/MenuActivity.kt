@@ -5,8 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_menu.*
 
+/**
+ * Runs and displays the main menu.
+ */
 class MenuActivity : AppCompatActivity() {
 
+    /**
+     * This is run when the class is instantiated. Hands control to either the infographic screen
+     * or the quiz menu on a button press.
+     * Button names need to be changed.
+     *
+     * @param Bundle Saves information between separate loads of this activity view.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)  // Set the layout to the menu layout.
@@ -24,4 +34,10 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
+    }
 }

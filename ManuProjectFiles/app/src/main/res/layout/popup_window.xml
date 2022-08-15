@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pop"
+    android:background="@color/grey"
+    android:theme="@style/Theme.Manu.popupWindow"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Return to the Menu?"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/Theme.Manu.popupWindow"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_yes"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="35sp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_no"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="No"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="25sp"
+        />
+
+</LinearLayout>
