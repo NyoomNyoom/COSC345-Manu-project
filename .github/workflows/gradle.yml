@@ -38,19 +38,19 @@ jobs:
       if: always()
       uses: dawidd6/action-send-mail@v2
       with:
-      # mail server settings
+        # mail server settings
         server_address: smtp.gmail.com
         server_port: 465
-      # user credentials
+        # user credentials
         username: ${{ secrets.USERNAME  }}
         password: ${{ secrets.PASSWORD }}
-        # email subject
+          # email subject
         subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-        # email body as text
+          # email body as text
         body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-        # comma-separated string, send email to
+          # comma-separated string, send email to
         to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
-        # from email name
+          # from email name
         from: Jackson North
 
   android_tests:
@@ -113,7 +113,7 @@ jobs:
           to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
           # from email name
           from: Jackson North
-
+          
   Generate_Docs:
       runs-on: ubuntu-latest
       steps:
@@ -123,18 +123,16 @@ jobs:
         with:
           java-version: 12
       - name: Grant execute permission for gradlew
-        working-directory: ./ManuProjectFiles
         run: chmod +x gradlew
       - name: Generate API documentation
         if: ${{github.event_name == 'push'}}
-        working-directory: ./ManuProjectFiles
         run: ./gradlew dokkaHtml
       - name: Deploy API documentation to Github Pages
         if: ${{github.event_name == 'push'}}
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
+  #        BRANCH: gh-pages
           publish_dir: ./app/build/dokka/html # specify the 
         # builds zip file with kdoc website inside
       - name: Archive KDoc Documentation
