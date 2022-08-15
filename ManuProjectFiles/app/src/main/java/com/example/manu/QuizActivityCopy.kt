@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 /**
  * Runs and displays the quiz.
  */
-class QuizActivity : AppCompatActivity() {
+class QuizActivityCopy : AppCompatActivity() {
 
     /** The index of the current quiz question. */
     private var currentQuestionIndex: Int = 0

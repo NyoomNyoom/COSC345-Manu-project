@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_quiz_results.*
 /**
  * Controls and displays the quiz results screen.
  */
-class QuizResultsActivity : AppCompatActivity() {
+class QuizResultsActivityCopy : AppCompatActivity() {
 
     /**
      * This is run when the class is instantiated. It loads the quiz results activity and presents the results.

@@ -7,7 +7,7 @@ import android.os.Bundle
 /**
  * This is run when the app is launched. It hands control to another script.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivityCopy : AppCompatActivity() {
     /**
      * This is run when the class is instantiated. It loads the script to which this script transfers control.
      *
