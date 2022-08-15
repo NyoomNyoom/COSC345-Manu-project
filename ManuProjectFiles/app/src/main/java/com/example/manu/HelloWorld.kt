@@ -8,6 +8,9 @@ package com.example.manu
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log  // ADDED: Allows you to print debugging statements.
+import kotlinx.android.synthetic.main.test.*
+
+
 
 /**
  * An example script for how to start programming a content view. Disregarding the code with a comment saying
@@ -19,8 +22,19 @@ class HelloWorld : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
-        setContentView(R.layout.activity_menu)  // Change "activity_main" to your desired view.
+        setContentView(R.layout.test)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
+
+        var questions = mutableListOf<Question>()
+        var birdadapter = BirdAdapter(questions)
+
+        birdadapter.createQuizForced(1,1,1)
+
+        createBirdBtn.setOnClickListener {
+            ListToStringTV.setText(birdadapter.toString())
+        }
     }
+
+
 
 }
