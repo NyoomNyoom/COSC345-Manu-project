@@ -134,7 +134,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #        BRANCH: gh-pages
+          BRANCH: gh-pages
           publish_dir: ./app/build/dokka/html # specify the 
         # builds zip file with kdoc website inside
       - name: Archive KDoc Documentation
