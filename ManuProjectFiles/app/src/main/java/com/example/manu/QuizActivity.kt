@@ -76,6 +76,9 @@ class QuizActivity : AppCompatActivity() {
     /** The animation for an option button leaving the screen. */
     private lateinit var answerOptionExit: Animation
 
+    /** The animation for a correct answer when marked. */
+    private lateinit var answerPop: Animation
+
     /**
      * Is run when this class is instantiated. It loads the quiz activity layout and starts the quiz.
      *
@@ -115,6 +118,7 @@ class QuizActivity : AppCompatActivity() {
         correctAnswerNod = AnimationUtils.loadAnimation(this, R.anim.correct_answer_nod)
         answerOptionEnter = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
         answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
+        answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
     /**
@@ -221,7 +225,7 @@ class QuizActivity : AppCompatActivity() {
         if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {  // If correct.
             // Paint the correct answer and animate it.
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
-            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)
+            optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
         } else {  // If incorrect.
             // Paint the incorrect answer and animate it.
