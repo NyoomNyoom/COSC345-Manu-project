@@ -4,11 +4,15 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.GestureDetector
+import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
@@ -37,6 +41,15 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundC
             allButtons[i].setOnClickListener {
                 // Create a pop up window and pass it the text information
+                allButtons[i].setBackgroundColor(Color.BLUE)
+
+                val popupWindow = PopupWindow(this)
+                val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
+                popupWindow.contentView = popupView
+                popupWindow.isOutsideTouchable = true
+                popupWindow.isFocusable = true
+                popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
             }
         }
     }
