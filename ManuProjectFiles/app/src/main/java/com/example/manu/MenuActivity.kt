@@ -23,5 +23,4 @@ class MenuActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }
