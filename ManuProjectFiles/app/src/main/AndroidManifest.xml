@@ -26,8 +26,11 @@
         <activity android:name=".QuizActivity"/>
         <activity android:name=".QuizResultsActivity"/>
         <activity android:name=".MenuActivity"/>
-        <activity android:name=".InfoGraphicActivity">
-        </activity>
+        <activity android:name=".InfoGraphicActivity"/>
+        <activity
+            android:name=".Pop"
+            android:theme="@style/Theme.Manu.popupWindow"
+            />
     </application>
 
 </manifest>
