@@ -43,8 +43,6 @@
         android:backgroundTint="@color/black"
         android:text="0"
         android:textColor="@color/white"
-        app:strokeWidth="6sp"
-        app:strokeColor="@color/black"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -56,8 +54,6 @@
         android:text="1"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
-        app:strokeWidth="6sp"
-        app:strokeColor="@color/black"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -69,8 +65,6 @@
         android:text="2"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
-        app:strokeWidth="6sp"
-        app:strokeColor="@color/black"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -82,8 +76,6 @@
         android:text="3"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
-        app:strokeWidth="6sp"
-        app:strokeColor="@color/black"
         />
 
     <com.google.android.material.button.MaterialButton

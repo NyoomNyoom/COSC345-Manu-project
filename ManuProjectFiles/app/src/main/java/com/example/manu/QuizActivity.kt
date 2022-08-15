@@ -43,6 +43,18 @@ class QuizActivity : AppCompatActivity() {
     /** The text to display on the submit button when the player has had the last question marked. */
     private val finishText: String = "Finish"
 
+    /** The colour of an unselected option button. */
+    private val buttonColourHex:String = "#000000"
+
+    /** The colour of a selected option button. */
+    private val buttonSelectedColourHex:String = "#0000FF"
+
+    /** The colour of the correct answer. */
+    private val buttonCorrectColourHex:String = "#00FF00"
+
+    /** The colour of the incorrect answer. */
+    private val buttonIncorrectColourHex:String = "#FF0000"
+
     /** A list containing the answer option buttons. */
     private lateinit var optionButtons: ArrayList<MaterialButton>
 
@@ -124,9 +136,7 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun resetOptionButtons() {
         for (button in optionButtons) {
-            // Set the background and outline (stroke) colour to black.
-            button.setBackgroundColor(Color.parseColor(resources.getString(R.string.option_background_colour)))
-            button.setStrokeColorResource(R.color.option_background_colour)
+            button.setBackgroundColor(Color.parseColor(buttonColourHex))
         }
     }
 
@@ -164,12 +174,9 @@ class QuizActivity : AppCompatActivity() {
         optionSelected = true  // Flag this so we know the user has selected an option.
         selectedOptionIndex = optionNumber  // Save the index of the option button the user has clicked on.
 
-        // Fill the selected option button with blue, and paint its outline blue as well.
-        optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(
-            resources.getString(R.string.option_selected_colour)))
-        optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_selected_colour)
-
-        optionButtons[selectedOptionIndex].startAnimation(buttonPress)  // Start the button press animation.
+        // Paint and animate the button that just got tapped.
+        optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonSelectedColourHex))
+        optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
 
     /**
@@ -206,30 +213,21 @@ class QuizActivity : AppCompatActivity() {
 
     /**
      * Marks the players answer and updates the screen accordingly. If they are correct, their answer will be coloured
-     * green. If they are incorrect, their answer will be coloured red, with the correct answer outlined in green. Other
-     * answer options will disappear.
+     * in and the other options will disappear. If they are incorrect, their choice and the correct choice will be
+     * coloured in, and the other options will disappear.
      */
     @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
         if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {  // If correct.
-            // Fill the correct answer with green, and paint its outline green as well.
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(resources.getString(
-                R.string.option_correct_colour)))
-            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_correct_colour)
-
-            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)  // Make the correct answer nod.
-            score++  // Award the player one point.
+            // Paint the correct answer and animate it.
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
+            optionButtons[selectedOptionIndex].startAnimation(correctAnswerNod)
+            score++
         } else {  // If incorrect.
-            // Fill the incorrect answer with red, and paint its outline red as well.
-            optionButtons[selectedOptionIndex].setStrokeColorResource(R.color.option_incorrect_colour)
-            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(resources.getString(
-                R.string.option_incorrect_colour)))
-
-            // Outline the correct answer with green.
-            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setStrokeColorResource(
-                R.color.option_correct_colour)
-
-            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)  // Make the incorrect answer shake.
+            // Paint the incorrect answer and animate it.
+            optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
+            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
+            optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
         }
 
         /* Start the answer option exit animation for all buttons that are not the correct answer, or the player's
