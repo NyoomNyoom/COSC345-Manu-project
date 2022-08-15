@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-->This animation slightly pops out a view.</-->
 <scale xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXScale="1"
     android:fromYScale="1"
