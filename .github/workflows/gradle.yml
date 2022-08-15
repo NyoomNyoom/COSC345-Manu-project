@@ -9,9 +9,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ "Stage1" ]
+    branches: [ "Stage1", "main" ]
   pull_request:
-    branches: [ "Stage1" ]
+    branches: [ "Stage1", "main" ]
 
 jobs:
   build:
@@ -28,27 +28,89 @@ jobs:
         cache: gradle
 
     - name: Grant execute permission for gradlew
+      working-directory: ./ManuProjectFiles
       run: chmod +x gradlew
     - name: Build with Gradle
+      working-directory: ./ManuProjectFiles
       run: ./gradlew build
+      
+    - name: Send email
+      if: always()
+      uses: dawidd6/action-send-mail@v2
+      with:
+      # mail server settings
+        server_address: smtp.gmail.com
+        server_port: 465
+      # user credentials
+        username: ${{ secrets.USERNAME  }}
+        password: ${{ secrets.PASSWORD }}
+        # email subject
+        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+        # email body as text
+        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+        # comma-separated string, send email to
+        to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
+        # from email name
+        from: Jackson North
+
 
   android_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
+        working-directory: ./ManuProjectFiles
         run: chmod +x gradlew
       - name: Instrumentation Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 28
+          working-directory: ./ManuProjectFiles
           script: ./gradlew connectedAndroidTest
+      - name: Send email
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+        # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+        # user credentials
+          username: ${{ secrets.USERNAME  }}
+          password: ${{ secrets.PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
+          # from email name
+          from: Jackson North
 
   unit_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Grant execute permission for gradlew
+        working-directory: ./ManuProjectFiles
         run: chmod +x gradlew
       - name: Unit tests
+        working-directory: ./ManuProjectFiles
         run: ./gradlew test
+      - name: Send email
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+        # mail server settings
+          server_address: smtp.gmail.com
+          server_port: 465
+        # user credentials
+          username: ${{ secrets.USERNAME  }}
+          password: ${{ secrets.PASSWORD }}
+          # email subject
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          # email body as text
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          # comma-separated string, send email to
+          to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
+          # from email name
+          from: Jackson North

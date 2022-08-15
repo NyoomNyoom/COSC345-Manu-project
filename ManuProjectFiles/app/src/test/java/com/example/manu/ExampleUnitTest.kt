@@ -11,9 +11,26 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun isValid_isCorrect(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(1)
+        assertEquals(true, ba.isValid(1, bird))
     }
 
-    //please add testing functions here.
+    @Test
+    fun createQuiz_isCorrect(){
+        var qList = mutableListOf<Question>()
+        var birdAdapt = BirdAdapter(qList)
+        val question = Question(Bird(1), 1)
+        question.addOption(Bird(1))
+        question.addOption(Bird(1))
+        question.addOption(Bird(1))
+
+        qList.add(question)
+        val bird = Bird(1)
+
+        assertEquals(qList, birdAdapt.createQuizForced(1,1,1))
+
+    }
 }

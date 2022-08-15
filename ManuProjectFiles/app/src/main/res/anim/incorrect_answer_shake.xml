@@ -1,0 +1,10 @@
+<!-->This animation shakes a view horizontally (like a head shaking at something wrong).</-->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="50"
+        android:fromXDelta="-1%"
+        android:repeatCount="4"
+        android:repeatMode="reverse"
+        android:toXDelta="1%"
+        />
+</set>

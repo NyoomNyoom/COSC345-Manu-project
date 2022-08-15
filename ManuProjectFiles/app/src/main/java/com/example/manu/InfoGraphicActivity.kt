@@ -25,6 +25,10 @@ class InfoGraphicActivity : AppCompatActivity() {
         for(i in 0 until size){
             //Get bird image and add it to button
             allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundC
+            allButtons[i].setOnClickListener{
+                // Create a pop up window and pass it the text information
+                finish()
+            }
         }
     }
 }
