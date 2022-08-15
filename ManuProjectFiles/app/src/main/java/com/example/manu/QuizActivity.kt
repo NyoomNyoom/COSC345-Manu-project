@@ -126,7 +126,7 @@ class QuizActivity : AppCompatActivity() {
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
         answerOptionEnter = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
         answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
-        answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
+        answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop_alt)
     }
 
     /**
