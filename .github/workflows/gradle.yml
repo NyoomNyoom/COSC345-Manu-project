@@ -123,9 +123,11 @@ jobs:
         with:
           java-version: 12
       - name: Grant execute permission for gradlew
+        working-directory: ./ManuProjectFiles
         run: chmod +x gradlew
       - name: Generate API documentation
         if: ${{github.event_name == 'push'}}
+        working-directory: ./ManuProjectFiles
         run: ./gradlew dokkaHtml
       - name: Deploy API documentation to Github Pages
         if: ${{github.event_name == 'push'}}
