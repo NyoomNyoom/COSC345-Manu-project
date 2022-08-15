@@ -8,7 +8,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -63,19 +62,19 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var questions: ArrayList<QuestionData>
 
     /** The button press animation. */
-    private var buttonPress: Animation = AnimationUtils.loadAnimation(this, R.anim.button_press)
+    private lateinit var buttonPress: Animation
 
     /** Should the player select the incorrect option, that button will play this animation. */
-    private var incorrectAnswerShake: Animation = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
+    private lateinit var incorrectAnswerShake: Animation
 
     /** The animation for an option button coming into view. */
-    private var answerOptionEnter: Animation = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
+    private lateinit var answerOptionEnter: Animation
 
     /** The animation for an option button leaving the screen. */
-    private var answerOptionExit: Animation = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
+    private lateinit var answerOptionExit: Animation
 
     /** The animation for a correct answer when marked. */
-    private var answerPop: Animation = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
+    private lateinit var answerPop: Animation
 
     /**
      * This is run when the class is instantiated. It sets up the quiz screen and starts the game.
@@ -95,6 +94,7 @@ class QuizActivity : AppCompatActivity() {
         questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
 
         saveOptionButtons()
+        loadAnimations()
         setupOnClickListeners()
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
@@ -116,6 +116,17 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_1)
         optionButtons.add(btn_opt_2)
         optionButtons.add(btn_opt_3)
+    }
+
+    /**
+     * Loads and stores the animations.
+     */
+    private fun loadAnimations() {
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+        incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
+        answerOptionEnter = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
+        answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
+        answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
     /**
