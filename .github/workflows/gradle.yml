@@ -134,11 +134,13 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: "Stage1"
+          BRANCH: Stage1
+          working-directory: ./ManuProjectFiles
           publish_dir: ./app/build/dokka/html # specify the 
         # builds zip file with kdoc website inside
       - name: Archive KDoc Documentation
         uses: actions/upload-artifact@v2
         with:
             name: KDoc Documentation Site
+            working-directory: ./ManuProjectFiles
             path: app/build/dokka/html
