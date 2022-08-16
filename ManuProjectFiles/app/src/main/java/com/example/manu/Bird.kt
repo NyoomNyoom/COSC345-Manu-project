@@ -18,12 +18,14 @@ data class Bird(val birdNumIn: Int) {
     private var birdInfoFile = ""
     private var birdNum = birdNumIn
 
+
     fun updateValues(){
+        /*
         var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
 
-        val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
-        val reader = BufferedReader(minput)
+        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
+        //val reader = BufferedReader(minput)
 
         birdNumber -= 1
         var birdNumString = birdNumber.toString()
@@ -42,7 +44,9 @@ data class Bird(val birdNumIn: Int) {
         //birdFileSong = birdInfo[3]
         //alternativeName = birdInfo[4]
         //birdInfoFile = birdInfo[5]
+         */
     }
+
 
     fun getBirdName(): String{
         return nameOfBird
