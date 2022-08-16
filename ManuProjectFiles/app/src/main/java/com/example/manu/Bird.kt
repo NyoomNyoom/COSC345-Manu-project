@@ -22,6 +22,8 @@ data class Bird(val birdNumIn: Int) {
         var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
 
+        val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
+        val reader = BufferedReader(minput)
 
         birdNumber -= 1
         var birdNumString = birdNumber.toString()
