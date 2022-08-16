@@ -33,7 +33,7 @@ jobs:
     - name: Build with Gradle
       working-directory: ./ManuProjectFiles
       run: ./gradlew build
-      
+
     - name: Send email
       if: always()
       uses: dawidd6/action-send-mail@v2
@@ -52,7 +52,6 @@ jobs:
         to: jacksonnorth1275@gmail.com,daniel.robinson.21.dr.@gmail.com
         # from email name
         from: Jackson North
-
 
   android_tests:
     runs-on: ubuntu-latest
@@ -115,7 +114,6 @@ jobs:
           # from email name
           from: Jackson North
 
-
   Generate_Docs:
       runs-on: ubuntu-latest
       steps:
@@ -136,7 +134,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #        BRANCH: gh-pages
+          #BRANCH: Stage1
           publish_dir: ./app/build/dokka/html # specify the 
         # builds zip file with kdoc website inside
       - name: Archive KDoc Documentation
