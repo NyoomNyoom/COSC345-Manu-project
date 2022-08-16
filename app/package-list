@@ -8,7 +8,6 @@ $dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/c
 $dokka.location:com.example.manu/Bird/getBirdNum/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num.html
 $dokka.location:com.example.manu/Bird/getBirdNumIn/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num-in.html
 $dokka.location:com.example.manu/Bird/getFile/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird/get-file.html
-$dokka.location:com.example.manu/Bird/getInfoFile/#/PointingToDeclaration/app/com.example.manu/-bird/get-info-file.html
 $dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
 $dokka.location:com.example.manu/Bird/updateValues/#/PointingToDeclaration/app/com.example.manu/-bird/update-values.html
 $dokka.location:com.example.manu/BirdAdapter///PointingToDeclaration/app/com.example.manu/-bird-adapter/index.html
