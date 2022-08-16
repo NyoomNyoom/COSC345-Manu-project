@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val intent = Intent(this, QuizActivity::class.java)
+        val intent = Intent(this, HelloWorld::class.java)
         startActivity(intent)
         finish()
     }

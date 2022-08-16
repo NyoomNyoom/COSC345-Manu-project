@@ -1,7 +1,9 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
+import java.io.BufferedReader
 import java.io.File
+import java.io.InputStreamReader
 
 /*
 * NEED TO HAVE A LIST THAT HAS 4 BIRDS (1 CORRECT 3 WRONG) WITH THE CORRECT INDEX AS A SECOND NUMBER
@@ -17,10 +19,9 @@ data class Bird(val birdNumIn: Int) {
     private var birdNum = birdNumIn
 
     fun updateValues(){
-        val fileName = "src/main/assets/bird-data.csv"
-        val lines: List<String> = File(fileName).readLines()
         var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
+
 
         birdNumber -= 1
         var birdNumString = birdNumber.toString()
@@ -35,10 +36,10 @@ data class Bird(val birdNumIn: Int) {
         }
 
         nameOfBird = birdInfo[1]
-        birdFilePic = birdInfo[2]
-        birdFileSong = birdInfo[3]
-        alternativeName = birdInfo[4]
-        birdInfoFile = birdInfo[5]
+        //birdFilePic = birdInfo[2]
+        //birdFileSong = birdInfo[3]
+        //alternativeName = birdInfo[4]
+        //birdInfoFile = birdInfo[5]
     }
 
     fun getBirdName(): String{

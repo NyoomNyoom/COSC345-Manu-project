@@ -85,7 +85,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     //creates a random bird from the given bird number and question type.
     fun createBird(birdNumber : Int): Bird{
         var bird = Bird(birdNumber)
-        //bird.updateValues()
+        bird.updateValues()
 
         return bird
     }

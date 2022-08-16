@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log  // ADDED: Allows you to print debugging statements.
 import kotlinx.android.synthetic.main.test.*
-
+import java.io.BufferedReader
+import java.io.File
+import java.io.InputStreamReader
 
 
 /**
@@ -32,6 +34,14 @@ class HelloWorld : AppCompatActivity() {
 
         createBirdBtn.setOnClickListener {
             ListToStringTV.setText(birdadapter.toString())
+
+            val minput = InputStreamReader(assets.open("bird-data.csv"))
+            val reader = BufferedReader(minput)
+
+            val line: String
+            val displayData: String = ""
+
+            reader.readLine()
         }
     }
 
