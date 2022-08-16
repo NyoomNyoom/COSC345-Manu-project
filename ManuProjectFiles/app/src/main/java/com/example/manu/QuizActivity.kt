@@ -196,14 +196,18 @@ class QuizActivity : AppCompatActivity() {
      */
     @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
-        // If correct.
+        /*
+         * If correct.
+         */
         if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
         }
 
-        // If incorrect.
+        /*
+         * If incorrect.
+         */
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
             optionButtons[questions[currentQuestionIndex].correctOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
