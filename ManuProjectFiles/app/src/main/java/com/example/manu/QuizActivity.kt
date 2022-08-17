@@ -32,7 +32,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#00FF00"
     private val buttonIncorrectColourHex:String = "#FF0000"
     private lateinit var optionButtons: ArrayList<MaterialButton>
-    private lateinit var questions: ArrayList<QuestionData>
+    private lateinit var questions: ArrayList<QuestionTemp>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
     private lateinit var answerOptionAppear: Animation
@@ -50,17 +50,17 @@ class QuizActivity : AppCompatActivity() {
 
         // Assembles a simple math quiz.
         questions = ArrayList()
-        questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
-        questions.add(QuestionData("4 + 2", "5", "9", "17", "6", 3))
-        questions.add(QuestionData("6 + 7", "12", "13", "1", "15", 1))
-        questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
-        questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
+        //questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
+        //questions.add(QuestionData("4 + 2", "5", "9", "17", "6", 3))
+        //questions.add(QuestionData("6 + 7", "12", "13", "1", "15", 1))
+        //questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
+        //questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
 
-        //questions.add(QuestionTemp("Randall_original", QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
-        //questions.add(QuestionTemp("Randall_burlesque", QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
-        //questions.add(QuestionTemp("Randall_zeke", QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
-        //questions.add(QuestionTemp("Randal_icarus", QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
-        //questions.add(QuestionTemp("Randall_vanilla", QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
+        questions.add(QuestionTemp(R.drawable.randall_original, QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
+        questions.add(QuestionTemp(R.drawable.randall_burlesque, QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
+        questions.add(QuestionTemp(R.drawable.randall_zeke, QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
+        questions.add(QuestionTemp(R.drawable.randall_icarus, QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
+        questions.add(QuestionTemp(R.drawable.randall_vanilla, QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
 
         saveOptionButtons()
         loadAnimations()
@@ -126,13 +126,14 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Resets the screen with the next question.
      */
-    private fun presentQuestion(question: QuestionData) {
-        txt_question.text = question.question
+    private fun presentQuestion(question: QuestionTemp) {
+        img_question.setImageResource(question.getQuestionResourceID())
+        val options = question.getOptions()
 
-        btn_opt_0.text = question.option0
-        btn_opt_1.text = question.option1
-        btn_opt_2.text = question.option2
-        btn_opt_3.text = question.option3
+        btn_opt_0.text = options[0]
+        btn_opt_1.text = options[1]
+        btn_opt_2.text = options[2]
+        btn_opt_3.text = options[3]
 
         btn_submit.text = submitText
 
@@ -209,7 +210,7 @@ class QuizActivity : AppCompatActivity() {
         /*
          * If correct.
          */
-        if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {
+        if (selectedOptionIndex == questions[currentQuestionIndex].getAnswerIndex()) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
@@ -220,7 +221,7 @@ class QuizActivity : AppCompatActivity() {
          */
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
-            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
+            optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
         }
 
@@ -229,7 +230,7 @@ class QuizActivity : AppCompatActivity() {
          * incorrect selection.
          */
         for (buttonIndex in 0..optionButtons.size - 1) {
-            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].correctOptionIndex != buttonIndex) {
+            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
                 optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }
         }
