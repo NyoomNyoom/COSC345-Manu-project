@@ -6,13 +6,13 @@ import java.io.File
 import java.io.InputStreamReader
 
 /**
- * @author Jackson North
  * A class which holds all the values needed to keep track of a bird for the given question. It takes in a random
  * number from BirdAdapter.kt and then searches through a list of birds to find that number and then checks
  * if the bird is valid for the quiz, and if it is, will update the values of the bird so we have all the needed
  * values that were stored in the information list.
  *
  * @param birdNumIn the index of a bird in the list of birds we have on file.
+ * @author Jackson North
  */
 data class Bird(val birdNumIn: Int) {
     private var nameOfBird = ""
@@ -92,6 +92,11 @@ data class Bird(val birdNumIn: Int) {
         return alternativeName
     }
 
+    /**
+     * A function to get the file with the fun fact about the bird on it.
+     *
+     * @return birdInfoFile: String, the filename of the file that contains the birds fun fact.
+     */
     private fun getInfoFile(): String{
         return birdInfoFile
     }
