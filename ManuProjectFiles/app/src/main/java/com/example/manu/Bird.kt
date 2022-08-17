@@ -1,6 +1,7 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
+import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
@@ -12,15 +13,17 @@ import java.io.InputStreamReader
  * values that were stored in the information list.
  *
  * @param birdNumIn the index of a bird in the list of birds we have on file.
- * @author Jackson North
  */
-data class Bird(val birdNumIn: Int) {
+class Bird() : AppCompatActivity() {
+    
     private var nameOfBird = ""
     private var birdFilePic = ""
     private var birdFileSong = ""
     private var alternativeName = ""
     private var birdInfoFile = ""
-    private var birdNum = birdNumIn
+    private var birdNum = 0
+
+
 
     /**
      * A function that searches the bird-data.csv file which is a list of birds to find the bird that was
@@ -29,16 +32,17 @@ data class Bird(val birdNumIn: Int) {
     fun updateValues(){
 
 
-        /*
+
         var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
 
-        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
+        val minput = InputStreamReader(assets().open("bird-data.csv"), "UTF-8")
         //val reader = BufferedReader(minput)
 
         birdNumber -= 1
         var birdNumString = birdNumber.toString()
 
+        /*
         //finds the correct line that was asked for and adds the info into a variable
         lines.forEach{ iter ->
             if(iter[0] == birdNumString.first()){

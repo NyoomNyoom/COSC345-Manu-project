@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
+import java.io.InputStreamReader
 
 /**
  * Runs and displays the quiz.
@@ -61,6 +62,9 @@ class QuizActivity : AppCompatActivity() {
         setupOnClickListeners()
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
+
+        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
+        val fileIN = InputStreamReader(assets.open("bird-data.csv"))
     }
 
     /**
