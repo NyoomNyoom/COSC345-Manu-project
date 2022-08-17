@@ -2,11 +2,10 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.manu////PointingToDeclaration/app/com.example.manu/index.html
 $dokka.location:com.example.manu/Bird///PointingToDeclaration/app/com.example.manu/-bird/index.html
-$dokka.location:com.example.manu/Bird/Bird/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird/-bird.html
+$dokka.location:com.example.manu/Bird/Bird/#/PointingToDeclaration/app/com.example.manu/-bird/-bird.html
 $dokka.location:com.example.manu/Bird/getAltName/#/PointingToDeclaration/app/com.example.manu/-bird/get-alt-name.html
 $dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-name.html
 $dokka.location:com.example.manu/Bird/getBirdNum/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num.html
-$dokka.location:com.example.manu/Bird/getBirdNumIn/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num-in.html
 $dokka.location:com.example.manu/Bird/getFile/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird/get-file.html
 $dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
 $dokka.location:com.example.manu/Bird/updateValues/#/PointingToDeclaration/app/com.example.manu/-bird/update-values.html
