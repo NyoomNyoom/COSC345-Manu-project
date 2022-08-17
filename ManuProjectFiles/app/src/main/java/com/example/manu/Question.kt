@@ -2,13 +2,12 @@
 package com.example.manu
 
 /**
- * @author Jackson North
  * A class that handles the list of options for a question and holds references to the bird types.
  *
  * @param birdIn is the bird that is the correct answer for the question.
  * @param questionType is the type of question the question is (IE 1 for picture only) so we can grab the correct file.
  */
-class Question(private val birdIn: Bird, val questionType: Int) {
+data class Question(private val birdIn: Bird, val questionType: Int) {
     var correctBirdObject = birdIn
     var optionList = mutableListOf<Bird>()
     var correctIndex = 0
@@ -20,8 +19,10 @@ class Question(private val birdIn: Bird, val questionType: Int) {
      *
      * @param bird the random Bird object to be added to the option MutableList.
      */
-    fun addOption (bird: Bird){
+    fun addOption (bird: Bird, birdNumIn: Int){
+        bird.chosenBird(birdNumIn)
         optionList.add(bird)
+
     }
 
     /**

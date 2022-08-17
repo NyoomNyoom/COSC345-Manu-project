@@ -14,7 +14,8 @@ class ExampleUnitTest {
     fun isValid_isCorrect(){
         var qList= mutableListOf<Question>()
         var ba = BirdAdapter(qList)
-        val bird = Bird(1)
+        val bird = Bird()
+        bird.chosenBird(1)
         assertEquals(true, ba.isValid(1, bird))
     }
 
@@ -22,15 +23,32 @@ class ExampleUnitTest {
     fun createQuiz_isCorrect(){
         var qList = mutableListOf<Question>()
         var birdAdapt = BirdAdapter(qList)
-        val question = Question(Bird(1), 1)
-        question.addOption(Bird(1))
-        question.addOption(Bird(1))
-        question.addOption(Bird(1))
+        val question = Question(Bird(), 1)
+        question.correctBirdObject.chosenBird(1)
+
+        val birdNum = 1
+
+        question.addOption(Bird(), birdNum)
+        question.addOption(Bird(), birdNum)
+        question.addOption(Bird(), birdNum)
 
         qList.add(question)
-        val bird = Bird(1)
+        val bird = Bird()
+        bird.chosenBird(1)
 
         assertEquals(qList, birdAdapt.createQuizForced(1,1,1))
 
+    }
+
+    @Test
+    fun updateValues_isCorrect(){
+        val birdNumber = 0
+        val ExpectedOutput = "Kiwi, bird, 0, kiwi, kiwi, no fact"
+
+        val bird = Bird()
+        bird.chosenBird(birdNumber)
+        bird.updateValues()
+
+        assertEquals(ExpectedOutput, bird.toString())
     }
 }
