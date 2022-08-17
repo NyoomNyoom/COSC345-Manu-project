@@ -24,9 +24,13 @@ $dokka.location:com.example.manu/InfoGraphicActivity/onTouchEvent/#android.view.
 $dokka.location:com.example.manu/MainActivity///PointingToDeclaration/app/com.example.manu/-main-activity/index.html
 $dokka.location:com.example.manu/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.manu/-main-activity/-main-activity.html
 $dokka.location:com.example.manu/MainActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-main-activity/on-back-pressed.html
+$dokka.location:com.example.manu/MenuActivity.GestureListener///PointingToDeclaration/app/com.example.manu/-menu-activity/-gesture-listener/index.html
+$dokka.location:com.example.manu/MenuActivity.GestureListener/MenuActivity.GestureListener/#/PointingToDeclaration/app/com.example.manu/-menu-activity/-gesture-listener/-menu-activity.-gesture-listener.html
+$dokka.location:com.example.manu/MenuActivity.GestureListener/onFling/#android.view.MotionEvent?#android.view.MotionEvent?#kotlin.Float#kotlin.Float/PointingToDeclaration/app/com.example.manu/-menu-activity/-gesture-listener/on-fling.html
 $dokka.location:com.example.manu/MenuActivity///PointingToDeclaration/app/com.example.manu/-menu-activity/index.html
 $dokka.location:com.example.manu/MenuActivity/MenuActivity/#/PointingToDeclaration/app/com.example.manu/-menu-activity/-menu-activity.html
 $dokka.location:com.example.manu/MenuActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-menu-activity/on-back-pressed.html
+$dokka.location:com.example.manu/MenuActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-menu-activity/on-touch-event.html
 $dokka.location:com.example.manu/Pop///PointingToDeclaration/app/com.example.manu/-pop/index.html
 $dokka.location:com.example.manu/Pop/Pop/#/PointingToDeclaration/app/com.example.manu/-pop/-pop.html
 $dokka.location:com.example.manu/Pop/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-pop/on-back-pressed.html
