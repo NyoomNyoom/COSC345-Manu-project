@@ -65,6 +65,17 @@ $dokka.location:com.example.manu/QuestionData/setOption2/#kotlin.String/Pointing
 $dokka.location:com.example.manu/QuestionData/setOption3/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-option3.html
 $dokka.location:com.example.manu/QuestionData/setQuestion/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-question.html
 $dokka.location:com.example.manu/QuestionData/toString/#/PointingToDeclaration/app/com.example.manu/-question-data/to-string.html
+$dokka.location:com.example.manu/QuestionTemp///PointingToDeclaration/app/com.example.manu/-question-temp/index.html
+$dokka.location:com.example.manu/QuestionTemp/QuestionTemp/#kotlin.String#com.example.manu.QuestionType#java.util.ArrayList[kotlin.String]#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-temp/-question-temp.html
+$dokka.location:com.example.manu/QuestionTemp/getAnswerIndex/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-answer-index.html
+$dokka.location:com.example.manu/QuestionTemp/getOptions/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-options.html
+$dokka.location:com.example.manu/QuestionTemp/getQuestionResourceName/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-question-resource-name.html
+$dokka.location:com.example.manu/QuestionTemp/getQuestionType/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-question-type.html
+$dokka.location:com.example.manu/QuestionType.ENGLISH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-e-n-g-l-i-s-h/index.html
+$dokka.location:com.example.manu/QuestionType.MĀORI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-mĀ-o-r-i/index.html
+$dokka.location:com.example.manu/QuestionType.PHOTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-p-h-o-t-o/index.html
+$dokka.location:com.example.manu/QuestionType.SOUND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-s-o-u-n-d/index.html
+$dokka.location:com.example.manu/QuestionType///PointingToDeclaration/app/com.example.manu/-question-type/index.html
 $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.example.manu/-quiz-activity/index.html
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
