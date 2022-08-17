@@ -7,13 +7,13 @@ package com.example.manu
 /**
  * A temporary question class.
  *
- * @param questionResourceID The question's resource ID.
+ * @param questionResourceId The question's resource ID.
  * @param options The possible answers.
  * @param answerIndex The index of the correct answer.
  */
-class QuestionTemp(questionResourceID: Int, options: ArrayList<String>, answerIndex: Int) {
+class QuestionTemp(questionResourceId: Int, options: ArrayList<String>, answerIndex: Int) {
 
-    private val questionResourceID: Int = questionResourceID
+    private val questionResourceId: Int = questionResourceId
     private val options: ArrayList<String> = options
     private val answerIndex: Int = answerIndex
 
@@ -22,8 +22,8 @@ class QuestionTemp(questionResourceID: Int, options: ArrayList<String>, answerIn
      *
      * @return The question's resource ID.
      */
-    fun getQuestionResourceID(): Int {
-        return questionResourceID
+    fun getQuestionResourceId(): Int {
+        return questionResourceId
     }
 
     /**

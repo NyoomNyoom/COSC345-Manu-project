@@ -50,11 +50,11 @@ class QuizActivity : AppCompatActivity() {
 
         // Assembles a simple quiz.
         questions = ArrayList()
-        questions.add(QuestionTemp(R.drawable.randall_original, QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
-        questions.add(QuestionTemp(R.drawable.randall_burlesque, QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
-        questions.add(QuestionTemp(R.drawable.randall_zeke, QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
-        questions.add(QuestionTemp(R.drawable.randall_icarus, QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
-        questions.add(QuestionTemp(R.drawable.randall_vanilla, QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
+        questions.add(QuestionTemp(R.drawable.randall_original, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
+        questions.add(QuestionTemp(R.drawable.randall_burlesque, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
+        questions.add(QuestionTemp(R.drawable.randall_zeke, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
+        questions.add(QuestionTemp(R.drawable.randall_icarus, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
+        questions.add(QuestionTemp(R.drawable.randall_vanilla, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
 
         saveOptionButtons()
         loadAnimations()
@@ -121,7 +121,7 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionTemp) {
-        img_question.setImageResource(question.getQuestionResourceID())
+        img_question.setImageResource(question.getQuestionResourceId())
         val options = question.getOptions()
 
         btn_opt_0.text = options[0]
