@@ -36,10 +36,11 @@
         android:gravity="center">
 
         <ImageView
+            android:id="@+id/img_question"
             android:layout_width="250sp"
             android:layout_height="250sp"
             android:scaleType = "centerCrop"
-            android:src = "@drawable/randall_packer_400x400"
+            android:src = "@drawable/randall_original"
             android:layout_marginTop="25sp"
             />
 
@@ -59,7 +60,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/question_text"
+            android:id="@+id/txt_question"
             android:text="3 + 7"
             android:textColor="@color/white"
             android:textStyle="bold"

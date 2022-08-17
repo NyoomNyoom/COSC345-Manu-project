@@ -13,7 +13,6 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
-import java.io.InputStreamReader
 
 /**
  * Runs and displays the quiz.
@@ -56,6 +55,12 @@ class QuizActivity : AppCompatActivity() {
         questions.add(QuestionData("6 + 7", "12", "13", "1", "15", 1))
         questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
         questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
+
+        //questions.add(QuestionTemp("Randall_original", QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
+        //questions.add(QuestionTemp("Randall_burlesque", QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
+        //questions.add(QuestionTemp("Randall_zeke", QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
+        //questions.add(QuestionTemp("Randal_icarus", QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
+        //questions.add(QuestionTemp("Randall_vanilla", QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
 
         saveOptionButtons()
         loadAnimations()
@@ -122,7 +127,7 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionData) {
-        question_text.text = question.question
+        txt_question.text = question.question
 
         btn_opt_0.text = question.option0
         btn_opt_1.text = question.option1
