@@ -2,7 +2,6 @@ package com.example.manu
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz_results.*
 

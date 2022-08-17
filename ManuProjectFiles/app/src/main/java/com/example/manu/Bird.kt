@@ -36,7 +36,7 @@ class Bird() : AppCompatActivity() {
         var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
 
-        val minput = InputStreamReader(assets().open("bird-data.csv"), "UTF-8")
+        //val minput = InputStreamReader(assets().open("bird-data.csv"), "UTF-8")
         //val reader = BufferedReader(minput)
 
         birdNumber -= 1
