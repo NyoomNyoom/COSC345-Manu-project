@@ -87,3 +87,30 @@ jobs:
         with:
             name: KDoc Documentation Site
             path: ManuProjectFiles/app/build/dokka/html
+
+  Code_Coverage:  # https://github.com/arturdm/jacoco-android-gradle-plugin/blob/master/example/build.gradle
+      runs-on: macos-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: set up JDK 11
+          uses: actions/setup-java@v3
+          with:
+            java-version: '11'
+            distribution: 'temurin'
+            cache: gradle
+
+        - uses: actions/checkout@v2
+        - name: Grant execute permission for gradlew
+          working-directory: ./ManuProjectFiles
+          run: chmod +x gradlew
+        - name: Run tests
+          uses: reactivecircus/android-emulator-runner@v2
+          with:
+            api-level: 29
+            script: ./ManuProjectFiles/gradlew jacocoCombinedTestReports # if your folder is in a path, change this to ./FolderName/gradleW
+        - name: Upload coverage reports to Codecov
+          run: | # if your project is hosted on a folder --> go to the folder before executing this
+            cd ManuProjectFiles
+            curl -Os https://uploader.codecov.io/latest/macos/codecov
+            chmod +x codecov
+            ./codecov
