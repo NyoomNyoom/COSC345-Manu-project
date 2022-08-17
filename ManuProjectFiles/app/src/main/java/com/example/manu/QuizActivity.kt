@@ -19,61 +19,24 @@ import kotlinx.android.synthetic.main.activity_quiz.*
  */
 class QuizActivity : AppCompatActivity() {
 
-    /** The index of the current quiz question. */
     private var currentQuestionIndex: Int = 0
-
-    /** The index of the selected option. */
     private var selectedOptionIndex: Int = -1
-
-    /** The player's score, measured in correct answers. */
     private var score: Int = 0
-
-    /** True if the current question has been marked. */
     private var markedCurrentQuestion: Boolean = false
-
-    /** True if the player has tapped on one of the options. */
     private var optionSelected: Boolean = false
-
-    /** The text to display on the submit button when the player has not submitted an answer to the current question. */
     private val submitText: String = "Submit"
-
-    /** The text to display on the submit button when the player has had their current question marked. */
     private val nextText: String = "Next"
-
-    /** The text to display on the submit button when the player has had the last question marked. */
     private val finishText: String = "Finish"
-
-    /** The colour of an unselected option button. */
-    private val buttonColourHex:String = "#000000"
-
-    /** The colour of a selected option button. */
+    private val buttonColourHex:String = "#FFFFFF"
     private val buttonSelectedColourHex:String = "#0000FF"
-
-    /** The colour of the correct answer. */
     private val buttonCorrectColourHex:String = "#00FF00"
-
-    /** The colour of the incorrect answer. */
     private val buttonIncorrectColourHex:String = "#FF0000"
-
-    /** A list containing the answer option buttons. */
     private lateinit var optionButtons: ArrayList<MaterialButton>
-
-    /** A list containing this quiz's questions. */
     private lateinit var questions: ArrayList<QuestionData>
-
-    /** The button press animation. */
     private lateinit var buttonPress: Animation
-
-    /** Should the player select the incorrect option, that button will play this animation. */
     private lateinit var incorrectAnswerShake: Animation
-
-    /** The animation for an option button coming into view. */
-    private lateinit var answerOptionEnter: Animation
-
-    /** The animation for an option button leaving the screen. */
-    private lateinit var answerOptionExit: Animation
-
-    /** The animation for a correct answer when marked. */
+    private lateinit var answerOptionAppear: Animation
+    private lateinit var answerOptionDisappear: Animation
     private lateinit var answerPop: Animation
 
     /**
@@ -93,11 +56,21 @@ class QuizActivity : AppCompatActivity() {
         questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
         questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
 
+        //questions.add(QuestionTemp("Randall_original", QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
+        //questions.add(QuestionTemp("Randall_burlesque", QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
+        //questions.add(QuestionTemp("Randall_zeke", QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
+        //questions.add(QuestionTemp("Randal_icarus", QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
+        //questions.add(QuestionTemp("Randall_vanilla", QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
+
         saveOptionButtons()
         loadAnimations()
         setupOnClickListeners()
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
+
+        // Jackson's code is below (commented out).
+        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
+        //val fileIN = InputStreamReader(assets.open("bird-data.csv"))
     }
 
     /**
@@ -124,8 +97,8 @@ class QuizActivity : AppCompatActivity() {
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
-        answerOptionEnter = AnimationUtils.loadAnimation(this, R.anim.answer_option_enter)
-        answerOptionExit = AnimationUtils.loadAnimation(this, R.anim.answer_option_exit)
+        answerOptionAppear = AnimationUtils.loadAnimation(this, R.anim.answer_option_appear)
+        answerOptionDisappear = AnimationUtils.loadAnimation(this, R.anim.answer_option_disappear)
         answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
@@ -154,7 +127,7 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionData) {
-        question_text.text = question.question
+        txt_question.text = question.question
 
         btn_opt_0.text = question.option0
         btn_opt_1.text = question.option1
@@ -164,7 +137,7 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.text = submitText
 
         for (button in optionButtons) {
-            button.startAnimation(answerOptionEnter)
+            button.startAnimation(answerOptionAppear)
         }
     }
 
@@ -233,14 +206,18 @@ class QuizActivity : AppCompatActivity() {
      */
     @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
-        // If correct.
+        /*
+         * If correct.
+         */
         if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
         }
 
-        // If incorrect.
+        /*
+         * If incorrect.
+         */
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
             optionButtons[questions[currentQuestionIndex].correctOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
@@ -251,9 +228,9 @@ class QuizActivity : AppCompatActivity() {
          * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
          * incorrect selection.
          */
-        for (i in 0..optionButtons.size - 1) {
-            if (selectedOptionIndex != i && questions[currentQuestionIndex].correctOptionIndex != i) {
-                optionButtons[i].startAnimation(answerOptionExit)
+        for (buttonIndex in 0..optionButtons.size - 1) {
+            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].correctOptionIndex != buttonIndex) {
+                optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }
         }
 

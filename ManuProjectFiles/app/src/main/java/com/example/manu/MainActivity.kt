@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Intent

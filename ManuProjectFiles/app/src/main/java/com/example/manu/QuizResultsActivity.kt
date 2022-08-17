@@ -2,7 +2,6 @@ package com.example.manu
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_quiz_results.*
 
@@ -26,14 +25,18 @@ class QuizResultsActivity : AppCompatActivity() {
 
         text_score.text = "$score / $totalQuestions"
 
-        // Play again.
+        /*
+         * Play again.
+         */
         btn_play_again.setOnClickListener {
             var intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        // Go to the menu.
+        /*
+         * Go to the menu.
+         */
         btn_menu.setOnClickListener {
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)

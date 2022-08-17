@@ -37,8 +37,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         //Log.d("Layout Check", size.toString())
 
         for(i in 0 until size){
-            //Get bird image and add it to button
-            allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundC
+            // Get bird image and add it to button
+            allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundColor
             allButtons[i].setOnClickListener {
                 // Create a pop up window and pass it the text information
                 allButtons[i].setBackgroundColor(Color.BLUE)
@@ -103,7 +103,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     private fun onSwipeRight() {
-        var intent = Intent(this, Pop::class.java)
+        var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
         finish()
     }
