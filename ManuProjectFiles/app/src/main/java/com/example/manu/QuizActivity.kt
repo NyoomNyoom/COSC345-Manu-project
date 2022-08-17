@@ -48,14 +48,8 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        // Assembles a simple math quiz.
+        // Assembles a simple quiz.
         questions = ArrayList()
-        //questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
-        //questions.add(QuestionData("4 + 2", "5", "9", "17", "6", 3))
-        //questions.add(QuestionData("6 + 7", "12", "13", "1", "15", 1))
-        //questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
-        //questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
-
         questions.add(QuestionTemp(R.drawable.randall_original, QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
         questions.add(QuestionTemp(R.drawable.randall_burlesque, QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
         questions.add(QuestionTemp(R.drawable.randall_zeke, QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
