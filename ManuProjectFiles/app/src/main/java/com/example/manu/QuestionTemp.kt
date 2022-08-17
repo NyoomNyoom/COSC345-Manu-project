@@ -7,25 +7,25 @@ package com.example.manu
 /**
  * A temporary question class.
  *
- * @param questionResource The name of the resource that embodies the question.
+ * @param questionResourceID The question's resource ID.
  * @param questionType The type of question (i.e., the type of resource).
  * @param options The possible answers.
  * @param answerIndex The index of the correct answer.
  */
-class QuestionTemp(questionResourceName: String, questionType: QuestionType, options: ArrayList<String>, answerIndex: Int) {
+class QuestionTemp(questionResourceID: Int, questionType: QuestionType, options: ArrayList<String>, answerIndex: Int) {
 
-    private val questionResourceName: String = questionResourceName
+    private val questionResourceID: Int = questionResourceID
     private val questionType: QuestionType = questionType
     private val options: ArrayList<String> = options
     private val answerIndex: Int = answerIndex
 
     /**
-     * Returns the name of the resource that embodies the question.
+     * Returns the question's resource ID.
      *
-     * @return The name of the resource that embodies the question.
+     * @return The question's resource ID.
      */
-    fun getQuestionResourceName(): String {
-        return questionResourceName
+    fun getQuestionResourceID(): Int {
+        return questionResourceID
     }
 
     /**
