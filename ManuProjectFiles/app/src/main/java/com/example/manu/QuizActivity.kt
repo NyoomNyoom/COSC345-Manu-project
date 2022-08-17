@@ -28,7 +28,7 @@ class QuizActivity : AppCompatActivity() {
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
     private val finishText: String = "Finish"
-    private val buttonColourHex:String = "#000000"
+    private val buttonColourHex:String = "#FFFFFF"
     private val buttonSelectedColourHex:String = "#0000FF"
     private val buttonCorrectColourHex:String = "#00FF00"
     private val buttonIncorrectColourHex:String = "#FF0000"
@@ -63,8 +63,9 @@ class QuizActivity : AppCompatActivity() {
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
 
+        // Jackson's code is below (commented out).
         //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
-        val fileIN = InputStreamReader(assets.open("bird-data.csv"))
+        //val fileIN = InputStreamReader(assets.open("bird-data.csv"))
     }
 
     /**
