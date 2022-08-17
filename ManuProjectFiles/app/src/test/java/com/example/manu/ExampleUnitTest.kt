@@ -16,16 +16,16 @@ class ExampleUnitTest {
         assertEquals(4, 2+2)
     }
 
-    /*
+
     @Test
     fun isValid_isCorrect(){
         var qList= mutableListOf<Question>()
         var ba = BirdAdapter(qList)
-        val bird = Bird()
-        bird.chosenBird(1)
+        val bird = Bird(1)
         assertEquals(true, ba.isValid(1, bird))
     }
 
+    /*
     @Test
     fun createQuiz_isCorrect(){
         var qList = mutableListOf<Question>()
@@ -35,18 +35,19 @@ class ExampleUnitTest {
 
         val birdNum = 1
 
-        question.addOption(Bird(), birdNum)
-        question.addOption(Bird(), birdNum)
-        question.addOption(Bird(), birdNum)
+        question.addOption(Bird(birdNum))
+        question.addOption(Bird(birdNum))
+        question.addOption(Bird(birdNum))
 
         qList.add(question)
-        val bird = Bird()
-        bird.chosenBird(1)
+        val bird = Bird(birdNum)
 
         assertEquals(qList, birdAdapt.createQuizForced(1,1,1))
 
     }
+    */
 
+    /*
     @Test
     fun updateValues_isCorrect(){
         val birdNumber = 0

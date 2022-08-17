@@ -9,6 +9,7 @@ will create the quiz. */
 class BirdAdapter(val questionList : MutableList<Question>) {
     private var questionAmount: Int = 0
     //Creates a quiz using the amount of questions and type that the creator wants.
+
     /*
     fun createQuiz(questionAmount: Int, questionType: Int): MutableList<Question>{
         this.questionAmount = questionAmount
@@ -43,7 +44,8 @@ class BirdAdapter(val questionList : MutableList<Question>) {
 
         return questionList
     }
-
+    */
+    /*
     //function that finds a random bird for the question type.
     private fun randomBird(questionType : Int): Bird {
         var birdNum = Random.nextInt(0,47)
@@ -64,6 +66,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
 
         return birdOut
     }
+    */
 
     //function checks if the bird that is given is a valid bird for the question.
     fun isValid(questionType: Int, bird: Bird): Boolean{
@@ -79,17 +82,18 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         }else {
             validBird = false
         }
-            //this is a SICK comment
+
         return validBird
     }
 
-    //creates a random bird from the given bird number and question type.
+    /*
     fun createBird(birdNumber : Int): Bird{
-        var bird = Bird(/*birdNumber*/)
+        var bird = Bird(birdNumber)
         bird.updateValues()
 
         return bird
     }
+    */
 
     override fun toString(): String {
         val correctBird = questionList[0].correctBirdObject
@@ -98,5 +102,4 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         return "$correctBirdStr"
     }
 
-     */
 }

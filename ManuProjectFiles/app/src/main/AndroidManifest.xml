@@ -28,7 +28,6 @@
         <activity android:name=".QuizResultsActivity"/>
         <activity android:name=".MenuActivity"/>
         <activity android:name=".InfoGraphicActivity"/>
-        <activity android:name=".Bird"/>
 
         <activity
             android:name=".Pop"
