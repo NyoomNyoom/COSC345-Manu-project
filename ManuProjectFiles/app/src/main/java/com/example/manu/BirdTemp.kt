@@ -14,4 +14,22 @@ class BirdTemp(birdName: String, photoResourceId: Int/*, soundResourceId: Int, m
     //val māoriName: String = māoriName
     //private val englishName: String = englishName
 
+    /**
+     * Returns the bird's name.
+     *
+     * @return The bird's name.
+     */
+    fun getBirdName(): String {
+        return birdName
+    }
+
+    /**
+     * Returns the photo's resource ID (a drawable resource).
+     *
+     * @return The photo's resource ID (a drawable resource).
+     */
+    fun getPhotoResourceId(): Int {
+        return photoResourceId
+    }
+
 }
