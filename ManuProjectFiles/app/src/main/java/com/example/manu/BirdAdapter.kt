@@ -9,6 +9,7 @@ will create the quiz. */
 class BirdAdapter(val questionList : MutableList<Question>) {
     private var questionAmount: Int = 0
     //Creates a quiz using the amount of questions and type that the creator wants.
+    /*
     fun createQuiz(questionAmount: Int, questionType: Int): MutableList<Question>{
         this.questionAmount = questionAmount
 
@@ -96,4 +97,6 @@ class BirdAdapter(val questionList : MutableList<Question>) {
 
         return "$correctBirdStr"
     }
+
+     */
 }

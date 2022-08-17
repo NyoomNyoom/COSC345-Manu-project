@@ -1,4 +1,11 @@
 buildscript {
+    ext.jacocoVersion = '0.8.7'
+    dependencies {
+        classpath "org.jacoco:org.jacoco.core:$jacocoVersion"
+    }
+}
+
+buildscript {
     dependencies {
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:1.7.10"
     }
