@@ -107,7 +107,8 @@ jobs:
           uses: reactivecircus/android-emulator-runner@v2
           with:
             api-level: 29
-            script: ./ManuProjectFiles/gradlew jacocoCombinedTestReports # if your folder is in a path, change this to ./FolderName/gradleW
+            working-directory: ./ManuProjectFiles
+            script: ./gradlew jacocoCombinedTestReports # if your folder is in a path, change this to ./FolderName/gradleW
         - name: Upload coverage reports to Codecov
           run: | # if your project is hosted on a folder --> go to the folder before executing this
             cd ManuProjectFiles
