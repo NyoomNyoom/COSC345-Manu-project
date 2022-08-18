@@ -10,6 +10,8 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
 
+    val numberQuizzes: Int = 100
+
     /*
     @Test
     fun createQuiz_isCorrect(){
@@ -54,7 +56,7 @@ class ExampleUnitTest {
         BirdDatabase.compileDatabase()
         var duplicateQuestions: Boolean = false
 
-        for (quiz in 1..10) {
+        for (quiz in 1..numberQuizzes) {
             val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
@@ -84,7 +86,7 @@ class ExampleUnitTest {
         BirdDatabase.compileDatabase()
         var duplicateOptions: Boolean = false
 
-        for (quiz in 1..10) {
+        for (quiz in 1..numberQuizzes) {
             val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
@@ -119,7 +121,7 @@ class ExampleUnitTest {
     fun answerInOptions() {
         BirdDatabase.compileDatabase()
 
-        for (quiz in 1..10) {
+        for (quiz in 1..numberQuizzes) {
             val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
