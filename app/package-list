@@ -9,6 +9,8 @@ $dokka.location:com.example.manu/Bird/getBirdNum/#/PointingToDeclaration/app/co
 $dokka.location:com.example.manu/Bird/getBirdNumIn/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num-in.html
 $dokka.location:com.example.manu/Bird/getBirdPicture/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-picture.html
 $dokka.location:com.example.manu/Bird/getFile/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird/get-file.html
+$dokka.location:com.example.manu/Bird/setPicFileName/#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/set-pic-file-name.html
+$dokka.location:com.example.manu/Bird/setSongFileName/#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/set-song-file-name.html
 $dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
 $dokka.location:com.example.manu/Bird/updateValues/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/update-values.html
 $dokka.location:com.example.manu/BirdAdapter///PointingToDeclaration/app/com.example.manu/-bird-adapter/index.html
