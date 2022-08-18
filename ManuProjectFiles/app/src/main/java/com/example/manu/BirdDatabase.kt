@@ -30,6 +30,7 @@ class BirdDatabase {
             birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko))
             birds.add(BirdTemp("Weka", R.drawable.bird_weka))
             birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron))
+            birds.add(BirdTemp("Kiwi", Resources.ID_NULL))
         }
 
         /**
