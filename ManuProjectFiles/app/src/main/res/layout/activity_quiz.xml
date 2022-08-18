@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"
         android:layout_marginBottom="15sp"
-        android:text="X"
+        android:text="x"
         android:textSize="25sp"
         android:textColor="@color/white"
         android:backgroundTint="#00000000"
@@ -125,6 +125,7 @@
             android:backgroundTint="@color/black"
             app:strokeWidth="3sp"
             app:strokeColor="@color/white"
+            android:textStyle="bold"
             />
     </LinearLayout>
 

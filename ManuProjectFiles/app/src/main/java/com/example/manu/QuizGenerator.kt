@@ -4,6 +4,7 @@
 
 package com.example.manu
 
+import android.util.Log
 import kotlin.random.Random
 
 /**
@@ -12,6 +13,8 @@ import kotlin.random.Random
 class QuizGenerator {
 
     companion object {
+
+        val maxShuffles: Int = 10
 
         /**
          * Generates a quiz from the information in the birds database.
@@ -24,6 +27,8 @@ class QuizGenerator {
          */
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
             var questions: ArrayList<QuestionTemp> = ArrayList()
+            for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                questions.shuffle()
 
             /*
              * Generate a "photo to name" quiz.
@@ -53,7 +58,8 @@ class QuizGenerator {
                             possibleOptions.add(birdName)
                     }
 
-                    possibleOptions.shuffle()
+                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                        possibleOptions.shuffle()
 
                     /*
                      * Extract the options (additional to the answer).
@@ -62,11 +68,14 @@ class QuizGenerator {
                         options.add(possibleOptions[option])
                     }
 
-                    options.shuffle()  // Shuffle with the correct answer.
+                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                        options.shuffle()  // Shuffle with the correct answer.
 
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
+
+            Log.d("QuizGenerator", questions.toString())
 
             return questions
         }
