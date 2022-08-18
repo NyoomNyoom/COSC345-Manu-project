@@ -29,10 +29,10 @@ class QuizActivity : AppCompatActivity() {
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
     private val finishText: String = "Finish"
-    private val buttonColourHex:String = "#FFFFFF"
-    private val buttonSelectedColourHex:String = "#0000FF"
-    private val buttonCorrectColourHex:String = "#00FF00"
-    private val buttonIncorrectColourHex:String = "#FF0000"
+    private val buttonColourHex:String = "#000000"
+    private val buttonSelectedColourHex:String = "#808080"
+    private val buttonCorrectColourHex:String = "#4CF549"
+    private val buttonIncorrectColourHex:String = "#FF6836"
     private var questions: ArrayList<QuestionTemp> = ArrayList()
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation

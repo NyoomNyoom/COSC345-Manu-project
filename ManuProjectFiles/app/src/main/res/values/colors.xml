@@ -13,4 +13,5 @@
     <color name="option_correct_colour">#00FF00</color>
     <color name="clear">#00000000</color>
     <color name="option_background_colour">#000000</color>
+    <color name="option_button_colour">#00FFAF</color>
 </resources>
