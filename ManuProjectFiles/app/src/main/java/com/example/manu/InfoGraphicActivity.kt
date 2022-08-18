@@ -59,7 +59,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     * Disables any effects of the Android system's back button.
+     * Overwrites the current gestures of scroll view
      */
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         var handled = super.dispatchTouchEvent(ev)
@@ -68,7 +68,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     * Disables any effects of the Android system's back button.
+     * Checks for touch events on the screen
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
@@ -80,7 +80,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     * Disables any effects of the Android system's back button.
+     * Calculates if a gesture has been made and in what direction
      */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
@@ -122,7 +122,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     * Disables any effects of the Android system's back button.
+     * Executes code for a left going right gesture
      */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
