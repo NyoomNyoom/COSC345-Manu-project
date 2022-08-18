@@ -8,7 +8,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +47,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5)
+        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
         // Assembles a simple quiz.
 

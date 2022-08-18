@@ -1,13 +1,23 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.res.Resources
 
+/**
+ * Contains the bird database and handles queries to it.
+ */
 class BirdDatabase {
 
-    companion object {
+    companion object {  // Makes the functions static.
 
         private lateinit var birds: ArrayList<BirdTemp>
 
+        /**
+         * Compiles the bird database by creating and adding each individual bird.
+         */
         fun compileDatabase() {
             birds = ArrayList()
             birds.add(BirdTemp("Randall Original", R.drawable.randall_original))
@@ -18,8 +28,23 @@ class BirdDatabase {
             birds.add(BirdTemp("Randall No Photo", Resources.ID_NULL))
         }
 
-        fun getBirdDatabase(): ArrayList<BirdTemp> {
-            return birds
+        /**
+         * Finds all birds with photos.
+         *
+         * @return A list of all birds with photos.
+         */
+        fun getBirdsWithResource(resourceType: QuestionType): ArrayList<BirdTemp> {
+            var queriedBirds: ArrayList<BirdTemp> = ArrayList()
+
+            if (resourceType == QuestionType.PHOTO) {
+                for (bird: BirdTemp in birds) {
+                    if (bird.getPhotoResourceId() != Resources.ID_NULL) {
+                        queriedBirds.add(bird)
+                    }
+                }
+            }
+
+            return queriedBirds
         }
 
     }

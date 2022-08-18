@@ -1,66 +1,65 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
-import android.content.res.Resources
-import android.util.Log
 import kotlin.random.Random
 
+/**
+ * Generates quizzes from the information in the birds database.
+ */
 class QuizGenerator {
 
     companion object {
 
-        fun generateQuiz(questionType: QuestionType, totalQuestions: Int): ArrayList<QuestionTemp> {
-            var birdDatabase: ArrayList<BirdTemp> = BirdDatabase.getBirdDatabase()
-            var quizQuestions: ArrayList<QuestionTemp> = ArrayList()
+        /**
+         * Generates a quiz from the information in the birds database.
+         *
+         * @param questionType The type of resource used as a question.
+         * @param numQuestions The number of questions in the quiz.
+         * @param numOptions The number of options per question.
+         *
+         * @return A list of quiz questions.
+         */
+        fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
+            var questions: ArrayList<QuestionTemp> = ArrayList()
 
             if (questionType == QuestionType.PHOTO) {
-                var birdIndex: Int = 0
-                var photoBirdDatabase: ArrayList<BirdTemp> = ArrayList()
+                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
 
-                /*
-                 * Extract all birds with photos.
-                 */
-                while (birdIndex < birdDatabase.size) {
-                    if (birdDatabase[birdIndex].getPhotoResourceId() != Resources.ID_NULL) {
-                        photoBirdDatabase.add(birdDatabase[birdIndex])
-                    }
-
-                    birdIndex++
+                var allNames: ArrayList<String> = ArrayList()
+                for (bird: BirdTemp in birds) {
+                    allNames.add(bird.getBirdName())
                 }
 
-                var allOptions: ArrayList<String> = ArrayList()
-                for (bird: BirdTemp in photoBirdDatabase) {
-                    allOptions.add(bird.getBirdName())
-                }
-
-                for (questionIndex in 1..totalQuestions) {
-                    var randomBirdIndex: Int = Random.nextInt(0, photoBirdDatabase.size)
-                    var options: ArrayList<String> = ArrayList()
-                    val photoResourceID: Int = photoBirdDatabase[randomBirdIndex].getPhotoResourceId()
-
-                    val correctAnswer: String = photoBirdDatabase[randomBirdIndex].getBirdName()
-                    options.add(correctAnswer)
-                    photoBirdDatabase.removeAt(randomBirdIndex)
+                for (questionIndex in 0 until numQuestions) {
+                    var randomBirdIndex: Int = Random.nextInt(0, birds.size)
+                    val answer: String = birds[randomBirdIndex].getBirdName()
+                    var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
+                    val photoResourceId: Int = birds[randomBirdIndex].getPhotoResourceId()
+                    birds.removeAt(randomBirdIndex)
 
                     var possibleOptions: ArrayList<String> = ArrayList()
 
-                    for (birdName: String in allOptions) {
-                        if (!birdName.equals(correctAnswer))
-                        possibleOptions.add(birdName)
+                    for (birdName: String in allNames) {
+                        if (!birdName.equals(answer))
+                            possibleOptions.add(birdName)
                     }
 
                     possibleOptions.shuffle()
 
-                    options.add(possibleOptions[0])
-                    options.add(possibleOptions[1])
-                    options.add(possibleOptions[2])
+                    for (option in 0 until numOptions-1) {
+                        options.add(possibleOptions[option])
+                    }
 
                     options.shuffle()  // Shuffle with the correct answer.
 
-                    quizQuestions.add(QuestionTemp(photoResourceID, options, options.indexOf(correctAnswer)))
+                    questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
 
-            return quizQuestions
+            return questions
         }
 
     }
