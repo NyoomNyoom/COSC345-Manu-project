@@ -10,6 +10,8 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
 
+    val numberQuizzes: Int = 100
+
     /*
     @Test
     fun createQuiz_isCorrect(){
@@ -51,8 +53,6 @@ class ExampleUnitTest {
      */
     @Test
     fun noDuplicateQuestions() {
-        val numberQuizzes: Int = 100
-
         BirdDatabase.compileDatabase()
         var duplicateQuestions: Boolean = false
 
@@ -83,8 +83,6 @@ class ExampleUnitTest {
      */
     @Test
     fun noDuplicateOptions() {
-        val numberQuizzes: Int = 100
-
         BirdDatabase.compileDatabase()
         var duplicateOptions: Boolean = false
 
@@ -121,8 +119,6 @@ class ExampleUnitTest {
      */
     @Test
     fun answerInOptions() {
-        val numberQuizzes: Int = 100
-
         BirdDatabase.compileDatabase()
 
         for (quiz in 1..numberQuizzes) {
