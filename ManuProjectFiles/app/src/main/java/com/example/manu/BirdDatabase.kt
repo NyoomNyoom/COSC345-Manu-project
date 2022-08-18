@@ -54,6 +54,12 @@ class BirdDatabase {
             return queriedBirds
         }
 
+        /**
+         * Given the resource ID (which references the resource used as the question), this will return the name of the
+         * matching bird.
+         *
+         * @return The name of the bird that owns that resource.
+         */
         fun getNameUsingResourceId(resourceId: Int): String {
             for (bird in birds) {
                 if (bird.getPhotoResourceId() == resourceId)

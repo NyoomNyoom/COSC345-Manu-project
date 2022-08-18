@@ -4,7 +4,6 @@
 
 package com.example.manu
 
-import android.util.Log
 import kotlin.random.Random
 
 /**
@@ -74,8 +73,6 @@ class QuizGenerator {
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
-
-            Log.d("QuizGenerator", questions.toString())
 
             return questions
         }
