@@ -32,4 +32,8 @@ class BirdTemp(birdName: String, photoResourceId: Int/*, soundResourceId: Int, m
         return photoResourceId
     }
 
+    override fun toString(): String {
+        return "$birdName, $photoResourceId"
+    }
+
 }

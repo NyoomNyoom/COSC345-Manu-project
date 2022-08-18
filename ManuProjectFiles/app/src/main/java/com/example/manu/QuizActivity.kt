@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -31,8 +32,8 @@ class QuizActivity : AppCompatActivity() {
     private val buttonSelectedColourHex:String = "#0000FF"
     private val buttonCorrectColourHex:String = "#00FF00"
     private val buttonIncorrectColourHex:String = "#FF0000"
+    private var questions: ArrayList<QuestionTemp> = ArrayList()
     private lateinit var optionButtons: ArrayList<MaterialButton>
-    private lateinit var questions: ArrayList<QuestionTemp>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
     private lateinit var answerOptionAppear: Animation
@@ -47,14 +48,10 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5)
 
         // Assembles a simple quiz.
-        questions = ArrayList()
-        questions.add(QuestionTemp(R.drawable.randall_original, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
-        questions.add(QuestionTemp(R.drawable.randall_burlesque, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
-        questions.add(QuestionTemp(R.drawable.randall_zeke, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
-        questions.add(QuestionTemp(R.drawable.randall_icarus, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
-        questions.add(QuestionTemp(R.drawable.randall_vanilla, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
+
 
         saveOptionButtons()
         loadAnimations()

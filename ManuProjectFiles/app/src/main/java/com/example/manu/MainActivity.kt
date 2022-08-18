@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        BirdDatabase.compileDatabase()
         val intent = Intent(this, QuizActivity::class.java)
         startActivity(intent)
         finish()
