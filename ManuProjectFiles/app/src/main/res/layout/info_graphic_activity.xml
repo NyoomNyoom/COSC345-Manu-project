@@ -29,7 +29,6 @@
                     android:layout_width="175dp"
                     android:layout_height="175dp"
                     android:layout_marginEnd="20dp"
-                    android:src="@drawable/randall_icarus"
                     android:clipToOutline="true"
                     ></ImageButton>
 

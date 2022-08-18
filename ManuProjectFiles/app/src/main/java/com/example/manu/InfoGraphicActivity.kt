@@ -32,11 +32,17 @@ class InfoGraphicActivity : AppCompatActivity() {
         val allButtons: ArrayList<View>
         allButtons = (findViewById<View>(R.id.scrollView1) as ScrollView).touchables // Size is 48 (birds 47 + 1)
         val size = allButtons.size // Checking how many items there are.
-        //Log.d("Layout Check", size.toString())
+
+        var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
 
         for(i in 0 until size){
             // Get bird image and add it to button
-            allButtons[i].setBackgroundColor(Color.RED) // Sets the backgroundColor
+            allButtons[i].setBackgroundColor(Color.RED)
+            try {
+                allButtons[i].setBackgroundResource(birds[i].getPhotoResourceId())
+            } catch (e: Exception){
+
+            } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
                 // Create a pop up window and pass it the text information
                 allButtons[i].setBackgroundColor(Color.BLUE)
