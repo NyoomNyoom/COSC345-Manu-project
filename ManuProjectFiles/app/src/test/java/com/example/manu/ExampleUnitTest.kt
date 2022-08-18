@@ -1,7 +1,6 @@
 package com.example.manu
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**
@@ -10,20 +9,6 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
-
-    @Test
-    fun addition_isCorrect(){
-        assertEquals(4, 2+2)
-    }
-
-
-    @Test
-    fun isValid_isCorrect(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(1)
-        assertEquals(true, ba.isValid(1, bird))
-    }
 
     /*
     @Test
@@ -60,4 +45,69 @@ class ExampleUnitTest {
         assertEquals(ExpectedOutput, bird.toString())
     }
     */
+
+    /**
+     * Runs a number of quizzes and checks no individual quiz contains a duplicate question.
+     */
+    @Test
+    fun noDuplicateQuestions() {
+        BirdDatabase.compileDatabase()
+        var duplicateQuestions: Boolean = false
+
+        for (quiz in 1..10) {
+            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+
+            for (question in questions) {
+                var occurrences: Int = 0
+                for (compareQuestion in questions) {
+                    if (compareQuestion == question)
+                        occurrences++
+                }
+                if (occurrences != 1) {
+                    duplicateQuestions = true
+                    break
+                }
+            }
+
+            if (duplicateQuestions)
+                break
+        }
+
+        assertEquals(false, duplicateQuestions)
+    }
+
+    /**
+     * Runs a number of quizzes and checks no individual question contains a duplicate option.
+     */
+    @Test
+    fun noDuplicateOptions() {
+        BirdDatabase.compileDatabase()
+        var duplicateOptions: Boolean = false
+
+        for (quiz in 1..10) {
+            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+
+            for (question in questions) {
+                for (option in question.getOptions()) {
+                    var occurrences: Int = 0
+                    for (compareOption in question.getOptions()) {
+                        if (compareOption == option)
+                            occurrences++
+                    }
+                    if (occurrences != 1) {
+                        duplicateOptions = true
+                        break
+                    }
+                }
+
+                if (duplicateOptions)
+                    break
+            }
+
+            if (duplicateOptions)
+                break
+        }
+
+        assertEquals(false, duplicateOptions)
+    }
 }

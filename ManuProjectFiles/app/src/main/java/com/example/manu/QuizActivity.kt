@@ -22,6 +22,8 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var score: Int = 0
+    private var numQuestions: Int = 5
+    private var numOptions: Int = 4
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
     private val submitText: String = "Submit"
@@ -47,7 +49,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
 
         saveOptionButtons()
         loadAnimations()
