@@ -34,6 +34,7 @@ $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/InfoGraphic
 $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/onFling/#android.view.MotionEvent?#android.view.MotionEvent?#kotlin.Float#kotlin.Float/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-gesture-listener/on-fling.html
 $dokka.location:com.example.manu/InfoGraphicActivity///PointingToDeclaration/app/com.example.manu/-info-graphic-activity/index.html
 $dokka.location:com.example.manu/InfoGraphicActivity/InfoGraphicActivity/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-info-graphic-activity.html
+$dokka.location:com.example.manu/InfoGraphicActivity/dispatchTouchEvent/#android.view.MotionEvent?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/dispatch-touch-event.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-back-pressed.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-touch-event.html
 $dokka.location:com.example.manu/MainActivity///PointingToDeclaration/app/com.example.manu/-main-activity/index.html
