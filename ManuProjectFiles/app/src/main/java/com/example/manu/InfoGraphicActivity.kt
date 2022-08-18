@@ -4,14 +4,12 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
@@ -54,6 +52,18 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        var handled = super.dispatchTouchEvent(ev)
+        handled = gestureDetector.onTouchEvent(ev!!)
+        return handled
+    }
+
+    /**
+     * Disables any effects of the Android system's back button.
+     */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
@@ -63,6 +73,9 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Disables any effects of the Android system's back button.
+     */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
 
@@ -102,6 +115,9 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Disables any effects of the Android system's back button.
+     */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
