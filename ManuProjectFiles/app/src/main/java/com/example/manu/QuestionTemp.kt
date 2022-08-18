@@ -7,34 +7,23 @@ package com.example.manu
 /**
  * A temporary question class.
  *
- * @param questionResource The name of the resource that embodies the question.
- * @param questionType The type of question (i.e., the type of resource).
+ * @param questionResourceId The question's resource ID.
  * @param options The possible answers.
  * @param answerIndex The index of the correct answer.
  */
-class QuestionTemp(questionResourceName: String, questionType: QuestionType, options: ArrayList<String>, answerIndex: Int) {
+class QuestionTemp(questionResourceId: Int, options: ArrayList<String>, answerIndex: Int) {
 
-    private val questionResourceName: String = questionResourceName
-    private val questionType: QuestionType = questionType
+    private val questionResourceId: Int = questionResourceId
     private val options: ArrayList<String> = options
     private val answerIndex: Int = answerIndex
 
     /**
-     * Returns the name of the resource that embodies the question.
+     * Returns the question's resource ID.
      *
-     * @return The name of the resource that embodies the question.
+     * @return The question's resource ID.
      */
-    fun getQuestionResourceName(): String {
-        return questionResourceName
-    }
-
-    /**
-     * Returns the type of question (i.e., the type of resource).
-     *
-     * @return The type of question (i.e., the type of resource).
-     */
-    fun getQuestionType(): QuestionType {
-        return questionType
+    fun getQuestionResourceId(): Int {
+        return questionResourceId
     }
 
     /**
@@ -53,6 +42,10 @@ class QuestionTemp(questionResourceName: String, questionType: QuestionType, opt
      */
     fun getAnswerIndex(): Int {
         return answerIndex
+    }
+
+    override fun toString(): String {
+        return "$questionResourceId, $options, $answerIndex"
     }
 
 }

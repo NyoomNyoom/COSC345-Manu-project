@@ -8,7 +8,7 @@ package com.example.manu
  * @param questionType is the type of question the question is (IE 1 for picture only) so we can grab the correct file.
  */
 data class Question(private val birdIn: Bird, val questionType: Int) {
-    /*
+
     var correctBirdObject = birdIn
     var optionList = mutableListOf<Bird>()
     var correctIndex = 0
@@ -20,13 +20,12 @@ data class Question(private val birdIn: Bird, val questionType: Int) {
      *
      * @param bird the random Bird object to be added to the option MutableList.
      */
-    /*
-    fun addOption (bird: Bird, birdNumIn: Int){
-        bird.chosenBird(birdNumIn)
+
+    fun addOption (bird: Bird){
         optionList.add(bird)
 
     }
-    */
+
     /**
      * A function that shuffles the option list and then re finds the correct index of the bird that is the
      * answer for the question.
@@ -69,6 +68,5 @@ data class Question(private val birdIn: Bird, val questionType: Int) {
     override fun toString(): String {
         return "$correctBirdObject, $correctIndex"
     }
-    */
 
 }

@@ -14,7 +14,7 @@ import java.io.InputStreamReader
  *
  * @param birdNumIn the index of a bird in the list of birds we have on file.
  */
-class Bird() : AppCompatActivity() {
+data class Bird(val birdNumIn: Int){
     
     private var nameOfBird = ""
     private var birdFilePic = ""
@@ -24,7 +24,7 @@ class Bird() : AppCompatActivity() {
     private var birdNum = 0
 
 
-
+    /*
     /**
      * A function that searches the bird-data.csv file which is a list of birds to find the bird that was
      * inputted into the class constructor and then add the values of the bird to the private variables.
@@ -58,6 +58,29 @@ class Bird() : AppCompatActivity() {
         //alternativeName = birdInfo[4]
         //birdInfoFile = birdInfo[5]
          */
+    }
+     */
+
+    /**
+     * A temporary function for Alpha to just hardcode birds in instead of reading from a file.
+     *
+     * @param birdName the Name of the bird.
+     * @param fileName the name of the file.
+     * @param infoFile the name of the information file.
+     */
+    fun updateValues(birdName: String, fileName: String, infoFile: String){
+        nameOfBird = birdName
+        birdFilePic = fileName
+        birdInfoFile = infoFile
+    }
+
+    /**
+     * A function return the filename of the picture for the bird
+     *
+     * @return birdFilePic the filename of the bird.
+     */
+    fun getBirdPicture(): String{
+        return birdFilePic
     }
 
     /**
