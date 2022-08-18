@@ -47,7 +47,7 @@ class ExampleUnitTest {
     */
 
     /**
-     * Runs a number of quizzes and checks no individual quiz contains a duplicate question.
+     * Checks no individual quiz contains a duplicate question.
      */
     @Test
     fun noDuplicateQuestions() {
@@ -77,7 +77,7 @@ class ExampleUnitTest {
     }
 
     /**
-     * Runs a number of quizzes and checks no individual question contains a duplicate option.
+     * Checks no individual question contains a duplicate option.
      */
     @Test
     fun noDuplicateOptions() {
@@ -109,5 +109,29 @@ class ExampleUnitTest {
         }
 
         assertEquals(false, duplicateOptions)
+    }
+
+    /**
+     * Checks the answer to a question is always in the option list, and that the index of the answer in that list is
+     * correct.
+     */
+    @Test
+    fun answerInOptions() {
+        BirdDatabase.compileDatabase()
+
+        for (quiz in 1..10) {
+            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+
+            for (question in questions) {
+                val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
+                val answerIndex: Int = question.getAnswerIndex()
+                if (question.getOptions()[answerIndex] != answer) {
+                    assertEquals(true, false)  // Force a failed test.
+                    return
+                }
+            }
+        }
+
+        assertEquals(true, true)  // Since no tests gave any problems, force a successful test.
     }
 }

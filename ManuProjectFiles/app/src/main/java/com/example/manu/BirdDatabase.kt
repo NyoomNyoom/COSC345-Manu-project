@@ -50,6 +50,15 @@ class BirdDatabase {
             return queriedBirds
         }
 
+        fun getNameUsingResourceId(resourceId: Int): String {
+            for (bird in birds) {
+                if (bird.getPhotoResourceId() == resourceId)
+                    return bird.getBirdName()
+            }
+
+            return ""
+        }
+
     }
 
 }
