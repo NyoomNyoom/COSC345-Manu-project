@@ -49,9 +49,6 @@ class QuizActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz)
         questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
-        // Assembles a simple quiz.
-
-
         saveOptionButtons()
         loadAnimations()
         setupOnClickListeners()

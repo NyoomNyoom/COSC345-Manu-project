@@ -25,6 +25,9 @@ class QuizGenerator {
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
             var questions: ArrayList<QuestionTemp> = ArrayList()
 
+            /*
+             * Generate a "photo to name" quiz.
+             */
             if (questionType == QuestionType.PHOTO) {
                 var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
 
@@ -33,12 +36,15 @@ class QuizGenerator {
                     allNames.add(bird.getBirdName())
                 }
 
+                /*
+                 * Create the questions.
+                 */
                 for (questionIndex in 0 until numQuestions) {
-                    var randomBirdIndex: Int = Random.nextInt(0, birds.size)
-                    val answer: String = birds[randomBirdIndex].getBirdName()
+                    val bird: BirdTemp = birds[Random.nextInt(0, birds.size)]
+                    val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
-                    val photoResourceId: Int = birds[randomBirdIndex].getPhotoResourceId()
-                    birds.removeAt(randomBirdIndex)
+                    val photoResourceId: Int = bird.getPhotoResourceId()
+                    birds.remove(bird)
 
                     var possibleOptions: ArrayList<String> = ArrayList()
 
@@ -49,6 +55,9 @@ class QuizGenerator {
 
                     possibleOptions.shuffle()
 
+                    /*
+                     * Extract the options (additional to the answer).
+                     */
                     for (option in 0 until numOptions-1) {
                         options.add(possibleOptions[option])
                     }

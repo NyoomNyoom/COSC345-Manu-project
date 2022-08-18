@@ -29,13 +29,16 @@ class BirdDatabase {
         }
 
         /**
-         * Finds all birds with photos.
+         * Returns all birds which have the specified resource listed.
          *
-         * @return A list of all birds with photos.
+         * @return A list of all birds which have the specified resource listed.
          */
         fun getBirdsWithResource(resourceType: QuestionType): ArrayList<BirdTemp> {
             var queriedBirds: ArrayList<BirdTemp> = ArrayList()
 
+            /*
+             * All birds with photos.
+             */
             if (resourceType == QuestionType.PHOTO) {
                 for (bird: BirdTemp in birds) {
                     if (bird.getPhotoResourceId() != Resources.ID_NULL) {
