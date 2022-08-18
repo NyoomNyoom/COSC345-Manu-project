@@ -10,8 +10,6 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
 
-    val numberQuizzes: Int = 100
-
     /*
     @Test
     fun createQuiz_isCorrect(){
@@ -53,6 +51,8 @@ class ExampleUnitTest {
      */
     @Test
     fun noDuplicateQuestions() {
+        val numberQuizzes: Int = 100
+
         BirdDatabase.compileDatabase()
         var duplicateQuestions: Boolean = false
 
@@ -83,6 +83,8 @@ class ExampleUnitTest {
      */
     @Test
     fun noDuplicateOptions() {
+        val numberQuizzes: Int = 100
+
         BirdDatabase.compileDatabase()
         var duplicateOptions: Boolean = false
 
@@ -119,6 +121,8 @@ class ExampleUnitTest {
      */
     @Test
     fun answerInOptions() {
+        val numberQuizzes: Int = 100
+
         BirdDatabase.compileDatabase()
 
         for (quiz in 1..numberQuizzes) {
@@ -135,5 +139,65 @@ class ExampleUnitTest {
         }
 
         assertEquals(true, true)  // Since no tests gave any problems, force a successful test.
+    }
+
+    /**
+     * Checks if the isValid function is working correctly, by parsing a bird that is valid into the function
+     * for question type 1.
+     */
+    @Test
+    fun isValid_isCorrect(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(1)
+        assertEquals(true, ba.isValid(1, bird))
+    }
+
+    /**
+     * Checking if the isValid function is working correctly when parsing in an invalid bird for question type 1.
+     */
+    @Test
+    fun isValid_isIncorrect(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(2)
+        bird.setPicFileName("null")
+        assertEquals(false, ba.isValid(1, bird))
+    }
+
+    /**
+     * Checks if the isValid function is working correctly, by parsing a bird that is valid into the function
+     * for question type 2.
+     */
+    @Test
+    fun isValid_isCorrect2(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(1)
+        assertEquals(true, ba.isValid(2, bird))
+    }
+
+    /**
+     * Checking if the isValid function is working correctly when parsing in an invalid bird for question type 2.
+     */
+    @Test
+    fun isValid_isIncorrect2(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(2)
+        bird.setSongFileName("null")
+        assertEquals(false, ba.isValid(2, bird))
+    }
+
+    /**
+     * Checks if an incorrect question type is given if the code fails properly
+     */
+    @Test
+    fun isValid_isIncorrect3(){
+        var qList= mutableListOf<Question>()
+        var ba = BirdAdapter(qList)
+        val bird = Bird(3)
+
+        assertEquals(false, ba.isValid(3, bird))
     }
 }

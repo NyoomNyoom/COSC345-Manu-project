@@ -21,7 +21,7 @@ data class Bird(val birdNumIn: Int){
     private var birdFileSong = ""
     private var alternativeName = ""
     private var birdInfoFile = ""
-    private var birdNum = 0
+    private var birdNum = birdNumIn
 
 
     /*
@@ -102,9 +102,9 @@ data class Bird(val birdNumIn: Int){
 
         //adds the filetype to the end of the string
         if(questionType == 1){
-            output = "$birdFilePic.jpg" //only using jpg because I do not know what filetype we will use for pictures.
+            output = "$birdFilePic" //only using jpg because I do not know what filetype we will use for pictures.
         }else if(questionType == 2){
-            output = "$birdFileSong.mp3"
+            output = "$birdFileSong"
         }
 
         return output
@@ -145,5 +145,19 @@ data class Bird(val birdNumIn: Int){
      */
     override fun toString(): String {
         return "$nameOfBird, $alternativeName, $birdNum, $birdFilePic, $birdFileSong, $birdInfoFile"
+    }
+
+    /**
+     * A function which sets the picture file of the bird to a new name which is parsed into the function.
+     */
+    fun setPicFileName(newName: String){
+        birdFilePic = newName
+    }
+
+    /**
+     * A function which sets the sound file of the bird to a new name which is parsed into the function.
+     */
+    fun setSongFileName(newName: String){
+        birdFileSong = newName
     }
 }
