@@ -18,7 +18,7 @@ $dokka.location:com.example.manu/BirdAdapter/isValid/#kotlin.Int#com.example.man
 $dokka.location:com.example.manu/BirdAdapter/toString/#/PointingToDeclaration/app/com.example.manu/-bird-adapter/to-string.html
 $dokka.location:com.example.manu/BirdDatabase.Companion///PointingToDeclaration/app/com.example.manu/-bird-database/-companion/index.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/compileDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/compile-database.html
-$dokka.location:com.example.manu/BirdDatabase.Companion/getBirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-bird-database.html
+$dokka.location:com.example.manu/BirdDatabase.Companion/getBirdsWithResource/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-birds-with-resource.html
 $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.example.manu/-bird-database/index.html
 $dokka.location:com.example.manu/BirdDatabase/BirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-bird-database.html
 $dokka.location:com.example.manu/BirdTemp///PointingToDeclaration/app/com.example.manu/-bird-temp/index.html
@@ -98,7 +98,7 @@ $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.e
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
 $dokka.location:com.example.manu/QuizGenerator.Companion///PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/index.html
-$dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
+$dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
 $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.example.manu/-quiz-generator/index.html
 $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-quiz-generator.html
 $dokka.location:com.example.manu/QuizResultsActivity///PointingToDeclaration/app/com.example.manu/-quiz-results-activity/index.html
