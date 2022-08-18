@@ -20,12 +20,16 @@ class BirdDatabase {
          */
         fun compileDatabase() {
             birds = ArrayList()
-            birds.add(BirdTemp("Randall Original", R.drawable.randall_original))
-            birds.add(BirdTemp("Randall Burlesque", R.drawable.randall_burlesque))
-            birds.add(BirdTemp("Randall Zeke", R.drawable.randall_zeke))
-            birds.add(BirdTemp("Randall Icarus", R.drawable.randall_icarus))
-            birds.add(BirdTemp("Randall Vanilla", R.drawable.randall_vanilla))
-            birds.add(BirdTemp("Randall No Photo", Resources.ID_NULL))
+            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird))
+            birds.add(BirdTemp("Blue Duck", R.drawable.bird_blue_duck))
+            birds.add(BirdTemp("Kakapo", R.drawable.bird_kakapo))
+            birds.add(BirdTemp("Kea", R.drawable.bird_kea))
+            birds.add(BirdTemp("Kokaka", R.drawable.bird_kokako))
+            birds.add(BirdTemp("Morepork", R.drawable.bird_kokako))
+            birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon))
+            birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko))
+            birds.add(BirdTemp("Weka", R.drawable.bird_weka))
+            birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron))
         }
 
         /**
