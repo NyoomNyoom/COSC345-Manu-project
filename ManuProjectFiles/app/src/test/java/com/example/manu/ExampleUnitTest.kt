@@ -196,4 +196,17 @@ class ExampleUnitTest {
 
         assertEquals(false, ba.isValid(3, bird))
     }
+
+    /**
+     * Tests Daniel's question class' toString() function.
+     */
+    @Test
+    fun questionTempToString() {
+        BirdDatabase.compileDatabase()
+        val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        val toString: String = questions[0].toString()
+        val makeString: String = questions[0].getQuestionResourceId().toString() + ", " +
+                questions[0].getOptions().toString() + ", " + questions[0].getAnswerIndex().toString()
+        assertEquals(true, toString == makeString)
+    }
 }
