@@ -100,6 +100,7 @@ $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclarati
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
 $dokka.location:com.example.manu/QuizGenerator.Companion///PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/index.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
+$dokka.location:com.example.manu/QuizGenerator.Companion/getMaxShuffles/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-max-shuffles.html
 $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.example.manu/-quiz-generator/index.html
 $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-quiz-generator.html
 $dokka.location:com.example.manu/QuizResultsActivity///PointingToDeclaration/app/com.example.manu/-quiz-results-activity/index.html
