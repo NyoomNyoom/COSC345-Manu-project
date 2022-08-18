@@ -122,7 +122,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     * Executes code for a left going right gesture
+     * Executes code for a left going right gesture to return to menu.
      */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)

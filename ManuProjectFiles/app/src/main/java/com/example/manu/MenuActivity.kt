@@ -91,6 +91,9 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Executes code for a left gesture going right to enter infographics.
+     */
     private fun onSwipeLeft() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
