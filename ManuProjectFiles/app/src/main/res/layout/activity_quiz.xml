@@ -25,8 +25,8 @@
         android:textColor="@color/white"
         android:backgroundTint="#00000000"
         android:gravity="center"
-        android:layout_gravity="left"
-        android:layout_marginStart="10sp"
+        android:layout_gravity="right"
+        android:layout_marginEnd="10sp"
         android:layout_marginTop="10sp"
         app:cornerRadius="50sp"
         />
