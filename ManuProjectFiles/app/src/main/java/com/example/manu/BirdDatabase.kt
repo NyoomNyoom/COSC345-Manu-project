@@ -20,17 +20,18 @@ class BirdDatabase {
          */
         fun compileDatabase() {
             birds = ArrayList()
-            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird))
-            birds.add(BirdTemp("Blue Duck", R.drawable.bird_blue_duck))
-            birds.add(BirdTemp("Kakapo", R.drawable.bird_kakapo))
-            birds.add(BirdTemp("Kea", R.drawable.bird_kea))
-            birds.add(BirdTemp("Kokako", R.drawable.bird_kokako))
-            birds.add(BirdTemp("Morepork", R.drawable.bird_morepork))
-            birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon))
-            birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko))
-            birds.add(BirdTemp("Weka", R.drawable.bird_weka))
-            birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron))
-            birds.add(BirdTemp("Kiwi", Resources.ID_NULL))
+            birds.add(BirdTemp("Paradise Duck", R.drawable.bird_paradise_duck, "Often seen by students in Dunedin, Paradise Ducks have been seen to exhibit homosexual behaviour by the presence of Bill and Bill within the University of Otago Campus. It is no wonder Bill and Bill have these tendancies due to their lovely chestnut breast feathers."))
+            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, ""))
+            birds.add(BirdTemp("Blue Duck", R.drawable.bird_blue_duck, ""))
+            birds.add(BirdTemp("Kakapo", R.drawable.bird_kakapo, ""))
+            birds.add(BirdTemp("Kea", R.drawable.bird_kea, ""))
+            birds.add(BirdTemp("Kokako", R.drawable.bird_kokako, ""))
+            birds.add(BirdTemp("Morepork", R.drawable.bird_morepork, ""))
+            birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon, ""))
+            birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko, ""))
+            birds.add(BirdTemp("Weka", R.drawable.bird_weka, ""))
+            birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron, ""))
+            birds.add(BirdTemp("Kiwi", Resources.ID_NULL, ""))
         }
 
         /**
