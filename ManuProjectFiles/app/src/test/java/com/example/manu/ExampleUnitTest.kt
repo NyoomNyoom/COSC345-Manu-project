@@ -251,4 +251,21 @@ class ExampleUnitTest {
 
         assertEquals("$birdName, $photoResourceID", bird.toString())
     }
+
+
+    /* I am not sure how to do this sorry Daniel
+    /**
+     * A test to check the fail condition for getNameUsingResourceId().
+     */
+    @Test
+    fun getNameUsingResourceId_fails(){
+        val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for(question in questions){
+            val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
+        }
+
+
+    }
+     */
+    
 }
