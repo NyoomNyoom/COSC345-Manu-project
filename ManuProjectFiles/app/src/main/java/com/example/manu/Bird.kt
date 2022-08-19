@@ -15,14 +15,12 @@ import java.io.InputStreamReader
  * @param birdNumIn the index of a bird in the list of birds we have on file.
  */
 data class Bird(val birdNumIn: Int){
-    
     private var nameOfBird = ""
     private var birdFilePic = ""
     private var birdFileSong = ""
     private var alternativeName = ""
     private var birdInfoFile = ""
     private var birdNum = birdNumIn
-
 
     /*
     /**
@@ -68,10 +66,11 @@ data class Bird(val birdNumIn: Int){
      * @param fileName the name of the file.
      * @param infoFile the name of the information file.
      */
-    fun updateValues(birdName: String, fileName: String, infoFile: String){
+    fun updateValues(birdName: String, fileName: String, infoFile: String, songFile: String){
         nameOfBird = birdName
         birdFilePic = fileName
         birdInfoFile = infoFile
+        birdFileSong = songFile
     }
 
     /**
@@ -81,6 +80,15 @@ data class Bird(val birdNumIn: Int){
      */
     fun getBirdPicture(): String{
         return birdFilePic
+    }
+
+    /**
+     * A function return the filename of the song for the bird
+     *
+     * @return birdFileSong the filename of the bird.
+     */
+    fun getBirdSong(): String{
+        return birdFileSong
     }
 
     /**
@@ -124,7 +132,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdInfoFile: String, the filename of the file that contains the birds fun fact.
      */
-    private fun getInfoFile(): String{
+    fun getInfoFile(): String{
         return birdInfoFile
     }
 

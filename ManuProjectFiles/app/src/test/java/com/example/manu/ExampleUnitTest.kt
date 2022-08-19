@@ -267,5 +267,21 @@ class ExampleUnitTest {
 
     }
      */
-    
+
+
+    /**
+     * A function that checks if Bird.updateValues() works correctly
+     */
+    @Test
+    fun isUpdateValues_correct(){
+        val bird = Bird(1)
+        bird.updateValues("Kiwi", "img", "txt", "mp3")
+        if(bird.getBirdName() == "Kiwi" && bird.getBirdPicture() == "img"){
+            if(bird.getInfoFile() == "txt" && bird.getBirdSong() == "mp3"){
+                assertEquals(true, true)
+            }
+        }else{
+            assertEquals(true, false)
+        }
+    }
 }
