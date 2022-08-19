@@ -8,11 +8,13 @@ $dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/c
 $dokka.location:com.example.manu/Bird/getBirdNum/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num.html
 $dokka.location:com.example.manu/Bird/getBirdNumIn/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-num-in.html
 $dokka.location:com.example.manu/Bird/getBirdPicture/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-picture.html
+$dokka.location:com.example.manu/Bird/getBirdSong/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-song.html
 $dokka.location:com.example.manu/Bird/getFile/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird/get-file.html
+$dokka.location:com.example.manu/Bird/getInfoFile/#/PointingToDeclaration/app/com.example.manu/-bird/get-info-file.html
 $dokka.location:com.example.manu/Bird/setPicFileName/#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/set-pic-file-name.html
 $dokka.location:com.example.manu/Bird/setSongFileName/#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/set-song-file-name.html
 $dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
-$dokka.location:com.example.manu/Bird/updateValues/#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/update-values.html
+$dokka.location:com.example.manu/Bird/updateValues/#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/update-values.html
 $dokka.location:com.example.manu/BirdAdapter///PointingToDeclaration/app/com.example.manu/-bird-adapter/index.html
 $dokka.location:com.example.manu/BirdAdapter/BirdAdapter/#kotlin.collections.MutableList[com.example.manu.Question]/PointingToDeclaration/app/com.example.manu/-bird-adapter/-bird-adapter.html
 $dokka.location:com.example.manu/BirdAdapter/getQuestionList/#/PointingToDeclaration/app/com.example.manu/-bird-adapter/get-question-list.html
