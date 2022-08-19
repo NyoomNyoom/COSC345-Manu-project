@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.manu">
 
@@ -23,16 +24,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".HelloWorld"/>
-        <activity android:name=".QuizActivity"/>
-        <activity android:name=".QuizResultsActivity"/>
-        <activity android:name=".MenuActivity"/>
-        <activity android:name=".InfoGraphicActivity"/>
+
+        <activity
+            android:name=".QuizActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".QuizResultsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".MenuActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".InfoGraphicActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
 
         <activity
             android:name=".Pop"
-            android:theme="@style/Theme.Manu.popupWindow"
+            android:theme="@style/Translucent"
             />
+
     </application>
 
 </manifest>

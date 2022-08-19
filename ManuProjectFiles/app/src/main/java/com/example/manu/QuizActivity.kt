@@ -5,14 +5,24 @@
 package com.example.manu
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Gravity
+import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
+
 
 /**
  * Runs and displays the quiz.
@@ -22,17 +32,19 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var score: Int = 0
+    private var numQuestions: Int = 5
+    private var numOptions: Int = 4
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
     private val submitText: String = "Submit"
     private val nextText: String = "Next"
     private val finishText: String = "Finish"
-    private val buttonColourHex:String = "#FFFFFF"
-    private val buttonSelectedColourHex:String = "#0000FF"
-    private val buttonCorrectColourHex:String = "#00FF00"
-    private val buttonIncorrectColourHex:String = "#FF0000"
+    private val buttonColourHex:String = "#000000"
+    private val buttonSelectedColourHex:String = "#808080"
+    private val buttonCorrectColourHex:String = "#4CF549"
+    private val buttonIncorrectColourHex:String = "#FF6836"
+    private var questions: ArrayList<QuestionTemp> = ArrayList()
     private lateinit var optionButtons: ArrayList<MaterialButton>
-    private lateinit var questions: ArrayList<QuestionData>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
     private lateinit var answerOptionAppear: Animation
@@ -47,24 +59,17 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-
-        // Assembles a simple math quiz.
-        questions = ArrayList()
-        questions.add(QuestionData("3 - 7", "-4", "15", "7", "-2", 0))
-        questions.add(QuestionData("4 + 2", "5", "9", "17", "6", 3))
-        questions.add(QuestionData("6 + 7", "12", "13", "1", "15", 1))
-        questions.add(QuestionData("11 + 11", "22", "1", "1111", "21", 0))
-        questions.add(QuestionData("17 - 9", "4", "5", "8", "7", 2))
-
-        //questions.add(QuestionTemp("Randall_original", QuestionType.PHOTO, arrayListOf("Original", "Burlesque", "Icarus", "Vanilla"), 0))
-        //questions.add(QuestionTemp("Randall_burlesque", QuestionType.PHOTO, arrayListOf("Zeke", "Original", "Burlesque", "Icarus"), 2))
-        //questions.add(QuestionTemp("Randall_zeke", QuestionType.PHOTO, arrayListOf("Vanilla", "Zeke", "Original", "Burlesque"), 1))
-        //questions.add(QuestionTemp("Randal_icarus", QuestionType.PHOTO, arrayListOf("Icarus", "Vanilla", "Zeke", "Original"), 0))
-        //questions.add(QuestionTemp("Randall_vanilla", QuestionType.PHOTO, arrayListOf("Burlesque", "Icarus", "Vanilla", "Zeke"), 2))
+        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
 
         saveOptionButtons()
         loadAnimations()
         setupOnClickListeners()
+
+        // Hide the navigation and status bars.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
 
@@ -126,13 +131,14 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Resets the screen with the next question.
      */
-    private fun presentQuestion(question: QuestionData) {
-        txt_question.text = question.question
+    private fun presentQuestion(question: QuestionTemp) {
+        img_question.setImageResource(question.getQuestionResourceId())
+        val options = question.getOptions()
 
-        btn_opt_0.text = question.option0
-        btn_opt_1.text = question.option1
-        btn_opt_2.text = question.option2
-        btn_opt_3.text = question.option3
+        btn_opt_0.text = options[0]
+        btn_opt_1.text = options[1]
+        btn_opt_2.text = options[2]
+        btn_opt_3.text = options[3]
 
         btn_submit.text = submitText
 
@@ -209,7 +215,7 @@ class QuizActivity : AppCompatActivity() {
         /*
          * If correct.
          */
-        if (selectedOptionIndex == questions[currentQuestionIndex].correctOptionIndex) {
+        if (selectedOptionIndex == questions[currentQuestionIndex].getAnswerIndex()) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
@@ -220,7 +226,7 @@ class QuizActivity : AppCompatActivity() {
          */
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
-            optionButtons[questions[currentQuestionIndex].correctOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
+            optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
         }
 
@@ -229,7 +235,7 @@ class QuizActivity : AppCompatActivity() {
          * incorrect selection.
          */
         for (buttonIndex in 0..optionButtons.size - 1) {
-            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].correctOptionIndex != buttonIndex) {
+            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
                 optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }
         }
