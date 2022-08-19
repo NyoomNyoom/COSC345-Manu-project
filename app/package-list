@@ -25,8 +25,9 @@ $dokka.location:com.example.manu/BirdDatabase.Companion/getNameUsingResourceId/#
 $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.example.manu/-bird-database/index.html
 $dokka.location:com.example.manu/BirdDatabase/BirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-bird-database.html
 $dokka.location:com.example.manu/BirdTemp///PointingToDeclaration/app/com.example.manu/-bird-temp/index.html
-$dokka.location:com.example.manu/BirdTemp/BirdTemp/#kotlin.String#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-temp/-bird-temp.html
+$dokka.location:com.example.manu/BirdTemp/BirdTemp/#kotlin.String#kotlin.Int#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird-temp/-bird-temp.html
 $dokka.location:com.example.manu/BirdTemp/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-bird-name.html
+$dokka.location:com.example.manu/BirdTemp/getFunFact/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-fun-fact.html
 $dokka.location:com.example.manu/BirdTemp/getPhotoResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-photo-resource-id.html
 $dokka.location:com.example.manu/BirdTemp/toString/#/PointingToDeclaration/app/com.example.manu/-bird-temp/to-string.html
 $dokka.location:com.example.manu/HelloWorld///PointingToDeclaration/app/com.example.manu/-hello-world/index.html
