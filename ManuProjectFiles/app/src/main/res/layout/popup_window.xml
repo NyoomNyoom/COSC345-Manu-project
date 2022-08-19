@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Pop"
     android:background="@color/black"
     android:theme="@style/Theme.Manu.popupWindow"
     android:layout_gravity="center"
     android:gravity="center"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Return to menu?"
+        android:text="Return to Menu?"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:layout_centerVertical="true"
@@ -32,10 +31,12 @@
         android:text="Yes"
         android:gravity="center"
         android:layout_gravity="center"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginTop="17sp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:strokeWidth="1sp"
+        app:strokeColor="@color/white"
         />
 
     <com.google.android.material.button.MaterialButton
@@ -45,10 +46,12 @@
         android:text="No"
         android:gravity="center"
         android:layout_gravity="center"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_marginTop="5sp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:strokeWidth="1sp"
+        app:strokeColor="@color/white"
         />
 
 </LinearLayout>
