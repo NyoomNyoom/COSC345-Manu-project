@@ -24,10 +24,26 @@
             </intent-filter>
         </activity>
         <activity android:name=".HelloWorld"/>
-        <activity android:name=".QuizActivity"/>
-        <activity android:name=".QuizResultsActivity"/>
-        <activity android:name=".MenuActivity"/>
-        <activity android:name=".InfoGraphicActivity"/>
+        <activity
+            android:name=".QuizActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".QuizResultsActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".MenuActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".InfoGraphicActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
 
         <activity
             android:name=".Pop"
