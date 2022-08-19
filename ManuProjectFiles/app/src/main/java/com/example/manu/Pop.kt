@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +11,7 @@ import android.view.WindowManager
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.popup_window.*
 
-class Pop : AppCompatActivity() {
+class Pop : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
