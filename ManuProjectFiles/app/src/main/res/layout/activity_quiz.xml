@@ -37,17 +37,25 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_question"
-            android:layout_width="250sp"
-            android:layout_height="250sp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bird_white_heron"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="25sp"
-            app:strokeColor="@color/white"
-            app:strokeWidth="7sp"
             android:layout_marginBottom="10sp"
-            />
+            app:cardCornerRadius="7sp"
+            app:strokeWidth="3sp"
+            app:strokeColor="@color/white"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_question"
+                android:layout_width="250sp"
+                android:layout_height="250sp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bird_white_heron"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/progress_bar"
@@ -58,7 +66,7 @@
             app:indicatorColor="@color/progress_bar_indicator"
             android:layout_marginTop="25sp"
             android:layout_marginHorizontal="50sp"
-            app:trackCornerRadius="3sp"
+            app:trackCornerRadius="7sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -74,6 +82,7 @@
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
+            app:cornerRadius="7sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -88,6 +97,7 @@
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
+            app:cornerRadius="7sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -102,6 +112,7 @@
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
+            app:cornerRadius="7sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -116,6 +127,7 @@
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
+            app:cornerRadius="7sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -131,6 +143,7 @@
             app:strokeColor="@color/white"
             android:textStyle="italic"
             android:textSize="15sp"
+            app:cornerRadius="7sp"
             />
     </LinearLayout>
 
