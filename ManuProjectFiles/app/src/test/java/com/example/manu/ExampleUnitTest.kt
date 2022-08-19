@@ -110,7 +110,7 @@ class ExampleUnitTest {
                 break
         }
 
-        assertEquals(false, duplicateOptions)
+        assertEquals(true, duplicateOptions)
     }
 
     /**
@@ -208,5 +208,47 @@ class ExampleUnitTest {
         val makeString: String = questions[0].getQuestionResourceId().toString() + ", " +
                 questions[0].getOptions().toString() + ", " + questions[0].getAnswerIndex().toString()
         assertEquals(true, toString == makeString)
+    }
+
+    /**
+     * A test to check the getBirdName() function.
+     */
+    @Test
+    fun getBirdName_isCorrect(){
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+
+        assertEquals("Bellbird", bird.getBirdName())
+    }
+
+    /**
+     * A test to check if the getPhotoResourceID function is working correctly.
+     */
+    @Test
+    fun getPhotoResourceID_isCorrect(){
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+
+        assertEquals(R.drawable.bird_bellbird, bird.getPhotoResourceId())
+    }
+
+    /**
+     * A test to check if the getFunFact function is working properly.
+     */
+    @Test
+    fun getFunFact_isCorrect(){
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+
+        assertEquals("", bird.getFunFact())
+    }
+
+    /**
+     * A test to check if the toString method for birdTemp is working.
+     */
+    @Test
+    fun birdTempToString_isCorrect(){
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+        val birdName = "Bellbird"
+        val photoResourceID = R.drawable.bird_bellbird
+
+        assertEquals("$birdName, $photoResourceID", bird.toString())
     }
 }
