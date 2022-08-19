@@ -45,8 +45,6 @@ class InfoGraphicActivity : AppCompatActivity() {
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
                 // Create a pop up window and pass it the text information
-                allButtons[i].setBackgroundColor(Color.BLUE)
-
                 val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
                 popupWindow.contentView = popupView
@@ -120,10 +118,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             }
         }
     }
-
-    /**
-     * Executes code for a left going right gesture to return to menu.
-     */
+    
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
