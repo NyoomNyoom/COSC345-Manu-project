@@ -31,7 +31,19 @@ class BirdDatabase {
             birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko, ""))
             birds.add(BirdTemp("Weka", R.drawable.bird_weka, ""))
             birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron, ""))
+            birds.add(BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, ""))
+            birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, ""))
+            birds.add(BirdTemp("Black Stilt", R.drawable.bird_black_stilt, ""))
+            birds.add(BirdTemp("Chatham Island Oystercatcher", R.drawable.bird_chatham_island_oystercatcher, ""))
+            birds.add(BirdTemp("Grey Warbler", R.drawable.bird_grey_warbler, ""))
+            birds.add(BirdTemp("Huttons Shearwater", R.drawable.bird_huttons_shearwater, ""))
+            birds.add(BirdTemp("Morepork", R.drawable.bird_morepork, ""))
+            birds.add(BirdTemp("New Zealand Dotterel", R.drawable.bird_new_zealand_dotterel, ""))
+            birds.add(BirdTemp("New Zealand Pidgeon", R.drawable.bird_new_zealand_pidgeon, ""))
+            birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted__parakeet, ""))
             birds.add(BirdTemp("Kiwi", Resources.ID_NULL, ""))
+            birds.add(BirdTemp("Tui", Resources.ID_NULL, "the Tui has quite a distinctive flight pattern, with louder flapping than most other birds due to its relatively short wide wings"))
+
         }
 
         /**
