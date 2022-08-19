@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             app:trackThickness="10sp"
             app:trackColor="@color/white"
-            app:indicatorColor="@color/grey"
+            app:indicatorColor="@color/progress_bar_indicator"
             android:layout_marginTop="25sp"
             android:layout_marginHorizontal="50sp"
             app:trackCornerRadius="3sp"
@@ -127,9 +127,9 @@
             android:text="Submit"
             android:textColor="@color/white"
             android:backgroundTint="@color/black"
-            app:strokeWidth="3sp"
+            app:strokeWidth="1sp"
             app:strokeColor="@color/white"
-            android:textStyle="bold"
+            android:textStyle="italic"
             android:textSize="15sp"
             />
     </LinearLayout>
