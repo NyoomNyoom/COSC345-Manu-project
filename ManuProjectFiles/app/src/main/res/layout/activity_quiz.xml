@@ -21,7 +21,7 @@
         android:layout_marginHorizontal="30sp"
         android:layout_marginBottom="15sp"
         android:text="x"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textColor="@color/white"
         android:backgroundTint="#00000000"
         android:gravity="center"
@@ -73,6 +73,7 @@
             android:backgroundTint="@color/black"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
+            android:textSize="15sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -86,6 +87,7 @@
             android:backgroundTint="@color/black"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
+            android:textSize="15sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -99,6 +101,7 @@
             android:backgroundTint="@color/black"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
+            android:textSize="15sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -112,6 +115,7 @@
             android:backgroundTint="@color/black"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
+            android:textSize="15sp"
             />
 
         <com.google.android.material.button.MaterialButton
@@ -126,6 +130,7 @@
             app:strokeWidth="3sp"
             app:strokeColor="@color/white"
             android:textStyle="bold"
+            android:textSize="15sp"
             />
     </LinearLayout>
 
