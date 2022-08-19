@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.Gravity
+import android.view.View
 import android.view.WindowManager
+import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.popup_window.*
 
 class Pop : AppCompatActivity() {
@@ -13,6 +15,12 @@ class Pop : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.popup_window)
+
+        // Hide the navigation and status bars.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         val dm: DisplayMetrics = DisplayMetrics()
         getWindowManager().getDefaultDisplay().getMetrics(dm)
