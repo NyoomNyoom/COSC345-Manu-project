@@ -14,7 +14,7 @@ import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
-import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
 
 /* Honestly I don't know yet...
@@ -47,6 +47,15 @@ class InfoGraphicActivity : AppCompatActivity() {
                 // Create a pop up window and pass it the text information
                 val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
+                try{
+                    popupView.fun_fact.text = birds[i].getFunFact()
+                    if (popupView.fun_fact.text == "") {
+                        popupView.fun_fact.text = "Oh no this fact wasn't found, someone should really get Will onto it..."
+                    }
+                } catch (e: Exception){
+                    popupView.fun_fact.text = "Oh no this fact wasn't found, someone should really get Will onto it..."
+                }
+
                 popupWindow.contentView = popupView
                 popupWindow.isOutsideTouchable = true
                 popupWindow.isFocusable = true
