@@ -108,8 +108,8 @@ $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclara
 $dokka.location:com.example.manu/QuizResultsActivity///PointingToDeclaration/app/com.example.manu/-quiz-results-activity/index.html
 $dokka.location:com.example.manu/QuizResultsActivity/QuizResultsActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/-quiz-results-activity.html
 $dokka.location:com.example.manu/QuizResultsActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/on-back-pressed.html
-$dokka.location:com.example.manu/ReturnToMenuPopup///PointingToDeclaration/app/com.example.manu/-return-to-menu-popup/index.html
-$dokka.location:com.example.manu/ReturnToMenuPopup/ReturnToMenuPopup/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup/-return-to-menu-popup.html
-$dokka.location:com.example.manu/ReturnToMenuPopup/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup/on-back-pressed.html
+$dokka.location:com.example.manu/ReturnToMenuPopupActivity///PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/index.html
+$dokka.location:com.example.manu/ReturnToMenuPopupActivity/ReturnToMenuPopupActivity/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/-return-to-menu-popup-activity.html
+$dokka.location:com.example.manu/ReturnToMenuPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/on-back-pressed.html
 com.example.manu
 
