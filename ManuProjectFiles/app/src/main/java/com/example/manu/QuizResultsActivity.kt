@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Intent
@@ -16,7 +20,7 @@ class QuizResultsActivity : AppCompatActivity() {
     /**
      * This is run when the class is instantiated. It loads the quiz results activity and presents the results.
      *
-     * @param Bundle Saves information between separate loads of this activity view.
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

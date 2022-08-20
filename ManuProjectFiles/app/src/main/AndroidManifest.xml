@@ -52,7 +52,7 @@
             />
 
         <activity
-            android:name=".Pop"
+            android:name=".ReturnToMenuPopup"
             android:theme="@style/Translucent"
             />
 

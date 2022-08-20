@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
      * or the quiz menu on a button press.
      * Button names need to be changed.
      *
-     * @param Bundle Saves information between separate loads of this activity view.
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

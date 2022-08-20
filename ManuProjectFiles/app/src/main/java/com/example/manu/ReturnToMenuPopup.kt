@@ -1,25 +1,34 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
-import kotlinx.android.synthetic.main.popup_window.*
+import kotlinx.android.synthetic.main.return_to_menu_popup.*
 
-class Pop : Activity() {
+/**
+ * Controls the "Return to Menu?" popup that shows when you press the 'X' button during the quiz.
+ */
+class ReturnToMenuPopup : Activity() {
 
     private lateinit var buttonPress: Animation
 
+    /**
+     * This is run when the class is instantiated. It sets up the quiz screen and starts the game.
+     *
+     * @param Bundle Saves information between separate loads of this activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.popup_window)
+        setContentView(R.layout.return_to_menu_popup)
 
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
@@ -33,6 +42,9 @@ class Pop : Activity() {
         btn_no.setOnClickListener { closePopup() }
     }
 
+    /**
+     * Animates the button press, closes the quiz, and loads the menu.
+     */
     private fun returnToMenu() {
         btn_yes.startAnimation(buttonPress)
         var intent = Intent(this, MenuActivity::class.java)
@@ -40,6 +52,9 @@ class Pop : Activity() {
         finish()
     }
 
+    /**
+     * Animates the button press and closes this popup.
+     */
     private fun closePopup() {
         btn_no.startAnimation(buttonPress)
         finish()

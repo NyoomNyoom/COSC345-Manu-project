@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * This is run when the class is instantiated. It loads the script to which this script transfers control.
      *
-     * @param Bundle Saves information between separate loads of this activity view.
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
