@@ -61,6 +61,7 @@
                 app:strokeColor="@color/white"
                 android:textStyle="italic"
                 android:layout_marginBottom="5sp"
+                app:cornerRadius="7sp"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -78,6 +79,7 @@
                 app:strokeColor="@color/white"
                 android:textStyle="italic"
                 android:layout_marginBottom="5sp"
+                app:cornerRadius="7sp"
                 />
 
         </com.google.android.material.card.MaterialCardView>
