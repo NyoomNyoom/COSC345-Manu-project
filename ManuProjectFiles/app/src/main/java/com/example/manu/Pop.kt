@@ -29,27 +29,6 @@ class Pop : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        //val dialog = Dialog(this)
-        //dialog.setContentView(R.layout.popup_window)
-        //dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        //val popupView = layoutInflater.inflate(R.layout.popup_window, null)
-        //val popupWindow = PopupWindow(popupView)
-        //popupWindow.showAtLocation(this.getWindow().getDecorView().findViewById(android.R.id.content), Gravity.NO_GRAVITY, 400, 600)
-
-        /*val dm: DisplayMetrics = DisplayMetrics()
-        getWindowManager().getDefaultDisplay().getMetrics(dm)
-        val width: Int = dm.widthPixels
-        val height: Int = dm.heightPixels
-
-        getWindow().setLayout((width * 0.7).toInt(), (height * 0.5).toInt())
-
-        val params: WindowManager.LayoutParams = getWindow().getAttributes()
-        params.gravity = Gravity.CENTER
-        params.x = 0
-        params.y = -20
-
-        getWindow().setAttributes(params)*/
-
         btn_yes.setOnClickListener { returnToMenu() }
         btn_no.setOnClickListener { closePopup() }
     }
