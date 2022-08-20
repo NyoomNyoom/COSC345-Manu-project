@@ -194,7 +194,7 @@ class QuizActivity : AppCompatActivity() {
      * Loads the menu screen.
      */
     private fun returnToMenu() {
-        var intent = Intent(this, ReturnToMenuPopup::class.java)
+        var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         startActivity(intent)
     }
 

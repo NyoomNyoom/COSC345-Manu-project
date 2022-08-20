@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.return_to_menu_popup.*
 /**
  * Controls the "Return to Menu?" popup that shows when you press the 'X' button during the quiz.
  */
-class ReturnToMenuPopup : Activity() {
+class ReturnToMenuPopupActivity : Activity() {
 
     private lateinit var buttonPress: Animation
 
