@@ -5,24 +5,17 @@
 package com.example.manu
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
-
 
 /**
  * Runs and displays the quiz.
@@ -54,7 +47,7 @@ class QuizActivity : AppCompatActivity() {
     /**
      * This is run when the class is instantiated. It sets up the quiz screen and starts the game.
      *
-     * @param Bundle Saves information between separate loads of this activity view.
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -201,7 +194,7 @@ class QuizActivity : AppCompatActivity() {
      * Loads the menu screen.
      */
     private fun returnToMenu() {
-        var intent = Intent(this, Pop::class.java)
+        var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         startActivity(intent)
     }
 
