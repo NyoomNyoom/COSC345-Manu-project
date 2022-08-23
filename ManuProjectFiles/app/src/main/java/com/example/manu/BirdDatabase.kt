@@ -21,7 +21,7 @@ class BirdDatabase {
         fun compileDatabase() {
             birds = ArrayList()
             birds.add(BirdTemp("Paradise Duck", R.drawable.bird_paradise_duck, "Often seen by students in Dunedin, Paradise Ducks have been seen to exhibit homosexual behaviour by the presence of Bill and Bill within the University of Otago Campus. It is no wonder Bill and Bill have these tendancies due to their lovely chestnut breast feathers."))
-            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, ""))
+            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, "This is a very long fun fact specifically for Daniel to test his and Will's infographic popup. It needs to be long so the text stretches the whole popup really far. Daniel has ensured the bird's name (the popup's title) stays at the top instead of hanging near the centre and becoming tangled with the fact's text. He used 'centre_horizontal' instead of 'centre' because this ties it to the vertical axis (the centre of the horizontal axis) without tying it to the horizontal axis (the centre of the vertical axis). Anyway, I hope this fact is long enough and tests everything thoroughly. This app is looking great. Fantastic work everyone!!!"))
             birds.add(BirdTemp("Blue Duck", R.drawable.bird_blue_duck, ""))
             birds.add(BirdTemp("Kakapo", R.drawable.bird_kakapo, ""))
             birds.add(BirdTemp("Kea", R.drawable.bird_kea, ""))
