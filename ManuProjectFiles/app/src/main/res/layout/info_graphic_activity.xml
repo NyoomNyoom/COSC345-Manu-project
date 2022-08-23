@@ -37,7 +37,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
-        android:layout_width="49sp"
+        android:layout_width="50sp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"
         android:layout_marginBottom="15sp"
