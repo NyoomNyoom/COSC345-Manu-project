@@ -7,12 +7,16 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
+import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
 /* Honestly I don't know yet...
@@ -20,10 +24,13 @@ import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
+    private lateinit var buttonPress: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_graphic_activity)
+
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -71,8 +78,9 @@ class InfoGraphicActivity : AppCompatActivity() {
             }
         }
 
-        // Return to menu.
+        // Open the "Return to Menu?" popup.
         btn_back.setOnClickListener {
+            btn_back.startAnimation(buttonPress)
             var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
         }

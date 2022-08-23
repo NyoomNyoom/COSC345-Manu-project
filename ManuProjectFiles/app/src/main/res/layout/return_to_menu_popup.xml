@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Return to Menu?"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="30sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:theme="@style/Theme.Manu.ReturnToMenuPopup"
@@ -45,6 +45,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginBottom="55sp"
+                android:fontFamily="@font/party_confetti_regular"
                 />
 
             <com.google.android.material.button.MaterialButton
