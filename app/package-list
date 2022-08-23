@@ -42,6 +42,9 @@ $dokka.location:com.example.manu/InfoGraphicActivity/InfoGraphicActivity/#/Point
 $dokka.location:com.example.manu/InfoGraphicActivity/dispatchTouchEvent/#android.view.MotionEvent?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/dispatch-touch-event.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-back-pressed.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-touch-event.html
+$dokka.location:com.example.manu/InfographicPopupActivity///PointingToDeclaration/app/com.example.manu/-infographic-popup-activity/index.html
+$dokka.location:com.example.manu/InfographicPopupActivity/InfographicPopupActivity/#/PointingToDeclaration/app/com.example.manu/-infographic-popup-activity/-infographic-popup-activity.html
+$dokka.location:com.example.manu/InfographicPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-infographic-popup-activity/on-back-pressed.html
 $dokka.location:com.example.manu/MainActivity///PointingToDeclaration/app/com.example.manu/-main-activity/index.html
 $dokka.location:com.example.manu/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.manu/-main-activity/-main-activity.html
 $dokka.location:com.example.manu/MainActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-main-activity/on-back-pressed.html
