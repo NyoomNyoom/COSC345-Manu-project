@@ -24,29 +24,29 @@
             android:textColor="#FFFFFF"
             android:fontFamily="@font/party_confetti_regular"
             android:gravity="center"
-            android:text="Hello, welcome to Manu" />
+            android:text="Which quiz would you like to play?" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/img_eng_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center"
-            android:text="Hello, I am a Button - play the quiz!" />
+            android:text="Image to English Name" />
 
-        <Button android:id="@+id/button2"
+        <Button android:id="@+id/img_mao_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center"
-            android:text="Access the infographics!" />
+            android:text="Image to Māori Name" />
 
-        <Button android:id="@+id/button3"
+        <Button android:id="@+id/sou_eng_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center"
-            android:text="See the settings" />
-</LinearLayout>
+            android:text="Sound to English name" />
+    </LinearLayout>
 
 </FrameLayout>

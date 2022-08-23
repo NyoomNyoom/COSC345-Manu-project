@@ -46,6 +46,12 @@
             />
 
         <activity
+            android:name=".QuizOptions"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
             android:name=".InfoGraphicActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"

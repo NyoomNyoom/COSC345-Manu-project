@@ -6,16 +6,14 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.GestureDetector
-import android.view.Gravity
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
-
 
 /* Honestly I don't know yet...
  */
@@ -26,6 +24,12 @@ class InfoGraphicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_graphic_activity)
+
+        // Hide the navigation and status bars.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
@@ -47,6 +51,7 @@ class InfoGraphicActivity : AppCompatActivity() {
                 // Create a pop up window and pass it the text information
                 val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
+
                 try{
                     popupView.fun_fact.text = birds[i].getFunFact()
                     if (popupView.fun_fact.text == "") {
@@ -62,6 +67,12 @@ class InfoGraphicActivity : AppCompatActivity() {
                 popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
             }
+        }
+
+        // Return to menu.
+        btn_back.setOnClickListener {
+            var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            startActivity(intent)
         }
     }
 
