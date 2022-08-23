@@ -191,9 +191,10 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
-     * Loads the menu screen.
+     * Loads the "Return to Menu?" popup screen.
      */
     private fun returnToMenu() {
+        btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         startActivity(intent)
     }

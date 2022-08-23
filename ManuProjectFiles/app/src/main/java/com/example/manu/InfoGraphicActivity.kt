@@ -7,12 +7,18 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import com.google.android.material.card.MaterialCardView
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
+import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
 /* Honestly I don't know yet...
@@ -20,10 +26,13 @@ import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
+    private lateinit var buttonPress: Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_graphic_activity)
+
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -38,6 +47,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         val size = allButtons.size // Checking how many items there are.
 
         var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+        //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
         for(i in 0 until size){
             // Get bird image and add it to button
@@ -48,8 +58,13 @@ class InfoGraphicActivity : AppCompatActivity() {
 
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
+                allButtons[i].startAnimation(buttonPress)
+                var intent = Intent(this, InfographicPopupActivity::class.java)
+                intent.putExtra("birdName", birds[i].getBirdName())
+                intent.putExtra("birdFact", birds[i].getFunFact())
+                startActivity(intent)
                 // Create a pop up window and pass it the text information
-                val popupWindow = PopupWindow(this)
+                /*val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
 
                 try{
@@ -65,12 +80,13 @@ class InfoGraphicActivity : AppCompatActivity() {
                 popupWindow.isOutsideTouchable = true
                 popupWindow.isFocusable = true
                 popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)*/
             }
         }
 
-        // Return to menu.
+        // Open the "Return to Menu?" popup.
         btn_back.setOnClickListener {
+            btn_back.startAnimation(buttonPress)
             var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
         }

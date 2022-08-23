@@ -62,6 +62,11 @@
             android:theme="@style/Translucent"
             />
 
+        <activity
+            android:name=".InfographicPopupActivity"
+            android:theme="@style/Translucent"
+            />
+
     </application>
 
 </manifest>

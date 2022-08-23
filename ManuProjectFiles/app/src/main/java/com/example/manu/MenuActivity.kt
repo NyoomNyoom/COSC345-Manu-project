@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
+import android.view.View
+import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_menu.*
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.WindowCompat
 
 /**
  * Runs and displays the main menu.
@@ -27,6 +30,12 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)  // Set the layout to the menu layout.
         //val button = findViewById<View>(R.id.button1)
         // When this button is pressed, load the quiz, and exit from this script.
+
+        // Hide the navigation and status bars.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 

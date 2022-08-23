@@ -3,7 +3,8 @@
 <!-- Will Rushton 04/08/2022 -->
 
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,8 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType = "centerCrop"
-        android:src = "@drawable/fern_alt">
-    </ImageView>
+        android:src = "@drawable/fern_alt"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="75sp"
+        android:backgroundTint="@color/black"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,18 +32,19 @@
         android:fontFamily="@font/party_confetti_regular"
         android:layout_marginTop="15sp"
         android:layout_marginLeft="20sp"
+        android:translationZ="2sp"
         />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_back"
-        android:layout_width="49sp"
+        android:layout_width="50sp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"
         android:layout_marginBottom="15sp"
         android:text="x"
         android:textSize="30sp"
         android:textColor="@color/white"
-        android:backgroundTint="#00000000"
+        android:backgroundTint="@color/black"
         android:gravity="center"
         android:layout_gravity="right"
         android:layout_marginEnd="20sp"
@@ -47,12 +55,14 @@
         app:strokeWidth="1sp"
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        >
 
         <ScrollView
             android:id="@+id/scrollView1"
@@ -66,7 +76,8 @@
 
             <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TableRow
                     android:layout_marginStart="20dp"

@@ -22,7 +22,7 @@ class ReturnToMenuPopupActivity : Activity() {
     private lateinit var buttonPress: Animation
 
     /**
-     * This is run when the class is instantiated. It sets up the quiz screen and starts the game.
+     * This is run when the class is instantiated. It sets up the "Return to Menu?" layout.
      *
      * @param Bundle Saves information between separate loads of this activity.
      */
