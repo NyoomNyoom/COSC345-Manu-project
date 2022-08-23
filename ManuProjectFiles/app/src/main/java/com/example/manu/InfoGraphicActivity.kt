@@ -14,8 +14,8 @@ import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
-
 
 /* Honestly I don't know yet...
  */
@@ -62,6 +62,12 @@ class InfoGraphicActivity : AppCompatActivity() {
                 popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                 popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
             }
+        }
+
+        // Return to menu.
+        btn_back.setOnClickListener {
+            var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            startActivity(intent)
         }
     }
 
