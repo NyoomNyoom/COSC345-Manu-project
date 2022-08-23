@@ -31,7 +31,7 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
         button1.setOnClickListener {
-            val intent = Intent(this, QuizActivity::class.java)
+            val intent = Intent(this, QuizOptions::class.java)
             startActivity(intent)
             finish()
         }
