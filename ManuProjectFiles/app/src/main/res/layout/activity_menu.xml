@@ -2,13 +2,14 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width = "match_parent"
-    android:layout_height = "match_parent">
+    android:layout_height = "match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType = "centerCrop"
-        android:src = "@drawable/fern">
+        android:src = "@drawable/fern_alt">
     </ImageView>
 
     <LinearLayout
@@ -20,33 +21,43 @@
         <TextView android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40sp"
+            android:textSize="50sp"
             android:textColor="#FFFFFF"
             android:fontFamily="@font/party_confetti_regular"
             android:gravity="center"
-            android:text="Hello, welcome to Manu" />
+            android:text="Hello! \nWelcome to Manu" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center"
-            android:text="Hello, I am a Button - play the quiz!" />
+            android:layout_marginHorizontal="50sp"
+            android:layout_marginTop="30sp"
+            android:text="Play the quiz"
+            android:textColor="@color/white"
+            android:backgroundTint="#6f8c2a"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:textSize="15sp"
+            app:cornerRadius="7sp"
+            />
 
-        <Button android:id="@+id/button2"
-            android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center"
-            android:text="Access the infographics!" />
+            android:layout_marginHorizontal="50sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="20sp"
+            android:text="Access the infographics"
+            android:textColor="@color/white"
+            android:backgroundTint="#6f8c2a"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:textSize="15sp"
+            app:cornerRadius="7sp"
+            />
 
-        <Button android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:gravity="center"
-            android:text="See the settings" />
 </LinearLayout>
 
 </FrameLayout>
