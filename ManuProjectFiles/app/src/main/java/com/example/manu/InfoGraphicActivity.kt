@@ -12,8 +12,10 @@ import android.view.animation.AnimationUtils
 import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
@@ -45,6 +47,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         val size = allButtons.size // Checking how many items there are.
 
         var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+        //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
         for(i in 0 until size){
             // Get bird image and add it to button
@@ -55,6 +58,7 @@ class InfoGraphicActivity : AppCompatActivity() {
 
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
+                allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
                 startActivity(intent)
                 // Create a pop up window and pass it the text information
