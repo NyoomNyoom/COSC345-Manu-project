@@ -110,6 +110,7 @@ $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.
 $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-quiz-generator.html
 $dokka.location:com.example.manu/QuizOptions///PointingToDeclaration/app/com.example.manu/-quiz-options/index.html
 $dokka.location:com.example.manu/QuizOptions/QuizOptions/#/PointingToDeclaration/app/com.example.manu/-quiz-options/-quiz-options.html
+$dokka.location:com.example.manu/QuizOptions/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-options/on-back-pressed.html
 $dokka.location:com.example.manu/QuizResultsActivity///PointingToDeclaration/app/com.example.manu/-quiz-results-activity/index.html
 $dokka.location:com.example.manu/QuizResultsActivity/QuizResultsActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/-quiz-results-activity.html
 $dokka.location:com.example.manu/QuizResultsActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/on-back-pressed.html
