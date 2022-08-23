@@ -39,6 +39,9 @@ class InfographicPopupActivity : Activity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         btn_close.setOnClickListener { closePopup() }
+
+        txt_bird_name.text = intent.getStringExtra("birdName")
+        txt_bird_fact.text = intent.getStringExtra("birdFact")
     }
 
     /**

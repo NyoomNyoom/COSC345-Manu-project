@@ -60,6 +60,8 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
+                intent.putExtra("birdName", birds[i].getBirdName())
+                intent.putExtra("birdFact", birds[i].getFunFact())
                 startActivity(intent)
                 // Create a pop up window and pass it the text information
                 /*val popupWindow = PopupWindow(this)
