@@ -48,8 +48,10 @@ class InfoGraphicActivity : AppCompatActivity() {
 
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
+                var intent = Intent(this, InfographicPopupActivity::class.java)
+                startActivity(intent)
                 // Create a pop up window and pass it the text information
-                val popupWindow = PopupWindow(this)
+                /*val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
 
                 try{
@@ -65,7 +67,7 @@ class InfoGraphicActivity : AppCompatActivity() {
                 popupWindow.isOutsideTouchable = true
                 popupWindow.isFocusable = true
                 popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)*/
             }
         }
 

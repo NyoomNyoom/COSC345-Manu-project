@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:id="@+id/lyt_popup"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ReturnToMenuPopupActivity"
+    android:theme="@style/Theme.Manu.ReturnToMenuPopup"
+    android:background="#CC000000"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_close"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:backgroundTint="#00000000"
+        android:gravity="center"
+        android:layout_marginLeft="125sp"
+        android:layout_marginTop="-50sp"
+        app:cornerRadius="7sp"
+        android:fontFamily="@font/party_confetti_regular"
+        app:strokeWidth="1sp"
+        app:strokeColor="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_width="300sp"
+        android:layout_height="200sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="7sp"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:backgroundTint="@color/black"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tui"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:theme="@style/Theme.Manu.ReturnToMenuPopup"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="65sp"
+                android:fontFamily="@font/party_confetti_regular"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Called the parson bird by the early European immigrants to New Zealand, presumably because the white tufts of feathers at the front of its neck resemble a priest’s clerical collar"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12sp"
+                android:layout_marginTop="5sp"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

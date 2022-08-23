@@ -12,23 +12,23 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
-import kotlinx.android.synthetic.main.return_to_menu_popup.*
+import kotlinx.android.synthetic.main.activity_infographic_popup.*
 
 /**
- * Controls the "Return to Menu?" popup that shows when you press the 'X' button during the quiz.
+ * Controls the infographic popup that displays when you click on a bird in the infographics screen.
  */
-class ReturnToMenuPopupActivity : Activity() {
+class InfographicPopupActivity : Activity() {
 
     private lateinit var buttonPress: Animation
 
     /**
-     * This is run when the class is instantiated. It sets up the "Return to Menu?" layout.
+     * This is run when the class is instantiated. It sets up infographic popup layout.
      *
      * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.return_to_menu_popup)
+        setContentView(R.layout.activity_infographic_popup)
 
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
@@ -38,25 +38,14 @@ class ReturnToMenuPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_yes.setOnClickListener { returnToMenu() }
-        btn_no.setOnClickListener { closePopup() }
-    }
-
-    /**
-     * Animates the button press, closes the quiz, and loads the menu.
-     */
-    private fun returnToMenu() {
-        btn_yes.startAnimation(buttonPress)
-        var intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
-        finish()
+        btn_close.setOnClickListener { closePopup() }
     }
 
     /**
      * Animates the button press and closes this popup.
      */
     private fun closePopup() {
-        btn_no.startAnimation(buttonPress)
+        btn_close.startAnimation(buttonPress)
         finish()
     }
 
