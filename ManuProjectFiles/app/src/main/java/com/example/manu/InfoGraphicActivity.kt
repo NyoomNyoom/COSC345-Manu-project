@@ -51,6 +51,7 @@ class InfoGraphicActivity : AppCompatActivity() {
                 // Create a pop up window and pass it the text information
                 val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
+
                 try{
                     popupView.fun_fact.text = birds[i].getFunFact()
                     if (popupView.fun_fact.text == "") {
