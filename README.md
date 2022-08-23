@@ -6,3 +6,5 @@ Our github page for COSC345 2022. Our project is called Manu and is going to be 
 Our team consists of Daniel Robinson(@Daniel-Ian-Robinson), Will Rushton(@wrushton0), Madeline McCane(@mgmccane), and Jackson North(@NyoomNyoom).
 
 For the most up to date version of our quiz game, please clone the "main" branch as the "Stage_" branch is the branch that we will be working out of. The main branch of our code is updated weekly every Monday and Friday from our progress throughout the week.
+
+A feature we are testing is gesture based navigation between the menu and infographic, this feature hasn't been brought to full functionality. However, it is important to us to gain feedback about this function.
