@@ -7,9 +7,12 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.quiz_options.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.info_graphic_activity.*
 
 /**
  * Runs and displays the main menu.
@@ -38,18 +41,15 @@ class QuizOptions : AppCompatActivity() {
         img_eng_button.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
-            finish()
         }
         img_mao_button.setOnClickListener {
             val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         sou_eng_button.setOnClickListener {
             val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
-            finish()
         }
     }
 
