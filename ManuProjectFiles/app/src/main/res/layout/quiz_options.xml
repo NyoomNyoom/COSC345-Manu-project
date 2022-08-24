@@ -28,14 +28,14 @@
             android:text="Which quiz would you like to play?" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/img_eng_btn"
+            android:id="@+id/btn_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50sp"
             android:layout_marginTop="10sp"
             android:text="Image to Name"
             android:textColor="@color/white"
-            android:backgroundTint="#6f8c2a"
+            android:backgroundTint="@color/button_green"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
@@ -43,14 +43,14 @@
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/img_mao_btn"
+            android:id="@+id/btn_sound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50sp"
             android:layout_marginTop="10sp"
-            android:text="Image to Māori Name \n*COMING SOON*"
+            android:text="Sound to Name \n*COMING SOON*"
             android:textColor="@color/white"
-            android:backgroundTint="#6f8c2a"
+            android:backgroundTint="@color/button_green"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
@@ -58,15 +58,30 @@
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/sound_btn"
+            android:id="@+id/btn_to_maori"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50sp"
+            android:layout_marginTop="10sp"
+            android:text="English to Māori \n*COMING SOON*"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/button_green"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:textSize="15sp"
+            app:cornerRadius="7sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_to_eng"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50sp"
             android:layout_marginTop="10sp"
             android:layout_marginBottom="10sp"
-            android:text="Sound to Name \n*COMING SOON*"
+            android:text="Māori to English \n*COMING SOON*"
             android:textColor="@color/white"
-            android:backgroundTint="#6f8c2a"
+            android:backgroundTint="@color/button_green"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"

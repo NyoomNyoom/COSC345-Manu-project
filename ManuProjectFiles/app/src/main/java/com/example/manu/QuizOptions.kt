@@ -38,19 +38,26 @@ class QuizOptions : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        img_eng_btn.setOnClickListener {
+        btn_image.setOnClickListener {
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
         }
-        img_mao_btn.setOnClickListener {
+
+        btn_sound.setOnClickListener {
             val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
         }
 
-        sound_btn.setOnClickListener {
+        btn_to_maori.setOnClickListener {
             val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             startActivity(intent)
         }
+
+        btn_to_eng.setOnClickListener {
+            val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     /**
