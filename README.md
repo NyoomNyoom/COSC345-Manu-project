@@ -10,3 +10,5 @@ For the most up to date version of our quiz game, please clone the "main" branch
 A feature we are testing is gesture based navigation between the menu and infographic, this feature hasn't been brought to full functionality. However, it is important to us to gain feedback about this function.
 
 We are also using codecov in github actions to  check our testing percentages, to see this please follow this [link](https://app.codecov.io/gh/NyoomNyoom/COSC345-Manu-project)
+
+To access our source code documentation, please visit: https://nyoomnyoom.github.io/COSC345-Manu-project/
