@@ -15,12 +15,15 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Manu.ReturnToMenuPopup">
+    <style name="Theme.Manu.Popup">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
 
-    <style name="Translucent" parent="android:Theme.Translucent.NoTitleBar">
+    <style
+        name="Translucent"
+        parent="android:Theme.Translucent.NoTitleBar"
+        >
 
     </style>
 </resources>
