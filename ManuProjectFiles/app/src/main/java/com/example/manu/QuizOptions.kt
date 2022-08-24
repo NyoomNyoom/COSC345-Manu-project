@@ -44,18 +44,21 @@ class QuizOptions : AppCompatActivity() {
         }
 
         btn_sound.setOnClickListener {
-            val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            startActivity(intent)
+            // Do nothing.
+            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            //startActivity(intent)
         }
 
         btn_to_maori.setOnClickListener {
-            val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            startActivity(intent)
+            // Do nothing.
+            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            //startActivity(intent)
         }
 
         btn_to_eng.setOnClickListener {
-            val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            startActivity(intent)
+            // Do nothing.
+            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            //startActivity(intent)
         }
 
     }
