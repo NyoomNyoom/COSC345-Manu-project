@@ -131,9 +131,9 @@ class InfoGraphicActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@InfoGraphicActivity.onSwipeRight()
                     } else {
                         // left swipe
+                        this@InfoGraphicActivity.onSwipeLeft()
                     }
                     true
                 } else {
@@ -155,7 +155,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
-    private fun onSwipeRight() {
+    private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
         finish()

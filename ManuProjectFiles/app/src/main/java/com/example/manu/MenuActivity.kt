@@ -7,6 +7,8 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_menu.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
@@ -17,6 +19,8 @@ import androidx.core.view.WindowCompat
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
+    private lateinit var answerOptionDisappear: Animation
+    private lateinit var buttonPress: Animation
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -39,17 +43,31 @@ class MenuActivity : AppCompatActivity() {
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
+        loadAnimations()
         button1.setOnClickListener {
             val intent = Intent(this, QuizOptions::class.java)
+            button1.startAnimation(buttonPress)
+            //button2.startAnimation(buttonPress)
+
             startActivity(intent)
             finish()
         }
+
         button2.setOnClickListener {
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
+
+    /**
+     * Loads and stores the animations.
+     */
+    private fun loadAnimations() {
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+        answerOptionDisappear = AnimationUtils.loadAnimation(this, R.anim.answer_option_disappear)
+    }
+
 
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -76,6 +94,7 @@ class MenuActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
+                        this@MenuActivity.onSwipeRight()
                     } else {
                         // left swipe
                         this@MenuActivity.onSwipeLeft()
@@ -101,10 +120,19 @@ class MenuActivity : AppCompatActivity() {
     }
 
     /**
+     * Executes code for a right gesture going right to enter infographics.
+     */
+    private fun onSwipeRight() {
+        var intent = Intent(this, InfoGraphicActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    /**
      * Executes code for a left gesture going right to enter infographics.
      */
     private fun onSwipeLeft() {
-        var intent = Intent(this, InfoGraphicActivity::class.java)
+        var intent = Intent(this, QuizOptions::class.java)
         startActivity(intent)
         finish()
     }

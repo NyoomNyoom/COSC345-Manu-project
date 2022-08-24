@@ -75,7 +75,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_opt_0"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="48sp"
             android:layout_marginHorizontal="30sp"
             android:layout_marginTop="30sp"
             android:layout_marginBottom="10sp"
@@ -94,7 +94,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_opt_1"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="48sp"
             android:layout_marginHorizontal="30sp"
             android:layout_marginBottom="10sp"
             android:text="White Heron"
@@ -113,7 +113,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_opt_2"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="48sp"
             android:layout_marginHorizontal="30sp"
             android:layout_marginBottom="10sp"
             android:text="Weka"
@@ -132,7 +132,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_opt_3"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="48sp"
             android:layout_marginHorizontal="30sp"
             android:layout_marginBottom="25sp"
             android:text="Kea"
