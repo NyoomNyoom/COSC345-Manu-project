@@ -40,7 +40,6 @@ class BirdTemp(birdName: String, photoResourceId: Int, funFactID: String/*, soun
      * @return the birds fun fact.
      */
     fun getFunFact(): String {
-
         return funFact
     }
 
