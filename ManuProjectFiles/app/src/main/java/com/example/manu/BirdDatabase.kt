@@ -37,7 +37,6 @@ class BirdDatabase {
             birds.add(BirdTemp("Chatham Island Oystercatcher", R.drawable.bird_chatham_island_oystercatcher, "Since this bird has a long name, I need to test it with a fun fact."))
             birds.add(BirdTemp("Grey Warbler", R.drawable.bird_grey_warbler, ""))
             birds.add(BirdTemp("Huttons Shearwater", R.drawable.bird_huttons_shearwater, ""))
-            birds.add(BirdTemp("Morepork", R.drawable.bird_morepork, ""))
             birds.add(BirdTemp("New Zealand Dotterel", R.drawable.bird_new_zealand_dotterel, ""))
             birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, ""))
             birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted__parakeet, ""))
