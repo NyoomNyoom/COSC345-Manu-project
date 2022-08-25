@@ -285,5 +285,29 @@ class ExampleUnitTest {
         }
     }
 
+    @Test
+    fun noDuplicatesInBirdDatabase(){
+        var stillValid = true
+        BirdDatabase.compileDatabase()
+
+        val birds = BirdDatabase.getBirdList()
+        val birds2 = BirdDatabase.getBirdList()
+
+        var birdTrackerList2 = 0
+
+        for ((birdTrackerList1, bird) in birds.withIndex()){
+            for ((birdTrackerList2, secondBird) in birds2.withIndex()){
+                if(birdTrackerList1 != birdTrackerList2) {
+                    if (bird.getBirdName() == secondBird.getBirdName()) {
+                        stillValid = false
+                    }
+                }
+            }
+        }
+
+        assertEquals(true, stillValid)
+    }
+
+
 
 }
