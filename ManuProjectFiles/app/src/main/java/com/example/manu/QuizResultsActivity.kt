@@ -8,6 +8,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.activity_quiz_results.*
@@ -16,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_quiz_results.*
  * Controls and displays the quiz results screen.
  */
 class QuizResultsActivity : AppCompatActivity() {
+
+    private lateinit var buttonPress: Animation
 
     /**
      * This is run when the class is instantiated. It loads the quiz results activity and presents the results.
@@ -38,10 +42,13 @@ class QuizResultsActivity : AppCompatActivity() {
 
         text_score.text = "$score / $totalQuestions"
 
+        loadAnimations()
+
         /*
          * Play again.
          */
         btn_play_again.setOnClickListener {
+            btn_play_again.startAnimation(buttonPress)
             var intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
             finish()
@@ -51,10 +58,15 @@ class QuizResultsActivity : AppCompatActivity() {
          * Go to the menu.
          */
         btn_menu.setOnClickListener {
+            btn_menu.startAnimation(buttonPress)
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun loadAnimations() {
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
     /**
