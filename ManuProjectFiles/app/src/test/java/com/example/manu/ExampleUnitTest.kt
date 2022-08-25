@@ -77,7 +77,7 @@ class ExampleUnitTest {
 
         assertEquals(false, duplicateQuestions)
     }
-/*
+
     /**
      * Checks no individual question contains a duplicate option.
      */
@@ -110,9 +110,10 @@ class ExampleUnitTest {
                 break
         }
 
-        assertEquals(true, duplicateOptions)
+
+        assertEquals(false, duplicateOptions)
     }
- */
+
     /**
      * Checks the answer to a question is always in the option list, and that the index of the answer in that list is
      * correct.
@@ -292,8 +293,6 @@ class ExampleUnitTest {
 
         val birds = BirdDatabase.getBirdList()
         val birds2 = BirdDatabase.getBirdList()
-
-        var birdTrackerList2 = 0
 
         for ((birdTrackerList1, bird) in birds.withIndex()){
             for ((birdTrackerList2, secondBird) in birds2.withIndex()){
