@@ -82,6 +82,15 @@ class BirdDatabase {
             return ""
         }
 
+        /**
+         * A function to return the list of birds
+         *
+         * @return getBirdList the list of birds.
+         */
+        fun getBirdList(): ArrayList<BirdTemp>{
+            return birds
+        }
+
     }
 
 }
