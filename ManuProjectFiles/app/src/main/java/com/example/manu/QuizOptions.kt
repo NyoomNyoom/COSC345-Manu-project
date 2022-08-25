@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
 class QuizOptions : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
+    private lateinit var buttonPress: Animation
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -43,29 +44,42 @@ class QuizOptions : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
+        loadAnimations()
+
         btn_image.setOnClickListener {
+            btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
         }
 
         btn_sound.setOnClickListener {
+            btn_sound.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
         btn_to_maori.setOnClickListener {
+            btn_to_maori.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
         btn_to_eng.setOnClickListener {
+            btn_to_eng.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
+    }
+
+    /**
+     * Loads and stores the animations.
+     */
+    private fun loadAnimations() {
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
