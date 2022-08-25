@@ -37,9 +37,8 @@ class BirdDatabase {
             birds.add(BirdTemp("Chatham Island Oystercatcher", R.drawable.bird_chatham_island_oystercatcher, "Since this bird has a long name, I need to test it with a fun fact."))
             birds.add(BirdTemp("Grey Warbler", R.drawable.bird_grey_warbler, ""))
             birds.add(BirdTemp("Huttons Shearwater", R.drawable.bird_huttons_shearwater, ""))
-            birds.add(BirdTemp("Morepork", R.drawable.bird_morepork, ""))
             birds.add(BirdTemp("New Zealand Dotterel", R.drawable.bird_new_zealand_dotterel, ""))
-            birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pidgeon, ""))
+            birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, ""))
             birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted__parakeet, ""))
             birds.add(BirdTemp("Kiwi", Resources.ID_NULL, ""))
             birds.add(BirdTemp("Tui", Resources.ID_NULL, "the Tui has quite a distinctive flight pattern, with louder flapping than most other birds due to its relatively short wide wings"))
@@ -81,6 +80,15 @@ class BirdDatabase {
             }
 
             return ""
+        }
+
+        /**
+         * A function to return the list of birds
+         *
+         * @return getBirdList the list of birds.
+         */
+        fun getBirdList(): ArrayList<BirdTemp>{
+            return birds
         }
 
     }

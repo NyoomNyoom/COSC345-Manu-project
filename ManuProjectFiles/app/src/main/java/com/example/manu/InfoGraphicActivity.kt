@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
-/* Honestly I don't know yet...
+/*
+ * Collects and adds the bird information into the infographic scene.
  */
 class InfoGraphicActivity : AppCompatActivity() {
 
@@ -55,7 +56,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             try {
                 allButtons[i].setBackgroundResource(birds[i].getPhotoResourceId())
             } catch (e: Exception){
-
+                allButtons[i].visibility = View.GONE
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
@@ -87,7 +88,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         // Open the "Return to Menu?" popup.
         btn_back.setOnClickListener {
             btn_back.startAnimation(buttonPress)
-            var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            // var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
@@ -131,9 +133,9 @@ class InfoGraphicActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@InfoGraphicActivity.onSwipeRight()
                     } else {
                         // left swipe
+                        this@InfoGraphicActivity.onSwipeLeft()
                     }
                     true
                 } else {
@@ -155,7 +157,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
-    private fun onSwipeRight() {
+    private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
         finish()
