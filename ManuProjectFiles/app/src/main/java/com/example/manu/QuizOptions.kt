@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.quiz_options.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
 
 /**
@@ -73,6 +74,10 @@ class QuizOptions : AppCompatActivity() {
             //startActivity(intent)
         }
 
+        btn_back_option.setOnClickListener{
+            returnToMenu()
+        }
+
     }
 
     /**
@@ -80,6 +85,15 @@ class QuizOptions : AppCompatActivity() {
      */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+    }
+
+    /**
+     * Loads the "Return to Menu?" popup screen.
+     */
+    private fun returnToMenu() {
+        btn_back_option.startAnimation(buttonPress)
+        var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
