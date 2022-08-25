@@ -88,7 +88,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         // Open the "Return to Menu?" popup.
         btn_back.setOnClickListener {
             btn_back.startAnimation(buttonPress)
-            var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            // var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
