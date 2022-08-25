@@ -19,6 +19,8 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
  */
 class QuizOptions : AppCompatActivity() {
 
+    private lateinit var gestureDetector: GestureDetectorCompat
+
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
      * or the quiz menu on a button press.
@@ -31,6 +33,9 @@ class QuizOptions : AppCompatActivity() {
         setContentView(R.layout.quiz_options)  // Set the layout to the menu layout.
         //val button = findViewById<View>(R.id.button1)
         // When this button is pressed, load the quiz, and exit from this script.
+
+        gestureDetector = GestureDetectorCompat(this, GestureListener())
+
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -61,6 +66,63 @@ class QuizOptions : AppCompatActivity() {
             //startActivity(intent)
         }
 
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return if (gestureDetector.onTouchEvent(event)) {
+            true
+        }
+        else{
+            super.onTouchEvent(event)
+        }
+    }
+
+    inner class GestureListener : GestureDetector.SimpleOnGestureListener()
+    {
+
+        private val SWIPE_THRESHOLD = 100
+        private val SWIPE_VELOCITY_THRESHOLD = 100
+
+        override fun onFling(downEvent: MotionEvent?, moveEvent: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
+            var diffX = moveEvent?.x?.minus(downEvent!!.x) ?: 0.0F
+            var diffY = moveEvent?.y?.minus(downEvent!!.y) ?: 0.0F
+
+            return if(Math.abs(diffX) > Math.abs(diffY)) {
+                // this is a left or right swipe
+                if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffX > 0 ){
+                        // right swipe
+                        this@QuizOptions.onSwipeRight()
+                    } else {
+                        // left swipe
+                    }
+                    true
+                } else {
+                    super.onFling(downEvent, moveEvent, velocityX, velocityY)
+                }
+            } else {
+                // this is a top or bottom swipe
+                if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+                    if (diffY > 0) {
+                        // swipe top
+                    } else {
+                        // swipe bottom
+                    }
+                    true
+                } else {
+                    super.onFling(downEvent, moveEvent, velocityX, velocityY)
+                }
+            }
+        }
+    }
+
+    /**
+     * Executes code for a right gesture going right to enter infographics.
+     */
+    private fun onSwipeRight() {
+        var intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     /**
