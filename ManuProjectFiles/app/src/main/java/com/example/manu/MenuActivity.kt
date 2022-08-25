@@ -31,8 +31,6 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)  // Set the layout to the menu layout.
-        //val button = findViewById<View>(R.id.button1)
-        // When this button is pressed, load the quiz, and exit from this script.
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -43,15 +41,15 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
         loadAnimations()
-        button1.setOnClickListener {
-            button1.startAnimation(buttonPress)
+        btn_play.setOnClickListener {
+            btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
             startActivity(intent)
             finish()
         }
 
-        button2.setOnClickListener {
-            button2.startAnimation(buttonPress)
+        btn_infographics.setOnClickListener {
+            btn_infographics.startAnimation(buttonPress)
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             finish()
@@ -65,8 +63,6 @@ class MenuActivity : AppCompatActivity() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
-
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
@@ -78,7 +74,6 @@ class MenuActivity : AppCompatActivity() {
 
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
-
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
 
