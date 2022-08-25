@@ -77,7 +77,7 @@ class ExampleUnitTest {
 
         assertEquals(false, duplicateQuestions)
     }
-
+/*
     /**
      * Checks no individual question contains a duplicate option.
      */
@@ -112,7 +112,7 @@ class ExampleUnitTest {
 
         assertEquals(true, duplicateOptions)
     }
-
+ */
     /**
      * Checks the answer to a question is always in the option list, and that the index of the answer in that list is
      * correct.
