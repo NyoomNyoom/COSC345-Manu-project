@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
 class QuizOptions : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
-    private lateinit var buttonPress: Animation
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -32,6 +31,11 @@ class QuizOptions : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quiz_options)  // Set the layout to the menu layout.
+        //val button = findViewById<View>(R.id.button1)
+        // When this button is pressed, load the quiz, and exit from this script.
+
+        gestureDetector = GestureDetectorCompat(this, GestureListener())
+
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -39,46 +43,30 @@ class QuizOptions : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        gestureDetector = GestureDetectorCompat(this, GestureListener())
-        loadAnimations()
-
         btn_image.setOnClickListener {
-            btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
         }
 
         btn_sound.setOnClickListener {
-            btn_sound.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
         btn_to_maori.setOnClickListener {
-            btn_to_maori.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
         btn_to_eng.setOnClickListener {
-            btn_to_eng.startAnimation(buttonPress)
             // Do nothing.
             //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             //startActivity(intent)
         }
 
     }
-
-    /**
-     * Loads and stores the animations.
-     */
-    private fun loadAnimations() {
-        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
-    }
-
-
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
