@@ -21,7 +21,8 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
-/* Honestly I don't know yet...
+/*
+ * Collects and adds the bird information into the infographic scene.
  */
 class InfoGraphicActivity : AppCompatActivity() {
 
@@ -55,7 +56,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             try {
                 allButtons[i].setBackgroundResource(birds[i].getPhotoResourceId())
             } catch (e: Exception){
-
+                allButtons[i].visibility = View.GONE
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
