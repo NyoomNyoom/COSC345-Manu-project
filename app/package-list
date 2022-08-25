@@ -108,9 +108,13 @@ $dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.examp
 $dokka.location:com.example.manu/QuizGenerator.Companion/getMaxShuffles/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-max-shuffles.html
 $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.example.manu/-quiz-generator/index.html
 $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-quiz-generator.html
+$dokka.location:com.example.manu/QuizOptions.GestureListener///PointingToDeclaration/app/com.example.manu/-quiz-options/-gesture-listener/index.html
+$dokka.location:com.example.manu/QuizOptions.GestureListener/QuizOptions.GestureListener/#/PointingToDeclaration/app/com.example.manu/-quiz-options/-gesture-listener/-quiz-options.-gesture-listener.html
+$dokka.location:com.example.manu/QuizOptions.GestureListener/onFling/#android.view.MotionEvent?#android.view.MotionEvent?#kotlin.Float#kotlin.Float/PointingToDeclaration/app/com.example.manu/-quiz-options/-gesture-listener/on-fling.html
 $dokka.location:com.example.manu/QuizOptions///PointingToDeclaration/app/com.example.manu/-quiz-options/index.html
 $dokka.location:com.example.manu/QuizOptions/QuizOptions/#/PointingToDeclaration/app/com.example.manu/-quiz-options/-quiz-options.html
 $dokka.location:com.example.manu/QuizOptions/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-options/on-back-pressed.html
+$dokka.location:com.example.manu/QuizOptions/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-quiz-options/on-touch-event.html
 $dokka.location:com.example.manu/QuizResultsActivity///PointingToDeclaration/app/com.example.manu/-quiz-results-activity/index.html
 $dokka.location:com.example.manu/QuizResultsActivity/QuizResultsActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/-quiz-results-activity.html
 $dokka.location:com.example.manu/QuizResultsActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-results-activity/on-back-pressed.html
