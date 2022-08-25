@@ -19,7 +19,6 @@ import androidx.core.view.WindowCompat
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
-    private lateinit var answerOptionDisappear: Animation
     private lateinit var buttonPress: Animation
 
     /**
@@ -45,15 +44,14 @@ class MenuActivity : AppCompatActivity() {
 
         loadAnimations()
         button1.setOnClickListener {
-            val intent = Intent(this, QuizOptions::class.java)
             button1.startAnimation(buttonPress)
-            //button2.startAnimation(buttonPress)
-
+            val intent = Intent(this, QuizOptions::class.java)
             startActivity(intent)
             finish()
         }
 
         button2.setOnClickListener {
+            button2.startAnimation(buttonPress)
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             finish()
@@ -65,7 +63,6 @@ class MenuActivity : AppCompatActivity() {
      */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
-        answerOptionDisappear = AnimationUtils.loadAnimation(this, R.anim.answer_option_disappear)
     }
 
 
