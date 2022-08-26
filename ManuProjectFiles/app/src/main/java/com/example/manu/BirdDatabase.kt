@@ -37,7 +37,6 @@ class BirdDatabase {
             birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon, ""))
             birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, ""))
             birds.add(BirdTemp("North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, ""))
-            birds.add(BirdTemp("North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, ""))
             birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted_parakeet, ""))
             birds.add(BirdTemp("Paradise Duck", R.drawable.bird_paradise_duck, "Often seen by students in Dunedin, Paradise Ducks have been seen to exhibit homosexual behaviour by the presence of Bill and Bill within the University of Otago Campus. It is no wonder Bill and Bill have these tendancies due to their lovely chestnut breast feathers."))
             birds.add(BirdTemp("Pūkeko", R.drawable.bird_pukeko, ""))
