@@ -66,11 +66,11 @@
             <TextView
                 android:id="@+id/txt_bird_fact"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Called the parson bird by the early European immigrants to New Zealand, presumably because the white tufts of feathers at the front of its neck resemble a priest’s clerical collar. "
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="left"
                 android:gravity="left"
                 android:layout_marginTop="80sp"
                 android:layout_marginHorizontal="15sp"
