@@ -18,22 +18,33 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <TextView android:id="@+id/text"
+        <TextView android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="50sp"
+            android:textSize="40sp"
             android:textColor="#FFFFFF"
             android:fontFamily="@font/party_confetti_regular"
             android:gravity="center"
-            android:text="Hello! \nWelcome to Manu" />
+            android:text="Hello! Welcome to"
+            />
+
+        <TextView android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="130sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/party_confetti_regular"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:layout_marginBottom="20sp"
+            />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button1"
+            android:id="@+id/btn_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50sp"
-            android:layout_marginTop="30sp"
-            android:text="Play the quiz"
+            android:text="Play"
             android:textColor="@color/white"
             android:backgroundTint="#6f8c2a"
             app:strokeWidth="1sp"
@@ -43,19 +54,19 @@
             />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
+            android:id="@+id/btn_infographics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="50sp"
             android:layout_marginTop="10sp"
-            android:layout_marginBottom="20sp"
-            android:text="Access the infographics"
+            android:text="Encyclopedia"
             android:textColor="@color/white"
             android:backgroundTint="#6f8c2a"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
             android:textSize="15sp"
             app:cornerRadius="7sp"
+            android:layout_marginBottom="50sp"
             />
 
 </LinearLayout>

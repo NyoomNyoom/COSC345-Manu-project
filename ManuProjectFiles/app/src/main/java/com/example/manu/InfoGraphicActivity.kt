@@ -21,14 +21,17 @@ import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 import kotlinx.android.synthetic.main.info_graphic_popup.view.*
 
-/*
+/**
  * Collects and adds the bird information into the infographic scene.
- */
+ **/
 class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
 
+    /**
+     *
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_graphic_activity)
@@ -62,7 +65,11 @@ class InfoGraphicActivity : AppCompatActivity() {
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
                 intent.putExtra("birdName", birds[i].getBirdName())
-                intent.putExtra("birdFact", birds[i].getFunFact())
+                if(birds[i].getFunFact() == ""){
+                    intent.putExtra("birdFact", "More information is yet to come...")
+                } else {
+                    intent.putExtra("birdFact", birds[i].getFunFact())
+                }
                 startActivity(intent)
                 // Create a pop up window and pass it the text information
                 /*val popupWindow = PopupWindow(this)
@@ -157,6 +164,9 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     *
+     */
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)

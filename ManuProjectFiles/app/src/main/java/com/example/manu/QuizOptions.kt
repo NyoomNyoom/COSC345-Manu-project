@@ -1,7 +1,7 @@
 package com.example.manu
 
+import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -9,10 +9,13 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import kotlinx.android.synthetic.main.quiz_options.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
+import kotlinx.android.synthetic.main.quiz_options.*
+
 
 /**
  * Runs and displays the main menu.
@@ -31,9 +34,7 @@ class QuizOptions : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.quiz_options)  // Set the layout to the menu layout.
-        //val button = findViewById<View>(R.id.button1)
-        // When this button is pressed, load the quiz, and exit from this script.
+        setContentView(R.layout.quiz_options)
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
@@ -46,6 +47,7 @@ class QuizOptions : AppCompatActivity() {
 
         loadAnimations()
 
+        // Set up all the buttons.
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
@@ -55,22 +57,20 @@ class QuizOptions : AppCompatActivity() {
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
         }
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
+        }
+
+        btn_back_option.setOnClickListener{
+            returnToMenu()
         }
 
     }
@@ -82,6 +82,17 @@ class QuizOptions : AppCompatActivity() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    /**
+     * Returns to the main menu. No popup.
+     */
+    private fun returnToMenu() {
+        var intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+    }
+
+    /**
+     * Executes code for swiping between screens.
+     */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
@@ -91,6 +102,9 @@ class QuizOptions : AppCompatActivity() {
         }
     }
 
+    /**
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
 
