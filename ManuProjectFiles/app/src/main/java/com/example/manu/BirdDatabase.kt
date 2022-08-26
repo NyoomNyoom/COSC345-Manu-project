@@ -44,7 +44,7 @@ class BirdDatabase {
             birds.add(BirdTemp("Rock Wren", R.drawable.bird_rock_wren, ""))
             birds.add(BirdTemp("Silvereye", R.drawable.bird_silvereye, ""))
             birds.add(BirdTemp("Stitchbird", R.drawable.bird_stitchbird, ""))
-            birds.add(BirdTemp("Takahe", R.drawable.bird_takahe, ""))
+            birds.add(BirdTemp("Takahē", R.drawable.bird_takahe, ""))
             birds.add(BirdTemp("Tūī", R.drawable.bird_tui, "Early European Settlers referred to the Tūī as the 'parson bird', presumably because the white tufts of feathers on the front of its neck resembled a priest's clerical collar."))
             birds.add(BirdTemp("Weka", R.drawable.bird_weka, ""))
             birds.add(BirdTemp("Westland Black Petrel", R.drawable.bird_westland_black_petrel, ""))
