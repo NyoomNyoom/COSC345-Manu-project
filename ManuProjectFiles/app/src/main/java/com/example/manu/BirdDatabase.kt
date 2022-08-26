@@ -11,7 +11,7 @@ import android.content.res.Resources
  */
 class BirdDatabase {
 
-    companion object {  // Makes the functions static.
+    companion object {  // Makes its embedded functions static.
 
         private lateinit var birds: ArrayList<BirdTemp>
 
@@ -52,7 +52,6 @@ class BirdDatabase {
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
             birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellowhead, ""))
-
         }
 
         /**
