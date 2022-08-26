@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,7 +45,7 @@ class MenuActivity : AppCompatActivity() {
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             finish()
         }
 
