@@ -1,7 +1,7 @@
 package com.example.manu
 
+import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -9,11 +9,13 @@ import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import kotlinx.android.synthetic.main.quiz_options.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
+import kotlinx.android.synthetic.main.quiz_options.*
+
 
 /**
  * Runs and displays the main menu.
@@ -91,8 +93,7 @@ class QuizOptions : AppCompatActivity() {
      * Loads the "Return to Menu?" popup screen.
      */
     private fun returnToMenu() {
-        btn_back_option.startAnimation(buttonPress)
-        var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+        var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
 
