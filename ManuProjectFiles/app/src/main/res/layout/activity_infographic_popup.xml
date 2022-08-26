@@ -58,7 +58,6 @@
                 android:textSize="30sp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:fontFamily="@font/party_confetti_regular"
                 android:layout_marginTop="15sp"
                 android:layout_marginHorizontal="15sp"
                 />
