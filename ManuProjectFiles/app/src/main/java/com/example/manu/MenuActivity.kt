@@ -45,7 +45,7 @@ class MenuActivity : AppCompatActivity() {
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            startActivity(intent)
             finish()
         }
 
