@@ -29,16 +29,16 @@ class BirdDatabase {
             birds.add(BirdTemp("Chatham Island Oystercatcher", R.drawable.bird_chatham_island_oystercatcher, "Since this bird has a long name, I need to test it with a fun fact."))
             birds.add(BirdTemp("Grey Warbler", R.drawable.bird_grey_warbler, ""))
             birds.add(BirdTemp("Huttons Shearwater", R.drawable.bird_huttons_shearwater, ""))
-            birds.add(BirdTemp("Kakapo", R.drawable.bird_kakapo, ""))
+            birds.add(BirdTemp("Kākāpō", R.drawable.bird_kakapo, ""))
             birds.add(BirdTemp("Kea", R.drawable.bird_kea, ""))
-            birds.add(BirdTemp("Kokako", R.drawable.bird_kokako, ""))
+            birds.add(BirdTemp("Kōkako", R.drawable.bird_kokako, ""))
             birds.add(BirdTemp("Morepork", R.drawable.bird_morepork, ""))
             birds.add(BirdTemp("New Zealand Dotterel", R.drawable.bird_new_zealand_dotterel, ""))
             birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon, ""))
             birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, ""))
             birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted_parakeet, ""))
             birds.add(BirdTemp("Paradise Duck", R.drawable.bird_paradise_duck, "Often seen by students in Dunedin, Paradise Ducks have been seen to exhibit homosexual behaviour by the presence of Bill and Bill within the University of Otago Campus. It is no wonder Bill and Bill have these tendancies due to their lovely chestnut breast feathers."))
-            birds.add(BirdTemp("Pukeko", R.drawable.bird_pukeko, ""))
+            birds.add(BirdTemp("Pūkeko", R.drawable.bird_pukeko, ""))
             birds.add(BirdTemp("Red Crowned Parakeet", R.drawable.bird_red_crowned_parakeet, ""))
             birds.add(BirdTemp("Rock Wren", R.drawable.bird_rock_wren, ""))
             birds.add(BirdTemp("Silvereye", R.drawable.bird_silvereye, ""))
@@ -53,7 +53,7 @@ class BirdDatabase {
 
 
             birds.add(BirdTemp("North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, ""))
-            birds.add(BirdTemp("Tui", R.drawable.bird_tui, "the Tui has quite a distinctive flight pattern, with louder flapping than most other birds due to its relatively short wide wings"))
+            birds.add(BirdTemp("Tūī", R.drawable.bird_tui, "the Tui has quite a distinctive flight pattern, with louder flapping than most other birds due to its relatively short wide wings"))
 
         }
 
