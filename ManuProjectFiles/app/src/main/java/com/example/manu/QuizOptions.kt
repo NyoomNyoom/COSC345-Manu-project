@@ -34,9 +34,7 @@ class QuizOptions : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.quiz_options)  // Set the layout to the menu layout.
-        //val button = findViewById<View>(R.id.button1)
-        // When this button is pressed, load the quiz, and exit from this script.
+        setContentView(R.layout.quiz_options)
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
@@ -49,6 +47,7 @@ class QuizOptions : AppCompatActivity() {
 
         loadAnimations()
 
+        // Set up all the buttons.
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
@@ -58,22 +57,16 @@ class QuizOptions : AppCompatActivity() {
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
         }
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
             // Do nothing.
-            //val intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-            //startActivity(intent)
         }
 
         btn_back_option.setOnClickListener{
@@ -90,13 +83,16 @@ class QuizOptions : AppCompatActivity() {
     }
 
     /**
-     * Loads the "Return to Menu?" popup screen.
+     * Returns to the main menu. No popup.
      */
     private fun returnToMenu() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
 
+    /**
+     * Executes code for swiping between screens.
+     */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
@@ -106,6 +102,9 @@ class QuizOptions : AppCompatActivity() {
         }
     }
 
+    /**
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
 

@@ -40,8 +40,8 @@ class MenuActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
-
         loadAnimations()
+
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
@@ -64,6 +64,9 @@ class MenuActivity : AppCompatActivity() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    /**
+     * Executes code for swiping between screens.
+     */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
@@ -73,6 +76,9 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
         private val SWIPE_THRESHOLD = 100

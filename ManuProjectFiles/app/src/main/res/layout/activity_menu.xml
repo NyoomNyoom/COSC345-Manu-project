@@ -27,7 +27,7 @@
             android:gravity="center"
             android:text="Hello! Welcome to"
             />
-        
+
         <TextView android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:textColor="#FFFFFF"
             android:fontFamily="@font/party_confetti_regular"
             android:gravity="center"
-            android:text="Manu"
+            android:text="@string/app_name"
             android:layout_marginBottom="20sp"
             />
 
