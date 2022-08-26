@@ -21,7 +21,7 @@ class BirdDatabase {
         fun compileDatabase() {
             birds = ArrayList()
             birds.add(BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
-            birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, "These globally endangered birds are important to Māori. They appear i"))
+            birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, "These globally endangered birds are important to Māori. They appear in Māori legends, stories, and even place names."))
             birds.add(BirdTemp("Australasian Crested Grebe", R.drawable.bird_australasian_crested_grebe, ""))
             birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, "This is a very long fun fact specifically for Daniel to test his and Will's infographic popup. It needs to be long so the text stretches the whole popup really far. Daniel has ensured the bird's name (the popup's title) stays at the top instead of hanging near the centre and becoming tangled with the fact's text. He used 'centre_horizontal' instead of 'centre' because this ties it to the vertical axis (the centre of the horizontal axis) without tying it to the horizontal axis (the centre of the vertical axis). Anyway, I hope this fact is long enough and tests everything thoroughly. This app is looking great. Fantastic work everyone!!!"))
             birds.add(BirdTemp("Black Stilt", R.drawable.bird_black_stilt, ""))
