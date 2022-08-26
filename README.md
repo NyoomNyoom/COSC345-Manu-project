@@ -24,7 +24,7 @@ Manu currently has the first four birds with fun facts, with the remainder to be
 ## How to build our app
 
 <ol>
-  <li>Clone our repository from the Main branch (Which will be the lastest stable build of our app).</li>
+  <li>Clone our repository from the latest release. (Which will be the lastest stable build of our app).</li>
   <li>Open the folder ManuProjectFiles then open the app file in Android Studio.</li>
   <li>Make a emulator that has the following specs:
     <ul>
@@ -33,3 +33,6 @@ Manu currently has the first four birds with fun facts, with the remainder to be
     </ul></li>
   <li>Run our app using the Pixel 4 and enjoy our app!</li>
 </ol>
+
+## Latest release
+Alpha (26/08/2022)
