@@ -74,6 +74,7 @@ class QuizGenerator {
                 }
             }
 
+            questions.shuffle()
             return questions
         }
 
