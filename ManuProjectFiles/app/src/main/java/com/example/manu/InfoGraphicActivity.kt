@@ -71,6 +71,7 @@ class InfoGraphicActivity : AppCompatActivity() {
                     intent.putExtra("birdFact", birds[i].getFunFact())
                 }
                 startActivity(intent)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 // Create a pop up window and pass it the text information
                 /*val popupWindow = PopupWindow(this)
                 val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
@@ -98,6 +99,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             // var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 
@@ -170,6 +172,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 

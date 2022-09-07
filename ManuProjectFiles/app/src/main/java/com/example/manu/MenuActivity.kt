@@ -46,6 +46,7 @@ class MenuActivity : AppCompatActivity() {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
 
@@ -53,6 +54,7 @@ class MenuActivity : AppCompatActivity() {
             btn_infographics.startAnimation(buttonPress)
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
     }
@@ -124,6 +126,7 @@ class MenuActivity : AppCompatActivity() {
     private fun onSwipeRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 
@@ -133,6 +136,7 @@ class MenuActivity : AppCompatActivity() {
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptions::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 
