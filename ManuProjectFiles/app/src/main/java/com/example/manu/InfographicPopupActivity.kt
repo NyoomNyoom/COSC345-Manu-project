@@ -62,7 +62,7 @@ class InfographicPopupActivity : Activity() {
     private fun closePopup() {
         btn_close.startAnimation(buttonPress)
         finish()
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
 
     /**
