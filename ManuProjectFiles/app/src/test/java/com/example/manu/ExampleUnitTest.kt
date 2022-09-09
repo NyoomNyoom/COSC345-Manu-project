@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.util.Log
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -270,7 +271,5 @@ class ExampleUnitTest {
 
         assertEquals(true, stillValid)
     }
-
-
 
 }
