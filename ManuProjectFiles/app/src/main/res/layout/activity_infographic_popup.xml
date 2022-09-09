@@ -63,6 +63,19 @@
                 />
 
             <TextView
+                android:id="@+id/bird_endangerment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endangerment: Extinct"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_gravity="left"
+                android:layout_marginTop="100sp"
+                android:layout_marginHorizontal="15sp"
+                android:layout_marginBottom="15sp"
+                />
+
+            <TextView
                 android:id="@+id/txt_bird_fact"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -71,7 +84,7 @@
                 android:textSize="14sp"
                 android:layout_gravity="left"
                 android:gravity="left"
-                android:layout_marginTop="100sp"
+                android:layout_marginTop="120sp"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginBottom="15sp"
                 />
