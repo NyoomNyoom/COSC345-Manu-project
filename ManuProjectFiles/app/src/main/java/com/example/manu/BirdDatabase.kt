@@ -5,6 +5,7 @@
 package com.example.manu
 
 import android.content.res.Resources
+import android.util.Log
 
 /**
  * Contains the bird database and handles queries to it.
@@ -52,6 +53,7 @@ class BirdDatabase {
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
             birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellowhead, ""))
+            birdFrequencyTest()
         }
 
         /**
@@ -91,13 +93,49 @@ class BirdDatabase {
             return ""
         }
 
+        fun getBirdUsingResourceId(resourceId: Int): BirdTemp {
+            for (bird in birds) {
+                if (bird.getPhotoResourceId() == resourceId)
+                    return bird
+            }
+
+            return BirdTemp("EMPTY_NAME", Resources.ID_NULL, "EMPTY_FACT")
+        }
+
         /**
          * A function to return the list of birds
          *
          * @return getBirdList the list of birds.
          */
-        fun getBirdList(): ArrayList<BirdTemp>{
+        fun getBirdList(): ArrayList<BirdTemp> {
             return birds
+        }
+
+        /*fun getIndexUsingName(name: String): Int {
+            var matchingBird: BirdTemp = null
+            for (bird in birds) {
+                if (bird.getBirdName() == name) {
+                    matchingBird = bird
+                }
+            }
+            return birds.indexOf(matchingBird)
+        }*/
+
+        private fun birdFrequencyTest() {
+            var birdFrequencies = IntArray(BirdDatabase.getBirdList().size){0}
+            for (i in 1..100000) {
+                val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+                for (i in 0..4) {
+                    val question = questions[i]
+                    //Log.d("BirdDatabase", question.getOptions()[question.getAnswerIndex()])
+                    //Log.d("BirdDatabase", question.toString())
+                    //Log.d("BirdDatabase", birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId())).toString())
+                    birdFrequencies[birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId()))]++
+                }
+            }
+            for (birdFrequency in birdFrequencies) {
+                Log.d("BirdDatabase", birdFrequency.toString())
+            }
         }
 
     }
