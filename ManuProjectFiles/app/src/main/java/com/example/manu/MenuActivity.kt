@@ -126,7 +126,7 @@ class MenuActivity : AppCompatActivity() {
     private fun onSwipeRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finish()
     }
 
@@ -136,7 +136,7 @@ class MenuActivity : AppCompatActivity() {
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptions::class.java)
         startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         finish()
     }
 

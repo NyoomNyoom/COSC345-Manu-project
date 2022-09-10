@@ -25,7 +25,7 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var score: Int = 0
-    private var numQuestions: Int = 5
+    private var numQuestions: Int = 30
     private var numOptions: Int = 4
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
