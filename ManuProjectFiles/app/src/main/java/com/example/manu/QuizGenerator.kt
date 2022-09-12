@@ -17,6 +17,11 @@ class QuizGenerator {
         val maxShuffles: Int = 10
 
         /**
+         * Index of the previous correct option.
+         */
+        var lastCorrectOptionIndex: Int = -1
+
+        /**
          * Generates a quiz from the information in the birds database.
          *
          * @param questionType The type of resource used as a question.
@@ -26,6 +31,7 @@ class QuizGenerator {
          * @return A list of quiz questions.
          */
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
+            lastCorrectOptionIndex = Random.nextInt(0, numOptions)  // No previously correct option, hence randomise.
             var questions: ArrayList<QuestionTemp> = ArrayList()
             for (shuffle in 0 until Random.nextInt(1, maxShuffles))
                 questions.shuffle()
@@ -40,6 +46,8 @@ class QuizGenerator {
                 for (bird: BirdTemp in birds) {
                     allNames.add(bird.getBirdName())
                 }
+
+                allNames.shuffle()
 
                 /*
                  * Create the questions.
@@ -71,11 +79,18 @@ class QuizGenerator {
                     for (shuffle in 0 until Random.nextInt(1, maxShuffles))
                         options.shuffle()  // Shuffle with the correct answer.
 
+                    /*
+                        Force the correct option to be in a different place than in the last question.
+                     */
+                    while (options.indexOf(answer) == lastCorrectOptionIndex) {
+                        options.shuffle()
+                    }
+
+                    lastCorrectOptionIndex = options.indexOf(answer)
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
 
-            questions.shuffle()
             return questions
         }
 

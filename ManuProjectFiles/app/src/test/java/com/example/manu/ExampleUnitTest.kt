@@ -327,4 +327,27 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
+    /**
+     * Checks whether the answer is in a different option for any two consecutive questions.
+     */
+    @Test
+    fun consecutiveQuestionDifferentCorrectOption() {
+        val quizzes = 1000
+        val questionsPerQuiz = 5
+        val optionsPerQuestion = 4
+
+        for (quiz in 1..quizzes) {
+            val questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, questionsPerQuiz, optionsPerQuestion)
+            var previousCorrectOption = -1
+            
+            for (question in questions) {
+                if (question.getAnswerIndex() == previousCorrectOption)
+                    assertEquals(true, false)
+                previousCorrectOption = question.getAnswerIndex()
+            }
+        }
+
+        assertEquals(true, true)
+    }
+
 }
