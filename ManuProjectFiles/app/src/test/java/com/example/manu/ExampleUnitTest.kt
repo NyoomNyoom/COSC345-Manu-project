@@ -271,4 +271,27 @@ class ExampleUnitTest {
         assertEquals(true, stillValid)
     }
 
+    /**
+     * Runs the photo quiz a number of times to check whether the birds are selected at random. This should result in a
+     * uniform distribution.
+     */
+    @Test
+    fun uniformBirdSelectionForQuiz() {
+        val quizzes = 100000
+        val questionsPerQuiz = 5
+        BirdDatabase.compileDatabase()
+        val birdFrequencies = BirdDatabase.birdFrequencyTest(quizzes, questionsPerQuiz)
+        val averageSelectionsPerBird = quizzes * questionsPerQuiz / BirdDatabase.getBirdList().size
+
+        for (birdFrequency in birdFrequencies) {
+            val marginOfError = averageSelectionsPerBird * 0.05
+            if (birdFrequency < averageSelectionsPerBird - marginOfError || birdFrequency > averageSelectionsPerBird
+                + marginOfError) {
+                assertEquals(true, false)
+            }
+        }
+
+        assertEquals(true, true)
+    }
+
 }

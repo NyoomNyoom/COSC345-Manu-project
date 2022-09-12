@@ -52,7 +52,6 @@ class BirdDatabase {
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
             birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellowhead, ""))
-            birdFrequencyTest()
         }
 
         /**
@@ -136,7 +135,7 @@ class BirdDatabase {
          * @return An array of integers where each integer represents the number of times that bird appeared in a quiz.
          * The bird is the bird in the database at the same index as the integer.
          */
-        private fun birdFrequencyTest(quizzes: Int, questionsPerQuiz: Int): IntArray {
+        fun birdFrequencyTest(quizzes: Int, questionsPerQuiz: Int): IntArray {
             var birdFrequencies = IntArray(getBirdList().size){0}
             for (i in 1..quizzes) {
                 val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO,
