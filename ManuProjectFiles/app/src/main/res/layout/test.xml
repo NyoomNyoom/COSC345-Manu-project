@@ -23,4 +23,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/IVbirdpics"
+        android:layout_width="256dp"
+        android:layout_height="392dp"
+        app:srcCompat="@drawable/bird_australasian_bittern"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="67dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,12 +28,16 @@ class HelloWorld : AppCompatActivity() {
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
 
 
-        createBirdBtn.setOnClickListener {
-            var questions = mutableListOf<Question>()
-            var birdadapter = BirdAdapter(questions)
 
-            birdadapter.createQuiz(this,1,1)
-            ListToStringTV.setText(birdadapter.toString())
+        createBirdBtn.setOnClickListener {
+            //var questions = mutableListOf<Question>()
+            //var birdadapter = BirdAdapter(questions)
+
+            //birdadapter.createQuiz(this,1,1)
+            //ListToStringTV.setText(birdadapter.toString())
+
+            var id = getResources().getIdentifier("bird_auckland_island_teal", "drawable", getPackageName())
+            IVbirdpics.setImageResource(R.drawable.bird_auckland_island_teal)
         }
     }
 }

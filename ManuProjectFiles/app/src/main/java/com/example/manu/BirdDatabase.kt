@@ -21,11 +21,10 @@ class BirdDatabase {
          */
         fun compileDatabase() {
             val aucklandIsTeal = Bird(1)
-            aucklandIsTeal.setPicFileName("R.drawable.bird_auckland_island_teal")
-            //getResourceID
+            aucklandIsTeal.setPicFileName("bird_auckland_island_teal")
 
             birds = ArrayList()
-            birds.add(BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal , "There is an island in the Auckland Islands group called 'Disappointment Island'."))
+            birds.add(BirdTemp("Auckland Island Teal",R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
             birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, "These globally endangered birds are important to Māori. They appear in Māori legends, stories, and even place names."))
             birds.add(BirdTemp("Australasian Crested Grebe", R.drawable.bird_australasian_crested_grebe, "While there are fewer than 1000 in Aotearoa, there used to be around 200 in the 1980s."))
             birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, "Bellbirds help regenerate the forest in two ways. They pollinate the flowers of many native trees and shrubs and, when they feed on the fruits from this pollination process, they disperse the seeds."))
