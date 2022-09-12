@@ -279,14 +279,47 @@ class ExampleUnitTest {
     fun uniformBirdSelectionForQuiz() {
         val quizzes = 100000
         val questionsPerQuiz = 5
+        val marginOfErrorPercentage = 0.05
+
         BirdDatabase.compileDatabase()
         val birdFrequencies = BirdDatabase.birdFrequencyTest(quizzes, questionsPerQuiz)
         val averageSelectionsPerBird = quizzes * questionsPerQuiz / BirdDatabase.getBirdList().size
+        val marginOfError = averageSelectionsPerBird * marginOfErrorPercentage
 
+        /*
+            Check all birds appear at a relatively uniform frequency.
+         */
         for (birdFrequency in birdFrequencies) {
-            val marginOfError = averageSelectionsPerBird * 0.05
             if (birdFrequency < averageSelectionsPerBird - marginOfError || birdFrequency > averageSelectionsPerBird
                 + marginOfError) {
+                assertEquals(true, false)
+            }
+        }
+
+        assertEquals(true, true)
+    }
+
+    /**
+     * Runs the photo quiz a number of times to check whether the option index for the correct answer is selected at
+     * random. This should result in a uniform distribution.
+     */
+    @Test
+    fun uniformCorrectOption() {
+        val quizzes = 100000
+        val questionsPerQuiz = 5
+        val optionsPerQuestion = 4
+        val marginOfErrorPercentage = 0.05
+
+        val optionFrequencies = QuizGenerator.optionFrequencyTest(quizzes, questionsPerQuiz, optionsPerQuestion)
+        val averageSelectionsPerOption = quizzes * questionsPerQuiz / optionsPerQuestion
+        val marginOfError = averageSelectionsPerOption * marginOfErrorPercentage
+
+        /*
+            Check all options contain the correct answer at a relatively uniform frequency.
+         */
+        for (optionFrequency in optionFrequencies) {
+            if (optionFrequency < averageSelectionsPerOption - marginOfError || optionFrequency >
+                averageSelectionsPerOption + marginOfError) {
                 assertEquals(true, false)
             }
         }

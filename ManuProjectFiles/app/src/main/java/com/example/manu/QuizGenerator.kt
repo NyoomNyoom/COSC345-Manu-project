@@ -4,6 +4,7 @@
 
 package com.example.manu
 
+import android.util.Log
 import kotlin.random.Random
 
 /**
@@ -76,6 +77,28 @@ class QuizGenerator {
 
             questions.shuffle()
             return questions
+        }
+
+        /**
+         * Generates quizzes and calculates the frequency at which each option is the answer.
+         *
+         * @param quizzes The number of quizzes to run.
+         * @param questionsPerQuiz The number of questions per quiz.
+         *
+         * @return An array of integers where each integer represents the number of times that option was the answer.
+         * The integer's index corresponds the option's index.
+         */
+        fun optionFrequencyTest(quizzes: Int, questionsPerQuiz: Int, optionsPerQuestion: Int): IntArray {
+            var optionFrequencies = IntArray(optionsPerQuestion) {0}
+            for (i in 1..quizzes) {
+                val questions: ArrayList<QuestionTemp> = generateQuiz(QuestionType.PHOTO,
+                    questionsPerQuiz, optionsPerQuestion)
+                for (i in 0 until questionsPerQuiz) {
+                    optionFrequencies[questions[i].getAnswerIndex()]++
+                }
+            }
+
+            return optionFrequencies
         }
 
     }
