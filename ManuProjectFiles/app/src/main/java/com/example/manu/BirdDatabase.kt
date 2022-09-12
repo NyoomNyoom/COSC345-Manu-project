@@ -134,7 +134,7 @@ class BirdDatabase {
                 }
             }
             for (birdFrequency in birdFrequencies) {
-                Log.d("BirdDatabase", birdFrequency.toString())
+                //Log.d("BirdDatabase", birdFrequency.toString())
             }
         }
 
