@@ -157,4 +157,8 @@ data class Bird(val birdNumIn: Int){
         birdFileSong = newName
     }
 
+    fun getDrawableResourceID(questionType: Int){
+        //R.drawable.birdfilename
+    }
+
 }
