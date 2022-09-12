@@ -121,21 +121,27 @@ class BirdDatabase {
             return birds.indexOf(matchingBird)
         }*/
 
-        private fun birdFrequencyTest() {
-            var birdFrequencies = IntArray(BirdDatabase.getBirdList().size){0}
-            for (i in 1..100000) {
-                val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
-                for (i in 0..4) {
+        /**
+         * Generates quizzes and calculates the frequency at which each bird in the database appears.
+         *
+         * @param quizzes The number of quizzes to run.
+         * @param questionsPerQuiz The number of questions per quiz.
+         *
+         * @return An array of integers where each integer represents the number of times that bird appeared in a quiz.
+         * The bird is the bird in the database at the same index as the integer.
+         */
+        private fun birdFrequencyTest(quizzes: Int, questionsPerQuiz: Int): IntArray {
+            var birdFrequencies = IntArray(getBirdList().size){0}
+            for (i in 1..quizzes) {
+                val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO,
+                    questionsPerQuiz, 4)
+                for (i in 0 until questionsPerQuiz) {
                     val question = questions[i]
-                    //Log.d("BirdDatabase", question.getOptions()[question.getAnswerIndex()])
-                    //Log.d("BirdDatabase", question.toString())
-                    //Log.d("BirdDatabase", birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId())).toString())
                     birdFrequencies[birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId()))]++
                 }
             }
-            for (birdFrequency in birdFrequencies) {
-                //Log.d("BirdDatabase", birdFrequency.toString())
-            }
+
+            return birdFrequencies
         }
 
     }
