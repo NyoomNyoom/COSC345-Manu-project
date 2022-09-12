@@ -137,11 +137,11 @@ class BirdDatabase {
          */
         fun birdFrequencyTest(quizzes: Int, questionsPerQuiz: Int): IntArray {
             var birdFrequencies = IntArray(getBirdList().size){0}
-            for (i in 1..quizzes) {
+            for (quizNum in 1..quizzes) {
                 val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO,
                     questionsPerQuiz, 4)
-                for (i in 0 until questionsPerQuiz) {
-                    val question = questions[i]
+                for (questionNum in 0 until questionsPerQuiz) {
+                    val question = questions[questionNum]
                     birdFrequencies[birds.indexOf(getBirdUsingPhotoResourceId(question.getQuestionResourceId()))]++
                 }
             }

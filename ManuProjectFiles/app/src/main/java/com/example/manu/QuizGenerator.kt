@@ -105,11 +105,11 @@ class QuizGenerator {
          */
         fun optionFrequencyTest(quizzes: Int, questionsPerQuiz: Int, optionsPerQuestion: Int): IntArray {
             var optionFrequencies = IntArray(optionsPerQuestion) {0}
-            for (i in 1..quizzes) {
+            for (quizNum in 1..quizzes) {
                 val questions: ArrayList<QuestionTemp> = generateQuiz(QuestionType.PHOTO,
                     questionsPerQuiz, optionsPerQuestion)
-                for (i in 0 until questionsPerQuiz) {
-                    optionFrequencies[questions[i].getAnswerIndex()]++
+                for (questionNum in 0 until questionsPerQuiz) {
+                    optionFrequencies[questions[questionNum].getAnswerIndex()]++
                 }
             }
 

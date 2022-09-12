@@ -339,7 +339,7 @@ class ExampleUnitTest {
         for (quiz in 1..quizzes) {
             val questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, questionsPerQuiz, optionsPerQuestion)
             var previousCorrectOption = -1
-            
+
             for (question in questions) {
                 if (question.getAnswerIndex() == previousCorrectOption)
                     assertEquals(true, false)
