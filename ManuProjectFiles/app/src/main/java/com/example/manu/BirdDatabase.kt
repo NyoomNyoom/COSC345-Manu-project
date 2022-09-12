@@ -5,7 +5,6 @@
 package com.example.manu
 
 import android.content.res.Resources
-import android.util.Log
 
 /**
  * Contains the bird database and handles queries to it.
@@ -93,7 +92,14 @@ class BirdDatabase {
             return ""
         }
 
-        fun getBirdUsingResourceId(resourceId: Int): BirdTemp {
+        /**
+         * Returns the bird with the specified photo resource ID.
+         *
+         * @param resourceId The photo's resource ID.
+         *
+         * @return The bird with the photo resource ID.
+         */
+        private fun getBirdUsingPhotoResourceId(resourceId: Int): BirdTemp {
             for (bird in birds) {
                 if (bird.getPhotoResourceId() == resourceId)
                     return bird
@@ -105,7 +111,7 @@ class BirdDatabase {
         /**
          * A function to return the list of birds
          *
-         * @return getBirdList the list of birds.
+         * @return getBirdList The list of birds.
          */
         fun getBirdList(): ArrayList<BirdTemp> {
             return birds
@@ -137,7 +143,7 @@ class BirdDatabase {
                     questionsPerQuiz, 4)
                 for (i in 0 until questionsPerQuiz) {
                     val question = questions[i]
-                    birdFrequencies[birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId()))]++
+                    birdFrequencies[birds.indexOf(getBirdUsingPhotoResourceId(question.getQuestionResourceId()))]++
                 }
             }
 
