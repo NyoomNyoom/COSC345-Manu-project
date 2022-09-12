@@ -110,6 +110,7 @@ $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclarat
 $dokka.location:com.example.manu/QuizGenerator.Companion///PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/index.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/getMaxShuffles/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-max-shuffles.html
+$dokka.location:com.example.manu/QuizGenerator.Companion/optionFrequencyTest/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/option-frequency-test.html
 $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.example.manu/-quiz-generator/index.html
 $dokka.location:com.example.manu/QuizGenerator/QuizGenerator/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-quiz-generator.html
 $dokka.location:com.example.manu/QuizOptions.GestureListener///PointingToDeclaration/app/com.example.manu/-quiz-options/-gesture-listener/index.html
