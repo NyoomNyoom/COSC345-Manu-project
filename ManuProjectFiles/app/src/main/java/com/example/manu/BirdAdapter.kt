@@ -23,7 +23,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
             Log.d("Question Error", "Please enter a valid question number(1-4).")
         }
 
-        for(i in 1..questionAmount-1){
+        for(i in 0,..questionAmount-1){
             questionList.add(Question(randomBird(questionType, context), questionType))
             for(k in 0..3){
                 questionList[i].addOption(randomBird(questionType, context))
