@@ -96,7 +96,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return output: String, the correct file for the bird.
      */
-    private fun getFile(questionType: Int): String{
+    fun getFile(questionType: Int): String{
         var output = ""
 
         //adds the filetype to the end of the string

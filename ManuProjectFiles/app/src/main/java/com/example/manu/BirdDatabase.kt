@@ -53,7 +53,7 @@ class BirdDatabase {
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
             birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellow_head, ""))
-            birdFrequencyTest()
+            //birdFrequencyTest()
         }
 
         /**
