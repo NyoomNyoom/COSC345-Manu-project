@@ -1,6 +1,7 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
+import android.content.Context
 import  android.util.Log
 import  kotlin.random.Random
 
@@ -14,23 +15,28 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     private var questionAmount: Int = 0
     //Creates a quiz using the amount of questions and type that the creator wants.
 
-    /*
-    fun createQuiz(questionAmount: Int, questionType: Int): MutableList<Question>{
+
+    fun createQuiz(context: Context, questionAmount: Int, questionType: Int): MutableList<Question>{
         this.questionAmount = questionAmount
 
-        //if(questionType !in 1..4){
-        //    Log.d("Question Error", "Please enter a valid question number(1-4).")
-        //}
-        for(i in 1..questionAmount-1){
-            questionList[i] = Question(randomBird(questionType), questionType)
+        if(questionType !in 1..4){
+            Log.d("Question Error", "Please enter a valid question number(1-4).")
+        }
+
+        for(i in 0..questionAmount-1){
+            val chosenBird = randomBird(questionType, context)
+
+            questionList.add(Question(chosenBird, questionType))
+            questionList[i],addOption(chosenBird)
+
             for(k in 0..3){
-                questionList[i].addOption(randomBird(0))
+                questionList[i].addOption(randomBird(questionType, context))
             }
             questionList[i].shuffleOptions()
         }
 
         return questionList
-    }*/
+    }
 
     /**
      * Creates a quiz using forced values. For testing purposes only.
@@ -49,6 +55,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
 
         for(i in 0..questionAmount-1) {
             questionList.add(Question(createBird(forceBird), questionType))
+            //questionList[i],addOption()
             for (k in 0..3) {
                 questionList[i].addOption(createBird(forceBird))
             }
@@ -58,9 +65,9 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         return questionList
     }
 
-    /*
+
     //function that finds a random bird for the question type.
-    private fun randomBird(questionType : Int): Bird {
+    private fun randomBird(questionType : Int, context: Context): Bird {
         var birdNum = Random.nextInt(0,47)
         var tempBird = createBird(birdNum)
         lateinit var birdOut: Bird
@@ -72,14 +79,15 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         if(isValid(questionType,tempBird)){
             birdOut = tempBird
         }else{
-            return randomBird(questionType)
+            return randomBird(questionType, context)
         }
 
-        birdOut.updateValues()
+
+        birdOut.updateValues(context)
 
         return birdOut
     }
-    */
+
 
     //function checks if the bird that is given is a valid bird for the question.
 

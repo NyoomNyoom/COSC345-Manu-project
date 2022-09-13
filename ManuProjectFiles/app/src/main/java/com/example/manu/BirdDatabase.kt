@@ -19,8 +19,9 @@ class BirdDatabase {
          * Compiles the bird database by creating and adding each individual bird.
          */
         fun compileDatabase() {
+
             birds = ArrayList()
-            birds.add(BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
+            birds.add(BirdTemp("Auckland Island Teal",R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
             birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, "These globally endangered birds are important to Māori. They appear in Māori legends, stories, and even place names."))
             birds.add(BirdTemp("Australasian Crested Grebe", R.drawable.bird_australasian_crested_grebe, "While there are fewer than 1000 in Aotearoa, there used to be around 200 in the 1980s."))
             birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, "Bellbirds help regenerate the forest in two ways. They pollinate the flowers of many native trees and shrubs and, when they feed on the fruits from this pollination process, they disperse the seeds."))
@@ -51,7 +52,8 @@ class BirdDatabase {
             birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron, ""))
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
-            birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellowhead, ""))
+            birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellow_head, ""))
+            //birdFrequencyTest()
         }
 
         /**
