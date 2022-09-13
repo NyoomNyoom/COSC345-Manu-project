@@ -27,7 +27,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
             val chosenBird = randomBird(questionType, context)
 
             questionList.add(Question(chosenBird, questionType))
-            questionList[i],addOption(chosenBird)
+            questionList[i].addOption(chosenBird)
 
             for(k in 0..3){
                 questionList[i].addOption(randomBird(questionType, context))
