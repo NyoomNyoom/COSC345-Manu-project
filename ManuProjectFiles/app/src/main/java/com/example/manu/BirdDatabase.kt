@@ -20,8 +20,6 @@ class BirdDatabase {
          * Compiles the bird database by creating and adding each individual bird.
          */
         fun compileDatabase() {
-            val aucklandIsTeal = Bird(1)
-            aucklandIsTeal.setPicFileName("bird_auckland_island_teal")
 
             birds = ArrayList()
             birds.add(BirdTemp("Auckland Island Teal",R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
@@ -55,7 +53,7 @@ class BirdDatabase {
             birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron, ""))
             birds.add(BirdTemp("Whitehead", R.drawable.bird_whitehead, ""))
             birds.add(BirdTemp("Yellow Eyed Penguin", R.drawable.bird_yellow_eyed_penguin, ""))
-            birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellowhead, ""))
+            birds.add(BirdTemp("Yellowhead", R.drawable.bird_yellow_head, ""))
             birdFrequencyTest()
         }
 

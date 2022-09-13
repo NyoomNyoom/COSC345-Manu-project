@@ -36,9 +36,7 @@ class HelloWorld : AppCompatActivity() {
             birdadapter.createQuiz(this,1,1)
             ListToStringTV.setText(birdadapter.toString())
 
-            var id = getResources().getIdentifier("bird_auckland_island_teal", "drawable", getPackageName())
-
-            IVbirdpics.setImageResource(id)
+            IVbirdpics.setImageResource(questions[0].correctBirdObject.getPhotoResourceID())
         }
     }
 }

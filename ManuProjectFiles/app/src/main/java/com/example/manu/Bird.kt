@@ -24,19 +24,22 @@ data class Bird(val birdNumIn: Int){
     private var alternativeName = ""
     private var birdInfoFile = ""
     private var birdNum = birdNumIn
+    private lateinit var context: Context
 
 
     /**
      * A function that searches the bird-data.csv file which is a list of birds to find the bird that was
      * inputted into the class constructor and then add the values of the bird to the private variables.
      */
-    fun updateValues(context: Context){
-        val inputStream = context.assets.open("bird-data.csv")
+    fun updateValues(contextIn: Context){
+        val inputStream = contextIn.assets.open("bird-data.csv")
         val minput = InputStreamReader(inputStream, "UTF-8")
         val reader = BufferedReader(minput)
 
+        context = contextIn
+
         var birdFound = false
-        val birdNumber = birdNum - 1
+        val birdNumber = birdNum
         val birdNumStr = birdNumber.toString()
 
         var birdInfo: MutableList<String> = mutableListOf()
@@ -66,7 +69,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdFilePic the filename of the bird.
      */
-    fun getBirdPicture(): String{
+    private fun getBirdPicture(): String{
         return birdFilePic
     }
 
@@ -75,7 +78,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdFileSong the filename of the bird.
      */
-    fun getBirdSong(): String{
+    private fun getBirdSong(): String{
         return birdFileSong
     }
 
@@ -93,7 +96,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return output: String, the correct file for the bird.
      */
-    fun getFile(questionType: Int): String{
+    private fun getFile(questionType: Int): String{
         var output = ""
 
         //adds the filetype to the end of the string
@@ -120,7 +123,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdInfoFile: String, the filename of the file that contains the birds fun fact.
      */
-    fun getInfoFile(): String{
+    private fun getInfoFile(): String{
         return birdInfoFile
     }
 
@@ -146,19 +149,19 @@ data class Bird(val birdNumIn: Int){
     /**
      * A function which sets the picture file of the bird to a new name which is parsed into the function.
      */
-    fun setPicFileName(newName: String){
+    private fun setPicFileName(newName: String){
         birdFilePic = newName
     }
 
     /**
      * A function which sets the sound file of the bird to a new name which is parsed into the function.
      */
-    fun setSongFileName(newName: String){
+    private fun setSongFileName(newName: String){
         birdFileSong = newName
     }
 
-    fun getDrawableResourceID(questionType: Int){
-        //R.drawable.birdfilename
+    fun getPhotoResourceID(): Int{
+        return context.resources.getIdentifier(birdFilePic, "drawable", context.packageName)
     }
 
 }
