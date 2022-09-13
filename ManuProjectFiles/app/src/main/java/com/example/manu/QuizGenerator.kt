@@ -4,6 +4,7 @@
 
 package com.example.manu
 
+import android.util.Log
 import kotlin.random.Random
 
 /**
@@ -16,6 +17,11 @@ class QuizGenerator {
         val maxShuffles: Int = 10
 
         /**
+         * Index of the previous correct option.
+         */
+        var lastCorrectOptionIndex: Int = -1
+
+        /**
          * Generates a quiz from the information in the birds database.
          *
          * @param questionType The type of resource used as a question.
@@ -25,6 +31,7 @@ class QuizGenerator {
          * @return A list of quiz questions.
          */
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
+            lastCorrectOptionIndex = Random.nextInt(0, numOptions)  // No previously correct option, hence randomise.
             var questions: ArrayList<QuestionTemp> = ArrayList()
             for (shuffle in 0 until Random.nextInt(1, maxShuffles))
                 questions.shuffle()
@@ -39,6 +46,8 @@ class QuizGenerator {
                 for (bird: BirdTemp in birds) {
                     allNames.add(bird.getBirdName())
                 }
+
+                allNames.shuffle()
 
                 /*
                  * Create the questions.
@@ -70,12 +79,41 @@ class QuizGenerator {
                     for (shuffle in 0 until Random.nextInt(1, maxShuffles))
                         options.shuffle()  // Shuffle with the correct answer.
 
+                    /*
+                        Force the correct option to be in a different place than in the last question.
+                     */
+                    while (options.indexOf(answer) == lastCorrectOptionIndex) {
+                        options.shuffle()
+                    }
+
+                    lastCorrectOptionIndex = options.indexOf(answer)
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
 
-            questions.shuffle()
             return questions
+        }
+
+        /**
+         * Generates quizzes and calculates the frequency at which each option is the answer.
+         *
+         * @param quizzes The number of quizzes to run.
+         * @param questionsPerQuiz The number of questions per quiz.
+         *
+         * @return An array of integers where each integer represents the number of times that option was the answer.
+         * The integer's index corresponds the option's index.
+         */
+        fun optionFrequencyTest(quizzes: Int, questionsPerQuiz: Int, optionsPerQuestion: Int): IntArray {
+            var optionFrequencies = IntArray(optionsPerQuestion) {0}
+            for (quizNum in 1..quizzes) {
+                val questions: ArrayList<QuestionTemp> = generateQuiz(QuestionType.PHOTO,
+                    questionsPerQuiz, optionsPerQuestion)
+                for (questionNum in 0 until questionsPerQuiz) {
+                    optionFrequencies[questions[questionNum].getAnswerIndex()]++
+                }
+            }
+
+            return optionFrequencies
         }
 
     }

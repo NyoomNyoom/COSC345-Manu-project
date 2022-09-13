@@ -34,7 +34,7 @@ class QuizActivity : AppCompatActivity() {
     private val finishText: String = "Finish"
     private val buttonColourHex:String = "#000000"
     private val buttonSelectedColourHex:String = "#808080"
-    private val buttonCorrectColourHex:String = "#4CF549"
+    private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private var questions: ArrayList<QuestionTemp> = ArrayList()
     private lateinit var optionButtons: ArrayList<MaterialButton>

@@ -16,12 +16,14 @@
         <entry key="app/src/main/res/layout/activity_infographic_popup.xml" value="0.22774810791015632" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.11930091185410334" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.21227264404296875" />
+        <entry key="app/src/main/res/layout/activity_quit_quiz_popup.xml" value="0.19067028985507245" />
         <entry key="app/src/main/res/layout/activity_quiz.xml" value="0.11955420466058764" />
         <entry key="app/src/main/res/layout/activity_quiz_results.xml" value="0.1911231884057971" />
-        <entry key="app/src/main/res/layout/info_graphic_activity.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/info_graphic_activity.xml" value="0.165" />
         <entry key="app/src/main/res/layout/menu_background.xml" value="0.10729166666666666" />
-        <entry key="app/src/main/res/layout/quiz_options.xml" value="0.2784534177918365" />
-        <entry key="app/src/main/res/layout/return_to_menu_popup.xml" value="0.7882541380066803" />
+        <entry key="app/src/main/res/layout/quit_quiz_popup.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/quiz_options.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/return_to_menu_popup.xml" value="0.165" />
         <entry key="app/src/main/res/layout/test.xml" value="0.10280797101449275" />
       </map>
     </option>

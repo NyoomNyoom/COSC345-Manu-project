@@ -5,7 +5,6 @@
 package com.example.manu
 
 import android.content.res.Resources
-import android.util.Log
 
 /**
  * Contains the bird database and handles queries to it.
@@ -94,7 +93,14 @@ class BirdDatabase {
             return ""
         }
 
-        fun getBirdUsingResourceId(resourceId: Int): BirdTemp {
+        /**
+         * Returns the bird with the specified photo resource ID.
+         *
+         * @param resourceId The photo's resource ID.
+         *
+         * @return The bird with the photo resource ID.
+         */
+        private fun getBirdUsingPhotoResourceId(resourceId: Int): BirdTemp {
             for (bird in birds) {
                 if (bird.getPhotoResourceId() == resourceId)
                     return bird
@@ -106,7 +112,7 @@ class BirdDatabase {
         /**
          * A function to return the list of birds
          *
-         * @return getBirdList the list of birds.
+         * @return getBirdList The list of birds.
          */
         fun getBirdList(): ArrayList<BirdTemp> {
             return birds
@@ -122,21 +128,27 @@ class BirdDatabase {
             return birds.indexOf(matchingBird)
         }*/
 
-        private fun birdFrequencyTest() {
-            var birdFrequencies = IntArray(BirdDatabase.getBirdList().size){0}
-            for (i in 1..100000) {
-                val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
-                for (i in 0..4) {
-                    val question = questions[i]
-                    //Log.d("BirdDatabase", question.getOptions()[question.getAnswerIndex()])
-                    //Log.d("BirdDatabase", question.toString())
-                    //Log.d("BirdDatabase", birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId())).toString())
-                    birdFrequencies[birds.indexOf(getBirdUsingResourceId(question.getQuestionResourceId()))]++
+        /**
+         * Generates quizzes and calculates the frequency at which each bird in the database appears.
+         *
+         * @param quizzes The number of quizzes to run.
+         * @param questionsPerQuiz The number of questions per quiz.
+         *
+         * @return An array of integers where each integer represents the number of times that bird appeared in a quiz.
+         * The bird is the bird in the database at the same index as the integer.
+         */
+        fun birdFrequencyTest(quizzes: Int, questionsPerQuiz: Int): IntArray {
+            var birdFrequencies = IntArray(getBirdList().size){0}
+            for (quizNum in 1..quizzes) {
+                val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO,
+                    questionsPerQuiz, 4)
+                for (questionNum in 0 until questionsPerQuiz) {
+                    val question = questions[questionNum]
+                    birdFrequencies[birds.indexOf(getBirdUsingPhotoResourceId(question.getQuestionResourceId()))]++
                 }
             }
-            for (birdFrequency in birdFrequencies) {
-                Log.d("BirdDatabase", birdFrequency.toString())
-            }
+
+            return birdFrequencies
         }
 
     }

@@ -1,6 +1,5 @@
 package com.example.manu
 
-import android.util.Log
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -270,6 +269,85 @@ class ExampleUnitTest {
         }
 
         assertEquals(true, stillValid)
+    }
+
+    /**
+     * Runs the photo quiz a number of times to check whether the birds are selected at random. This should result in a
+     * uniform distribution.
+     */
+    @Test
+    fun uniformBirdSelectionForQuiz() {
+        val quizzes = 100000
+        val questionsPerQuiz = 5
+        val marginOfErrorPercentage = 0.05
+
+        BirdDatabase.compileDatabase()
+        val birdFrequencies = BirdDatabase.birdFrequencyTest(quizzes, questionsPerQuiz)
+        val averageSelectionsPerBird = quizzes * questionsPerQuiz / BirdDatabase.getBirdList().size
+        val marginOfError = averageSelectionsPerBird * marginOfErrorPercentage
+
+        /*
+            Check all birds appear at a relatively uniform frequency.
+         */
+        for (birdFrequency in birdFrequencies) {
+            if (birdFrequency < averageSelectionsPerBird - marginOfError || birdFrequency > averageSelectionsPerBird
+                + marginOfError) {
+                assertEquals(true, false)
+            }
+        }
+
+        assertEquals(true, true)
+    }
+
+    /**
+     * Runs the photo quiz a number of times to check whether the option index for the correct answer is selected at
+     * random. This should result in a uniform distribution.
+     */
+    @Test
+    fun uniformCorrectOption() {
+        val quizzes = 100000
+        val questionsPerQuiz = 5
+        val optionsPerQuestion = 4
+        val marginOfErrorPercentage = 0.05
+
+        val optionFrequencies = QuizGenerator.optionFrequencyTest(quizzes, questionsPerQuiz, optionsPerQuestion)
+        val averageSelectionsPerOption = quizzes * questionsPerQuiz / optionsPerQuestion
+        val marginOfError = averageSelectionsPerOption * marginOfErrorPercentage
+
+        /*
+            Check all options contain the correct answer at a relatively uniform frequency.
+         */
+        for (optionFrequency in optionFrequencies) {
+            if (optionFrequency < averageSelectionsPerOption - marginOfError || optionFrequency >
+                averageSelectionsPerOption + marginOfError) {
+                assertEquals(true, false)
+            }
+        }
+
+        assertEquals(true, true)
+    }
+
+    /**
+     * Checks whether the answer is in a different option for any two consecutive questions.
+     */
+    @Test
+    fun consecutiveQuestionDifferentCorrectOption() {
+        val quizzes = 1000
+        val questionsPerQuiz = 5
+        val optionsPerQuestion = 4
+
+        for (quiz in 1..quizzes) {
+            val questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, questionsPerQuiz, optionsPerQuestion)
+            var previousCorrectOption = -1
+
+            for (question in questions) {
+                if (question.getAnswerIndex() == previousCorrectOption)
+                    assertEquals(true, false)
+                previousCorrectOption = question.getAnswerIndex()
+            }
+        }
+
+        assertEquals(true, true)
     }
 
 }

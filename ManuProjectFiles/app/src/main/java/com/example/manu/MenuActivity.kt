@@ -57,6 +57,13 @@ class MenuActivity : AppCompatActivity() {
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
+
+        btn_quit.setOnClickListener {
+            btn_quit.startAnimation(buttonPress)
+            val intent = Intent(this, QuitQuizPopupActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
     }
 
     /**
