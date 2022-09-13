@@ -104,6 +104,9 @@ $dokka.location:com.example.manu/QuestionType.MĀORI///PointingToDeclaration/{"o
 $dokka.location:com.example.manu/QuestionType.PHOTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-p-h-o-t-o/index.html
 $dokka.location:com.example.manu/QuestionType.SOUND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-s-o-u-n-d/index.html
 $dokka.location:com.example.manu/QuestionType///PointingToDeclaration/app/com.example.manu/-question-type/index.html
+$dokka.location:com.example.manu/QuitQuizPopupActivity///PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/index.html
+$dokka.location:com.example.manu/QuitQuizPopupActivity/QuitQuizPopupActivity/#/PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/-quit-quiz-popup-activity.html
+$dokka.location:com.example.manu/QuitQuizPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/on-back-pressed.html
 $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.example.manu/-quiz-activity/index.html
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
