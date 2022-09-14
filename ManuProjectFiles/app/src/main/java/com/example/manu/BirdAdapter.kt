@@ -13,9 +13,9 @@ will create the quiz. */
  */
 class BirdAdapter(val questionList : MutableList<Question>) {
     private var questionAmount: Int = 0
+
+
     //Creates a quiz using the amount of questions and type that the creator wants.
-
-
     fun createQuiz(context: Context, questionAmount: Int, questionType: Int): MutableList<Question>{
         this.questionAmount = questionAmount
 
@@ -30,7 +30,11 @@ class BirdAdapter(val questionList : MutableList<Question>) {
             questionList[i].addOption(chosenBird)
 
             for(k in 0..3){
-                questionList[i].addOption(randomBird(questionType, context))
+                val optionBird = randomBird(questionType, context)
+
+                if(questionList[i].noDuplicateOptions(optionBird)){
+                    questionList[i].addOption(optionBird)
+                }
             }
             questionList[i].shuffleOptions()
         }
@@ -72,6 +76,9 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         var tempBird = createBird(birdNum)
         lateinit var birdOut: Bird
 
+
+        tempBird.updateValues(context)
+
         if (questionType == 0){
             return createBird(birdNum)
         }
@@ -81,9 +88,6 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         }else{
             return randomBird(questionType, context)
         }
-
-
-        birdOut.updateValues(context)
 
         return birdOut
     }
@@ -102,15 +106,13 @@ class BirdAdapter(val questionList : MutableList<Question>) {
     fun isValid(questionType: Int, bird: Bird): Boolean{
         var validBird= false
         if(questionType == 1){
-            if(bird.getFile(questionType) != "null"){
+            if(bird.getBirdPicture() != "null"){
                 validBird = true
             }
         }else if(questionType == 2){
-            if(bird.getFile(questionType) != "null"){
+            if(bird.getBirdSong() != "null"){
                 validBird = true
             }
-        }else {
-            validBird = false
         }
 
         return validBird
@@ -124,10 +126,8 @@ class BirdAdapter(val questionList : MutableList<Question>) {
      *
      * @return Bird, returns the created bird object.
      */
-    fun createBird(birdNumber : Int): Bird{
-        var bird = Bird(birdNumber)
-
-        return bird
+    private fun createBird(birdNumber : Int): Bird{
+        return Bird(birdNumber)
     }
 
 
@@ -137,8 +137,11 @@ class BirdAdapter(val questionList : MutableList<Question>) {
      * @return returns the correct birds toString value.    
      */
     override fun toString(): String {
-        val correctBird = questionList[0].correctBirdObject
-        var correctBirdStr = correctBird.toString()
+        var correctBirdStr: String = ""
+
+        questionList.forEach(){
+            correctBirdStr += it.correctBirdObject.toString() +"\n"
+        }
 
         return "$correctBirdStr"
     }

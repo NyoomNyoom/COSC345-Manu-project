@@ -5,6 +5,8 @@
 
 package com.example.manu
 
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log  // ADDED: Allows you to print debugging statements.
@@ -26,17 +28,5 @@ class HelloWorld : AppCompatActivity() {
         super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
         setContentView(R.layout.test)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
-
-
-
-        createBirdBtn.setOnClickListener {
-            var questions = mutableListOf<Question>()
-            var birdadapter = BirdAdapter(questions)
-
-            birdadapter.createQuiz(this,1,1)
-            ListToStringTV.text = birdadapter.toString()
-
-            IVbirdpics.setImageResource(questions[0].correctBirdObject.getPhotoResourceID())
-        }
     }
 }

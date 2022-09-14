@@ -21,13 +21,43 @@ class BirdDatabase {
         fun compileDatabase() {
 
             birds = ArrayList()
-            birds.add(BirdTemp("Auckland Island Teal",R.drawable.bird_auckland_island_teal, "There is an island in the Auckland Islands group called 'Disappointment Island'."))
-            birds.add(BirdTemp("Australasian Bittern", R.drawable.bird_australasian_bittern, "These globally endangered birds are important to Māori. They appear in Māori legends, stories, and even place names."))
-            birds.add(BirdTemp("Australasian Crested Grebe", R.drawable.bird_australasian_crested_grebe, "While there are fewer than 1000 in Aotearoa, there used to be around 200 in the 1980s."))
-            birds.add(BirdTemp("Bellbird", R.drawable.bird_bellbird, "Bellbirds help regenerate the forest in two ways. They pollinate the flowers of many native trees and shrubs and, when they feed on the fruits from this pollination process, they disperse the seeds."))
+            birds.add(
+                BirdTemp(
+                    "Auckland Island Teal",
+                    R.drawable.bird_auckland_island_teal,
+                    "There is an island in the Auckland Islands group called 'Disappointment Island'."
+                )
+            )
+            birds.add(
+                BirdTemp(
+                    "Australasian Bittern",
+                    R.drawable.bird_australasian_bittern,
+                    "These globally endangered birds are important to Māori. They appear in Māori legends, stories, and even place names."
+                )
+            )
+            birds.add(
+                BirdTemp(
+                    "Australasian Crested Grebe",
+                    R.drawable.bird_australasian_crested_grebe,
+                    "While there are fewer than 1000 in Aotearoa, there used to be around 200 in the 1980s."
+                )
+            )
+            birds.add(
+                BirdTemp(
+                    "Bellbird",
+                    R.drawable.bird_bellbird,
+                    "Bellbirds help regenerate the forest in two ways. They pollinate the flowers of many native trees and shrubs and, when they feed on the fruits from this pollination process, they disperse the seeds."
+                )
+            )
             birds.add(BirdTemp("Black Stilt", R.drawable.bird_black_stilt, ""))
             birds.add(BirdTemp("Blue Duck", R.drawable.bird_blue_duck, ""))
-            birds.add(BirdTemp("Chatham Island Oystercatcher", R.drawable.bird_chatham_island_oystercatcher, "Since this bird has a long name, I need to test it with a fun fact."))
+            birds.add(
+                BirdTemp(
+                    "Chatham Island Oystercatcher",
+                    R.drawable.bird_chatham_island_oystercatcher,
+                    "Since this bird has a long name, I need to test it with a fun fact."
+                )
+            )
             birds.add(BirdTemp("Grey Warbler", R.drawable.bird_grey_warbler, ""))
             birds.add(BirdTemp("Huttons Shearwater", R.drawable.bird_huttons_shearwater, ""))
             birds.add(BirdTemp("Kākāpō", R.drawable.bird_kakapo, ""))
@@ -38,15 +68,27 @@ class BirdDatabase {
             birds.add(BirdTemp("New Zealand Falcon", R.drawable.bird_new_zealand_falcon, ""))
             birds.add(BirdTemp("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, ""))
             birds.add(BirdTemp("North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, ""))
-            birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted_parakeet, ""))
-            birds.add(BirdTemp("Paradise Duck", R.drawable.bird_paradise_duck, "Paradise Ducks start breeding in their second or third year of life. They mate for life and return to the same nesting area every year."))
+            birds.add(BirdTemp("Orange Fronted Parakeet", R.drawable.bird_orange_fronted__parakeet, ""))
+            birds.add(
+                BirdTemp(
+                    "Paradise Duck",
+                    R.drawable.bird_paradise_duck,
+                    "Paradise Ducks start breeding in their second or third year of life. They mate for life and return to the same nesting area every year."
+                )
+            )
             birds.add(BirdTemp("Pūkeko", R.drawable.bird_pukeko, ""))
             birds.add(BirdTemp("Red Crowned Parakeet", R.drawable.bird_red_crowned_parakeet, ""))
             birds.add(BirdTemp("Rock Wren", R.drawable.bird_rock_wren, ""))
             birds.add(BirdTemp("Silvereye", R.drawable.bird_silvereye, ""))
             birds.add(BirdTemp("Stitchbird", R.drawable.bird_stitchbird, ""))
             birds.add(BirdTemp("Takahē", R.drawable.bird_takahe, ""))
-            birds.add(BirdTemp("Tūī", R.drawable.bird_tui, "Early European Settlers referred to the Tūī as the 'parson bird', presumably because the white tufts of feathers on the front of its neck resembled a priest's clerical collar."))
+            birds.add(
+                BirdTemp(
+                    "Tūī",
+                    R.drawable.bird_tui,
+                    "Early European Settlers referred to the Tūī as the 'parson bird', presumably because the white tufts of feathers on the front of its neck resembled a priest's clerical collar."
+                )
+            )
             birds.add(BirdTemp("Weka", R.drawable.bird_weka, ""))
             birds.add(BirdTemp("Westland Black Petrel", R.drawable.bird_westland_black_petrel, ""))
             birds.add(BirdTemp("White Heron", R.drawable.bird_white_heron, ""))
@@ -128,6 +170,7 @@ class BirdDatabase {
             return birds.indexOf(matchingBird)
         }*/
 
+        /*
         /**
          * Generates quizzes and calculates the frequency at which each bird in the database appears.
          *
@@ -150,7 +193,7 @@ class BirdDatabase {
 
             return birdFrequencies
         }
+         */
 
     }
-
 }

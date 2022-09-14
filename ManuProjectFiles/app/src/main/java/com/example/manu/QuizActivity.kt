@@ -37,12 +37,16 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private var questions: ArrayList<QuestionTemp> = ArrayList()
+    
+    private var questionList = mutableListOf<Question>()
+
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
     private lateinit var answerOptionAppear: Animation
     private lateinit var answerOptionDisappear: Animation
     private lateinit var answerPop: Animation
+    private lateinit var quizManager: BirdAdapter
 
     /**
      * This is run when the class is instantiated. It sets up the quiz screen and starts the game.
@@ -52,7 +56,13 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
-        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
+        //questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
+
+        quizManager = BirdAdapter(questionList)
+
+        questionList = quizManager.createQuiz(this, numQuestions, 1)
+
+
 
         saveOptionButtons()
         loadAnimations()
@@ -64,11 +74,7 @@ class QuizActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        presentQuestion(questions[currentQuestionIndex])  // Present the first question.
-
-        // Jackson's code is below (commented out).
-        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
-        //val fileIN = InputStreamReader(assets.open("bird-data.csv"))
+        presentQuestion(questionList[currentQuestionIndex])  // Present the first question.
     }
 
     /**
@@ -124,9 +130,9 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Resets the screen with the next question.
      */
-    private fun presentQuestion(question: QuestionTemp) {
-        img_question.setImageResource(question.getQuestionResourceId())
-        val options = question.getOptions()
+    private fun presentQuestion(question: Question) {
+        img_question.setImageResource(question.getBirdPhoto())
+        val options = question.getOptionStrings() 
 
         btn_opt_0.text = options[0]
         btn_opt_1.text = options[1]
@@ -169,18 +175,18 @@ class QuizActivity : AppCompatActivity() {
             markedCurrentQuestion = false
             currentQuestionIndex++
 
-            if (currentQuestionIndex == questions.size) {  // If this was the last question.
+            if (currentQuestionIndex == questionList.size) {  // If this was the last question.
                 var resultsScreen = Intent(this, QuizResultsActivity::class.java)
 
                 // Pass the score through to the results screen.
                 resultsScreen.putExtra("score", score)
-                resultsScreen.putExtra("totalQuestions", questions.size)
+                resultsScreen.putExtra("totalQuestions", questionList.size)
 
                 startActivity(resultsScreen)
                 finish()
             } else {
                 resetOptionButtons()
-                presentQuestion(questions[currentQuestionIndex])
+                presentQuestion(questionList[currentQuestionIndex])
             }
         } else {
             if (optionSelected) {
@@ -210,7 +216,7 @@ class QuizActivity : AppCompatActivity() {
         /*
          * If correct.
          */
-        if (selectedOptionIndex == questions[currentQuestionIndex].getAnswerIndex()) {
+        if (selectedOptionIndex == questionList[currentQuestionIndex].getAnswerIndex()) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
@@ -221,7 +227,7 @@ class QuizActivity : AppCompatActivity() {
          */
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
-            optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
+            optionButtons[questionList[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
         }
 
@@ -230,12 +236,12 @@ class QuizActivity : AppCompatActivity() {
          * incorrect selection.
          */
         for (buttonIndex in 0..optionButtons.size - 1) {
-            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
+            if (selectedOptionIndex != buttonIndex && questionList[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
                 optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }
         }
 
-        if (currentQuestionIndex == questions.size - 1)  // If this was the last question.
+        if (currentQuestionIndex == questionList.size - 1)  // If this was the last question.
             btn_submit.text = finishText
         else
             btn_submit.text = nextText
@@ -243,7 +249,7 @@ class QuizActivity : AppCompatActivity() {
         markedCurrentQuestion = true
 
         // Increment the progress bar.
-        progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+        progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questionList.size.toFloat() * 100).toInt()
     }
 
 }

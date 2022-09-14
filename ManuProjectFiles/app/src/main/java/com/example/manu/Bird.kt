@@ -164,4 +164,8 @@ data class Bird(val birdNumIn: Int){
         return context.resources.getIdentifier(birdFilePic, "drawable", context.packageName)
     }
 
+    fun getSongResourceID(): Int{
+        return context.resources.getIdentifier("aucklandteal", "raw", context.packageName)
+    }
+
 }
