@@ -56,10 +56,6 @@ $dokka.location:com.example.manu/QuestionData/setOption2/#kotlin.String/Pointing
 $dokka.location:com.example.manu/QuestionData/setOption3/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-option3.html
 $dokka.location:com.example.manu/QuestionData/setQuestion/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-question.html
 $dokka.location:com.example.manu/QuestionData/toString/#/PointingToDeclaration/app/com.example.manu/-question-data/to-string.html
-$dokka.location:com.example.manu/QuestionHardCoded///PointingToDeclaration/app/com.example.manu/-question-hard-coded/index.html
-$dokka.location:com.example.manu/QuestionHardCoded/QuestionHardCoded/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-hard-coded/-question-hard-coded.html
-$dokka.location:com.example.manu/QuestionHardCoded/createQuiz/#/PointingToDeclaration/app/com.example.manu/-question-hard-coded/create-quiz.html
-$dokka.location:com.example.manu/QuestionHardCoded/getQuestionNum/#/PointingToDeclaration/app/com.example.manu/-question-hard-coded/get-question-num.html
 $dokka.location:com.example.manu/QuestionTemp///PointingToDeclaration/app/com.example.manu/-question-temp/index.html
 $dokka.location:com.example.manu/QuestionTemp/QuestionTemp/#kotlin.Int#java.util.ArrayList[kotlin.String]#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-temp/-question-temp.html
 $dokka.location:com.example.manu/QuestionTemp/getAnswerIndex/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-answer-index.html
