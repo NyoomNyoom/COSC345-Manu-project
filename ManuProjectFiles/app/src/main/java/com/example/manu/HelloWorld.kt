@@ -5,8 +5,6 @@
 
 package com.example.manu
 
-import android.media.MediaPlayer
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log  // ADDED: Allows you to print debugging statements.
@@ -28,5 +26,27 @@ class HelloWorld : AppCompatActivity() {
         super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
         setContentView(R.layout.test)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
+/*
+        var questions = mutableListOf<Question>()
+        var birdadapter = BirdAdapter(questions)
+
+        //birdadapter.createQuizForced(1,1,1)
+
+        createBirdBtn.setOnClickListener {
+            ListToStringTV.setText(birdadapter.toString())
+
+            val minput = InputStreamReader(assets.open("bird-data.csv"))
+            val reader = BufferedReader(minput)
+
+            val line: String
+            val displayData: String = ""
+
+            reader.readLine()
+        }
+
+ */
     }
+
+
+
 }

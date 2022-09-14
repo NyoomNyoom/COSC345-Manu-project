@@ -3,7 +3,7 @@
  */
 
 package com.example.manu
-/*
+
 import android.util.Log
 import kotlin.random.Random
 
@@ -58,7 +58,6 @@ class QuizGenerator {
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val photoResourceId: Int = bird.getPhotoResourceId()
                     birds.remove(bird)
-
 
                     var possibleOptions: ArrayList<String> = ArrayList()
 
@@ -120,4 +119,3 @@ class QuizGenerator {
     }
 
 }
- */
