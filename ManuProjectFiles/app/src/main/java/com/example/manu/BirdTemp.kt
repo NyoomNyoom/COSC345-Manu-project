@@ -6,13 +6,12 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, māoriName: String, funFact: String) {
+class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
     private val soundResourceId: Int = soundResourceId
-    val maoriName: String = māoriName
-
+    private val maoriName: String = maoriName
     private val funFact = funFact
 
     /**
@@ -68,7 +67,7 @@ class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, mā
      * @return bird values separated by commas.
      */
     override fun toString(): String {
-        return "$birdName, $photoResourceId"
+        return "($birdName, $photoResourceId, $soundResourceId, $maoriName)"
     }
 
 }
