@@ -66,8 +66,10 @@ class BirdDatabase {
                 if (resourceType == QuestionType.PHOTO) {
                     if (bird.getPhotoResourceId() != Resources.ID_NULL)
                         queriedBirds.add(bird)
-                }
-                else if (resourceType == QuestionType.MAORI || resourceType == QuestionType.ENGLISH) {
+                } else if (resourceType == QuestionType.SOUND) {
+                    if (bird.getSongResourceID() != Resources.ID_NULL)
+                        queriedBirds.add(bird)
+                } else if (resourceType == QuestionType.MAORI || resourceType == QuestionType.ENGLISH) {
                     if (bird.getmaoriName() != "")
                         queriedBirds.add(bird)
                 }
