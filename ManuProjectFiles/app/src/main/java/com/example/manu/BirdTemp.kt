@@ -6,13 +6,12 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, funFact: String/*, soundResourceId: Int, māoriName: String, englishName: String*/) {
+class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, māoriName: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
-    //private val soundResourceId: Int = soundResourceId
-    //val māoriName: String = māoriName
-    //private val englishName: String = englishName
+    private val soundResourceId: Int = soundResourceId
+    val maoriName: String = māoriName
 
     private val funFact = funFact
 
@@ -42,6 +41,25 @@ class BirdTemp(birdName: String, photoResourceId: Int, funFact: String/*, soundR
     fun getFunFact(): String {
         return funFact
     }
+
+    /**
+     * Returns the songs resource ID.
+     *
+     * @return the songs resource ID.
+     */
+    fun getSongResourceID(): Int {
+        return soundResourceId
+    }
+
+    /**
+     * Returns the birds Maori name.
+     *
+     * @return the birds maori name.
+     */
+    fun getmaoriName(): String {
+        return maoriName
+    }
+
 
 
     /**
