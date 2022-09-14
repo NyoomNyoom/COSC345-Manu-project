@@ -1,14 +1,10 @@
 /* Jackson North 03/08/2022 */
 package com.example.manu
 
-import android.content.Context
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
-import java.nio.Buffer
-import kotlin.math.min
 
 /**
  * A class which holds all the values needed to keep track of a bird for the given question. It takes in a random
@@ -25,44 +21,56 @@ data class Bird(val birdNumIn: Int){
     private var alternativeName = ""
     private var birdInfoFile = ""
     private var birdNum = birdNumIn
-    private lateinit var context: Context
 
-
+    /*
     /**
      * A function that searches the bird-data.csv file which is a list of birds to find the bird that was
      * inputted into the class constructor and then add the values of the bird to the private variables.
      */
-    fun updateValues(contextIn: Context){
-        val inputStream = contextIn.assets.open("bird-data.csv")
-        val minput = InputStreamReader(inputStream, "UTF-8")
-        val reader = BufferedReader(minput)
+    fun updateValues(){
 
-        context = contextIn
 
-        var birdFound = false
-        val birdNumber = birdNum
-        val birdNumStr = birdNumber.toString()
 
+        var birdNumber = birdNum
         var birdInfo: MutableList<String> = mutableListOf()
 
-        while(!birdFound){
-            var lines = reader.readLine()
-            var line = lines.split(",")
-            if(line[0] == birdNumStr){
-                Log.d("Bird", ""+line)
-                lines.split(",").forEach{
+        //val minput = InputStreamReader(assets().open("bird-data.csv"), "UTF-8")
+        //val reader = BufferedReader(minput)
+
+        birdNumber -= 1
+        var birdNumString = birdNumber.toString()
+
+        /*
+        //finds the correct line that was asked for and adds the info into a variable
+        lines.forEach{ iter ->
+            if(iter[0] == birdNumString.first()){
+                iter.split(",").forEach{
                     birdInfo.add(it)
                 }
-                birdFound = true
             }
         }
 
         nameOfBird = birdInfo[1]
-        birdFilePic = birdInfo[2]
-        birdFileSong = birdInfo[3]
-        alternativeName = birdInfo[4]
-        birdInfoFile = birdInfo[5]
+        //birdFilePic = birdInfo[2]
+        //birdFileSong = birdInfo[3]
+        //alternativeName = birdInfo[4]
+        //birdInfoFile = birdInfo[5]
+         */
+    }
+     */
 
+    /**
+     * A temporary function for Alpha to just hardcode birds in instead of reading from a file.
+     *
+     * @param birdName the Name of the bird.
+     * @param fileName the name of the file.
+     * @param infoFile the name of the information file.
+     */
+    fun updateValues(birdName: String, fileName: String, infoFile: String, songFile: String){
+        nameOfBird = birdName
+        birdFilePic = fileName
+        birdInfoFile = infoFile
+        birdFileSong = songFile
     }
 
     /**
@@ -102,7 +110,7 @@ data class Bird(val birdNumIn: Int){
 
         //adds the filetype to the end of the string
         if(questionType == 1){
-            output = "$birdFilePic"
+            output = "$birdFilePic" //only using jpg because I do not know what filetype we will use for pictures.
         }else if(questionType == 2){
             output = "$birdFileSong"
         }
@@ -160,13 +168,4 @@ data class Bird(val birdNumIn: Int){
     fun setSongFileName(newName: String){
         birdFileSong = newName
     }
-
-    fun getPhotoResourceID(): Int{
-        return context.resources.getIdentifier(birdFilePic, "drawable", context.packageName)
-    }
-
-    fun getSongResourceID(): Int{
-        return context.resources.getIdentifier("aucklandteal", "raw", context.packageName)
-    }
-
 }

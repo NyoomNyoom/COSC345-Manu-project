@@ -1,47 +1,47 @@
-0,Auckland Island Teal,bird_auckland_island_teal,aucklandteal,Tētē kākāriki,There is an island in the Auckland Islands group called 'Disappointment Island'.
-1,Australasian Bittern,bird_australasian_bittern,null,Matuku-hūrepo,no fact
-2,Bellbird,bird_bellbird,null,Korimako,no fact
-3,Black Stilt,bird_black_stilt,null,Kakī,no fact
-4,Blue Duck,bird_blue_duck,null,Whio,no fact
-5,Buff Weka,null,null,,no fact
-6,Chatham Island Fantail,null,null,,no fact
-7,Chatham Island Oystercatcher,bird_chatham_island_oystercatcher,null,Tōrea tai,no fact
-8,Chatham Island Pigeon,null,null,Parea,no fact
-9,Chatham Island Tomtit,null,null,Miromiro,no fact
-10,Chatham Island Tui,null,null,,no fact
-11,Fantail,null,null,Pīwakawaka,no fact
-12,Grey Warbler,bird_grey_warbler,null,Riroriro,no fact
-13,Huttons Shearwater,bird_huttons_shearwater,null,Kaikōura tītī,no fact
-14,Kakapo,bird_kakapo,null,Kākāpō,no fact
-15,Kea,bird_kea,null,kea,no fact
-16,Kokako,bird_kokako,null,Kōkako,no fact
-17,Morepork,bird_morepork,null,Ruru,no fact
-18,North Island Kaka,null,null,Kākā,no fact
-19,North Island Robin,null,null,Toutouwai,no fact
-20,North Island Saddleback,null,null,null,no fact
-21,North Island Tomtit,null,null,Miromiro,no fact
-22,North Island Weka,null,null,,no fact
-23,New Zealand Dotterel,bird_new_zealand_dotterel,null,Tūturiwhatu,no fact
-24,New Zealand Falcon,bird_new_zealand_falcon,null,Kārearea,no fact
-25,New Zealand Pigeon,bird_new_zealand_pigeon,null,Kererū,no fact
-26,Orange Fronted Parakeet,bird_orange_fronted__parakeet,null,Kākāriki karaka,no fact
-27,Paradise Duck,bird_paradise_duck,null,Kākāriki karaka,no fact
-28,Pukeko,bird_pukeko,null,Pūkeko,no fact
-29,Red Crowned Parakeet,bird_red_crowned_parakeet,null,Kākāriki,no fact
-30,Rock Wren,bird_rock_wren,null,Pīwauwau,no fact
-31,Silvereye,bird_silvereye,null,Tauhou,no fact
-32,South Island Fantail,null,null,Pīwakawaka,no fact
-33,South Island Kaka,null,null,Kākā,no fact
-34,South Island Robin,null,null,Kakaruai,no fact
-35,South Island Saddleback,null,null,Tīeke,no fact
-36,South Island Tomtit,null,null,Miromiro,no fact
-37,Southern Crested Greve,null,null,,no fact
-38,Stitchbird,bird_stitchbird,null,Hihi,no fact
-39,Takahe,bird_takahe,null,Takahē,no fact
-40,Tui,bird_tui,null,Tūī,no fact
-41,Western Weka,bird_weka,null,,no fact
-42,Westland Black Petrel,bird_westland_black_petrel,null,Tāiko,no fact
-43,White Heron,bird_white_heron,null,Kōtuku,no fact
-44,Whitehead,bird_whitehead,null,Pōpokotea,no fact
-45,Yellow Eyed Penguin,bird_yellow_eyed_penguin,null,Hoiho,no fact
-46,Yellow Head,bird_yellow_head,null,null,no fact
+0,Auckland Island Teal,null,Auckland-Island-Teal,T?t? k?k?riki,no fact
+1,Australasian Bittern,null,Australasian-bittern,Matuku,no fact
+2,Bellbird,null,bellbird,Korimako,no fact
+3,Black Stilt,null,black-stilt,Kak?,no fact
+4,Blue Duck,null,blue-duck,Whio,no fact
+5,Buff Weka,null,buff-weka,,no fact
+6,Chatham Island Fantail,null,chatham-island-fantail,,no fact
+7,Chatham Island Oystercatcher,null,chatham-island-oystercatcher,,no fact
+8,Chatham Island Pigeon,null,chatham-island-pigeon,,no fact
+9,Chatham Island Tomtit,null,chatham-island-tomtit,,no fact
+10,Chatham Island Tui,null,chatham-island-tui,,no fact
+11,Fantail,null,fantail,,no fact
+12,Grey Warbler,null,grey-warbler,,no fact
+13,Huttons Shearwater,null,huttons-shearwater,,no fact
+14,Kakapo,null,kakapo,kakapo,no fact
+15,Kea,kea,kea,kea,no fact
+16,Kokako,null,kokako,kakapo,no fact
+17,Morepork,null,morepork,,no fact
+18,North Island Kaka,null,north-island-kaka,,no fact
+19,North Island Robin,null,north-island-robin,,no fact
+20,North Island Sadleback,null,north-island-sadleback,,no fact
+21,North Island Tomtit,null,north-island-tomtit,,no fact
+22,North Island Weka,null,north-island-weka,,no fact
+23,New Zealand Dotterel,null,new-zealand-dotterel,,no fact
+24,New Zealand Falcon,new-zealand-falcon,new-zealand-falcon,,no fact
+25,New Zealand Pigeon,null,new-zealand-pigeon,,no fact
+26,Orange Fronted Parakeet,null,orange-fronted-parakeet,,no fact
+27,Paradise Duck,null,paradise-duck,,no fact
+28,Pukeko,pukeko,null,,no fact
+29,Red Crowned Parakeet,null,red-crowned-parakeet,,no fact
+30,Rock Wren,null,rock-wren,,no fact
+31,Silverye,null,silverye,,no fact
+32,South Island Fantail,null,south-island-fantail,,no fact
+33,South Island Kaka,null,south-island-kaka,,no fact
+34,South Island Robin,null,south-island-robin,,no fact
+35,South Island Saddleback,null,south-island-saddleback,,no fact
+36,South Island Tomtit,null,south-island-tomtit,,no fact
+37,Southern Crested Greve,null,southern-crested-greve,,no fact
+38,Stitchbird,null,stitchbird,,no fact
+39,Takahe,null,takahe,,no fact
+40,Tui,null,tui,,no fact
+41,Western Weka,null,western-weka,,no fact
+42,Westland Black Petrel,null,westland-black-petrel,,no fact
+43,White Heron,white-heron,white-heron,,no fact
+44,Whitehead,null,whitehead,,no fact
+45,Yellow Eyed Penguin,null,yellow-eyed-penguin,,no fact
+46,Yellow Head,null,yellow-head,,no fact
