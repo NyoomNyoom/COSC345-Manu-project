@@ -69,7 +69,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdFilePic the filename of the bird.
      */
-    private fun getBirdPicture(): String{
+    fun getBirdPicture(): String{
         return birdFilePic
     }
 
@@ -78,7 +78,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdFileSong the filename of the bird.
      */
-    private fun getBirdSong(): String{
+    fun getBirdSong(): String{
         return birdFileSong
     }
 
@@ -123,7 +123,7 @@ data class Bird(val birdNumIn: Int){
      *
      * @return birdInfoFile: String, the filename of the file that contains the birds fun fact.
      */
-    private fun getInfoFile(): String{
+    fun getInfoFile(): String{
         return birdInfoFile
     }
 
@@ -149,14 +149,14 @@ data class Bird(val birdNumIn: Int){
     /**
      * A function which sets the picture file of the bird to a new name which is parsed into the function.
      */
-    private fun setPicFileName(newName: String){
+    fun setPicFileName(newName: String){
         birdFilePic = newName
     }
 
     /**
      * A function which sets the sound file of the bird to a new name which is parsed into the function.
      */
-    private fun setSongFileName(newName: String){
+    fun setSongFileName(newName: String){
         birdFileSong = newName
     }
 

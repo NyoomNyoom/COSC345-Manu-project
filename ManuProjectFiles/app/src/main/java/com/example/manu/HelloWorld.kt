@@ -34,7 +34,7 @@ class HelloWorld : AppCompatActivity() {
             var birdadapter = BirdAdapter(questions)
 
             birdadapter.createQuiz(this,1,1)
-            ListToStringTV.setText(birdadapter.toString())
+            ListToStringTV.text = birdadapter.toString()
 
             IVbirdpics.setImageResource(questions[0].correctBirdObject.getPhotoResourceID())
         }
