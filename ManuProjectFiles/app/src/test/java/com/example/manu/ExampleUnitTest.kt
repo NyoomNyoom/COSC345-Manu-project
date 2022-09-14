@@ -308,25 +308,36 @@ class ExampleUnitTest {
     }
 
     /**
-     * Queries the database for birds that have both Māori and English names. Birds have a data field for their primary
-     * name and a Māori name. For the name translation quiz, an eligible bird must have both a Māori and English name.
-     * The Māori name is only specified if the primary name is not Māori, hence this test will ensure only valid birds
-     * are returned.
+     * Tests whether the database returns all birds with both Māori and English names.
      */
     @Test
     fun birdsHaveMaoriAndEnglishNames() {
         BirdDatabase.compileDatabase()
 
-        // Check the birds have Maori names (exclusive of their primary name).
-        var birds = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
-        for (bird in birds) {
+        // Check the birds have Maori names (exclusive of their primary name) using the Maori query.
+        var birdsQueryMaori = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
+        for (bird in birdsQueryMaori) {
             assertEquals(false, bird.getmaoriName() == "")
         }
 
-        // Check the birds have Maori names (exclusive of their primary name).
-        birds = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
-        for (bird in birds) {
+        // Check the birds have Maori names (exclusive of their primary name) using the English query.
+        var birdsQueryEnglish = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
+        for (bird in birdsQueryEnglish) {
             assertEquals(false, bird.getmaoriName() == "")
         }
+
+        // Take all the birds and refine it to the birds with Maori names.
+        var allBirds = BirdDatabase.getBirdList()
+        var birdsWithMaoriName = ArrayList<BirdTemp>()
+        for (bird in allBirds) {
+            if (bird.getmaoriName() != "")
+                birdsWithMaoriName.add(bird)
+        }
+
+        // Compare this refined list to the ones presented by the database in response to the Maori and English queries.
+        for (bird in birdsWithMaoriName) {
+            assertEquals(true, bird in birdsQueryMaori && bird in birdsQueryEnglish)
+        }
     }
+    
 }
