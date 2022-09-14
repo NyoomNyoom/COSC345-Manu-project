@@ -69,4 +69,45 @@ data class Question(private val birdIn: Bird, val questionType: Int) {
         return "$correctBirdObject, $correctIndex"
     }
 
+    fun getOptionStrings(): MutableList<String>{
+        var output = mutableListOf<String>()
+
+        optionList.forEach(){
+            output.add(it.getBirdName())
+        }
+
+        return output
+    }
+
+    fun getAnswerIndex(): Int{
+        var answerIndex = 0
+        optionList.forEach(){
+            if(it.getBirdName() == correctBirdObject.getBirdName()){
+                return answerIndex
+            }
+            answerIndex++
+        }
+        return -1
+    }
+
+    fun getBirdPhoto(): Int{
+        return correctBirdObject.getPhotoResourceID()
+    }
+
+    fun getBirdSong(): Int{
+        return correctBirdObject.getSongResourceID()
+    }
+
+    fun noDuplicateOptions(bird: Bird): Boolean{
+        var noDuplicates = true
+
+        optionList.forEach(){
+            if(bird.getBirdName() == it.getBirdName()){
+                noDuplicates = false
+            }
+        }
+
+        return noDuplicates
+    }
+
 }

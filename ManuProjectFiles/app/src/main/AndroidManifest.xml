@@ -52,6 +52,10 @@
         <activity
             android:name=".QuitQuizPopupActivity"
             android:theme="@style/Translucent" />
+        <activity
+            android:name=".JacksonsTestFile"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
