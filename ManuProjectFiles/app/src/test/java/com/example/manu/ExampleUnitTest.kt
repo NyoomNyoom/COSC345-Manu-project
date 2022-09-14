@@ -154,8 +154,10 @@ class ExampleUnitTest {
         val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
+        val soundResourceId = Resources.ID_NULL
+        val maoriName = bird.getmaoriName()
 
-        assertEquals("$birdName, $photoResourceID", bird.toString())
+        assertEquals("($birdName, $photoResourceID, $soundResourceId, $maoriName)", bird.toString())
     }
 
     /**
