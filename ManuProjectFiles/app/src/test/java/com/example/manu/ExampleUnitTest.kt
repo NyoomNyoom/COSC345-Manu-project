@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.app.Instrumentation
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -11,7 +12,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
 
     val numberQuizzes: Int = 100
-
+/*
     /**
      * Checks no individual quiz contains a duplicate question.
      */
@@ -101,7 +102,7 @@ class ExampleUnitTest {
 
         assertEquals(true, true)  // Since no tests gave any problems, force a successful test.
     }
-
+ */
     /**
      * Checks if the isValid function is working correctly, by parsing a bird that is valid into the function
      * for question type 1.
@@ -161,7 +162,7 @@ class ExampleUnitTest {
 
         assertEquals(false, ba.isValid(3, bird))
     }
-
+/*
     /**
      * Tests Daniel's question class' toString() function.
      */
@@ -174,7 +175,7 @@ class ExampleUnitTest {
                 questions[0].getOptions().toString() + ", " + questions[0].getAnswerIndex().toString()
         assertEquals(true, toString == makeString)
     }
-
+*/
     /**
      * A test to check the getBirdName() function.
      */
@@ -255,7 +256,7 @@ class ExampleUnitTest {
 
         assertEquals(true, stillValid)
     }
-
+/*
     /**
      * Runs the photo quiz a number of times to check whether the birds are selected at random. This should result in a
      * uniform distribution.
@@ -334,5 +335,9 @@ class ExampleUnitTest {
 
         assertEquals(true, true)
     }
+*/
+
+
+    //Bird.kt's tests
 
 }

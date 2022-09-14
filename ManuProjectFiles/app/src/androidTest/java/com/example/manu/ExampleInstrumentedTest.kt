@@ -21,4 +21,13 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.manu", appContext.packageName)
     }
+
+    //Bird.kt's tests
+    @Test
+    fun isUpdateValuesCorrect(){
+        val bird1 = Bird(0)
+        bird1.updateValues(InstrumentationRegistry.getInstrumentation().targetContext)
+
+        assertEquals("Auckland Island Teal", bird1.getBirdName())
+    }
 }

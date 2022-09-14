@@ -2,6 +2,7 @@
 package com.example.manu
 
 import android.content.Context
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import java.io.BufferedReader
 import java.io.File
@@ -47,8 +48,8 @@ data class Bird(val birdNumIn: Int){
         while(!birdFound){
             var lines = reader.readLine()
             var line = lines.split(",")
-
             if(line[0] == birdNumStr){
+                Log.d("Bird", ""+line)
                 lines.split(",").forEach{
                     birdInfo.add(it)
                 }
