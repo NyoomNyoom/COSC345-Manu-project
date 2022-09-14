@@ -60,7 +60,7 @@ class BirdAdapter(val questionList : MutableList<Question>) {
         for(i in 0..questionAmount-1) {
             questionList.add(Question(createBird(forceBird), questionType))
             //questionList[i],addOption()
-            for (k in 0..3) {
+            for (k in 0..2) {
                 questionList[i].addOption(createBird(forceBird))
             }
             questionList[i].shuffleOptions()

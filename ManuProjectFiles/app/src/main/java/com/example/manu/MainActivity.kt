@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         BirdDatabase.compileDatabase()
-        intent = Intent(this, JacksonsTestFile::class.java)
+        intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
         finish()
     }

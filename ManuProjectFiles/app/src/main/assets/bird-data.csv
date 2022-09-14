@@ -18,7 +18,7 @@
 17,Morepork,bird_morepork,null,Ruru,no fact
 18,North Island Kaka,null,null,Kākā,no fact
 19,North Island Robin,null,null,Toutouwai,no fact
-20,North Island Saddleback,null,,no fact
+20,North Island Saddleback,null,null,null,no fact
 21,North Island Tomtit,null,null,Miromiro,no fact
 22,North Island Weka,null,null,,no fact
 23,New Zealand Dotterel,bird_new_zealand_dotterel,null,Tūturiwhatu,no fact
@@ -44,4 +44,4 @@
 43,White Heron,bird_white_heron,null,Kōtuku,no fact
 44,Whitehead,bird_whitehead,null,Pōpokotea,no fact
 45,Yellow Eyed Penguin,bird_yellow_eyed_penguin,null,Hoiho,no fact
-46,Yellow Head,bird_yellow_head,null,,no fact
+46,Yellow Head,bird_yellow_head,null,null,no fact

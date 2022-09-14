@@ -11,7 +11,7 @@ data class Question(private val birdIn: Bird, val questionType: Int) {
 
     var correctBirdObject = birdIn
     var optionList = mutableListOf<Bird>()
-    var correctIndex = 0
+    var correctIndex = -1
 
 
     /**
