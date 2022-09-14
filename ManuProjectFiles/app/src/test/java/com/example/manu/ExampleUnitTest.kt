@@ -1,5 +1,6 @@
 package com.example.manu
 
+import android.content.res.Resources
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -103,66 +104,6 @@ class ExampleUnitTest {
     }
 
     /**
-     * Checks if the isValid function is working correctly, by parsing a bird that is valid into the function
-     * for question type 1.
-     */
-    @Test
-    fun isValid_isCorrect(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(1)
-        assertEquals(true, ba.isValid(1, bird))
-    }
-
-    /**
-     * Checking if the isValid function is working correctly when parsing in an invalid bird for question type 1.
-     */
-    @Test
-    fun isValid_isIncorrect(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(2)
-        bird.setPicFileName("null")
-        assertEquals(false, ba.isValid(1, bird))
-    }
-
-    /**
-     * Checks if the isValid function is working correctly, by parsing a bird that is valid into the function
-     * for question type 2.
-     */
-    @Test
-    fun isValid_isCorrect2(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(1)
-        assertEquals(true, ba.isValid(2, bird))
-    }
-
-    /**
-     * Checking if the isValid function is working correctly when parsing in an invalid bird for question type 2.
-     */
-    @Test
-    fun isValid_isIncorrect2(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(2)
-        bird.setSongFileName("null")
-        assertEquals(false, ba.isValid(2, bird))
-    }
-
-    /**
-     * Checks if an incorrect question type is given if the code fails properly
-     */
-    @Test
-    fun isValid_isIncorrect3(){
-        var qList= mutableListOf<Question>()
-        var ba = BirdAdapter(qList)
-        val bird = Bird(3)
-
-        assertEquals(false, ba.isValid(3, bird))
-    }
-
-    /**
      * Tests Daniel's question class' toString() function.
      */
     @Test
@@ -180,7 +121,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getBirdName_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
 
         assertEquals("Bellbird", bird.getBirdName())
     }
@@ -190,7 +131,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getPhotoResourceID_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
 
         assertEquals(R.drawable.bird_bellbird, bird.getPhotoResourceId())
     }
@@ -200,7 +141,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getFunFact_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
 
         assertEquals("", bird.getFunFact())
     }
@@ -210,13 +151,33 @@ class ExampleUnitTest {
      */
     @Test
     fun birdTempToString_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
 
         assertEquals("$birdName, $photoResourceID", bird.toString())
     }
 
+    /**
+     * A test to check if the getMaoriName is working properly.
+     */
+    @Test
+    fun isMaoriNameCorrect(){
+        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+        val maoriName = "Tētē kākāriki"
+
+        assertEquals(maoriName, bird.getmaoriName())
+    }
+
+    /**
+     * A test to check if getSongResourceID.
+     */
+    @Test
+    fun isgetSongResourceCorrect(){
+        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+
+        assertEquals(R.raw.aucklandislandteal, bird.getSongResourceID())
+    }
 
     /* I am not sure how to do this sorry Daniel
     /**
@@ -234,21 +195,6 @@ class ExampleUnitTest {
      */
 
 
-    /**
-     * A function that checks if Bird.updateValues() works correctly
-     */
-    @Test
-    fun isUpdateValues_correct(){
-        val bird = Bird(1)
-        bird.updateValues("Kiwi", "img", "txt", "mp3")
-        if(bird.getBirdName() == "Kiwi" && bird.getBirdPicture() == "img"){
-            if(bird.getInfoFile() == "txt" && bird.getBirdSong() == "mp3"){
-                assertEquals(true, true)
-            }
-        }else{
-            assertEquals(true, false)
-        }
-    }
 
     @Test
     fun noDuplicatesInBirdDatabase(){
