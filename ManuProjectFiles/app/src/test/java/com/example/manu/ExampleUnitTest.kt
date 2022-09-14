@@ -306,4 +306,21 @@ class ExampleUnitTest {
 
         assertEquals(wantedAnswer, questions)
     }
+
+    @Test
+    fun birdsHaveMaoriAndEnglishNames() {
+        BirdDatabase.compileDatabase()
+
+        // Check the birds have Maori names (exclusive of their primary name).
+        var birds = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
+        for (bird in birds) {
+            assertEquals(false, bird.getmaoriName() == "")
+        }
+
+        // Check the birds have Maori names (exclusive of their primary name).
+        birds = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
+        for (bird in birds) {
+            assertEquals(false, bird.getmaoriName() == "")
+        }
+    }
 }
