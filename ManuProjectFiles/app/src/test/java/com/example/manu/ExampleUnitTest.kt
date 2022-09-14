@@ -296,4 +296,14 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
+    @Test
+    fun getBirdsWithResourceIncorrect() {
+        val questions = QuizGenerator.generateQuiz(QuestionType.SOUND,1, 4)
+
+        val wantedAnswer: ArrayList<QuestionTemp> = arrayListOf()
+
+
+
+        assertEquals(wantedAnswer, questions)
+    }
 }
