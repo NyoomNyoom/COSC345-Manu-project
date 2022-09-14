@@ -338,6 +338,40 @@ class ExampleUnitTest {
         for (bird in birdsWithMaoriName) {
             assertEquals(true, bird in birdsQueryMaori && bird in birdsQueryEnglish)
         }
+
+        // Finally, test their sizes (if one is a subset of the other, and they are the same size, they are the same).
+        assertEquals(true, birdsQueryMaori.size == birdsWithMaoriName.size)
+        assertEquals(true, birdsQueryEnglish.size == birdsWithMaoriName.size)
     }
-    
+
+    /**
+     * Tests whether the database returns all birds that have a sound resource.
+     */
+    @Test
+    fun birdsHaveSoundResource() {
+        BirdDatabase.compileDatabase()
+
+        // Validate the database's query result.
+        val queryResult = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
+        for (bird in queryResult) {
+            assertEquals(true, bird.getSongResourceID() != Resources.ID_NULL)
+        }
+
+        // Get all birds and narrow them down to the ones with sounds. This is the "answer".
+        val allBirds = BirdDatabase.getBirdList()
+        var birdsWithSongs = ArrayList<BirdTemp>()
+        for (bird in allBirds) {
+            if (bird.getSongResourceID() != Resources.ID_NULL)
+                birdsWithSongs.add(bird)
+        }
+
+        // Compare the "answer" to the query result.
+        for (bird in birdsWithSongs) {
+            assertEquals(true, bird in queryResult)
+        }
+
+        // Finally, test their sizes (if one is a subset of the other, and they are the same size, they are the same).
+        assertEquals(true, queryResult.size == birdsWithSongs.size)
+    }
+
 }
