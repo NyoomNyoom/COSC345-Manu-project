@@ -307,6 +307,12 @@ class ExampleUnitTest {
         assertEquals(wantedAnswer, questions)
     }
 
+    /**
+     * Queries the database for birds that have both Māori and English names. Birds have a data field for their primary
+     * name and a Māori name. For the name translation quiz, an eligible bird must have both a Māori and English name.
+     * The Māori name is only specified if the primary name is not Māori, hence this test will ensure only valid birds
+     * are returned.
+     */
     @Test
     fun birdsHaveMaoriAndEnglishNames() {
         BirdDatabase.compileDatabase()
