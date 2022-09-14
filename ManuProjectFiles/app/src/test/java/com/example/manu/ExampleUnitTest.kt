@@ -154,10 +154,8 @@ class ExampleUnitTest {
         val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
-        val soundResourceId = Resources.ID_NULL
-        val maoriName = bird.getmaoriName()
 
-        assertEquals("($birdName, $photoResourceID, $soundResourceId, $maoriName)", bird.toString())
+        assertEquals("$birdName, $photoResourceID", bird.toString())
     }
 
     /**
@@ -191,8 +189,6 @@ class ExampleUnitTest {
         for(question in questions){
             val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
         }
-
-
     }
      */
 
@@ -298,6 +294,14 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
+    @Test
+    fun getBirdsWithResourceIncorrect() {
+        val questions = QuizGenerator.generateQuiz(QuestionType.SOUND,1, 4)
+
+        val wantedAnswer: ArrayList<QuestionTemp> = arrayListOf()
 
 
+
+        assertEquals(wantedAnswer, questions)
+    }
 }
