@@ -41,7 +41,7 @@ class QuizGenerator {
              */
             if (questionType == QuestionType.PHOTO) {
                 var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
-
+                Log.d("Quiz Generator: ", "" + birds)
                 var allNames: ArrayList<String> = ArrayList()
                 for (bird: BirdTemp in birds) {
                     allNames.add(bird.getBirdName())
