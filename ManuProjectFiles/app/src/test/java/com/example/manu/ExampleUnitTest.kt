@@ -374,4 +374,31 @@ class ExampleUnitTest {
         assertEquals(true, queryResult.size == birdsWithSongs.size)
     }
 
+    /**
+     * Query the database for all birds with photos and check the query isn't empty.
+     */
+    @Test
+    fun getBirdsWithPhotos() {
+        BirdDatabase.compileDatabase()
+
+        // Validate the database's query result.
+        for (i in 1..1000) {
+            val queryResult = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+            assertEquals(true, queryResult.size > 10)
+        }
+    }
+
+    /**
+     * Generate quizzes and check the resulting question list has the correct number of questions.
+     */
+    @Test
+    fun generateQuizzes() {
+        BirdDatabase.compileDatabase()
+        val quizLength = 30
+
+        for (i in 1..1000) {
+            val questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, quizLength, 4)
+            assertEquals(true, questions.size == quizLength)
+        }
+    }
 }
