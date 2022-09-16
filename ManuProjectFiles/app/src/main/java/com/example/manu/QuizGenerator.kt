@@ -4,8 +4,7 @@
 
 package com.example.manu
 
-import android.util.Log
-import kotlin.random.Random
+import java.util.Random
 
 /**
  * Generates quizzes from the information in the birds database.
@@ -21,6 +20,8 @@ class QuizGenerator {
          */
         var lastCorrectOptionIndex: Int = -1
 
+        val random = Random()
+
         /**
          * Generates a quiz from the information in the birds database.
          *
@@ -31,9 +32,9 @@ class QuizGenerator {
          * @return A list of quiz questions.
          */
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
-            lastCorrectOptionIndex = Random.nextInt(0, numOptions)  // No previously correct option, hence randomise.
+            lastCorrectOptionIndex = random.nextInt(numOptions)  // No previously correct option, hence randomise.
             var questions: ArrayList<QuestionTemp> = ArrayList()
-            for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+            for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                 questions.shuffle()
 
             /*
@@ -53,7 +54,7 @@ class QuizGenerator {
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[Random.nextInt(0, birds.size)]
+                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val photoResourceId: Int = bird.getPhotoResourceId()
@@ -66,7 +67,7 @@ class QuizGenerator {
                             possibleOptions.add(birdName)
                     }
 
-                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                         possibleOptions.shuffle()
 
                     /*
@@ -76,7 +77,7 @@ class QuizGenerator {
                         options.add(possibleOptions[option])
                     }
 
-                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                         options.shuffle()  // Shuffle with the correct answer.
 
                     /*
