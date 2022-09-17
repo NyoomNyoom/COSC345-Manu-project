@@ -76,6 +76,7 @@ $dokka.location:com.example.manu/QuizGenerator.Companion///PointingToDeclaration
 $dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/getLastCorrectOptionIndex/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-last-correct-option-index.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/getMaxShuffles/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-max-shuffles.html
+$dokka.location:com.example.manu/QuizGenerator.Companion/getRandom/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-random.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/optionFrequencyTest/#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/option-frequency-test.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/setLastCorrectOptionIndex/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/set-last-correct-option-index.html
 $dokka.location:com.example.manu/QuizGenerator///PointingToDeclaration/app/com.example.manu/-quiz-generator/index.html
