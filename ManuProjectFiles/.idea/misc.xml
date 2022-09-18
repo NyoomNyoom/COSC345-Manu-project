@@ -19,10 +19,12 @@
         <entry key="app/src/main/res/layout/activity_quiz.xml" value="0.11955420466058764" />
         <entry key="app/src/main/res/layout/activity_quiz_results.xml" value="0.1911231884057971" />
         <entry key="app/src/main/res/layout/info_graphic_activity.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/layout_test.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/menu_background.xml" value="0.10729166666666666" />
         <entry key="app/src/main/res/layout/quit_quiz_popup.xml" value="0.165" />
         <entry key="app/src/main/res/layout/quiz_options.xml" value="0.165" />
         <entry key="app/src/main/res/layout/return_to_menu_popup.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/sound_test.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/test.xml" value="0.10280797101449275" />
       </map>
     </option>

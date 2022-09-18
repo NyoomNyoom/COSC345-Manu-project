@@ -46,7 +46,7 @@ class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, mao
      *
      * @return the songs resource ID.
      */
-    fun getSongResourceID(): Int {
+    fun getSongResourceId(): Int {
         return soundResourceId
     }
 

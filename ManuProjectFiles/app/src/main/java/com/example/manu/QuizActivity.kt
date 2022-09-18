@@ -7,6 +7,7 @@ package com.example.manu
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -16,6 +17,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
 import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.activity_quiz.btn_back
+import kotlinx.android.synthetic.main.activity_quiz.btn_opt_0
+import kotlinx.android.synthetic.main.activity_quiz.btn_opt_1
+import kotlinx.android.synthetic.main.activity_quiz.btn_opt_2
+import kotlinx.android.synthetic.main.activity_quiz.btn_opt_3
+import kotlinx.android.synthetic.main.activity_quiz.btn_submit
+import kotlinx.android.synthetic.main.activity_quiz.progress_bar
+import kotlinx.android.synthetic.main.sound_quiz.*
 
 /**
  * Runs and displays the quiz.
@@ -25,7 +34,7 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex: Int = 0
     private var selectedOptionIndex: Int = -1
     private var score: Int = 0
-    private var numQuestions: Int = 32
+    private var numQuestions: Int = 10
     private var numOptions: Int = 4
     private var markedCurrentQuestion: Boolean = false
     private var optionSelected: Boolean = false
@@ -36,7 +45,9 @@ class QuizActivity : AppCompatActivity() {
     private val buttonSelectedColourHex:String = "#808080"
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
+    private lateinit var quiz: String
     private var questions: ArrayList<QuestionTemp> = ArrayList()
+    var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
@@ -51,8 +62,14 @@ class QuizActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
-        questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
+        quiz = intent.getStringExtra("quiztype").toString()
+        if (quiz == "image") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
+        } else if (quiz == "sound") {
+            setContentView(R.layout.sound_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
+        }
 
         saveOptionButtons()
         loadAnimations()
@@ -65,6 +82,7 @@ class QuizActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
+
 
         // Jackson's code is below (commented out).
         //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
@@ -104,12 +122,25 @@ class QuizActivity : AppCompatActivity() {
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
+        if (quiz == "sound"){
+            btn_play_audio.setOnClickListener{ playAudio() }
+            btn_pause_audio.setOnClickListener { pauseAudio() }
+        }
         btn_opt_0.setOnClickListener { selectOption(0) }
         btn_opt_1.setOnClickListener { selectOption(1) }
         btn_opt_2.setOnClickListener { selectOption(2) }
         btn_opt_3.setOnClickListener { selectOption(3) }
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
+    }
+
+    private fun playAudio() {
+        mediaPlayer.start()
+
+    }
+
+    private fun pauseAudio() {
+        mediaPlayer.pause()
     }
 
     /**
@@ -125,7 +156,11 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionTemp) {
-        img_question.setImageResource(question.getQuestionResourceId())
+        if (quiz == "image") {
+            img_question.setImageResource(question.getQuestionResourceId())
+        } else if (quiz == "sound") {
+            mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
+        }
         val options = question.getOptions()
 
         btn_opt_0.text = options[0]
@@ -164,6 +199,9 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
+        if (quiz == "sound"){
+            mediaPlayer.pause()
+        }
 
         if (markedCurrentQuestion) {
             markedCurrentQuestion = false

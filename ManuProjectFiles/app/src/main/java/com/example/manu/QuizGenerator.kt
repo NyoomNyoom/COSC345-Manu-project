@@ -42,7 +42,6 @@ class QuizGenerator {
              */
             if (questionType == QuestionType.PHOTO) {
                 var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
-                //Log.d("QuizGenerator: ", "" + birds)
                 var allNames: ArrayList<String> = ArrayList()
                 for (bird: BirdTemp in birds) {
                     allNames.add(bird.getBirdName())
@@ -89,6 +88,60 @@ class QuizGenerator {
 
                     lastCorrectOptionIndex = options.indexOf(answer)
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
+                }
+            }
+
+            /*
+             * Generate a "sound to name" quiz.
+             */
+            else if (questionType == QuestionType.SOUND) {
+                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
+                var allNames: ArrayList<String> = ArrayList()
+                for (bird: BirdTemp in birds) {
+                    allNames.add(bird.getBirdName())
+                }
+
+                allNames.shuffle()
+
+                /*
+                 * Create the questions.
+                 */
+                for (questionIndex in 0 until numQuestions) {
+                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val answer: String = bird.getBirdName()
+                    var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
+                    val soundResourceId: Int = bird.getSongResourceId()
+                    birds.remove(bird)
+
+                    var possibleOptions: ArrayList<String> = ArrayList()
+
+                    for (birdName: String in allNames) {
+                        if (!birdName.equals(answer))
+                            possibleOptions.add(birdName)
+                    }
+
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
+                        possibleOptions.shuffle()
+
+                    /*
+                     * Extract the options (additional to the answer).
+                     */
+                    for (option in 0 until numOptions-1) {
+                        options.add(possibleOptions[option])
+                    }
+
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
+                        options.shuffle()  // Shuffle with the correct answer.
+
+                    /*
+                        Force the correct option to be in a different place than in the last question.
+                     */
+                    while (options.indexOf(answer) == lastCorrectOptionIndex) {
+                        options.shuffle()
+                    }
+
+                    lastCorrectOptionIndex = options.indexOf(answer)
+                    questions.add(QuestionTemp(soundResourceId, options, options.indexOf(answer)))
                 }
             }
 

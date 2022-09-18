@@ -51,12 +51,17 @@ class QuizOptions : AppCompatActivity() {
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "image")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "sound")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             // Do nothing.
         }
 
