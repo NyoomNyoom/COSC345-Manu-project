@@ -178,7 +178,7 @@ class ExampleUnitTest {
     fun isgetSongResourceCorrect(){
         val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
 
-        assertEquals(R.raw.aucklandislandteal, bird.getSongResourceID())
+        assertEquals(R.raw.aucklandislandteal, bird.getSongResourceId())
     }
 
     /* I am not sure how to do this sorry Daniel
@@ -296,7 +296,7 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
-    @Test
+    /*@Test
     fun getBirdsWithResourceIncorrect() {
         val questions = QuizGenerator.generateQuiz(QuestionType.SOUND,1, 4)
 
@@ -305,7 +305,7 @@ class ExampleUnitTest {
 
 
         assertEquals(wantedAnswer, questions)
-    }
+    }*/
 
     /**
      * Tests whether the database returns all birds with both Māori and English names.
@@ -354,14 +354,14 @@ class ExampleUnitTest {
         // Validate the database's query result.
         val queryResult = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
         for (bird in queryResult) {
-            assertEquals(true, bird.getSongResourceID() != Resources.ID_NULL)
+            assertEquals(true, bird.getSongResourceId() != Resources.ID_NULL)
         }
 
         // Get all birds and narrow them down to the ones with sounds. This is the "answer".
         val allBirds = BirdDatabase.getBirdList()
         var birdsWithSongs = ArrayList<BirdTemp>()
         for (bird in allBirds) {
-            if (bird.getSongResourceID() != Resources.ID_NULL)
+            if (bird.getSongResourceId() != Resources.ID_NULL)
                 birdsWithSongs.add(bird)
         }
 
