@@ -21,4 +21,11 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.manu", appContext.packageName)
     }
+
+    @Test
+    fun testFunctionCompiles(){
+        StatsAdapter.saveToFile(InstrumentationRegistry.getInstrumentation().targetContext)
+
+        assertEquals(true, true)
+    }
 }
