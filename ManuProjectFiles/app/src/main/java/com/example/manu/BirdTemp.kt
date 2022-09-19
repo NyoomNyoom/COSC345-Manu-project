@@ -6,14 +6,12 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, funFact: String/*, soundResourceId: Int, māoriName: String, englishName: String*/) {
+class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
-    //private val soundResourceId: Int = soundResourceId
-    //val māoriName: String = māoriName
-    //private val englishName: String = englishName
-
+    private val soundResourceId: Int = soundResourceId
+    private val maoriName: String = maoriName
     private val funFact = funFact
 
     /**
@@ -43,6 +41,25 @@ class BirdTemp(birdName: String, photoResourceId: Int, funFact: String/*, soundR
         return funFact
     }
 
+    /**
+     * Returns the songs resource ID.
+     *
+     * @return the songs resource ID.
+     */
+    fun getSongResourceId(): Int {
+        return soundResourceId
+    }
+
+    /**
+     * Returns the birds Maori name.
+     *
+     * @return the birds maori name.
+     */
+    fun getmaoriName(): String {
+        return maoriName
+    }
+
+
 
     /**
      * Our toString method for the bird temp, that just returns the values of bird separated by commas.
@@ -50,7 +67,7 @@ class BirdTemp(birdName: String, photoResourceId: Int, funFact: String/*, soundR
      * @return bird values separated by commas.
      */
     override fun toString(): String {
-        return "$birdName, $photoResourceId"
+        return "($birdName, $photoResourceId, $soundResourceId, $maoriName)"
     }
 
 }

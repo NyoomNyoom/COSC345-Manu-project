@@ -11,7 +11,7 @@
     <color name="button_green">#6f8c2a</color>
     <color name="option_selected_colour">#0000FF</color>
     <color name="option_incorrect_colour">#EEFF0000</color>
-    <color name="option_correct_colour">#00FF00</color>
+    <color name="option_correct_colour">#39db39</color>
     <color name="clear">#00000000</color>
     <color name="option_background_colour">#000000</color>
     <color name="progress_bar_indicator">#00FFAF</color>

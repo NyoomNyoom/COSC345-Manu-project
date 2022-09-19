@@ -51,6 +51,7 @@ class QuizResultsActivity : AppCompatActivity() {
             btn_play_again.startAnimation(buttonPress)
             var intent = Intent(this, QuizActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
 
@@ -61,6 +62,7 @@ class QuizResultsActivity : AppCompatActivity() {
             btn_menu.startAnimation(buttonPress)
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
     }

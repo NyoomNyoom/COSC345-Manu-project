@@ -44,6 +44,11 @@ class QuestionTemp(questionResourceId: Int, options: ArrayList<String>, answerIn
         return answerIndex
     }
 
+    /**
+     * Overrides the default toString() method.
+     *
+     * @return A string representation of the object.
+     */
     override fun toString(): String {
         return "$questionResourceId, $options, $answerIndex"
     }

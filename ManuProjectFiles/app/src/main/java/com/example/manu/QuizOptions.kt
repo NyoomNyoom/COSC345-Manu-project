@@ -51,11 +51,17 @@ class QuizOptions : AppCompatActivity() {
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
             val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "image")
             startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "sound")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             // Do nothing.
         }
 
@@ -70,7 +76,9 @@ class QuizOptions : AppCompatActivity() {
         }
 
         btn_back_option.setOnClickListener{
-            returnToMenu()
+            var intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
     }
@@ -80,14 +88,6 @@ class QuizOptions : AppCompatActivity() {
      */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
-    }
-
-    /**
-     * Returns to the main menu. No popup.
-     */
-    private fun returnToMenu() {
-        var intent = Intent(this, MenuActivity::class.java)
-        startActivity(intent)
     }
 
     /**
@@ -150,6 +150,7 @@ class QuizOptions : AppCompatActivity() {
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finish()
     }
 

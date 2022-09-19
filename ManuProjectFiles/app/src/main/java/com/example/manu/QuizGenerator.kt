@@ -4,7 +4,7 @@
 
 package com.example.manu
 
-import kotlin.random.Random
+import java.util.Random
 
 /**
  * Generates quizzes from the information in the birds database.
@@ -16,6 +16,13 @@ class QuizGenerator {
         val maxShuffles: Int = 10
 
         /**
+         * Index of the previous correct option.
+         */
+        var lastCorrectOptionIndex: Int = -1
+
+        val random = Random()
+
+        /**
          * Generates a quiz from the information in the birds database.
          *
          * @param questionType The type of resource used as a question.
@@ -25,8 +32,9 @@ class QuizGenerator {
          * @return A list of quiz questions.
          */
         fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
+            lastCorrectOptionIndex = random.nextInt(numOptions)  // No previously correct option, hence randomise.
             var questions: ArrayList<QuestionTemp> = ArrayList()
-            for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+            for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                 questions.shuffle()
 
             /*
@@ -34,17 +42,18 @@ class QuizGenerator {
              */
             if (questionType == QuestionType.PHOTO) {
                 var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
-
                 var allNames: ArrayList<String> = ArrayList()
                 for (bird: BirdTemp in birds) {
                     allNames.add(bird.getBirdName())
                 }
 
+                allNames.shuffle()
+
                 /*
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[Random.nextInt(0, birds.size)]
+                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val photoResourceId: Int = bird.getPhotoResourceId()
@@ -57,7 +66,7 @@ class QuizGenerator {
                             possibleOptions.add(birdName)
                     }
 
-                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                         possibleOptions.shuffle()
 
                     /*
@@ -67,14 +76,98 @@ class QuizGenerator {
                         options.add(possibleOptions[option])
                     }
 
-                    for (shuffle in 0 until Random.nextInt(1, maxShuffles))
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                         options.shuffle()  // Shuffle with the correct answer.
 
+                    /*
+                        Force the correct option to be in a different place than in the last question.
+                     */
+                    while (options.indexOf(answer) == lastCorrectOptionIndex) {
+                        options.shuffle()
+                    }
+
+                    lastCorrectOptionIndex = options.indexOf(answer)
                     questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
                 }
             }
 
+            /*
+             * Generate a "sound to name" quiz.
+             */
+            else if (questionType == QuestionType.SOUND) {
+                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
+                var allNames: ArrayList<String> = ArrayList()
+                for (bird: BirdTemp in birds) {
+                    allNames.add(bird.getBirdName())
+                }
+
+                allNames.shuffle()
+
+                /*
+                 * Create the questions.
+                 */
+                for (questionIndex in 0 until numQuestions) {
+                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val answer: String = bird.getBirdName()
+                    var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
+                    val soundResourceId: Int = bird.getSongResourceId()
+                    birds.remove(bird)
+
+                    var possibleOptions: ArrayList<String> = ArrayList()
+
+                    for (birdName: String in allNames) {
+                        if (!birdName.equals(answer))
+                            possibleOptions.add(birdName)
+                    }
+
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
+                        possibleOptions.shuffle()
+
+                    /*
+                     * Extract the options (additional to the answer).
+                     */
+                    for (option in 0 until numOptions-1) {
+                        options.add(possibleOptions[option])
+                    }
+
+                    for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
+                        options.shuffle()  // Shuffle with the correct answer.
+
+                    /*
+                        Force the correct option to be in a different place than in the last question.
+                     */
+                    while (options.indexOf(answer) == lastCorrectOptionIndex) {
+                        options.shuffle()
+                    }
+
+                    lastCorrectOptionIndex = options.indexOf(answer)
+                    questions.add(QuestionTemp(soundResourceId, options, options.indexOf(answer)))
+                }
+            }
+
             return questions
+        }
+
+        /**
+         * Generates quizzes and calculates the frequency at which each option is the answer.
+         *
+         * @param quizzes The number of quizzes to run.
+         * @param questionsPerQuiz The number of questions per quiz.
+         *
+         * @return An array of integers where each integer represents the number of times that option was the answer.
+         * The integer's index corresponds the option's index.
+         */
+        fun optionFrequencyTest(quizzes: Int, questionsPerQuiz: Int, optionsPerQuestion: Int): IntArray {
+            var optionFrequencies = IntArray(optionsPerQuestion) {0}
+            for (quizNum in 1..quizzes) {
+                val questions: ArrayList<QuestionTemp> = generateQuiz(QuestionType.PHOTO,
+                    questionsPerQuiz, optionsPerQuestion)
+                for (questionNum in 0 until questionsPerQuiz) {
+                    optionFrequencies[questions[questionNum].getAnswerIndex()]++
+                }
+            }
+
+            return optionFrequencies
         }
 
     }

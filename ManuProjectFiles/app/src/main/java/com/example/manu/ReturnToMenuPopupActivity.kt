@@ -49,6 +49,7 @@ class ReturnToMenuPopupActivity : Activity() {
         btn_yes.startAnimation(buttonPress)
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
     }
 
@@ -58,6 +59,7 @@ class ReturnToMenuPopupActivity : Activity() {
     private fun closePopup() {
         btn_no.startAnimation(buttonPress)
         finish()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
 
     /**
