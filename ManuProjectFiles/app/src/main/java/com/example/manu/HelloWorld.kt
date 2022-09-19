@@ -26,5 +26,11 @@ class HelloWorld : AppCompatActivity() {
         super.onCreate(savedInstanceState)  // Calls the superclass' creation method to inherit its functionality.
         setContentView(R.layout.test)  // Change "activity_main" to your desired view.
         Log.d("HelloWorld", "Well, that worked!")  // ADDED: Print text to prove it works.
+
+        Log.d("HelloWorld", "Compiling stats")
+        StatsAdapter.compileStats(this)
+        Log.d("HelloWorld", "Saving to file")
+        StatsAdapter.saveToFile(this)
+
     }
 }
