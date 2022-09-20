@@ -29,8 +29,8 @@ class HelloWorld : AppCompatActivity() {
 
         Log.d("HelloWorld", "Compiling stats")
         StatsAdapter.compileStats(this)
-        Log.d("HelloWorld", "Saving to file")
-        StatsAdapter.saveToFile(this)
+        //Log.d("HelloWorld", "Saving to file")
+        //StatsAdapter.updateValues(this, 10, 10, QuestionType.PHOTO)
 
     }
 }
