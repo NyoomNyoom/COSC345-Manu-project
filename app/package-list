@@ -72,9 +72,7 @@ $dokka.location:com.example.manu/QuitQuizPopupActivity/QuitQuizPopupActivity/#/P
 $dokka.location:com.example.manu/QuitQuizPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/on-back-pressed.html
 $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.example.manu/-quiz-activity/index.html
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
-$dokka.location:com.example.manu/QuizActivity/getMediaPlayer/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/get-media-player.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
-$dokka.location:com.example.manu/QuizActivity/setMediaPlayer/#android.media.MediaPlayer/PointingToDeclaration/app/com.example.manu/-quiz-activity/set-media-player.html
 $dokka.location:com.example.manu/QuizGenerator.Companion///PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/index.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/generateQuiz/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/generate-quiz.html
 $dokka.location:com.example.manu/QuizGenerator.Companion/getLastCorrectOptionIndex/#/PointingToDeclaration/app/com.example.manu/-quiz-generator/-companion/get-last-correct-option-index.html
