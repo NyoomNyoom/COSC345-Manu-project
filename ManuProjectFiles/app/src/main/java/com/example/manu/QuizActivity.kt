@@ -16,7 +16,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
-import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.activity_quiz.img_question
 import kotlinx.android.synthetic.main.activity_quiz.btn_back
 import kotlinx.android.synthetic.main.activity_quiz.btn_opt_0
 import kotlinx.android.synthetic.main.activity_quiz.btn_opt_1
@@ -47,7 +47,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonIncorrectColourHex:String = "#FF6836"
     private lateinit var quiz: String
     private var questions: ArrayList<QuestionTemp> = ArrayList()
-    var mediaPlayer = MediaPlayer()
+    private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
