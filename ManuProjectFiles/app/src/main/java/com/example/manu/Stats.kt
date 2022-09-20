@@ -29,4 +29,19 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     fun getTotalPlayed(): Int{
         return totalPlayed
     }
+
+    fun getAverage(): Int{
+        return numRight / totalPlayed
+    }
+
+    fun resetValues(){
+        totalPlayed = 0
+        numRight = 0
+    }
+
+    override fun toString(): String {
+        return "$questionType,$numQuestions,$numRight,$totalPlayed\n"
+    }
+
+
 }

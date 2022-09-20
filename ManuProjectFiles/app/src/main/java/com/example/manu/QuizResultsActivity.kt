@@ -38,7 +38,8 @@ class QuizResultsActivity : AppCompatActivity() {
 
         // Collect the results that the quiz will pass through.
         val score: Int = intent.getIntExtra("score", -1)
-        val totalQuestions: Int =  intent.getIntExtra("totalQuestions", -1)
+        val totalQuestions: Int = intent.getIntExtra("totalQuestions", -1)
+        val quizType: String? = intent.getStringExtra("quizType")
 
         text_score.text = "$score / $totalQuestions"
 
@@ -50,6 +51,7 @@ class QuizResultsActivity : AppCompatActivity() {
         btn_play_again.setOnClickListener {
             btn_play_again.startAnimation(buttonPress)
             var intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", quizType)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()

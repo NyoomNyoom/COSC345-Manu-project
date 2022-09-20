@@ -3,10 +3,8 @@
 package com.example.manu
 
 import android.content.Context
-import java.io.BufferedReader
-import java.io.BufferedWriter
-import java.io.InputStream
-import java.io.InputStreamReader
+import android.util.Log
+import java.io.*
 import java.nio.file.Paths
 
 
@@ -19,24 +17,89 @@ class StatsAdapter {
         private val mediumQuiz = 10
         private val longQuiz = 20
 
-        fun compileStats(questionType: QuestionType, numQuestions: Int, numRight: Int, totalPlayed: Int, context: Context){
+        fun compileStats(context: Context){
             stats = mutableListOf<Stats>()
+            lateinit var questionType: QuestionType
 
+            val path = context.filesDir
+            val inputStream = File(path, "stats.txt")
+            val reader = FileInputStream(inputStream)
+            var content = ByteArray(inputStream.length().toInt())
 
-            val inputStream = context.assets.open("bird-data.csv")
-            val input = InputStreamReader(inputStream, "UTF-8")
-            val reader = BufferedReader(input)
+            reader.read(content)
 
-            reader.forEachLine {
-                val i = 0
-                val line = it.split(",")
+            var fileContent = String(content)
+
+            fileContent.split("\n").forEach {
+                if(it == "true"){
+                    val line = it.split(",")
+
+                    if (line[0] == "PHOTO") {
+                        questionType = QuestionType.PHOTO
+                    } else if (line[0] == "SOUND") {
+                        questionType = QuestionType.SOUND
+                    } else if (line[0] == "MAORI") {
+                        questionType = QuestionType.MAORI
+                    } else if (line[0] == "ENGLISH") {
+                        questionType = QuestionType.ENGLISH
+                    } else if (line[0] == "ALL") {
+                        questionType = QuestionType.ALL
+                    }
+
+                    if (line[0] != "") {
+                        stats.add(Stats(questionType, line[1].toInt(), line[2].toInt(), line[3].toInt()))
+                    }
+                }else if(it == "false"){
+
+                }
             }
         }
 
-        fun updateValues(context: Context, numQuestions: Int, numCorrect: Int, questionType: QuestionType){
 
+        fun updateValues(context: Context, numQuestions: Int, numCorrect: Int, questionType: QuestionType){
+            if(questionType == QuestionType.PHOTO){
+                stats[1].updateNumRight(numCorrect)
+                stats[1].updateTotalPlayed(numQuestions)
+            }else if(questionType == QuestionType.SOUND){
+                stats[2].updateNumRight(numCorrect)
+                stats[2].updateTotalPlayed(numQuestions)
+
+            }else if(questionType == QuestionType.MAORI){
+                stats[3].updateNumRight(numCorrect)
+                stats[3].updateTotalPlayed(numQuestions)
+
+            }else if(questionType == QuestionType.ENGLISH){
+                stats[4].updateNumRight(numCorrect)
+                stats[4].updateTotalPlayed(numQuestions)
+
+            }else if(questionType == QuestionType.ALL){
+                stats[5].updateNumRight(numCorrect)
+                stats[5].updateTotalPlayed(numQuestions)
+            }
+
+            saveToFile(context)
         }
 
+        fun saveToFile(context: Context){
+            var path = context.filesDir
 
+            try {
+                val writer = FileOutputStream(File(path, "stats.txt"))
+                stats.forEach {
+                    writer.write(it.toString().toByteArray())
+                }
+                writer.close()
+            }catch(e: Exception){
+                e.printStackTrace()
+            }
+        }
+
+        fun resetValues(context: Context){
+            stats.forEach {
+                it.resetValues()
+            }
+
+            saveToFile(context)
+        }
     }
 }

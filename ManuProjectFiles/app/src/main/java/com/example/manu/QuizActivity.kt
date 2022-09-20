@@ -45,7 +45,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonSelectedColourHex:String = "#808080"
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
-    private lateinit var quiz: String
+    private lateinit var quizType: String
     private var questions: ArrayList<QuestionTemp> = ArrayList()
     private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
@@ -62,11 +62,11 @@ class QuizActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        quiz = intent.getStringExtra("quiztype").toString()
-        if (quiz == "image") {
+        quizType = intent.getStringExtra("quiztype").toString()
+        if (quizType == "image") {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
-        } else if (quiz == "sound") {
+        } else if (quizType == "sound") {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         }
@@ -122,7 +122,7 @@ class QuizActivity : AppCompatActivity() {
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        if (quiz == "sound"){
+        if (quizType == "sound"){
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
@@ -156,9 +156,9 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionTemp) {
-        if (quiz == "image") {
+        if (quizType == "image") {
             img_question.setImageResource(question.getQuestionResourceId())
-        } else if (quiz == "sound") {
+        } else if (quizType == "sound") {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
         }
         val options = question.getOptions()
@@ -199,7 +199,7 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
-        if (quiz == "sound"){
+        if (quizType == "sound"){
             mediaPlayer.pause()
         }
 
@@ -213,6 +213,7 @@ class QuizActivity : AppCompatActivity() {
                 // Pass the score through to the results screen.
                 resultsScreen.putExtra("score", score)
                 resultsScreen.putExtra("totalQuestions", questions.size)
+                resultsScreen.putExtra("quizType", quizType)
 
                 startActivity(resultsScreen)
                 finish()
