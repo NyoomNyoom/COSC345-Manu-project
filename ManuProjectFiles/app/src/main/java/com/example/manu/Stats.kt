@@ -34,7 +34,14 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         return numRight / totalPlayed
     }
 
-    override fun toString(): String {
-        return "$questionType, $numQuestions, $numRight, $totalPlayed"
+    fun resetValues(){
+        totalPlayed = 0
+        numRight = 0
     }
+
+    override fun toString(): String {
+        return "$questionType,$numQuestions,$numRight,$totalPlayed\n"
+    }
+
+
 }
