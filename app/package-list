@@ -107,6 +107,7 @@ $dokka.location:com.example.manu/Stats/toString/#/PointingToDeclaration/app/com
 $dokka.location:com.example.manu/Stats/updateNumRight/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/update-num-right.html
 $dokka.location:com.example.manu/Stats/updateTotalPlayed/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/update-total-played.html
 $dokka.location:com.example.manu/StatsAdapter.Companion///PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/index.html
+$dokka.location:com.example.manu/StatsAdapter.Companion/getStatsBasedOnType/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-stats-based-on-type.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/makeFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/make-file.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/resetValues/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/reset-values.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/saveToFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/save-to-file.html
