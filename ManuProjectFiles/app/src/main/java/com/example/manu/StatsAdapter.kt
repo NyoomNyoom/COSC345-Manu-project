@@ -138,5 +138,25 @@ class StatsAdapter {
 
             saveToFile(context)
         }
+
+        fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats{
+            lateinit var statsOut: Stats
+
+            stats.forEach {
+                if(it.getQuestionType() == QuestionType.ALL){
+                    statsOut = it
+                }else if(it.getQuestionType() == QuestionType.PHOTO){
+                    statsOut = it
+                }else if(it.getQuestionType() == QuestionType.SOUND){
+                    statsOut = it
+                }else if(it.getQuestionType() == QuestionType.MAORI){
+                    statsOut = it
+                }else if(it.getQuestionType() == QuestionType.ENGLISH){
+                    statsOut = it
+                }
+            }
+
+            return statsOut
+        }
     }
 }
