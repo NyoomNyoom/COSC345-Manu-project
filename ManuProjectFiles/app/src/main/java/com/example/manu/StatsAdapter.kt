@@ -5,7 +5,6 @@ package com.example.manu
 import android.content.Context
 import android.util.Log
 import java.io.*
-import java.nio.file.Paths
 
 
 class StatsAdapter {
@@ -13,9 +12,54 @@ class StatsAdapter {
     companion object{
         private lateinit var stats: MutableList<Stats>
 
-        private val shortQuiz = 5
-        private val mediumQuiz = 10
-        private val longQuiz = 20
+        fun makeFile(context: Context){
+            val path = context.filesDir
+            val fileName = "stats.txt"
+            var file = File(path, fileName)
+            var fileExists = file.exists()
+
+            if(fileExists){
+                compileStats(context)
+            } else {
+                try {
+                    stats = mutableListOf<Stats>()
+
+                    lateinit var questionType: QuestionType
+
+                    val inputStream = context.assets.open("stats.txt")
+                    val size: Int = inputStream.available()
+                    val buffer = ByteArray(size)
+                    inputStream.read(buffer).toString()
+
+                    val string = String(buffer)
+
+                    Log.d("StatsAdapter", "file content =\n" + string)
+
+                    string.split("\n").forEach {
+                        val line = it.split(",")
+
+                        if (line[0] == "PHOTO") {
+                            questionType = QuestionType.PHOTO
+                        } else if (line[0] == "SOUND") {
+                            questionType = QuestionType.SOUND
+                        } else if (line[0] == "MAORI") {
+                            questionType = QuestionType.MAORI
+                        } else if (line[0] == "ENGLISH") {
+                            questionType = QuestionType.ENGLISH
+                        } else if (line[0] == "ALL") {
+                            questionType = QuestionType.ALL
+                        }
+
+                        if (line[0] != "") {
+                            stats.add(Stats(questionType, line[1].trim().toInt(), line[2].trim().toInt(), line[3].trim().toInt()))
+                        }
+                    }
+                    saveToFile(context)
+                }catch(e: IOException){
+
+                }
+            }
+        }
 
         fun compileStats(context: Context){
             stats = mutableListOf<Stats>()
@@ -31,28 +75,25 @@ class StatsAdapter {
             var fileContent = String(content)
 
             fileContent.split("\n").forEach {
-                if(it == "true"){
-                    val line = it.split(",")
+                val line = it.split(",")
+                if (line[0] == "PHOTO") {
+                    questionType = QuestionType.PHOTO
+                } else if (line[0] == "SOUND") {
+                    questionType = QuestionType.SOUND
+                } else if (line[0] == "MAORI") {
+                    questionType = QuestionType.MAORI
+                } else if (line[0] == "ENGLISH") {
+                    questionType = QuestionType.ENGLISH
+                } else if (line[0] == "ALL") {
+                    questionType = QuestionType.ALL
+                }
 
-                    if (line[0] == "PHOTO") {
-                        questionType = QuestionType.PHOTO
-                    } else if (line[0] == "SOUND") {
-                        questionType = QuestionType.SOUND
-                    } else if (line[0] == "MAORI") {
-                        questionType = QuestionType.MAORI
-                    } else if (line[0] == "ENGLISH") {
-                        questionType = QuestionType.ENGLISH
-                    } else if (line[0] == "ALL") {
-                        questionType = QuestionType.ALL
-                    }
-
-                    if (line[0] != "") {
-                        stats.add(Stats(questionType, line[1].toInt(), line[2].toInt(), line[3].toInt()))
-                    }
-                }else if(it == "false"){
-
+                if (line[0] != "") {
+                    stats.add(Stats(questionType, line[1].toInt(), line[2].toInt(), line[3].toInt()))
                 }
             }
+
+            Log.d("StatsAdapter", stats.toString())
         }
 
 
