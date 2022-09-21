@@ -21,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         BirdDatabase.compileDatabase()
         val intent = Intent(this, MenuActivity::class.java)
+
+        StatsAdapter.makeFile(this)
+
         startActivity(intent)
         finish()
     }

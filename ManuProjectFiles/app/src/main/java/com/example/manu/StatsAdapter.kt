@@ -33,8 +33,6 @@ class StatsAdapter {
 
                     val string = String(buffer)
 
-                    Log.d("StatsAdapter", "file content =\n" + string)
-
                     string.split("\n").forEach {
                         val line = it.split(",")
 
@@ -61,7 +59,7 @@ class StatsAdapter {
             }
         }
 
-        fun compileStats(context: Context){
+        private fun compileStats(context: Context){
             stats = mutableListOf<Stats>()
             lateinit var questionType: QuestionType
 
@@ -92,8 +90,6 @@ class StatsAdapter {
                     stats.add(Stats(questionType, line[1].toInt(), line[2].toInt(), line[3].toInt()))
                 }
             }
-
-            Log.d("StatsAdapter", stats.toString())
         }
 
 
