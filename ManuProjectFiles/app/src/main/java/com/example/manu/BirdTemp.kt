@@ -6,13 +6,14 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, funFact: String) {
+class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, /*endangermentStatusIn: Boolean, */ funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
     private val soundResourceId: Int = soundResourceId
     private val maoriName: String = maoriName
     private val funFact = funFact
+    //private val endangermentStatus = endangermentStatusIn
 
     /**
      * Returns the bird's name.
@@ -59,6 +60,16 @@ class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, mao
         return maoriName
     }
 
+    /**
+     * Returns the endangerment status of the bird. True if the bird is endangered, false otherwise.
+     *
+     * @return the endangerment status of the bird.
+     */
+    /*
+    fun getEndangerment(): Boolean{
+        return endangermentStatus
+    }
+    */
 
 
     /**
