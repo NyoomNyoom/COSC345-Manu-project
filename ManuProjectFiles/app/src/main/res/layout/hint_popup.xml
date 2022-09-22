@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".QuitQuizPopupActivity"
+    tools:context=".ReturnToMenuPopupActivity"
     android:theme="@style/Theme.Manu.Popup"
     android:background="#CC000000"
     android:layout_gravity="center"
@@ -16,8 +16,8 @@
     >
 
     <LinearLayout
-        android:layout_width="300sp"
-        android:layout_height="200sp"
+        android:layout_width="250sp"
+        android:layout_height="185sp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
@@ -25,7 +25,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="250sp"
-            android:layout_height="190sp"
+            android:layout_height="175sp"
             app:cardCornerRadius="7sp"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
@@ -35,10 +35,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Are you sure you want to quit??"
+                android:text="Here's a hint!"
                 android:textColor="@color/white"
                 android:textSize="30sp"
-                android:lineSpacingExtra="10sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:theme="@style/Theme.Manu.ReturnToMenuPopup"
@@ -48,40 +47,37 @@
                 android:fontFamily="@font/party_confetti_regular"
                 />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="help"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:theme="@style/Theme.Manu.ReturnToMenuPopup"
+                android:layout_marginBottom = "10sp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_yes"
+                android:id="@+id/btn_close"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
-                android:text="Yes"
+                android:text="Close"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textSize="15sp"
+                android:layout_marginTop="50sp"
                 android:backgroundTint="@color/black"
                 android:textColor="@color/white"
                 app:strokeWidth="1sp"
                 app:strokeColor="@color/white"
                 android:textStyle="italic"
-                android:layout_marginTop="10sp"
                 android:layout_marginBottom="5sp"
                 app:cornerRadius="7sp"
                 />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_no"
-                android:layout_width="200sp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="60sp"
-                android:layout_marginBottom="5sp"
-                android:backgroundTint="@color/black"
-                android:gravity="center"
-                android:text="No"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:textStyle="italic"
-                app:cornerRadius="7sp"
-                app:strokeColor="@color/white"
-                app:strokeWidth="1sp" />
 
         </com.google.android.material.card.MaterialCardView>
 

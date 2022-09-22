@@ -93,7 +93,7 @@ class StatsAdapter {
         }
 
 
-        fun updateValues(context: Context, numQuestions: Int, numCorrect: Int, questionType: QuestionType){
+        fun updateValues(context: Context, questionType: QuestionType), numQuestions: Int, numCorrect: Int{
             if(questionType == QuestionType.PHOTO){
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)

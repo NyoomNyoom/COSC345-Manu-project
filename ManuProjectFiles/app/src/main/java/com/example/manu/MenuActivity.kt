@@ -46,7 +46,7 @@ class MenuActivity : AppCompatActivity() {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptions::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             finish()
         }
 
@@ -54,20 +54,20 @@ class MenuActivity : AppCompatActivity() {
             btn_infographics.startAnimation(buttonPress)
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             finish()
-        }
-
-        btn_quit.setOnClickListener {
-            btn_quit.startAnimation(buttonPress)
-            val intent = Intent(this, QuitQuizPopupActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
         btn_credits.setOnClickListener{
             btn_credits.startAnimation(buttonPress)
             val intent = Intent(this, CreditActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+
+        btn_help.setOnClickListener{
+            btn_help.startAnimation(buttonPress)
+            val intent = Intent(this, HintPopupActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }

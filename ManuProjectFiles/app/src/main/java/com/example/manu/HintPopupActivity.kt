@@ -1,5 +1,5 @@
 /**
- * @author Daniel Robinson, Madeline McCane
+ * @author Daniel Robinson
  */
 
 package com.example.manu
@@ -12,23 +12,24 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.hint_popup.*
 import kotlinx.android.synthetic.main.return_to_menu_popup.*
 
 /**
- * Controls the "Are you sure you want to quit?" popup that shows when you press the 'X' button during the quiz.
+ * Controls the "Hint" popup that shows when you press the 'X' button during the quiz.
  */
-class QuitQuizPopupActivity : Activity() {
+class HintPopupActivity : Activity() {
 
     private lateinit var buttonPress: Animation
 
     /**
-     * This is run when the class is instantiated. It sets up the "Quit the Quiz?" layout.
+     * This is run when the class is instantiated. It sets up the "Return to Menu?" layout.
      *
      * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.quit_quiz_popup)
+        setContentView(R.layout.hint_popup)
 
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
@@ -38,23 +39,14 @@ class QuitQuizPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_yes.setOnClickListener { quit() }
-        btn_no.setOnClickListener { closePopup() }
-    }
-
-    /**
-     * Animates the button press, closes the app.
-     */
-    private fun quit() {
-        btn_yes.startAnimation(buttonPress)
-        finishAffinity()
+        btn_close.setOnClickListener { closePopup() }
     }
 
     /**
      * Animates the button press and closes this popup.
      */
     private fun closePopup() {
-        btn_no.startAnimation(buttonPress)
+        btn_close.startAnimation(buttonPress)
         finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
