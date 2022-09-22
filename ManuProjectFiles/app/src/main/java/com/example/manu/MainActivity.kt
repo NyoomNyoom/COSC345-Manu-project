@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         BirdDatabase.compileDatabase()
         val intent = Intent(this, MenuActivity::class.java)
 
-        StatsAdapter.makeFile(this)
+        //StatsAdapter.makeFile(this)
 
         startActivity(intent)
         finish()
