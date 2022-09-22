@@ -58,16 +58,16 @@ class MenuActivity : AppCompatActivity() {
             finish()
         }
 
-        btn_quit.setOnClickListener {
-            btn_quit.startAnimation(buttonPress)
-            val intent = Intent(this, QuitQuizPopupActivity::class.java)
+        btn_credits.setOnClickListener{
+            btn_credits.startAnimation(buttonPress)
+            val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
 
-        btn_credits.setOnClickListener{
-            btn_credits.startAnimation(buttonPress)
-            val intent = Intent(this, CreditActivity::class.java)
+        btn_help.setOnClickListener{
+            btn_help.startAnimation(buttonPress)
+            val intent = Intent(this, HintPopupActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
