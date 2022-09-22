@@ -40,8 +40,21 @@ class QuizResultsActivity : AppCompatActivity() {
         val score: Int = intent.getIntExtra("score", -1)
         val totalQuestions: Int = intent.getIntExtra("totalQuestions", -1)
         val quizType: String? = intent.getStringExtra("quizType")
+        lateinit var questionType: QuestionType
 
         text_score.text = "$score / $totalQuestions"
+
+        if(quizType == "image"){
+            questionType = QuestionType.PHOTO
+        }else if(quizType == "sound"){
+            questionType = QuestionType.SOUND
+        }else if(quizType == "maori"){
+            questionType = QuestionType.MAORI
+        }else if(quizType == "english"){
+            questionType = QuestionType.ENGLISH
+        }
+
+        StatsAdapter.updateValues(this, questionType, totalQuestions, score)
 
         loadAnimations()
 
