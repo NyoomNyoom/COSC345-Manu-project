@@ -21,6 +21,9 @@ $dokka.location:com.example.manu/CreditActivity///PointingToDeclaration/app/com
 $dokka.location:com.example.manu/CreditActivity/CreditActivity/#/PointingToDeclaration/app/com.example.manu/-credit-activity/-credit-activity.html
 $dokka.location:com.example.manu/HelloWorld///PointingToDeclaration/app/com.example.manu/-hello-world/index.html
 $dokka.location:com.example.manu/HelloWorld/HelloWorld/#/PointingToDeclaration/app/com.example.manu/-hello-world/-hello-world.html
+$dokka.location:com.example.manu/HintPopupActivity///PointingToDeclaration/app/com.example.manu/-hint-popup-activity/index.html
+$dokka.location:com.example.manu/HintPopupActivity/HintPopupActivity/#/PointingToDeclaration/app/com.example.manu/-hint-popup-activity/-hint-popup-activity.html
+$dokka.location:com.example.manu/HintPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-hint-popup-activity/on-back-pressed.html
 $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener///PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-gesture-listener/index.html
 $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/InfoGraphicActivity.GestureListener/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-gesture-listener/-info-graphic-activity.-gesture-listener.html
 $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/onFling/#android.view.MotionEvent?#android.view.MotionEvent?#kotlin.Float#kotlin.Float/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-gesture-listener/on-fling.html
@@ -69,9 +72,6 @@ $dokka.location:com.example.manu/QuestionType.MAORI///PointingToDeclaration/{"or
 $dokka.location:com.example.manu/QuestionType.PHOTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-p-h-o-t-o/index.html
 $dokka.location:com.example.manu/QuestionType.SOUND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-s-o-u-n-d/index.html
 $dokka.location:com.example.manu/QuestionType///PointingToDeclaration/app/com.example.manu/-question-type/index.html
-$dokka.location:com.example.manu/QuitQuizPopupActivity///PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/index.html
-$dokka.location:com.example.manu/QuitQuizPopupActivity/QuitQuizPopupActivity/#/PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/-quit-quiz-popup-activity.html
-$dokka.location:com.example.manu/QuitQuizPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quit-quiz-popup-activity/on-back-pressed.html
 $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.example.manu/-quiz-activity/index.html
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
