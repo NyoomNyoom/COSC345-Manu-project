@@ -172,7 +172,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     *
+     * Switches from the Encyclopedia screen to the Menu screen using a slide transition.
      */
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
