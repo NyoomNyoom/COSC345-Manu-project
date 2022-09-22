@@ -52,13 +52,16 @@
             android:backgroundTint="@color/black"
             >
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/img_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/maori_chatham_island_oystercatcher"
-                android:layout_gravity="center"
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Chatham Island Oystercatcher"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:backgroundTint="@color/black"
+                android:textSize="23sp"
+                android:clickable="false"
                 />
 
         </com.google.android.material.card.MaterialCardView>
