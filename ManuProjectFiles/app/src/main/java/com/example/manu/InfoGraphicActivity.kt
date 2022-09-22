@@ -62,21 +62,16 @@ class InfoGraphicActivity : AppCompatActivity() {
                 allButtons[i].visibility = View.GONE
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
-
-                mediaPlayer.pause()
-                if(birds[i].getSongResourceId() != Resources.ID_NULL) {
-                    mediaPlayer = MediaPlayer.create(this, birds[i].getSongResourceId())
-                    mediaPlayer.start()
-                }
-
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
                 intent.putExtra("birdName", birds[i].getBirdName())
+                intent.putExtra("songResourceId", birds[i].getSongResourceId())
                 if(birds[i].getFunFact() == ""){
                     intent.putExtra("birdFact", "More information is yet to come...")
                 } else {
                     intent.putExtra("birdFact", birds[i].getFunFact())
                 }
+
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 // Create a pop up window and pass it the text information
