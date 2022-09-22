@@ -39,6 +39,11 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         numRight = 0
     }
 
+    fun getTotalQuizzesPlayed(): Int{
+        return totalPlayed % numQuestions
+    }
+
+
     override fun toString(): String {
         return "$questionType,$numQuestions,$numRight,$totalPlayed\n"
     }
