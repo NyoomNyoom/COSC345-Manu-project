@@ -104,6 +104,7 @@ $dokka.location:com.example.manu/Stats/getNumRight/#/PointingToDeclaration/app/
 $dokka.location:com.example.manu/Stats/getQuestionLength/#/PointingToDeclaration/app/com.example.manu/-stats/get-question-length.html
 $dokka.location:com.example.manu/Stats/getQuestionType/#/PointingToDeclaration/app/com.example.manu/-stats/get-question-type.html
 $dokka.location:com.example.manu/Stats/getTotalPlayed/#/PointingToDeclaration/app/com.example.manu/-stats/get-total-played.html
+$dokka.location:com.example.manu/Stats/getTotalQuizzesPlayed/#/PointingToDeclaration/app/com.example.manu/-stats/get-total-quizzes-played.html
 $dokka.location:com.example.manu/Stats/resetValues/#/PointingToDeclaration/app/com.example.manu/-stats/reset-values.html
 $dokka.location:com.example.manu/Stats/toString/#/PointingToDeclaration/app/com.example.manu/-stats/to-string.html
 $dokka.location:com.example.manu/Stats/updateNumRight/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/update-num-right.html
