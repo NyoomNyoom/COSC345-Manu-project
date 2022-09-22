@@ -99,7 +99,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             btn_back.startAnimation(buttonPress)
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 
