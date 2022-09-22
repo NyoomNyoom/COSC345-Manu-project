@@ -109,10 +109,10 @@ class StatsAdapter {
                 stats[4].updateNumRight(numCorrect)
                 stats[4].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.ALL){
-                stats[5].updateNumRight(numCorrect)
-                stats[5].updateTotalPlayed(numQuestions)
             }
+
+            stats[5].updateNumRight(numCorrect)
+            stats[5].updateTotalPlayed(numQuestions)
 
             saveToFile(context)
         }
