@@ -3,6 +3,7 @@
 package com.example.manu
 
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -63,7 +64,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setOnClickListener {
 
                 mediaPlayer.pause()
-                if(birds[i].getSongResourceId() != null) {
+                if(birds[i].getSongResourceId() != Resources.ID_NULL) {
                     mediaPlayer = MediaPlayer.create(this, birds[i].getSongResourceId())
                     mediaPlayer.start()
                 }
