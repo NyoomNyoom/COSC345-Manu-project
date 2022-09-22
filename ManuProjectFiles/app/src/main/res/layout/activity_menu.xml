@@ -106,7 +106,22 @@
             app:strokeColor="@color/white"
             android:textSize="15sp"
             app:cornerRadius="7sp"
-            android:layout_marginBottom="50sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_credits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50sp"
+            android:layout_marginTop="10sp"
+            android:text="Credits"
+            android:textColor="@color/white"
+            android:backgroundTint="#6f8c2a"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:textSize="15sp"
+            app:cornerRadius="7sp"
+            android:layout_marginBottom="30sp"
             />
 
 </LinearLayout>
