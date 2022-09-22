@@ -4,22 +4,20 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.*
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
-import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
-import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
-import kotlinx.android.synthetic.main.info_graphic_popup.view.*
+
 
 /**
  * Collects and adds the bird information into the infographic scene.
@@ -28,6 +26,7 @@ class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
      *
@@ -62,6 +61,13 @@ class InfoGraphicActivity : AppCompatActivity() {
                 allButtons[i].visibility = View.GONE
             } // Sets the backgroundColor
             allButtons[i].setOnClickListener {
+
+                mediaPlayer.pause()
+                if(birds[i].getSongResourceId() != null) {
+                    mediaPlayer = MediaPlayer.create(this, birds[i].getSongResourceId())
+                    mediaPlayer.start()
+                }
+
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
                 intent.putExtra("birdName", birds[i].getBirdName())
