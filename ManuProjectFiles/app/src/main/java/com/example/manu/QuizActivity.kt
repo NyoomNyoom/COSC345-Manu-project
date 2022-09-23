@@ -211,7 +211,7 @@ class QuizActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
