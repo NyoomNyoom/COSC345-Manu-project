@@ -38,7 +38,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".QuizOptions"
+            android:name=".QuizOptionsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
