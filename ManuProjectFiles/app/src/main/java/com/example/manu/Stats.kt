@@ -31,6 +31,9 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     fun getAverage(): Int{
+        if (totalPlayed == 0) {
+            return 0
+        }
         return numRight / totalPlayed
     }
 
@@ -40,8 +43,9 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     fun getTotalQuizzesPlayed(): Int{
-
-
+        if (numQuestions == 0) {
+            return 0
+        }
         return totalPlayed % numQuestions
     }
 
