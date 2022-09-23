@@ -10,9 +10,11 @@ $dokka.location:com.example.manu/BirdDatabase.Companion/getNameUsingResourceId/#
 $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.example.manu/-bird-database/index.html
 $dokka.location:com.example.manu/BirdDatabase/BirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-bird-database.html
 $dokka.location:com.example.manu/BirdTemp///PointingToDeclaration/app/com.example.manu/-bird-temp/index.html
-$dokka.location:com.example.manu/BirdTemp/BirdTemp/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird-temp/-bird-temp.html
+$dokka.location:com.example.manu/BirdTemp/BirdTemp/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird-temp/-bird-temp.html
 $dokka.location:com.example.manu/BirdTemp/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-bird-name.html
+$dokka.location:com.example.manu/BirdTemp/getEnglishNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-english-name-image-resource-id.html
 $dokka.location:com.example.manu/BirdTemp/getFunFact/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-fun-fact.html
+$dokka.location:com.example.manu/BirdTemp/getMaoriNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-maori-name-image-resource-id.html
 $dokka.location:com.example.manu/BirdTemp/getPhotoResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-photo-resource-id.html
 $dokka.location:com.example.manu/BirdTemp/getSongResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-song-resource-id.html
 $dokka.location:com.example.manu/BirdTemp/getmaoriName/#/PointingToDeclaration/app/com.example.manu/-bird-temp/getmaori-name.html
