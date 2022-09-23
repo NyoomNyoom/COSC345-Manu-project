@@ -46,8 +46,9 @@ class ExampleInstrumentedTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
 
         StatsAdapter.makeFile(context)
-        StatsAdapter.updateValues(context, QuestionType.PHOTO, 10, 5)
         StatsAdapter.resetValues(context)
+        StatsAdapter.updateValues(context, QuestionType.PHOTO, 10, 5)
+
 
         val numCorrect = (StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO)).getNumRight()
 
