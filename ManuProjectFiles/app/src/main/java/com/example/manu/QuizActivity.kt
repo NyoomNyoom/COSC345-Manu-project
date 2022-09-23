@@ -124,26 +124,12 @@ class QuizActivity : AppCompatActivity() {
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        /*if (quizType == "sound") {
-            btn_play_audio.setOnClickListener{ playAudio() }
-            btn_pause_audio.setOnClickListener { pauseAudio() }
-        }*/
-
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
         }
 
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
-    }
-
-    private fun playAudio() {
-        mediaPlayer.start()
-
-    }
-
-    private fun pauseAudio() {
-        mediaPlayer.pause()
     }
 
     /**
@@ -165,6 +151,7 @@ class QuizActivity : AppCompatActivity() {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
             mediaPlayer.start()
         }
+
         val options = question.getOptions()
 
         for (buttonIndex in 0 until numOptions) {
