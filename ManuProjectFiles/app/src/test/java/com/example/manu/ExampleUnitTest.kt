@@ -624,4 +624,55 @@ class ExampleUnitTest {
         assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
     }
 
+    /**
+     * Try and retrieve a bird that does not exist.
+     */
+    @Test
+    fun nonExistentBird() {
+        BirdDatabase.compileDatabase()
+        val emptyBird = BirdDatabase.getBirdUsingPhotoResourceId(Resources.ID_NULL)
+        assertEquals(true, emptyBird.getBirdName() == "EMPTY_NAME")
+    }
+
+    /**
+     * Tests whether you can retrieve a bird's name using its raw sound file.
+     */
+    @Test
+    fun getBirdUsingSoundResource() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(R.raw.aucklandislandteal)
+        assertEquals(true, birdName == "Auckland Island Teal")
+    }
+
+    /**
+     * Tests the behaviour of the database if you ask for the bird that has a non-existent raw sound file and
+     * non-existent photo file (which none do).
+     */
+    @Test
+    fun getBirdWithEmptySound() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(-1)  // Resource IDs are always positive.
+        assertEquals(true, birdName == "")
+    }
+
+    /**
+     * Ensures QuestionType.ALL is not accepted by the birds database (since this value is for storing stats not
+     * querying birds).
+     */
+    @Test
+    fun getBirdsWithResourceAll() {
+        BirdDatabase.compileDatabase()
+        val birds = BirdDatabase.getBirdsWithResource(QuestionType.ALL)
+        val emptyBirdList: ArrayList<Bird> = ArrayList()
+        assertEquals(true, birds == emptyBirdList)
+    }
+
+    @Test
+    fun checkAllBirdsQuery() {
+        BirdDatabase.compileDatabase()
+        val birdList1 = BirdDatabase.getBirdList()
+        val birdList2 = BirdDatabase.getBirdList()
+        assertEquals(true, birdList1 == birdList2)
+    }
+
 }
