@@ -102,7 +102,7 @@ class QuizOptionsActivity : AppCompatActivity() {
         }
 
     }
-    
+
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }

@@ -13,7 +13,6 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
-import kotlinx.android.synthetic.main.quiz_options.*
 import kotlinx.android.synthetic.main.quiz_stats.*
 
 class StatsActivity : AppCompatActivity() {
@@ -45,7 +44,7 @@ class StatsActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        loadAnimations()
+        loadAndStoreAnimations()
 
         btn_back.setOnClickListener{
             mediaPlayer.pause()
@@ -83,10 +82,7 @@ class StatsActivity : AppCompatActivity() {
         english_average.text = "Average score: " + english_av
     }
 
-    /**
-     * Loads and stores the animations.
-     */
-    private fun loadAnimations() {
+    private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 }

@@ -501,9 +501,14 @@ class ExampleUnitTest {
             }
 
             val answerIndex = question.getAnswerIndex()
-            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
-                assertEquals(false, true)
+            for (index in 0 until 4) {
+                // If the answer index is within the valid bounds.
+                if (answerIndex == index) {
+                    assertEquals(true, true)
+                    return
+                }
             }
+            assertEquals(false, true)  // If the answer index is not within the valid bounds.
         }
     }
 
