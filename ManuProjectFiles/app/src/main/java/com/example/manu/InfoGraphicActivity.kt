@@ -75,7 +75,7 @@ class InfoGraphicActivity : AppCompatActivity() {
                 if(birds[i].getmaoriName() == "") {
                     intent.putExtra("translatedName", "")
                 } else {
-                    intent.putExtra("translatedName", "Maori Name: " + birds[i].getmaoriName())
+                    intent.putExtra("translatedName", "Māori Name: " + birds[i].getmaoriName())
                 }
 
                 // Get Fun fact

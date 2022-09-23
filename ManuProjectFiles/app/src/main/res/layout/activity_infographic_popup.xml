@@ -49,13 +49,25 @@
             android:backgroundTint="@color/black"
             >
 
-            <ImageView
-                android:id="@+id/bird_photo"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="200sp"
                 android:layout_height="200sp"
-                android:layout_marginTop="15sp"
+                app:cardCornerRadius="7sp"
+                app:strokeWidth="3sp"
+                app:strokeColor="@color/white"
+                android:backgroundTint="@color/black"
+                android:layout_marginHorizontal="15sp"
+                android:layout_marginTop="45sp"
                 android:layout_gravity="center_horizontal"
-                ></ImageView>
+                >
+
+                <ImageView
+                    android:id="@+id/bird_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    ></ImageView>
+
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
                 android:id="@+id/txt_bird_name"
@@ -66,9 +78,10 @@
                 android:textSize="30sp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="215sp"
+                android:layout_marginTop="255sp"
                 android:layout_marginHorizontal="15sp"
                 />
+
             <TextView
                 android:id="@+id/txt_maori_name"
                 android:text="Alternate Name: Tōrea tai"
@@ -77,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginTop="300sp"
+                android:layout_marginTop="340sp"
                 android:layout_marginLeft="15sp"
                 ></TextView>
 
@@ -89,7 +102,7 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:layout_gravity="left"
-                android:layout_marginTop="317sp"
+                android:layout_marginTop="357sp"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginBottom="15sp"
                 />
@@ -103,7 +116,7 @@
                 android:textSize="14sp"
                 android:layout_gravity="left"
                 android:gravity="left"
-                android:layout_marginTop="337sp"
+                android:layout_marginTop="387sp"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginBottom="15sp"
                 />
