@@ -167,11 +167,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Selects the option the user has tapped.
-     *
-     * @param optionNumber The index of the option button.
-     */
     private fun selectOption(optionNumber: Int) {
         // Only select the option if we haven't marked the answer.
         if (markedCurrentQuestion)
@@ -216,10 +211,7 @@ class QuizActivity : AppCompatActivity() {
             }
         }
     }
-
-    /**
-     * Loads the "Return to Menu?" popup screen.
-     */
+    
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
