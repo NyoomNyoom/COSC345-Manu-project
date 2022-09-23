@@ -131,6 +131,11 @@ class StatsAdapter {
             saveToFile(context)
         }
 
+        /**
+         * @param Context the context?
+         *
+         * saves the user information to a file
+         */
         fun saveToFile(context: Context){
             var path = context.filesDir
 
