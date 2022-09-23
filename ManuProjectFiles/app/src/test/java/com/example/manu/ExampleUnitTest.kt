@@ -402,6 +402,9 @@ class ExampleUnitTest {
         }
     }
 
+    /**
+     * Generate a english quiz.
+     */
     @Test
     fun generateEnglishQuiz() {
         BirdDatabase.compileDatabase()
@@ -415,7 +418,103 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
+    //Stats.kt file tests
     /**
-     * 
+     * Checking if getNumRight is correct.
      */
+    @Test
+    fun getNumRightCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(9, statsObj.getNumRight())
+    }
+
+    /**
+     * Checking if updateNumRight is correct.
+     */
+    @Test
+    fun updateNumRightIsCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateNumRight(4)
+
+        assertEquals(13, statsObj.getNumRight())
+    }
+
+    /**
+     * Checking if total played is correct.
+     */
+    @Test
+    fun getTotalPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(10, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * Checking if updateTotalPlayed is correct.
+     */
+    @Test
+    fun updateTotalPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateTotalPlayed(10)
+
+        assertEquals(20, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * checking if getQuestionType works.
+     */
+    @Test
+    fun getQuestionTypeCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(QuestionType.PHOTO, statsObj.getQuestionType())
+    }
+
+    /**
+     * Checking if getQuestionLength works.
+     */
+    @Test
+    fun getQuestionLengthCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(10, statsObj.getQuestionLength())
+    }
+
+    /**
+     * Checking if getAverage is correct.
+     */
+    @Test
+    fun getAverageCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+        statsObj.updateTotalPlayed(30)
+
+        assertEquals(9/40, statsObj.getAverage())
+    }
+
+    /**
+     * Checking if resetValues is working.
+     */
+    @Test
+    fun resetValuesCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.resetValues()
+
+        assertEquals(0, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * Checking if getTotalQuizzesPlayed is working.
+     */
+    @Test
+    fun getTotalQuizzesPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateTotalPlayed(30)
+
+        assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
+    }
 }
