@@ -667,12 +667,26 @@ class ExampleUnitTest {
         assertEquals(true, birds == emptyBirdList)
     }
 
+    /**
+     * Ensures the bird database returns the same result each time when it requests a list of all birds.
+     */
     @Test
     fun checkAllBirdsQuery() {
         BirdDatabase.compileDatabase()
         val birdList1 = BirdDatabase.getBirdList()
         val birdList2 = BirdDatabase.getBirdList()
         assertEquals(true, birdList1 == birdList2)
+    }
+
+    /**
+     * Purely for code coverage. I wanted to see if you could instantiate a class that contained a companion object
+     * because such objects behave like static classes (and aren't meant to be instantiated.
+     */
+    @Test
+    fun instantiateStaticBirdDatabase() {
+        BirdDatabase.compileDatabase()
+        val database = BirdDatabase()
+        // Does not assertEquals because this is not a proper test.
     }
 
 }
