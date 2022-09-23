@@ -47,16 +47,16 @@ class StatsActivity : AppCompatActivity() {
     }
 
     fun getAllValues(){
-        photo_games = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalPlayed().toString()
+        photo_games = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed().toString()
         photo_av = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getAverage().toString()
 
-        sound_games = StatsAdapter.getStatsBasedOnType(QuestionType.SOUND).getTotalPlayed().toString()
+        sound_games = StatsAdapter.getStatsBasedOnType(QuestionType.SOUND).getTotalQuizzesPlayed().toString()
         sound_av = StatsAdapter.getStatsBasedOnType(QuestionType.SOUND).getAverage().toString()
 
-        maori_games = StatsAdapter.getStatsBasedOnType(QuestionType.MAORI).getTotalPlayed().toString()
+        maori_games = StatsAdapter.getStatsBasedOnType(QuestionType.MAORI).getTotalQuizzesPlayed().toString()
         maori_av = StatsAdapter.getStatsBasedOnType(QuestionType.MAORI).getAverage().toString()
 
-        english_games = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getTotalPlayed().toString()
+        english_games = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getTotalQuizzesPlayed().toString()
         english_av = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getAverage().toString()
     }
 

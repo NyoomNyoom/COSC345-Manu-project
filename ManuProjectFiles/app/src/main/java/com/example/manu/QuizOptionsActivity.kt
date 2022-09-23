@@ -1,6 +1,5 @@
 package com.example.manu
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.GestureDetector
@@ -20,7 +19,7 @@ import kotlinx.android.synthetic.main.quiz_options.*
 /**
  * Runs and displays the main menu.
  */
-class QuizOptions : AppCompatActivity() {
+class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
@@ -128,7 +127,7 @@ class QuizOptions : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@QuizOptions.onSwipeRight()
+                        this@QuizOptionsActivity.onSwipeRight()
                     } else {
                         // left swipe
                     }
