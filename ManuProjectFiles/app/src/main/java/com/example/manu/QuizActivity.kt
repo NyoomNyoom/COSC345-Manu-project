@@ -162,7 +162,7 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionTemp) {
-        if (quizType == "image") {
+        if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == "sound") {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())

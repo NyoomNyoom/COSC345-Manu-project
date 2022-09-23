@@ -67,11 +67,19 @@ class QuizOptions : AppCompatActivity() {
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "english")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             // Do nothing.
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "maori")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             // Do nothing.
         }
 
