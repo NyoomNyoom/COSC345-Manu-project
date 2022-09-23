@@ -69,6 +69,12 @@ class QuizActivity : AppCompatActivity() {
         } else if (quizType == "sound") {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
+        } else if (quizType == "english") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, numQuestions, numOptions)
+        } else if (quizType == "maori") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
 
         saveOptionButtons()
@@ -156,7 +162,7 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: QuestionTemp) {
-        if (quizType == "image") {
+        if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == "sound") {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())

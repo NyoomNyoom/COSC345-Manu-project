@@ -58,11 +58,20 @@ class MenuActivity : AppCompatActivity() {
             finish()
         }
 
+        btn_statistics.setOnClickListener {
+            btn_statistics.startAnimation(buttonPress)
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            finish()
+        }
+
         btn_credits.setOnClickListener{
             btn_credits.startAnimation(buttonPress)
             val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            finish()
         }
 
         btn_help.setOnClickListener{
