@@ -3,7 +3,6 @@
 package com.example.manu
 
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -50,7 +49,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         allButtons = (findViewById<View>(R.id.scrollView1) as ScrollView).touchables // Size is 48 (birds 47 + 1)
         val size = allButtons.size // Checking how many items there are.
 
-        var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+        var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
         //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
         for(i in 0 until size){

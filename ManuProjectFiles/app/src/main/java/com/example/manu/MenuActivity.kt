@@ -1,6 +1,5 @@
 package com.example.manu
 
-import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -44,7 +43,7 @@ class MenuActivity : AppCompatActivity() {
 
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
-            val intent = Intent(this, QuizOptions::class.java)
+            val intent = Intent(this, QuizOptionsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
             finish()
@@ -157,7 +156,7 @@ class MenuActivity : AppCompatActivity() {
      * Executes code for a left gesture going right to enter infographics.
      */
     private fun onSwipeLeft() {
-        var intent = Intent(this, QuizOptions::class.java)
+        var intent = Intent(this, QuizOptionsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         finish()
