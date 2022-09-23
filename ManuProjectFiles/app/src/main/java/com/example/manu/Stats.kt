@@ -10,6 +10,11 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     private var numRight = numRightIn
     private var totalPlayed = totalPlayedIn
 
+    /**
+     * @param valueIn an int of questsions right
+     *
+     * Updates the quantity of questions the user got right
+     */
     fun updateNumRight(valueIn: Int) {
         numRight += valueIn
     }
