@@ -8,12 +8,17 @@ import android.content.Context
 import android.util.Log
 import java.io.*
 
-
+/**
+ * Stats Adapter converts the user stats and stores/retrieves it into a file
+ */
 class StatsAdapter {
 
     companion object{
         private lateinit var stats: MutableList<Stats>
 
+        /**
+         * Attempts to create the file for storing of user stats
+         */
         fun makeFile(context: Context){
             val path = context.filesDir
             val fileName = "stats.txt"
@@ -56,7 +61,7 @@ class StatsAdapter {
                     }
                     saveToFile(context)
                 }catch(e: IOException){
-
+                    println(e)
                 }
             }
         }
@@ -94,7 +99,14 @@ class StatsAdapter {
             }
         }
 
-
+        /**
+         * @param context the context
+         * @param questionType the type of question
+         * @param numQuestions quantity of quiz attempts
+         * @param numCorrect quantity of correct answers
+         *
+         * Updates the information of the user stats using the inputs
+         */
         fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
 
 
@@ -133,6 +145,9 @@ class StatsAdapter {
             }
         }
 
+        /**
+         * Resets the values of the user stats within the file
+         */
         fun resetValues(context: Context){
             stats.forEach {
                 it.resetValues()
@@ -141,6 +156,11 @@ class StatsAdapter {
             saveToFile(context)
         }
 
+        /**
+         * @param questionTypeIn the question type stats being retrieved
+         *
+         * returns the stats regarding the inputted question type
+         */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
 
