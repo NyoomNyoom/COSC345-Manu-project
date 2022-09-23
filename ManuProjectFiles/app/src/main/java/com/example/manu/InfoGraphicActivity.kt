@@ -1,4 +1,6 @@
-/* Will Rushton 12/08/2022 */
+/**
+ * @author Will Rushton, 12/08/2022
+ */
 
 package com.example.manu
 
@@ -187,9 +189,6 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Switches from the Encyclopedia screen to the Menu screen using a slide transition.
-     */
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)

@@ -1,3 +1,7 @@
+/**
+ * @author Jackson North
+ */
+
 package com.example.manu
 
 import android.content.Intent
@@ -9,9 +13,11 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
-import kotlinx.android.synthetic.main.quiz_options.*
 import kotlinx.android.synthetic.main.quiz_stats.*
 
+/**
+ * Creates and fills the stats activity regarding the players scores and play amount.
+ */
 class StatsActivity : AppCompatActivity() {
 
     private lateinit var photo_games: String
@@ -41,7 +47,7 @@ class StatsActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        loadAnimations()
+        loadAndStoreAnimations()
 
         btn_back.setOnClickListener{
             mediaPlayer.pause()
@@ -51,6 +57,9 @@ class StatsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Collects the saved user data from StatsAdapter for display within the text boxes
+     */
     fun getAllValues(){
         photo_games = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed().toString()
         photo_av = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getAverage().toString()
@@ -65,6 +74,9 @@ class StatsActivity : AppCompatActivity() {
         english_av = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getAverage().toString()
     }
 
+    /**
+     * Updates the score boards games played and average score for each game.
+     */
     fun updateStrings(){
         photo_total.text = "Games played: " + photo_games
         photo_average.text = "Average score: " + photo_av
@@ -79,10 +91,7 @@ class StatsActivity : AppCompatActivity() {
         english_average.text = "Average score: " + english_av
     }
 
-    /**
-     * Loads and stores the animations.
-     */
-    private fun loadAnimations() {
+    private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 }

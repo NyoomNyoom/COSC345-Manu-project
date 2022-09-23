@@ -1,11 +1,10 @@
 /**
- * @author Daniel Robinson
+ * @author Madeline McCane
  */
 
 package com.example.manu
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -23,7 +22,7 @@ class HintPopupActivity : Activity() {
     private lateinit var buttonPress: Animation
 
     /**
-     * This is run when the class is instantiated. It sets up the "Return to Menu?" layout.
+     * This is run when the class is instantiated. It sets up the hint layout.
      *
      * @param Bundle Saves information between separate loads of this activity.
      */
@@ -39,13 +38,10 @@ class HintPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_close.setOnClickListener { closePopup() }
+        btn_close.setOnClickListener { closeHintPopup() }
     }
 
-    /**
-     * Animates the button press and closes this popup.
-     */
-    private fun closePopup() {
+    private fun closeHintPopup() {
         btn_close.startAnimation(buttonPress)
         finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.

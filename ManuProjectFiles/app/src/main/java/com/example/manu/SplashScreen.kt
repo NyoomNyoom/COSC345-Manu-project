@@ -1,3 +1,7 @@
+/**
+ * @author Madeline McCane
+ */
+
 package com.example.manu
 
 import android.content.Intent
@@ -6,6 +10,9 @@ import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * creates a splash screen for the app
+ */
 @Suppress("DEPRECATION")
 class SplashScreen : AppCompatActivity() {
 

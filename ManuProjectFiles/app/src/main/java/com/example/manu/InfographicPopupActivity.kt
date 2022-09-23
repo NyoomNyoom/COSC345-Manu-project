@@ -42,7 +42,7 @@ class InfographicPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_close.setOnClickListener { closePopup() }
+        btn_close.setOnClickListener { closeInfographicPopup() }
 
         txt_bird_name.text = intent.getStringExtra("birdName")
         txt_bird_fact.text = intent.getStringExtra("birdFact")
@@ -59,23 +59,9 @@ class InfographicPopupActivity : Activity() {
             mediaPlayer.start()
             hasBirdSong = true
         }
-
-        /*Log.d("InfographicPopupActivity.txt_bird_name.measuredHeight", txt_bird_name.measuredHeight.toString())
-        Log.d("InfographicPopupActivity.txt_bird_name.minLines", txt_bird_name.minLines.toString())
-        Log.d("InfographicPopupActivity.txt_bird_name.maxLines", txt_bird_name.maxLines.toString())
-        Log.d("InfographicPopupActivity.txt_bird_name.lineCount", txt_bird_name.lineCount.toString())
-        Log.d("InfographicPopupActivity.txt_bird_name.lineHeight", txt_bird_name.lineHeight.toString())
-        Log.d("InfographicPopupActivity.txt_bird_name.totalPaddingBottom", txt_bird_name.totalPaddingBottom.toString())*/
-        //if (txt_bird_name.text.length > 20)
-            //txt_bird_fact.setPadding(0, 75,0,0)
-
-        //txt_bird_fact.setPadding(0,txt_bird_name.lineHeight,0,0)
     }
 
-    /**
-     * Animates the button press and closes this popup.
-     */
-    private fun closePopup() {
+    private fun closeInfographicPopup() {
         // Only pause a bird song if one is playing, otherwise the app crashes.
         if (hasBirdSong) {
             mediaPlayer.pause()
@@ -92,13 +78,5 @@ class InfographicPopupActivity : Activity() {
     override fun onBackPressed() {
         return
     }
-
-    // https://stackoverflow.com/questions/29664993/how-to-convert-dp-px-sp-among-each-other-especially-dp-and-sp
-    /*fun dpToPx(dp: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics())
-            .toInt()
-
-            // float px = sp * getResources().getDisplayMetrics().scaledDensity;
-    }*/
 
 }

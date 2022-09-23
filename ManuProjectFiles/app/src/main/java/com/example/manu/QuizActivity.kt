@@ -1,5 +1,5 @@
 /**
- * @author Daniel Robinson
+ * @author Daniel Robinson and Madeline McCane
  */
 
 package com.example.manu
@@ -46,6 +46,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private lateinit var quizType: String
+    private val soundQuiz = "sound"
     private var questions: ArrayList<Question> = ArrayList()
     private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
@@ -67,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
         if (quizType == "image") {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
-        } else if (quizType == "sound") {
+        } else if (quizType == soundQuiz) {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         } else if (quizType == "english") {
@@ -78,7 +79,7 @@ class QuizActivity : AppCompatActivity() {
             questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
 
-        saveOptionButtons()
+        storeOptionButtons()
         loadAnimations()
         setupOnClickListeners()
 
@@ -98,10 +99,7 @@ class QuizActivity : AppCompatActivity() {
         return
     }
 
-    /**
-     * Stores all of the option buttons.
-     */
-    private fun saveOptionButtons() {
+    private fun storeOptionButtons() {
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
         optionButtons.add(btn_opt_1)
@@ -109,9 +107,6 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_3)
     }
 
-    /**
-     * Loads and stores the animations.
-     */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
@@ -120,29 +115,20 @@ class QuizActivity : AppCompatActivity() {
         answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
-    /**
-     * Restarts the current bird song.
-     */
     private fun playAudio() {
         mediaPlayer.start()
     }
 
-    /**
-     * Pauses the current bird song.
-     */
     private fun pauseAudio() {
         mediaPlayer.pause()
     }
 
-    /**
-     * Defines the behaviour for each button when it is clicked.
-     */
     private fun setupOnClickListeners() {
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
         }
 
-        if (quizType == "sound") {
+        if (quizType == soundQuiz) {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
@@ -151,9 +137,6 @@ class QuizActivity : AppCompatActivity() {
         btn_back.setOnClickListener { returnToMenu() }
     }
 
-    /**
-     * Resets the colour presentation of each option button.
-     */
     private fun resetOptionButtons() {
         for (button in optionButtons) {
             button.setBackgroundColor(Color.parseColor(buttonColourHex))
@@ -166,7 +149,7 @@ class QuizActivity : AppCompatActivity() {
     private fun presentQuestion(question: Question) {
         if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
-        } else if (quizType == "sound") {
+        } else if (quizType == soundQuiz) {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
             mediaPlayer.start()
         }
@@ -184,11 +167,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Selects the option the user has tapped.
-     *
-     * @param optionNumber The index of the option button.
-     */
     private fun selectOption(optionNumber: Int) {
         // Only select the option if we haven't marked the answer.
         if (markedCurrentQuestion)
@@ -202,13 +180,9 @@ class QuizActivity : AppCompatActivity() {
         optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
 
-    /**
-     * Call this when the submit button is pressed. Depending on the state of the game, it either marks the answer,
-     * loads the next question, or proceeds to the results screen.
-     */
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
-        if (quizType == "sound"){
+        if (quizType == soundQuiz){
             mediaPlayer.pause()
         }
 
@@ -238,9 +212,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Loads the "Return to Menu?" popup screen.
-     */
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
@@ -263,6 +234,8 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
+            mediaPlayer = MediaPlayer.create(this, R.raw.correct_2)
+            mediaPlayer.start()
         }
 
         /*
@@ -272,6 +245,8 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
             optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
+            mediaPlayer = MediaPlayer.create(this, R.raw.incorrect_answer)
+            mediaPlayer.start()
         }
 
         /*

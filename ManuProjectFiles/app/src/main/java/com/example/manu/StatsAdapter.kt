@@ -1,17 +1,26 @@
-/* Jackson North 16/09/2022 */
-
 package com.example.manu
 
 import android.content.Context
 import android.util.Log
 import java.io.*
 
-
+/**
+ * A class to handle the file handling and compiles a list of stats from the file.
+ *
+ * @author Jackson North
+ */
 class StatsAdapter {
 
     companion object{
         private lateinit var stats: MutableList<Stats>
 
+        /**
+         * A function that checks if a file exists on the users phone, if the file doesn't exist make one and compile
+         * a list from the file in our directory. If the file exists the function just calls compileStats to create a
+         * list from the given file.
+         *
+         * @param context the app context which makes file handling possible.
+         */
         fun makeFile(context: Context){
             val path = context.filesDir
             val fileName = "stats.txt"
@@ -54,11 +63,17 @@ class StatsAdapter {
                     }
                     saveToFile(context)
                 }catch(e: IOException){
-
+                    println(e)
                 }
             }
         }
 
+
+        /**
+         * A function to compile a list of stats from an existing file.
+         *
+         * @param context the app context which makes file handling possible.
+         */
         private fun compileStats(context: Context){
             stats = mutableListOf<Stats>()
             lateinit var questionType: QuestionType
@@ -92,7 +107,14 @@ class StatsAdapter {
             }
         }
 
-
+        /**
+         * Updates the information of the user stats from after a quiz was finished.
+         *
+         * @param context The app context to handle files.
+         * @param questionType The type of question to update.
+         * @param numQuestions The number to increase the number of questions played.
+         * @param numCorrect The amount of correct questions to increase the numCorrect value.
+         */
         fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
 
 
@@ -117,6 +139,11 @@ class StatsAdapter {
             saveToFile(context)
         }
 
+        /**
+         * A function to save all the information in the stats list to a file.
+         *
+         * @param context The app context to handle the file management.
+         */
         fun saveToFile(context: Context){
             var path = context.filesDir
 
@@ -126,11 +153,16 @@ class StatsAdapter {
                     writer.write(it.toString().toByteArray())
                 }
                 writer.close()
-            }catch(e: Exception){
+            }catch(e: IOException){
                 e.printStackTrace()
             }
         }
 
+        /**
+         * Resets the values of the user stats within the file.
+         *
+         * aram context The app context to handle the file management.
+         */
         fun resetValues(context: Context){
             stats.forEach {
                 it.resetValues()
@@ -139,6 +171,11 @@ class StatsAdapter {
             saveToFile(context)
         }
 
+        /**
+         * Returns the stats regarding the inputted question type.
+         *
+         *  @param questionTypeIn the question type stats being retrieved.
+         */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
 
@@ -160,11 +197,6 @@ class StatsAdapter {
          * @return The encrypted or decrypted input.
          */
         private fun cipher(input: String, direction: Int): String {
-            // Only accept the encryption or decryption direction because no other directions exist.
-            if (!(direction == 1 || direction == -1)) {
-                throw IllegalArgumentException()
-            }
-
             val key = "345"
             val strength = 3  // The amount to multiply digits in the key by when altering characters.
             var output = ""
