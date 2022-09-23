@@ -150,5 +150,58 @@ class StatsAdapter {
 
             return statsOut
         }
+
+        /**
+         * Encrypts or decrypts an input string according to a key held in the function.
+         *
+         * @param input The string to encrypt/decrypt.
+         * @param direction 1 to encrypt, or -1 to decrypt.
+         *
+         * @return The encrypted or decrypted input.
+         */
+        private fun cipher(input: String, direction: Int): String {
+            // Only accept the encryption or decryption direction because no other directions exist.
+            if (!(direction == 1 || direction == -1)) {
+                throw IllegalArgumentException()
+            }
+
+            val key = "345"
+            val strength = 3  // The amount to multiply digits in the key by when altering characters.
+            var output = ""
+
+            /*
+                For each character in the input, find the corresponding character in the key, turn the key's character
+                into a digit, multiply that digit by the strength, and add this value to the input's character. This is
+                the new character for the ciphertext. The direction can be 1 (to perform the operation) or -1 (to undo
+                the operation).
+             */
+            for (index in input.indices) {
+                output += input[index] + (key[index % key.length].digitToInt() * direction * strength)
+            }
+
+            return output
+        }
+
+        /**
+         * Encrypts a string.
+         *
+         * @param input The string to encrypt.
+         *
+         * @return The encrypted string.
+         */
+        fun encrypt(input: String): String {
+            return cipher(input, 1)
+        }
+
+        /**
+         * Decrypts a string.
+         *
+         * @param input The string to decrypt.
+         *
+         * @return The decrypted string.
+         */
+        fun decrypt(input: String): String {
+            return cipher(input, -1)
+        }
     }
 }
