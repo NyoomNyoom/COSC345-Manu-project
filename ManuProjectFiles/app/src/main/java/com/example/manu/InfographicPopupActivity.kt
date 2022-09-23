@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_infographic_popup.*
  */
 class InfographicPopupActivity : Activity() {
 
+    private var hasBirdSong = false
     private lateinit var buttonPress: Animation
     private lateinit var mediaPlayer: MediaPlayer
 
@@ -56,6 +57,7 @@ class InfographicPopupActivity : Activity() {
         if (songResourceId != Resources.ID_NULL) {
             mediaPlayer = MediaPlayer.create(this, songResourceId)
             mediaPlayer.start()
+            hasBirdSong = true
         }
 
         /*Log.d("InfographicPopupActivity.txt_bird_name.measuredHeight", txt_bird_name.measuredHeight.toString())
@@ -74,7 +76,11 @@ class InfographicPopupActivity : Activity() {
      * Animates the button press and closes this popup.
      */
     private fun closePopup() {
-        mediaPlayer.pause()
+        // Only pause a bird song if one is playing, otherwise the app crashes.
+        if (hasBirdSong) {
+            mediaPlayer.pause()
+        }
+
         btn_close.startAnimation(buttonPress)
         finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.

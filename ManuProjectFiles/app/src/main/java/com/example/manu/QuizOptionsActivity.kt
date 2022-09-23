@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.quiz_options.*
 class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
-    private lateinit var buttonPress: Animation
+    private lateinit var buttonPress: Animation 
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen

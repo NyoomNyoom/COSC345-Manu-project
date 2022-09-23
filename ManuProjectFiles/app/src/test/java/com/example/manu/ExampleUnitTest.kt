@@ -607,4 +607,86 @@ class ExampleUnitTest {
         assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
     }
 
+    /**
+     * Tests encryption for various inputs.
+     */
+    @Test
+    fun encryption() {
+        var plaintext = "123456789"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "ajsbd8327g4r23u"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "abcdefghijklmnopqrstuvwxyz"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "HI"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "\n2,3,4,\n"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+    }
+
+    /**
+     * Try and retrieve a bird that does not exist.
+     */
+    @Test
+    fun nonExistentBird() {
+        BirdDatabase.compileDatabase()
+        val emptyBird = BirdDatabase.getBirdUsingPhotoResourceId(Resources.ID_NULL)
+        assertEquals(true, emptyBird.getBirdName() == "EMPTY_NAME")
+    }
+
+    /**
+     * Tests whether you can retrieve a bird's name using its raw sound file.
+     */
+    @Test
+    fun getBirdUsingSoundResource() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(R.raw.aucklandislandteal)
+        assertEquals(true, birdName == "Auckland Island Teal")
+    }
+
+    /**
+     * Tests the behaviour of the database if you ask for the bird that has a non-existent raw sound file and
+     * non-existent photo file (which none do).
+     */
+    @Test
+    fun getBirdWithEmptySound() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(-1)  // Resource IDs are always positive.
+        assertEquals(true, birdName == "")
+    }
+
+    /**
+     * Ensures QuestionType.ALL is not accepted by the birds database (since this value is for storing stats not
+     * querying birds).
+     */
+    @Test
+    fun getBirdsWithResourceAll() {
+        BirdDatabase.compileDatabase()
+        val birds = BirdDatabase.getBirdsWithResource(QuestionType.ALL)
+        val emptyBirdList: ArrayList<Bird> = ArrayList()
+        assertEquals(true, birds == emptyBirdList)
+    }
+
+    /**
+     * Ensures the bird database returns the same result each time when it requests a list of all birds.
+     */
+    @Test
+    fun checkAllBirdsQuery() {
+        BirdDatabase.compileDatabase()
+        val birdList1 = BirdDatabase.getBirdList()
+        val birdList2 = BirdDatabase.getBirdList()
+        assertEquals(true, birdList1 == birdList2)
+    }
+
+    /**
+     * Purely for code coverage. I wanted to see if you could instantiate a class that contained a companion object
+     * because such objects behave like static classes (and aren't meant to be instantiated.
+     */
+    @Test
+    fun instantiateStaticBirdDatabase() {
+        BirdDatabase.compileDatabase()
+        val database = BirdDatabase()
+        // Does not assertEquals because this is not a proper test.
+    }
+
 }

@@ -102,13 +102,14 @@ class BirdDatabase {
          *
          * @return The bird with the photo resource ID.
          */
-        private fun getBirdUsingPhotoResourceId(resourceId: Int): Bird {
+        fun getBirdUsingPhotoResourceId(resourceId: Int): Bird {
             for (bird in birds) {
                 if (bird.getPhotoResourceId() == resourceId)
                     return bird
             }
 
-            return Bird("EMPTY_NAME", Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "EMPTY_MAORINAME","EMPTY_STATUS", "EMPTY_FACT")        }
+            return Bird("EMPTY_NAME", Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "EMPTY_MAORINAME","EMPTY_STATUS", "EMPTY_FACT")
+        }
 
         /**
          * A function to return the list of birds
