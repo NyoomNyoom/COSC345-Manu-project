@@ -118,16 +118,10 @@ class QuizActivity : AppCompatActivity() {
         answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
-    /**
-     * Restarts the current bird song.
-     */
     private fun playAudio() {
         mediaPlayer.start()
     }
 
-    /**
-     * Pauses the current bird song.
-     */
     private fun pauseAudio() {
         mediaPlayer.pause()
     }
@@ -145,10 +139,7 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
     }
-
-    /**
-     * Resets the colour presentation of each option button.
-     */
+    
     private fun resetOptionButtons() {
         for (button in optionButtons) {
             button.setBackgroundColor(Color.parseColor(buttonColourHex))
