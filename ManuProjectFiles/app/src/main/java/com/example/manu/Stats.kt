@@ -23,6 +23,11 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         totalPlayed += valueIn
     }
 
+    /**
+     * @return questionType
+     *
+     * The type of quiz requested
+     */
     fun getQuestionType(): QuestionType{
         return questionType
     }
