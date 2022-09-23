@@ -1,6 +1,7 @@
 package com.example.manu
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
@@ -20,6 +21,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -41,12 +43,15 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
         loadAnimations()
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
+        mediaPlayer.start()
+
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
             val intent = Intent(this, QuizOptionsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            finish()
+            finishAndAudio()
         }
 
         btn_infographics.setOnClickListener {
@@ -54,7 +59,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-            finish()
+            finishAndAudio()
         }
 
         btn_statistics.setOnClickListener {
@@ -62,7 +67,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
+            finishAndAudio()
         }
 
         btn_credits.setOnClickListener{
@@ -70,7 +75,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
+            finishAndAudio()
         }
 
         btn_help.setOnClickListener{
@@ -79,6 +84,11 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
+    }
+
+    private fun finishAndAudio(){
+        mediaPlayer.pause()
+        finish()
     }
 
     /**
@@ -149,7 +159,7 @@ class MenuActivity : AppCompatActivity() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        finish()
+        finishAndAudio()
     }
 
     /**
@@ -159,7 +169,7 @@ class MenuActivity : AppCompatActivity() {
         var intent = Intent(this, QuizOptionsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        finish()
+        finishAndAudio()
     }
 
     /**
