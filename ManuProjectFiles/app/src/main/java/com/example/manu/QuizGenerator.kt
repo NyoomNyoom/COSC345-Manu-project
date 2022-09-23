@@ -31,9 +31,9 @@ class QuizGenerator {
          *
          * @return A list of quiz questions.
          */
-        fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<QuestionTemp> {
+        fun generateQuiz(questionType: QuestionType, numQuestions: Int, numOptions: Int): ArrayList<Question> {
             lastCorrectOptionIndex = random.nextInt(numOptions)  // No previously correct option, hence randomise.
-            var questions: ArrayList<QuestionTemp> = ArrayList()
+            var questions: ArrayList<Question> = ArrayList()
             for (shuffle in 0 until random.nextInt(maxShuffles) + 1)
                 questions.shuffle()
 
@@ -41,9 +41,9 @@ class QuizGenerator {
              * Generate a "photo to name" quiz.
              */
             if (questionType == QuestionType.PHOTO) {
-                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+                var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
                 var allNames: ArrayList<String> = ArrayList()
-                for (bird: BirdTemp in birds) {
+                for (bird: Bird in birds) {
                     allNames.add(bird.getBirdName())
                 }
 
@@ -53,7 +53,7 @@ class QuizGenerator {
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val bird: Bird = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val photoResourceId: Int = bird.getPhotoResourceId()
@@ -87,7 +87,7 @@ class QuizGenerator {
                     }
 
                     lastCorrectOptionIndex = options.indexOf(answer)
-                    questions.add(QuestionTemp(photoResourceId, options, options.indexOf(answer)))
+                    questions.add(Question(photoResourceId, options, options.indexOf(answer)))
                 }
             }
 
@@ -95,9 +95,9 @@ class QuizGenerator {
              * Generate a "sound to name" quiz.
              */
             else if (questionType == QuestionType.SOUND) {
-                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
+                var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.SOUND)
                 var allNames: ArrayList<String> = ArrayList()
-                for (bird: BirdTemp in birds) {
+                for (bird: Bird in birds) {
                     allNames.add(bird.getBirdName())
                 }
 
@@ -107,7 +107,7 @@ class QuizGenerator {
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val bird: Bird = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val soundResourceId: Int = bird.getSongResourceId()
@@ -141,7 +141,7 @@ class QuizGenerator {
                     }
 
                     lastCorrectOptionIndex = options.indexOf(answer)
-                    questions.add(QuestionTemp(soundResourceId, options, options.indexOf(answer)))
+                    questions.add(Question(soundResourceId, options, options.indexOf(answer)))
                 }
             }
 
@@ -149,9 +149,9 @@ class QuizGenerator {
              * Generate an "English to Māori" quiz.
              */
             else if (questionType == QuestionType.ENGLISH) {
-                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
+                var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
                 var allNames: ArrayList<String> = ArrayList()
-                for (bird: BirdTemp in birds) {
+                for (bird: Bird in birds) {
                     allNames.add(bird.getmaoriName())
                 }
 
@@ -161,7 +161,7 @@ class QuizGenerator {
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val bird: Bird = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getmaoriName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val englishNameImageResourceId: Int = bird.getEnglishNameImageResourceId()
@@ -195,7 +195,7 @@ class QuizGenerator {
                     }
 
                     lastCorrectOptionIndex = options.indexOf(answer)
-                    questions.add(QuestionTemp(englishNameImageResourceId, options, options.indexOf(answer)))
+                    questions.add(Question(englishNameImageResourceId, options, options.indexOf(answer)))
                 }
             }
 
@@ -203,9 +203,9 @@ class QuizGenerator {
              * Generate an "Māori to English" quiz.
              */
             else if (questionType == QuestionType.MAORI) {
-                var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
+                var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
                 var allNames: ArrayList<String> = ArrayList()
-                for (bird: BirdTemp in birds) {
+                for (bird: Bird in birds) {
                     allNames.add(bird.getBirdName())
                 }
 
@@ -215,7 +215,7 @@ class QuizGenerator {
                  * Create the questions.
                  */
                 for (questionIndex in 0 until numQuestions) {
-                    val bird: BirdTemp = birds[random.nextInt(birds.size)]
+                    val bird: Bird = birds[random.nextInt(birds.size)]
                     val answer: String = bird.getBirdName()
                     var options: ArrayList<String> = arrayListOf(answer)  // One option must be the answer.
                     val englishNameImageResourceId: Int = bird.getMaoriNameImageResourceId()
@@ -249,7 +249,7 @@ class QuizGenerator {
                     }
 
                     lastCorrectOptionIndex = options.indexOf(answer)
-                    questions.add(QuestionTemp(englishNameImageResourceId, options, options.indexOf(answer)))
+                    questions.add(Question(englishNameImageResourceId, options, options.indexOf(answer)))
                 }
             }
 
@@ -268,7 +268,7 @@ class QuizGenerator {
         fun optionFrequencyTest(quizzes: Int, questionsPerQuiz: Int, optionsPerQuestion: Int): IntArray {
             var optionFrequencies = IntArray(optionsPerQuestion) {0}
             for (quizNum in 1..quizzes) {
-                val questions: ArrayList<QuestionTemp> = generateQuiz(QuestionType.PHOTO,
+                val questions: ArrayList<Question> = generateQuiz(QuestionType.PHOTO,
                     questionsPerQuiz, optionsPerQuestion)
                 for (questionNum in 0 until questionsPerQuiz) {
                     optionFrequencies[questions[questionNum].getAnswerIndex()]++

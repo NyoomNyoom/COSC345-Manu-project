@@ -46,7 +46,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private lateinit var quizType: String
-    private var questions: ArrayList<QuestionTemp> = ArrayList()
+    private var questions: ArrayList<Question> = ArrayList()
     private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation
@@ -144,7 +144,7 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Resets the screen with the next question.
      */
-    private fun presentQuestion(question: QuestionTemp) {
+    private fun presentQuestion(question: Question) {
         if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == "sound") {

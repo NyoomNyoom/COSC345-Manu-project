@@ -11,7 +11,7 @@ package com.example.manu
  * @param options The possible answers.
  * @param answerIndex The index of the correct answer.
  */
-class QuestionTemp(questionResourceId: Int, options: ArrayList<String>, answerIndex: Int) {
+class Question(questionResourceId: Int, options: ArrayList<String>, answerIndex: Int) {
 
     private val questionResourceId: Int = questionResourceId
     private val options: ArrayList<String> = options
