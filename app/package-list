@@ -84,6 +84,8 @@ $dokka.location:com.example.manu/QuizResultsActivity/onBackPressed/#/PointingToD
 $dokka.location:com.example.manu/ReturnToMenuPopupActivity///PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/index.html
 $dokka.location:com.example.manu/ReturnToMenuPopupActivity/ReturnToMenuPopupActivity/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/-return-to-menu-popup-activity.html
 $dokka.location:com.example.manu/ReturnToMenuPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-return-to-menu-popup-activity/on-back-pressed.html
+$dokka.location:com.example.manu/SplashScreen///PointingToDeclaration/app/com.example.manu/-splash-screen/index.html
+$dokka.location:com.example.manu/SplashScreen/SplashScreen/#/PointingToDeclaration/app/com.example.manu/-splash-screen/-splash-screen.html
 $dokka.location:com.example.manu/Stats///PointingToDeclaration/app/com.example.manu/-stats/index.html
 $dokka.location:com.example.manu/Stats/Stats/#com.example.manu.QuestionType#kotlin.Int#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/-stats.html
 $dokka.location:com.example.manu/Stats/getAverage/#/PointingToDeclaration/app/com.example.manu/-stats/get-average.html
