@@ -5,7 +5,6 @@
 package com.example.manu
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -39,13 +38,10 @@ class HintPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_close.setOnClickListener { closePopup() }
+        btn_close.setOnClickListener { closeHintPopup() }
     }
-
-    /**
-     * Animates the button press and closes this popup.
-     */
-    private fun closePopup() {
+    
+    private fun closeHintPopup() {
         btn_close.startAnimation(buttonPress)
         finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
