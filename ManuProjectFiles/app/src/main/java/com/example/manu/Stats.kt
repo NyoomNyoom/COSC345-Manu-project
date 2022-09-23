@@ -41,6 +41,9 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         return numRight / totalPlayed
     }
 
+    /**
+     * Resets the games played and recorded score averages back to 0
+     */
     fun resetValues(){
         totalPlayed = 0
         numRight = 0
