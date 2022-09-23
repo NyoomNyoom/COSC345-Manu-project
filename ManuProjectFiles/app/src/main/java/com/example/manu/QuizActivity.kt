@@ -88,11 +88,6 @@ class QuizActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
-
-
-        // Jackson's code is below (commented out).
-        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
-        //val fileIN = InputStreamReader(assets.open("bird-data.csv"))
     }
 
     /**
@@ -128,14 +123,15 @@ class QuizActivity : AppCompatActivity() {
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        if (quizType == "sound"){
+        if (quizType == "sound") {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
-        btn_opt_0.setOnClickListener { selectOption(0) }
-        btn_opt_1.setOnClickListener { selectOption(1) }
-        btn_opt_2.setOnClickListener { selectOption(2) }
-        btn_opt_3.setOnClickListener { selectOption(3) }
+
+        for (buttonIndex in 0 until numOptions) {
+            optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
+        }
+
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
     }
@@ -169,10 +165,9 @@ class QuizActivity : AppCompatActivity() {
         }
         val options = question.getOptions()
 
-        btn_opt_0.text = options[0]
-        btn_opt_1.text = options[1]
-        btn_opt_2.text = options[2]
-        btn_opt_3.text = options[3]
+        for (buttonIndex in 0 until numOptions) {
+            optionButtons[buttonIndex].text = options[buttonIndex]
+        }
 
         btn_submit.text = submitText
 
@@ -274,7 +269,7 @@ class QuizActivity : AppCompatActivity() {
          * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
          * incorrect selection.
          */
-        for (buttonIndex in 0..optionButtons.size - 1) {
+        for (buttonIndex in 0 until optionButtons.size) {
             if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
                 optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }
