@@ -52,7 +52,7 @@ class QuizOptionsActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        loadAnimations()
+        loadAndStoreAnimations()
 
         // Set up all the buttons.
         btn_image.setOnClickListener {
@@ -102,11 +102,8 @@ class QuizOptionsActivity : AppCompatActivity() {
         }
 
     }
-
-    /**
-     * Loads and stores the animations.
-     */
-    private fun loadAnimations() {
+    
+    private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
