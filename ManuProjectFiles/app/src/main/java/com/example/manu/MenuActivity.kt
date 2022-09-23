@@ -167,7 +167,7 @@ class MenuActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     private fun transitionRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)

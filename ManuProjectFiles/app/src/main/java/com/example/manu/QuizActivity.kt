@@ -46,6 +46,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private lateinit var quizType: String
+    private val soundQuiz = "sound"
     private var questions: ArrayList<Question> = ArrayList()
     private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
@@ -67,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
         if (quizType == "image") {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
-        } else if (quizType == "sound") {
+        } else if (quizType == soundQuiz) {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         } else if (quizType == "english") {
@@ -78,7 +79,7 @@ class QuizActivity : AppCompatActivity() {
             questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
 
-        saveOptionButtons()
+        storeOptionButtons()
         loadAnimations()
         setupOnClickListeners()
 
@@ -98,10 +99,7 @@ class QuizActivity : AppCompatActivity() {
         return
     }
 
-    /**
-     * Stores all of the option buttons.
-     */
-    private fun saveOptionButtons() {
+    private fun storeOptionButtons() {
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
         optionButtons.add(btn_opt_1)
@@ -142,7 +140,7 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
         }
 
-        if (quizType == "sound") {
+        if (quizType == soundQuiz) {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
@@ -166,7 +164,7 @@ class QuizActivity : AppCompatActivity() {
     private fun presentQuestion(question: Question) {
         if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
-        } else if (quizType == "sound") {
+        } else if (quizType == soundQuiz) {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
             mediaPlayer.start()
         }
@@ -208,7 +206,7 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
-        if (quizType == "sound"){
+        if (quizType == soundQuiz){
             mediaPlayer.pause()
         }
 
