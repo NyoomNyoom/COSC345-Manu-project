@@ -4,6 +4,14 @@
 
 package com.example.manu
 
+/**
+ * @param questionTypeIn the question type
+ * @param numQuestionsIn quantity of questions in question type
+ * @param numRightIn quantity of correct questions of question type
+ * @param totalPlayedIn total questions played of question type
+ *
+ * performs file manipulation with the information of a single question type
+ */
 class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, totalPlayedIn: Int) {
     private val questionType = questionTypeIn
     private val numQuestions = numQuestionsIn
