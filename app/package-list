@@ -1,6 +1,17 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.manu////PointingToDeclaration/app/com.example.manu/index.html
+$dokka.location:com.example.manu/Bird///PointingToDeclaration/app/com.example.manu/-bird/index.html
+$dokka.location:com.example.manu/Bird/Bird/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/-bird.html
+$dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-name.html
+$dokka.location:com.example.manu/Bird/getEndangerment/#/PointingToDeclaration/app/com.example.manu/-bird/get-endangerment.html
+$dokka.location:com.example.manu/Bird/getEnglishNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-english-name-image-resource-id.html
+$dokka.location:com.example.manu/Bird/getFunFact/#/PointingToDeclaration/app/com.example.manu/-bird/get-fun-fact.html
+$dokka.location:com.example.manu/Bird/getMaoriNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-maori-name-image-resource-id.html
+$dokka.location:com.example.manu/Bird/getPhotoResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-photo-resource-id.html
+$dokka.location:com.example.manu/Bird/getSongResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-song-resource-id.html
+$dokka.location:com.example.manu/Bird/getmaoriName/#/PointingToDeclaration/app/com.example.manu/-bird/getmaori-name.html
+$dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
 $dokka.location:com.example.manu/BirdDatabase.Companion///PointingToDeclaration/app/com.example.manu/-bird-database/-companion/index.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/birdFrequencyTest/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/bird-frequency-test.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/compileDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/compile-database.html
@@ -9,17 +20,6 @@ $dokka.location:com.example.manu/BirdDatabase.Companion/getBirdsWithResource/#co
 $dokka.location:com.example.manu/BirdDatabase.Companion/getNameUsingResourceId/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-name-using-resource-id.html
 $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.example.manu/-bird-database/index.html
 $dokka.location:com.example.manu/BirdDatabase/BirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-bird-database.html
-$dokka.location:com.example.manu/BirdTemp///PointingToDeclaration/app/com.example.manu/-bird-temp/index.html
-$dokka.location:com.example.manu/BirdTemp/BirdTemp/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird-temp/-bird-temp.html
-$dokka.location:com.example.manu/BirdTemp/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-bird-name.html
-$dokka.location:com.example.manu/BirdTemp/getEndangerment/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-endangerment.html
-$dokka.location:com.example.manu/BirdTemp/getEnglishNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-english-name-image-resource-id.html
-$dokka.location:com.example.manu/BirdTemp/getFunFact/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-fun-fact.html
-$dokka.location:com.example.manu/BirdTemp/getMaoriNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-maori-name-image-resource-id.html
-$dokka.location:com.example.manu/BirdTemp/getPhotoResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-photo-resource-id.html
-$dokka.location:com.example.manu/BirdTemp/getSongResourceId/#/PointingToDeclaration/app/com.example.manu/-bird-temp/get-song-resource-id.html
-$dokka.location:com.example.manu/BirdTemp/getmaoriName/#/PointingToDeclaration/app/com.example.manu/-bird-temp/getmaori-name.html
-$dokka.location:com.example.manu/BirdTemp/toString/#/PointingToDeclaration/app/com.example.manu/-bird-temp/to-string.html
 $dokka.location:com.example.manu/CreditActivity///PointingToDeclaration/app/com.example.manu/-credit-activity/index.html
 $dokka.location:com.example.manu/CreditActivity/CreditActivity/#/PointingToDeclaration/app/com.example.manu/-credit-activity/-credit-activity.html
 $dokka.location:com.example.manu/HelloWorld///PointingToDeclaration/app/com.example.manu/-hello-world/index.html
@@ -48,6 +48,12 @@ $dokka.location:com.example.manu/MenuActivity///PointingToDeclaration/app/com.e
 $dokka.location:com.example.manu/MenuActivity/MenuActivity/#/PointingToDeclaration/app/com.example.manu/-menu-activity/-menu-activity.html
 $dokka.location:com.example.manu/MenuActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-menu-activity/on-back-pressed.html
 $dokka.location:com.example.manu/MenuActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-menu-activity/on-touch-event.html
+$dokka.location:com.example.manu/Question///PointingToDeclaration/app/com.example.manu/-question/index.html
+$dokka.location:com.example.manu/Question/Question/#kotlin.Int#java.util.ArrayList[kotlin.String]#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question/-question.html
+$dokka.location:com.example.manu/Question/getAnswerIndex/#/PointingToDeclaration/app/com.example.manu/-question/get-answer-index.html
+$dokka.location:com.example.manu/Question/getOptions/#/PointingToDeclaration/app/com.example.manu/-question/get-options.html
+$dokka.location:com.example.manu/Question/getQuestionResourceId/#/PointingToDeclaration/app/com.example.manu/-question/get-question-resource-id.html
+$dokka.location:com.example.manu/Question/toString/#/PointingToDeclaration/app/com.example.manu/-question/to-string.html
 $dokka.location:com.example.manu/QuestionData///PointingToDeclaration/app/com.example.manu/-question-data/index.html
 $dokka.location:com.example.manu/QuestionData/QuestionData/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-data/-question-data.html
 $dokka.location:com.example.manu/QuestionData/getCorrectOptionIndex/#/PointingToDeclaration/app/com.example.manu/-question-data/get-correct-option-index.html
@@ -63,12 +69,6 @@ $dokka.location:com.example.manu/QuestionData/setOption2/#kotlin.String/Pointing
 $dokka.location:com.example.manu/QuestionData/setOption3/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-option3.html
 $dokka.location:com.example.manu/QuestionData/setQuestion/#kotlin.String/PointingToDeclaration/app/com.example.manu/-question-data/set-question.html
 $dokka.location:com.example.manu/QuestionData/toString/#/PointingToDeclaration/app/com.example.manu/-question-data/to-string.html
-$dokka.location:com.example.manu/QuestionTemp///PointingToDeclaration/app/com.example.manu/-question-temp/index.html
-$dokka.location:com.example.manu/QuestionTemp/QuestionTemp/#kotlin.Int#java.util.ArrayList[kotlin.String]#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-temp/-question-temp.html
-$dokka.location:com.example.manu/QuestionTemp/getAnswerIndex/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-answer-index.html
-$dokka.location:com.example.manu/QuestionTemp/getOptions/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-options.html
-$dokka.location:com.example.manu/QuestionTemp/getQuestionResourceId/#/PointingToDeclaration/app/com.example.manu/-question-temp/get-question-resource-id.html
-$dokka.location:com.example.manu/QuestionTemp/toString/#/PointingToDeclaration/app/com.example.manu/-question-temp/to-string.html
 $dokka.location:com.example.manu/QuestionType.ALL///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-a-l-l/index.html
 $dokka.location:com.example.manu/QuestionType.ENGLISH///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-e-n-g-l-i-s-h/index.html
 $dokka.location:com.example.manu/QuestionType.MAORI///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-m-a-o-r-i/index.html
