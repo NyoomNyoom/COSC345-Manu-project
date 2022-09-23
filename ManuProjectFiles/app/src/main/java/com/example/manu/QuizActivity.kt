@@ -261,6 +261,8 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
             score++
+            mediaPlayer = MediaPlayer.create(this, R.raw.correct_2)
+            mediaPlayer.start()
         }
 
         /*
@@ -270,6 +272,8 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
             optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
+            mediaPlayer = MediaPlayer.create(this, R.raw.incorrect_answer)
+            mediaPlayer.start()
         }
 
         /*
