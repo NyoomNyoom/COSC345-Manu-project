@@ -1,5 +1,5 @@
 /**
- * @author Daniel Robinson
+ * @author Madeline McCane
  */
 
 package com.example.manu
@@ -23,7 +23,7 @@ class HintPopupActivity : Activity() {
     private lateinit var buttonPress: Animation
 
     /**
-     * This is run when the class is instantiated. It sets up the "Return to Menu?" layout.
+     * This is run when the class is instantiated. It sets up the hint layout.
      *
      * @param Bundle Saves information between separate loads of this activity.
      */

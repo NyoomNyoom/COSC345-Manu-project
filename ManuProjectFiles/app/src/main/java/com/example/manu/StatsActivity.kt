@@ -1,3 +1,7 @@
+/**
+ * @author Jackson North
+ */
+
 package com.example.manu
 
 import android.content.Intent

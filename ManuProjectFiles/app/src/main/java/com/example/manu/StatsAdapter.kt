@@ -1,4 +1,6 @@
-/* Jackson North 16/09/2022 */
+/**
+ * @author Jackson North, 16/09/2022
+ */
 
 package com.example.manu
 

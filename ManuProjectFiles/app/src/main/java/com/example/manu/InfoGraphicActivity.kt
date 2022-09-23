@@ -1,4 +1,6 @@
-/* Will Rushton 12/08/2022 */
+/**
+ * @author Will Rushton, 12/08/2022
+ */
 
 package com.example.manu
 

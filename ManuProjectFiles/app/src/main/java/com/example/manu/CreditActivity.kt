@@ -1,3 +1,7 @@
+/**
+ * @author Madeline McCane
+ */
+
 package com.example.manu
 
 import android.content.Intent

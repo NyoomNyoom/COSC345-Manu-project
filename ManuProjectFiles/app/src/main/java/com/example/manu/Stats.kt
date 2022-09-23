@@ -1,3 +1,7 @@
+/**
+ * @author Jackson North
+ */
+
 package com.example.manu
 
 class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, totalPlayedIn: Int) {
