@@ -89,6 +89,21 @@
             />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_statistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50sp"
+            android:layout_marginTop="10sp"
+            android:text="Quiz Statistics"
+            android:textColor="@color/white"
+            android:backgroundTint="#6f8c2a"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            android:textSize="15sp"
+            app:cornerRadius="7sp"
+            />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_credits"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

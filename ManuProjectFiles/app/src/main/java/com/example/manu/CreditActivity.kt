@@ -3,13 +3,11 @@ package com.example.manu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
-import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.credits.*
 
 private lateinit var buttonPress: Animation
