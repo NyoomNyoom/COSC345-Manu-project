@@ -118,6 +118,18 @@ class MenuActivity : AppCompatActivity() {
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
 
+        /**
+         * Called when a fling is detected. This performs the calculations to decide whether the fling is an acceptable
+         * gesture to change screens.
+         *
+         * @param downEvent Not used.
+         * @param moveEvent Reports object movement. Hold either absolute or relative movements and other data,
+         * depending on the type of device.
+         * @param velocityX The velocity in the left and right direction of the screen (in portrait mode).
+         * @param velocityY The velocity in the up and down direction of the screen (in portrait mode).
+         *
+         * @return True if the fling was accepted and acted on as a gesture, or false if it was not.
+         */
         override fun onFling(downEvent: MotionEvent?, moveEvent: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
             var diffX = moveEvent?.x?.minus(downEvent!!.x) ?: 0.0F
             var diffY = moveEvent?.y?.minus(downEvent!!.y) ?: 0.0F

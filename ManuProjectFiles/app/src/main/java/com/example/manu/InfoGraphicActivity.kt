@@ -29,7 +29,9 @@ class InfoGraphicActivity : AppCompatActivity() {
     private var mediaPlayer = MediaPlayer()
 
     /**
+     * This is run when the class is instantiated. It sets up the encyclopedia screen.
      *
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
