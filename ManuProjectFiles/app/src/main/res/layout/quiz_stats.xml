@@ -13,7 +13,7 @@
     </ImageView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_quit"
+        android:id="@+id/btn_back"
         android:layout_width="50sp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"

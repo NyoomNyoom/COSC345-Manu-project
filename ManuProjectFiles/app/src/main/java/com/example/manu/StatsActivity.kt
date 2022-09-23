@@ -1,7 +1,14 @@
 package com.example.manu
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.quiz_options.*
 import kotlinx.android.synthetic.main.quiz_stats.*
 
 class StatsActivity : AppCompatActivity() {
@@ -14,6 +21,7 @@ class StatsActivity : AppCompatActivity() {
     private lateinit var maori_av: String
     private lateinit var english_games: String
     private lateinit var english_av: String
+    private lateinit var buttonPress: Animation
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +31,19 @@ class StatsActivity : AppCompatActivity() {
         getAllValues()
         updateStrings()
 
+        // Hide the navigation and status bars.
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
+
+        loadAnimations()
+
+        btn_back.setOnClickListener{
+            var intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
     }
 
     fun getAllValues(){
@@ -51,5 +72,12 @@ class StatsActivity : AppCompatActivity() {
 
         english_total.text = "Games played: " + english_games
         english_average.text = "Average score: " + english_av
+    }
+
+    /**
+     * Loads and stores the animations.
+     */
+    private fun loadAnimations() {
+        buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 }

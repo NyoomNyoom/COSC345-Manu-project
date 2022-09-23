@@ -67,7 +67,7 @@
             android:textColor="#FFFFFF"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Photos:\nI don't know"
+            android:text="Photos:\nDepartment of Conservation"
             android:layout_marginBottom="20sp"
             />
 
