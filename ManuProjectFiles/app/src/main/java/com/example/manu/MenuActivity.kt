@@ -143,7 +143,7 @@ class MenuActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@MenuActivity.onSwipeRight()
+                        this@MenuActivity.transitionRight()
                     } else {
                         // left swipe
                         this@MenuActivity.onSwipeLeft()
@@ -167,11 +167,8 @@ class MenuActivity : AppCompatActivity() {
             }
         }
     }
-
-    /**
-     * Executes code for a right gesture going right to enter infographics.
-     */
-    private fun onSwipeRight() {
+    
+    private fun transitionRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
