@@ -86,7 +86,7 @@ class QuizOptions : AppCompatActivity() {
         btn_back_option.setOnClickListener{
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         }
 
     }
