@@ -188,7 +188,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)

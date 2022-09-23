@@ -174,10 +174,7 @@ class MenuActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finishAndAudio()
     }
-
-    /**
-     * Executes code for a left gesture going right to enter infographics.
-     */
+    
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptionsActivity::class.java)
         startActivity(intent)
