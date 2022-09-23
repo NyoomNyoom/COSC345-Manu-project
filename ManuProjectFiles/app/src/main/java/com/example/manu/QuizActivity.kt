@@ -184,7 +184,7 @@ class QuizActivity : AppCompatActivity() {
         optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonSelectedColourHex))
         optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
-    
+
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
         if (quizType == soundQuiz){
