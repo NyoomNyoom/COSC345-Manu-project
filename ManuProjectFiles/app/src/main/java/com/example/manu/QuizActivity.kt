@@ -244,6 +244,7 @@ class QuizActivity : AppCompatActivity() {
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+        mediaPlayer.pause()
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
