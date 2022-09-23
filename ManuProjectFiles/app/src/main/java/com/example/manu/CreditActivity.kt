@@ -15,11 +15,19 @@ import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.credits.*
 
+/**
+ * Loads and controls the credits screen.
+ */
 class CreditActivity : AppCompatActivity() {
 
     private lateinit var buttonPress: Animation
     private var mediaPlayer = MediaPlayer()
 
+    /**
+     * This is run when the class is instantiated. It loads and sets up the credits screen.
+     *
+     * @param Bundle Saves information between separate loads of this activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.credits)
@@ -33,7 +41,7 @@ class CreditActivity : AppCompatActivity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        loadAnimations()
+        loadButtonPressAnimation()
 
         btn_quit.setOnClickListener {
             mediaPlayer.pause()
@@ -45,10 +53,7 @@ class CreditActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Loads and stores the animations.
-     */
-    private fun loadAnimations() {
+    private fun loadButtonPressAnimation() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 }
