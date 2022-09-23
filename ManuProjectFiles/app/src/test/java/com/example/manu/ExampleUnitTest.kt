@@ -121,7 +121,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getBirdName_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "")
 
         assertEquals("Bellbird", bird.getBirdName())
     }
@@ -131,7 +131,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getPhotoResourceID_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "")
 
         assertEquals(R.drawable.bird_bellbird, bird.getPhotoResourceId())
     }
@@ -141,7 +141,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getFunFact_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "")
 
         assertEquals("", bird.getFunFact())
     }
@@ -151,7 +151,7 @@ class ExampleUnitTest {
      */
     @Test
     fun birdTempToString_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "")
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
         val soundResourceId = Resources.ID_NULL
@@ -165,7 +165,7 @@ class ExampleUnitTest {
      */
     @Test
     fun isMaoriNameCorrect(){
-        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, Resources.ID_NULL, Resources.ID_NULL, "Tētē kākāriki", "")
         val maoriName = "Tētē kākāriki"
 
         assertEquals(maoriName, bird.getmaoriName())
@@ -176,7 +176,7 @@ class ExampleUnitTest {
      */
     @Test
     fun isgetSongResourceCorrect(){
-        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, Resources.ID_NULL, Resources.ID_NULL, "Tētē kākāriki", "")
 
         assertEquals(R.raw.aucklandislandteal, bird.getSongResourceId())
     }
@@ -400,6 +400,19 @@ class ExampleUnitTest {
             val questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, quizLength, 4)
             assertEquals(true, questions.size == quizLength)
         }
+    }
+
+    @Test
+    fun generateEnglishQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL)
+                assertEquals(true, false)
+        }
+
+        assertEquals(true, true)
     }
 
     /**

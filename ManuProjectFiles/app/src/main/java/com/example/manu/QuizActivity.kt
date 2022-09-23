@@ -69,6 +69,12 @@ class QuizActivity : AppCompatActivity() {
         } else if (quizType == "sound") {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
+        } else if (quizType == "english") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, numQuestions, numOptions)
+        } else if (quizType == "maori") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
 
         saveOptionButtons()
