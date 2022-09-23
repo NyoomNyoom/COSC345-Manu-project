@@ -415,6 +415,28 @@ class ExampleUnitTest {
         assertEquals(true, true)
     }
 
+    @Test
+    fun birdEndangermentStatus() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getEndangerment() != "Not Threatened") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
+    @Test
+    fun birdMaoriName() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getmaoriName() != "Ruru") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
     /**
      * 
      */
