@@ -107,9 +107,6 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_3)
     }
 
-    /**
-     * Loads and stores the animations.
-     */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
@@ -139,7 +136,7 @@ class QuizActivity : AppCompatActivity() {
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
     }
-    
+
     private fun resetOptionButtons() {
         for (button in optionButtons) {
             button.setBackgroundColor(Color.parseColor(buttonColourHex))
@@ -187,11 +184,7 @@ class QuizActivity : AppCompatActivity() {
         optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonSelectedColourHex))
         optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
-
-    /**
-     * Call this when the submit button is pressed. Depending on the state of the game, it either marks the answer,
-     * loads the next question, or proceeds to the results screen.
-     */
+    
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
         if (quizType == soundQuiz){
