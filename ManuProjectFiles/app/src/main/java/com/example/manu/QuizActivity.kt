@@ -131,7 +131,7 @@ class QuizActivity : AppCompatActivity() {
     private fun pauseAudio() {
         mediaPlayer.pause()
     }
-    
+
     private fun setupOnClickListeners() {
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }

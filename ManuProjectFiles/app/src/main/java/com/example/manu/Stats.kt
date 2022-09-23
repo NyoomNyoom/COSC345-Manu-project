@@ -14,6 +14,11 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         numRight += valueIn
     }
 
+    /**
+     * @param valueIn the quantity of games played
+     *
+     * Updates the quantity of games played by the user
+     */
     fun updateTotalPlayed(valueIn: Int){
         totalPlayed += valueIn
     }
