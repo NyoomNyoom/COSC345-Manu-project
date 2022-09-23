@@ -48,6 +48,7 @@
             app:cardCornerRadius="7sp"
             app:strokeWidth="3sp"
             app:strokeColor="@color/white"
+            android:backgroundTint="@color/black"
             >
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -55,7 +56,7 @@
                 android:layout_width="250sp"
                 android:layout_height="250sp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/bird_white_heron"
+                android:src="@drawable/question_mark"
                 />
 
         </com.google.android.material.card.MaterialCardView>

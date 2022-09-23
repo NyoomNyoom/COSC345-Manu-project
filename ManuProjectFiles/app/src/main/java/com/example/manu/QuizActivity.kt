@@ -68,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
         } else if (quizType == "sound") {
-            setContentView(R.layout.sound_quiz)
+            setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         } else if (quizType == "english") {
             setContentView(R.layout.activity_quiz)
@@ -124,10 +124,10 @@ class QuizActivity : AppCompatActivity() {
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        if (quizType == "sound") {
+        /*if (quizType == "sound") {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
-        }
+        }*/
 
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
@@ -163,6 +163,7 @@ class QuizActivity : AppCompatActivity() {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == "sound") {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
+            mediaPlayer.start()
         }
         val options = question.getOptions()
 
