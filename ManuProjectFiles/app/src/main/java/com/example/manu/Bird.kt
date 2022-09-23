@@ -6,13 +6,16 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, funFact: String) {
+class Bird(birdName: String, photoResourceId: Int, soundResourceId: Int, englishNameImageResourceId: Int, maoriNameImageResourceId: Int, maoriName: String, endangermentStatusIn: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
     private val soundResourceId: Int = soundResourceId
+    private val englishNameImageResourceId: Int = englishNameImageResourceId
+    private val maoriNameImageResourceId: Int = maoriNameImageResourceId
     private val maoriName: String = maoriName
     private val funFact = funFact
+    private val endangermentStatus: String = endangermentStatusIn
 
     /**
      * Returns the bird's name.
@@ -44,19 +47,47 @@ class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, mao
     /**
      * Returns the songs resource ID.
      *
-     * @return the songs resource ID.
+     * @return The songs resource ID.
      */
     fun getSongResourceId(): Int {
         return soundResourceId
     }
 
     /**
+     * Returns the resource ID of the image containing the bird's English name.
+     *
+     * @return The resource ID of the image containing the bird's English name.
+     */
+    fun getEnglishNameImageResourceId(): Int {
+        return englishNameImageResourceId
+    }
+
+    /**
+     * Returns the resource ID of the image containing the bird's Māori name.
+     *
+     * @return The resource ID of the image containing the bird's Māori name.
+     */
+    fun getMaoriNameImageResourceId(): Int {
+        return maoriNameImageResourceId
+    }
+
+    /**
      * Returns the birds Maori name.
      *
-     * @return the birds maori name.
+     * @return The birds maori name.
      */
     fun getmaoriName(): String {
         return maoriName
+    }
+
+    /**
+     * Returns the endangerment status of the bird. True if the bird is endangered, false otherwise.
+     *
+     * @return the endangerment status of the bird.
+     */
+
+    fun getEndangerment(): String{
+        return endangermentStatus
     }
 
 

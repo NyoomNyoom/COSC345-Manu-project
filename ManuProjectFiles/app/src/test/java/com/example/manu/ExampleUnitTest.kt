@@ -22,7 +22,7 @@ class ExampleUnitTest {
         var duplicateQuestions: Boolean = false
 
         for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
                 var occurrences: Int = 0
@@ -52,7 +52,7 @@ class ExampleUnitTest {
         var duplicateOptions: Boolean = false
 
         for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
                 for (option in question.getOptions()) {
@@ -88,7 +88,7 @@ class ExampleUnitTest {
         BirdDatabase.compileDatabase()
 
         for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
 
             for (question in questions) {
                 val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
@@ -109,7 +109,7 @@ class ExampleUnitTest {
     @Test
     fun questionTempToString() {
         BirdDatabase.compileDatabase()
-        val questions: ArrayList<QuestionTemp> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
         val toString: String = questions[0].toString()
         val makeString: String = questions[0].getQuestionResourceId().toString() + ", " +
                 questions[0].getOptions().toString() + ", " + questions[0].getAnswerIndex().toString()
@@ -121,7 +121,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getBirdName_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = Bird("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "", "")
 
         assertEquals("Bellbird", bird.getBirdName())
     }
@@ -131,7 +131,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getPhotoResourceID_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = Bird("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "", "")
 
         assertEquals(R.drawable.bird_bellbird, bird.getPhotoResourceId())
     }
@@ -141,7 +141,7 @@ class ExampleUnitTest {
      */
     @Test
     fun getFunFact_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = Bird("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "", "")
 
         assertEquals("", bird.getFunFact())
     }
@@ -151,7 +151,7 @@ class ExampleUnitTest {
      */
     @Test
     fun birdTempToString_isCorrect(){
-        val bird = BirdTemp("Bellbird", R.drawable.bird_bellbird,Resources.ID_NULL,"", "")
+        val bird = Bird("Bellbird", R.drawable.bird_bellbird, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "", "")
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
         val soundResourceId = Resources.ID_NULL
@@ -165,7 +165,7 @@ class ExampleUnitTest {
      */
     @Test
     fun isMaoriNameCorrect(){
-        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+        val bird = Bird("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, Resources.ID_NULL, Resources.ID_NULL, "Tētē kākāriki", "", "")
         val maoriName = "Tētē kākāriki"
 
         assertEquals(maoriName, bird.getmaoriName())
@@ -176,7 +176,7 @@ class ExampleUnitTest {
      */
     @Test
     fun isgetSongResourceCorrect(){
-        val bird = BirdTemp("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, "Tētē kākāriki", "")
+        val bird = Bird("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, Resources.ID_NULL, Resources.ID_NULL, "Tētē kākāriki", "", "")
 
         assertEquals(R.raw.aucklandislandteal, bird.getSongResourceId())
     }
@@ -195,7 +195,9 @@ class ExampleUnitTest {
      */
 
 
-
+    /**
+     * Ensures there are no duplicate birds in the database.
+     */
     @Test
     fun noDuplicatesInBirdDatabase(){
         var stillValid = true
@@ -328,7 +330,7 @@ class ExampleUnitTest {
 
         // Take all the birds and refine it to the birds with Maori names.
         var allBirds = BirdDatabase.getBirdList()
-        var birdsWithMaoriName = ArrayList<BirdTemp>()
+        var birdsWithMaoriName = ArrayList<Bird>()
         for (bird in allBirds) {
             if (bird.getmaoriName() != "")
                 birdsWithMaoriName.add(bird)
@@ -359,7 +361,7 @@ class ExampleUnitTest {
 
         // Get all birds and narrow them down to the ones with sounds. This is the "answer".
         val allBirds = BirdDatabase.getBirdList()
-        var birdsWithSongs = ArrayList<BirdTemp>()
+        var birdsWithSongs = ArrayList<Bird>()
         for (bird in allBirds) {
             if (bird.getSongResourceId() != Resources.ID_NULL)
                 birdsWithSongs.add(bird)
@@ -401,4 +403,290 @@ class ExampleUnitTest {
             assertEquals(true, questions.size == quizLength)
         }
     }
+
+    /**
+     * Tests whether the bird endangerment status can be passed through (in and out) the bird consistently.
+     */
+    @Test
+    fun birdEndangermentStatus() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getEndangerment() != "Not Threatened") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
+    /**
+     * Tests whether the bird's Māori name can be passed through (in and out) the bird consistently.
+     */
+    @Test
+    fun birdMaoriName() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getmaoriName() != "Ruru") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
+    /**
+     * Generates a bird song quiz and checks whether the question resource is not null, if there are four options, and
+     * if the answer index is in the correct range.
+     */
+    @Test
+    fun generateBirdSongQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.SOUND, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
+
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
+    }
+
+    /**
+     * Generates an English to Māori quiz and checks whether the question resource is not null, if there are four
+     * options, and if the answer index is in the correct range.
+     */
+    @Test
+    fun generateEnglishQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
+
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
+    }
+
+    /**
+    * Generates an Māori to English quiz and checks whether the question resource is not null, if there are four
+    * options, and if the answer index is in the correct range.
+    */
+    @Test
+    fun generateMaoriQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.MAORI, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
+
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
+    }
+
+    //Stats.kt file tests
+    /**
+     * Checking if getNumRight is correct.
+     */
+    @Test
+    fun getNumRightCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(9, statsObj.getNumRight())
+    }
+
+    /**
+     * Checking if updateNumRight is correct.
+     */
+    @Test
+    fun updateNumRightIsCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateNumRight(4)
+
+        assertEquals(13, statsObj.getNumRight())
+    }
+
+    /**
+     * Checking if total played is correct.
+     */
+    @Test
+    fun getTotalPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(10, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * Checking if updateTotalPlayed is correct.
+     */
+    @Test
+    fun updateTotalPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateTotalPlayed(10)
+
+        assertEquals(20, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * checking if getQuestionType works.
+     */
+    @Test
+    fun getQuestionTypeCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(QuestionType.PHOTO, statsObj.getQuestionType())
+    }
+
+    /**
+     * Checking if getQuestionLength works.
+     */
+    @Test
+    fun getQuestionLengthCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        assertEquals(10, statsObj.getQuestionLength())
+    }
+
+    /**
+     * Checking if getAverage is correct.
+     */
+    @Test
+    fun getAverageCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+        statsObj.updateTotalPlayed(30)
+
+        assertEquals(9/40, statsObj.getAverage())
+    }
+
+    /**
+     * Checking if resetValues is working.
+     */
+    @Test
+    fun resetValuesCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.resetValues()
+
+        assertEquals(0, statsObj.getTotalPlayed())
+    }
+
+    /**
+     * Checking if getTotalQuizzesPlayed is working.
+     */
+    @Test
+    fun getTotalQuizzesPlayedCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 10)
+
+        statsObj.updateTotalPlayed(30)
+
+        assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
+    }
+
+    /**
+     * Tests encryption for various inputs.
+     */
+    @Test
+    fun encryption() {
+        var plaintext = "123456789"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "ajsbd8327g4r23u"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "abcdefghijklmnopqrstuvwxyz"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "HI"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        plaintext = "\n2,3,4,\n"
+        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+    }
+
+    /**
+     * Try and retrieve a bird that does not exist.
+     */
+    @Test
+    fun nonExistentBird() {
+        BirdDatabase.compileDatabase()
+        val emptyBird = BirdDatabase.getBirdUsingPhotoResourceId(Resources.ID_NULL)
+        assertEquals(true, emptyBird.getBirdName() == "EMPTY_NAME")
+    }
+
+    /**
+     * Tests whether you can retrieve a bird's name using its raw sound file.
+     */
+    @Test
+    fun getBirdUsingSoundResource() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(R.raw.aucklandislandteal)
+        assertEquals(true, birdName == "Auckland Island Teal")
+    }
+
+    /**
+     * Tests the behaviour of the database if you ask for the bird that has a non-existent raw sound file and
+     * non-existent photo file (which none do).
+     */
+    @Test
+    fun getBirdWithEmptySound() {
+        BirdDatabase.compileDatabase()
+        val birdName = BirdDatabase.getNameUsingResourceId(-1)  // Resource IDs are always positive.
+        assertEquals(true, birdName == "")
+    }
+
+    /**
+     * Ensures QuestionType.ALL is not accepted by the birds database (since this value is for storing stats not
+     * querying birds).
+     */
+    @Test
+    fun getBirdsWithResourceAll() {
+        BirdDatabase.compileDatabase()
+        val birds = BirdDatabase.getBirdsWithResource(QuestionType.ALL)
+        val emptyBirdList: ArrayList<Bird> = ArrayList()
+        assertEquals(true, birds == emptyBirdList)
+    }
+
+    /**
+     * Ensures the bird database returns the same result each time when it requests a list of all birds.
+     */
+    @Test
+    fun checkAllBirdsQuery() {
+        BirdDatabase.compileDatabase()
+        val birdList1 = BirdDatabase.getBirdList()
+        val birdList2 = BirdDatabase.getBirdList()
+        assertEquals(true, birdList1 == birdList2)
+    }
+
+    /**
+     * Purely for code coverage. I wanted to see if you could instantiate a class that contained a companion object
+     * because such objects behave like static classes (and aren't meant to be instantiated.
+     */
+    @Test
+    fun instantiateStaticBirdDatabase() {
+        BirdDatabase.compileDatabase()
+        val database = BirdDatabase()
+        // Does not assertEquals because this is not a proper test.
+    }
+
 }

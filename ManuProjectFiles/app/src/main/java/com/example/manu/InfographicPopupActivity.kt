@@ -5,9 +5,9 @@
 package com.example.manu
 
 import android.app.Activity
+import android.content.res.Resources
+import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
-import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -21,7 +21,9 @@ import kotlinx.android.synthetic.main.activity_infographic_popup.*
  */
 class InfographicPopupActivity : Activity() {
 
+    private var hasBirdSong = false
     private lateinit var buttonPress: Animation
+    private lateinit var mediaPlayer: MediaPlayer
 
     /**
      * This is run when the class is instantiated. It sets up infographic popup layout.
@@ -44,6 +46,20 @@ class InfographicPopupActivity : Activity() {
 
         txt_bird_name.text = intent.getStringExtra("birdName")
         txt_bird_fact.text = intent.getStringExtra("birdFact")
+        txt_maori_name.text = intent.getStringExtra("translatedName")
+        txt_endangerment.text = intent.getStringExtra("endangerment")
+
+        // Get image ID for popup.
+        val picture: Int = intent.getIntExtra("imageResourceId", Resources.ID_NULL)
+        bird_photo.setImageResource(picture)
+
+        val songResourceId = intent.getIntExtra("songResourceId", Resources.ID_NULL)
+        if (songResourceId != Resources.ID_NULL) {
+            mediaPlayer = MediaPlayer.create(this, songResourceId)
+            mediaPlayer.start()
+            hasBirdSong = true
+        }
+
         /*Log.d("InfographicPopupActivity.txt_bird_name.measuredHeight", txt_bird_name.measuredHeight.toString())
         Log.d("InfographicPopupActivity.txt_bird_name.minLines", txt_bird_name.minLines.toString())
         Log.d("InfographicPopupActivity.txt_bird_name.maxLines", txt_bird_name.maxLines.toString())
@@ -60,6 +76,11 @@ class InfographicPopupActivity : Activity() {
      * Animates the button press and closes this popup.
      */
     private fun closePopup() {
+        // Only pause a bird song if one is playing, otherwise the app crashes.
+        if (hasBirdSong) {
+            mediaPlayer.pause()
+        }
+
         btn_close.startAnimation(buttonPress)
         finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.

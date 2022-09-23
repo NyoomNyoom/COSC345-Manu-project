@@ -16,7 +16,7 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.google.android.material.button.MaterialButton
-import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.activity_quiz.img_question
 import kotlinx.android.synthetic.main.activity_quiz.btn_back
 import kotlinx.android.synthetic.main.activity_quiz.btn_opt_0
 import kotlinx.android.synthetic.main.activity_quiz.btn_opt_1
@@ -45,9 +45,9 @@ class QuizActivity : AppCompatActivity() {
     private val buttonSelectedColourHex:String = "#808080"
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
-    private lateinit var quiz: String
-    private var questions: ArrayList<QuestionTemp> = ArrayList()
-    var mediaPlayer = MediaPlayer()
+    private lateinit var quizType: String
+    private var questions: ArrayList<Question> = ArrayList()
+    private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
     private lateinit var buttonPress: Animation
     private lateinit var incorrectAnswerShake: Animation
@@ -62,13 +62,20 @@ class QuizActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        quiz = intent.getStringExtra("quiztype").toString()
-        if (quiz == "image") {
+        quizType = intent.getStringExtra("quiztype").toString()
+
+        if (quizType == "image") {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
-        } else if (quiz == "sound") {
+        } else if (quizType == "sound") {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
+        } else if (quizType == "english") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, numQuestions, numOptions)
+        } else if (quizType == "maori") {
+            setContentView(R.layout.activity_quiz)
+            questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
 
         saveOptionButtons()
@@ -82,11 +89,6 @@ class QuizActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
         presentQuestion(questions[currentQuestionIndex])  // Present the first question.
-
-
-        // Jackson's code is below (commented out).
-        //val minput = InputStreamReader(getAssets().open("bird-data.csv"), "UTF-8")
-        //val fileIN = InputStreamReader(assets.open("bird-data.csv"))
     }
 
     /**
@@ -119,28 +121,34 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
+     * Restarts the current bird song.
+     */
+    private fun playAudio() {
+        mediaPlayer.start()
+    }
+
+    /**
+     * Pauses the current bird song.
+     */
+    private fun pauseAudio() {
+        mediaPlayer.pause()
+    }
+
+    /**
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
-        if (quiz == "sound"){
+        for (buttonIndex in 0 until numOptions) {
+            optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
+        }
+
+        if (quizType == "sound") {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
-        btn_opt_0.setOnClickListener { selectOption(0) }
-        btn_opt_1.setOnClickListener { selectOption(1) }
-        btn_opt_2.setOnClickListener { selectOption(2) }
-        btn_opt_3.setOnClickListener { selectOption(3) }
+
         btn_submit.setOnClickListener { submitButtonClickHandler() }
         btn_back.setOnClickListener { returnToMenu() }
-    }
-
-    private fun playAudio() {
-        mediaPlayer.start()
-
-    }
-
-    private fun pauseAudio() {
-        mediaPlayer.pause()
     }
 
     /**
@@ -155,18 +163,19 @@ class QuizActivity : AppCompatActivity() {
     /**
      * Resets the screen with the next question.
      */
-    private fun presentQuestion(question: QuestionTemp) {
-        if (quiz == "image") {
+    private fun presentQuestion(question: Question) {
+        if (quizType == "image" || quizType == "english" || quizType == "maori") {
             img_question.setImageResource(question.getQuestionResourceId())
-        } else if (quiz == "sound") {
+        } else if (quizType == "sound") {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
+            mediaPlayer.start()
         }
+
         val options = question.getOptions()
 
-        btn_opt_0.text = options[0]
-        btn_opt_1.text = options[1]
-        btn_opt_2.text = options[2]
-        btn_opt_3.text = options[3]
+        for (buttonIndex in 0 until numOptions) {
+            optionButtons[buttonIndex].text = options[buttonIndex]
+        }
 
         btn_submit.text = submitText
 
@@ -199,7 +208,7 @@ class QuizActivity : AppCompatActivity() {
      */
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
-        if (quiz == "sound"){
+        if (quizType == "sound"){
             mediaPlayer.pause()
         }
 
@@ -213,6 +222,7 @@ class QuizActivity : AppCompatActivity() {
                 // Pass the score through to the results screen.
                 resultsScreen.putExtra("score", score)
                 resultsScreen.putExtra("totalQuestions", questions.size)
+                resultsScreen.putExtra("quizType", quizType)
 
                 startActivity(resultsScreen)
                 finish()
@@ -234,6 +244,7 @@ class QuizActivity : AppCompatActivity() {
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+        mediaPlayer.pause()
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
@@ -267,7 +278,7 @@ class QuizActivity : AppCompatActivity() {
          * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
          * incorrect selection.
          */
-        for (buttonIndex in 0..optionButtons.size - 1) {
+        for (buttonIndex in 0 until optionButtons.size) {
             if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
                 optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
             }

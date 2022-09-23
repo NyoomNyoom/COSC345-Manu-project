@@ -1,7 +1,7 @@
 package com.example.manu
 
-import android.app.ActivityOptions
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.GestureDetector
@@ -21,6 +21,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -42,28 +43,52 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
         loadAnimations()
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
+        mediaPlayer.start()
+
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
-            val intent = Intent(this, QuizOptions::class.java)
+            val intent = Intent(this, QuizOptionsActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            finishAndAudio()
         }
 
         btn_infographics.setOnClickListener {
             btn_infographics.startAnimation(buttonPress)
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finish()
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finishAndAudio()
         }
 
-        btn_quit.setOnClickListener {
-            btn_quit.startAnimation(buttonPress)
-            val intent = Intent(this, QuitQuizPopupActivity::class.java)
+        btn_statistics.setOnClickListener {
+            btn_statistics.startAnimation(buttonPress)
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            finishAndAudio()
+        }
+
+        btn_credits.setOnClickListener{
+            btn_credits.startAnimation(buttonPress)
+            val intent = Intent(this, CreditActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            finishAndAudio()
+        }
+
+        btn_help.setOnClickListener{
+            btn_help.startAnimation(buttonPress)
+            val intent = Intent(this, HintPopupActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
+    }
+
+    private fun finishAndAudio(){
+        mediaPlayer.pause()
+        finish()
     }
 
     /**
@@ -93,6 +118,18 @@ class MenuActivity : AppCompatActivity() {
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
 
+        /**
+         * Called when a fling is detected. This performs the calculations to decide whether the fling is an acceptable
+         * gesture to change screens.
+         *
+         * @param downEvent Not used.
+         * @param moveEvent Reports object movement. Hold either absolute or relative movements and other data,
+         * depending on the type of device.
+         * @param velocityX The velocity in the left and right direction of the screen (in portrait mode).
+         * @param velocityY The velocity in the up and down direction of the screen (in portrait mode).
+         *
+         * @return True if the fling was accepted and acted on as a gesture, or false if it was not.
+         */
         override fun onFling(downEvent: MotionEvent?, moveEvent: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
             var diffX = moveEvent?.x?.minus(downEvent!!.x) ?: 0.0F
             var diffY = moveEvent?.y?.minus(downEvent!!.y) ?: 0.0F
@@ -134,17 +171,17 @@ class MenuActivity : AppCompatActivity() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        finish()
+        finishAndAudio()
     }
 
     /**
      * Executes code for a left gesture going right to enter infographics.
      */
     private fun onSwipeLeft() {
-        var intent = Intent(this, QuizOptions::class.java)
+        var intent = Intent(this, QuizOptionsActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        finish()
+        finishAndAudio()
     }
 
     /**

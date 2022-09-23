@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType = "centerCrop"
+        android:src = "@drawable/fern_alt">
+    </ImageView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30sp"
+        android:layout_marginBottom="15sp"
+        android:text="x"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/black"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:layout_marginEnd="10sp"
+        android:layout_marginTop="10sp"
+        app:cornerRadius="7sp"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1sp"
+        android:fontFamily="@font/party_confetti_regular"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView android:id="@+id/stats_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="90sp"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/party_confetti_regular"
+            android:gravity="center"
+            android:text="Statistics"
+            android:layout_marginBottom="10sp"
+            />
+
+        <TextView android:id="@+id/photo_stats_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="20sp"
+            android:textStyle="bold"
+            android:text="Photo quiz"
+            />
+
+        <TextView android:id="@+id/photo_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Games played: nothing :("
+            />
+
+        <TextView android:id="@+id/photo_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Score average: nothing :("
+            />
+
+        <TextView android:id="@+id/sound_stats_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="20sp"
+            android:textStyle="bold"
+            android:text="Sound quiz"
+            />
+
+        <TextView android:id="@+id/sound_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Games played: nothing :("
+            />
+
+        <TextView android:id="@+id/sound_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Score average: nothing :("
+            />
+
+        <TextView android:id="@+id/maori_stats_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="20sp"
+            android:textStyle="bold"
+            android:text="Māori quiz"
+            />
+
+        <TextView android:id="@+id/maori_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Games played: nothing :("
+            />
+
+        <TextView android:id="@+id/maori_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Score average: nothing :("
+            />
+
+        <TextView android:id="@+id/english_stats_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="20sp"
+            android:textStyle="bold"
+            android:text="English quiz"
+            />
+
+        <TextView android:id="@+id/english_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Games played: nothing :("
+            />
+
+        <TextView android:id="@+id/english_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Score average: nothing :("
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

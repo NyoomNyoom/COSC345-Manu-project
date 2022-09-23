@@ -4,22 +4,20 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.*
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.PopupWindow
 import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
-import com.google.android.material.card.MaterialCardView
-import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
-import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
-import kotlinx.android.synthetic.main.info_graphic_popup.view.*
+
 
 /**
  * Collects and adds the bird information into the infographic scene.
@@ -28,9 +26,12 @@ class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
+     * This is run when the class is instantiated. It sets up the encyclopedia screen.
      *
+     * @param Bundle Saves information between separate loads of this activity.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +51,7 @@ class InfoGraphicActivity : AppCompatActivity() {
         allButtons = (findViewById<View>(R.id.scrollView1) as ScrollView).touchables // Size is 48 (birds 47 + 1)
         val size = allButtons.size // Checking how many items there are.
 
-        var birds: ArrayList<BirdTemp> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
+        var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
         //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
         for(i in 0 until size){
@@ -64,12 +65,34 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
+                // Fill name and song and image
                 intent.putExtra("birdName", birds[i].getBirdName())
-                if(birds[i].getFunFact() == ""){
+                intent.putExtra("songResourceId", birds[i].getSongResourceId())
+
+                // Pass image ID to popup
+                intent.putExtra("imageResourceId", birds[i].getPhotoResourceId())
+
+                // Get maori name
+                if(birds[i].getmaoriName() == "") {
+                    intent.putExtra("translatedName", "")
+                } else {
+                    intent.putExtra("translatedName", "Māori Name: " + birds[i].getmaoriName())
+                }
+
+                // Get Fun fact
+                if(birds[i].getFunFact() == "") {
                     intent.putExtra("birdFact", "More information is yet to come...")
                 } else {
                     intent.putExtra("birdFact", birds[i].getFunFact())
                 }
+
+                // Get Endangerment status
+                if(birds[i].getEndangerment() == "") {
+                    intent.putExtra("endangerment", "Endangerment: N/A")
+                } else {
+                    intent.putExtra("endangerment", "Endangerment: " + birds[i].getEndangerment())
+                }
+
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 // Create a pop up window and pass it the text information
@@ -97,7 +120,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             btn_back.startAnimation(buttonPress)
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 
@@ -165,7 +188,7 @@ class InfoGraphicActivity : AppCompatActivity() {
     }
 
     /**
-     *
+     * Switches from the Encyclopedia screen to the Menu screen using a slide transition.
      */
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)

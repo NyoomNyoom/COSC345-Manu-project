@@ -1,7 +1,7 @@
 package com.example.manu
 
-import android.app.AlertDialog
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -20,10 +20,11 @@ import kotlinx.android.synthetic.main.quiz_options.*
 /**
  * Runs and displays the main menu.
  */
-class QuizOptions : AppCompatActivity() {
+class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -38,6 +39,8 @@ class QuizOptions : AppCompatActivity() {
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
+        mediaPlayer.start()
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -54,6 +57,7 @@ class QuizOptions : AppCompatActivity() {
             intent.putExtra("quiztype", "image")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
         }
 
         btn_sound.setOnClickListener {
@@ -62,23 +66,35 @@ class QuizOptions : AppCompatActivity() {
             intent.putExtra("quiztype", "sound")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "english")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
+            val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("quiztype", "maori")
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
         btn_back_option.setOnClickListener{
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            mediaPlayer.pause()
         }
 
     }
@@ -120,7 +136,7 @@ class QuizOptions : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@QuizOptions.onSwipeRight()
+                        this@QuizOptionsActivity.onSwipeRight()
                     } else {
                         // left swipe
                     }
