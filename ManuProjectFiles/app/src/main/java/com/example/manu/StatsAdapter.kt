@@ -95,24 +95,24 @@ class StatsAdapter {
 
         fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
             if(questionType == QuestionType.PHOTO){
+                stats[0].updateNumRight(numCorrect)
+                stats[0].updateTotalPlayed(numQuestions)
+            }else if(questionType == QuestionType.SOUND){
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)
-            }else if(questionType == QuestionType.SOUND){
+
+            }else if(questionType == QuestionType.MAORI){
                 stats[2].updateNumRight(numCorrect)
                 stats[2].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.MAORI){
+            }else if(questionType == QuestionType.ENGLISH){
                 stats[3].updateNumRight(numCorrect)
                 stats[3].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.ENGLISH){
-                stats[4].updateNumRight(numCorrect)
-                stats[4].updateTotalPlayed(numQuestions)
-
             }
 
-            stats[5].updateNumRight(numCorrect)
-            stats[5].updateTotalPlayed(numQuestions)
+            stats[4].updateNumRight(numCorrect)
+            stats[4].updateTotalPlayed(numQuestions)
 
             saveToFile(context)
         }
@@ -139,19 +139,19 @@ class StatsAdapter {
             saveToFile(context)
         }
 
-        fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats{
+        fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
 
             stats.forEach {
-                if(it.getQuestionType() == QuestionType.ALL){
+                if (it.getQuestionType() == QuestionType.ALL) {
                     statsOut = it
-                }else if(it.getQuestionType() == QuestionType.PHOTO){
+                } else if (it.getQuestionType() == QuestionType.PHOTO) {
                     statsOut = it
-                }else if(it.getQuestionType() == QuestionType.SOUND){
+                } else if (it.getQuestionType() == QuestionType.SOUND) {
                     statsOut = it
-                }else if(it.getQuestionType() == QuestionType.MAORI){
+                } else if (it.getQuestionType() == QuestionType.MAORI) {
                     statsOut = it
-                }else if(it.getQuestionType() == QuestionType.ENGLISH){
+                } else if (it.getQuestionType() == QuestionType.ENGLISH) {
                     statsOut = it
                 }
             }

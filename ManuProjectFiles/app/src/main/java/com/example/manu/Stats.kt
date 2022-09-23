@@ -40,6 +40,8 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     fun getTotalQuizzesPlayed(): Int{
+
+
         return totalPlayed % numQuestions
     }
 
