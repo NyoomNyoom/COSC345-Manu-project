@@ -7,10 +7,7 @@ package com.example.manu
 import android.app.Activity
 import android.content.res.Resources
 import android.media.MediaPlayer
-import android.media.audiofx.NoiseSuppressor
 import android.os.Bundle
-import android.util.Log
-import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -52,10 +49,8 @@ class InfographicPopupActivity : Activity() {
         txt_endangerment.text = intent.getStringExtra("endangerment")
 
         // Get image ID for popup.
-        val imageResourceID = intent.getIntExtra("birdImageId", Resources.ID_NULL)
-        if (imageResourceID != Resources.ID_NULL) {
-            bird_photo.setBackgroundColor(imageResourceID)
-        }
+        val picture: Int = intent.getIntExtra("imageResourceId", Resources.ID_NULL)
+        bird_photo.setImageResource(picture)
 
         val songResourceId = intent.getIntExtra("songResourceId", Resources.ID_NULL)
         if (songResourceId != Resources.ID_NULL) {
