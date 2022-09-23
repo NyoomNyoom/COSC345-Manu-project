@@ -39,10 +39,12 @@ class ExampleInstrumentedTest {
     }
     
     @Test
-    fun updateValuesCorrect(){
+    fun updateValuesCorrect() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
-        
+
         StatsAdapter.updateValues(context, QuestionType.PHOTO, 10, 5)
-        
+
         val numCorrect = (StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO)).getNumRight()
+    }
+
 }

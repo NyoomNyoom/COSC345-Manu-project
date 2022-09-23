@@ -6,7 +6,7 @@ package com.example.manu
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
  */
-class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, maoriName: String, endangermentStatusIn: String, funFact: String) {
+class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, englishNameImageResourceId: Int, maoriNameImageResourceId: Int, maoriName: String, endangermentStatusIn: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
@@ -15,7 +15,7 @@ class BirdTemp(birdName: String, photoResourceId: Int, soundResourceId: Int, mao
     private val maoriNameImageResourceId: Int = maoriNameImageResourceId
     private val maoriName: String = maoriName
     private val funFact = funFact
-    private val endangermentStatus = endangermentStatusIn
+    private val endangermentStatus: String = endangermentStatusIn
 
     /**
      * Returns the bird's name.
