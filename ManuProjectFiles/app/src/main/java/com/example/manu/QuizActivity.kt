@@ -68,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
         } else if (quizType == "sound") {
-            setContentView(R.layout.activity_quiz)
+            setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         } else if (quizType == "english") {
             setContentView(R.layout.activity_quiz)
@@ -121,11 +121,30 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
+     * Restarts the current bird song.
+     */
+    private fun playAudio() {
+        mediaPlayer.start()
+    }
+
+    /**
+     * Pauses the current bird song.
+     */
+    private fun pauseAudio() {
+        mediaPlayer.pause()
+    }
+
+    /**
      * Defines the behaviour for each button when it is clicked.
      */
     private fun setupOnClickListeners() {
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
+        }
+
+        if (quizType == "sound") {
+            btn_play_audio.setOnClickListener{ playAudio() }
+            btn_pause_audio.setOnClickListener { pauseAudio() }
         }
 
         btn_submit.setOnClickListener { submitButtonClickHandler() }
