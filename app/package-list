@@ -109,6 +109,10 @@ $dokka.location:com.example.manu/Stats/resetValues/#/PointingToDeclaration/app/
 $dokka.location:com.example.manu/Stats/toString/#/PointingToDeclaration/app/com.example.manu/-stats/to-string.html
 $dokka.location:com.example.manu/Stats/updateNumRight/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/update-num-right.html
 $dokka.location:com.example.manu/Stats/updateTotalPlayed/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats/update-total-played.html
+$dokka.location:com.example.manu/StatsActivity///PointingToDeclaration/app/com.example.manu/-stats-activity/index.html
+$dokka.location:com.example.manu/StatsActivity/StatsActivity/#/PointingToDeclaration/app/com.example.manu/-stats-activity/-stats-activity.html
+$dokka.location:com.example.manu/StatsActivity/getAllValues/#/PointingToDeclaration/app/com.example.manu/-stats-activity/get-all-values.html
+$dokka.location:com.example.manu/StatsActivity/updateStrings/#/PointingToDeclaration/app/com.example.manu/-stats-activity/update-strings.html
 $dokka.location:com.example.manu/StatsAdapter.Companion///PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/index.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/getStatsBasedOnType/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-stats-based-on-type.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/makeFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/make-file.html
