@@ -195,7 +195,9 @@ class ExampleUnitTest {
      */
 
 
-
+    /**
+     * Ensures there are no duplicate birds in the database.
+     */
     @Test
     fun noDuplicatesInBirdDatabase(){
         var stillValid = true
@@ -403,7 +405,61 @@ class ExampleUnitTest {
     }
 
     /**
-     * Generate a english quiz.
+     * Tests whether the bird endangerment status can be passed through (in and out) the bird consistently.
+     */
+    @Test
+    fun birdEndangermentStatus() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getEndangerment() != "Not Threatened") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
+    /**
+     * Tests whether the bird's Māori name can be passed through (in and out) the bird consistently.
+     */
+    @Test
+    fun birdMaoriName() {
+        val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
+            R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
+        if (bird.getmaoriName() != "Ruru") {
+            assertEquals(false, true)
+        } else {
+            assertEquals(true, true)
+        }
+    }
+
+    /**
+     * Generates a bird song quiz and checks whether the question resource is not null, if there are four options, and
+     * if the answer index is in the correct range.
+     */
+    @Test
+    fun generateBirdSongQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.SOUND, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
+
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
+    }
+
+    /**
+     * Generates an English to Māori quiz and checks whether the question resource is not null, if there are four
+     * options, and if the answer index is in the correct range.
      */
     @Test
     fun generateEnglishQuiz() {
@@ -411,11 +467,44 @@ class ExampleUnitTest {
         val questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, 10, 4)
 
         for (question in questions) {
-            if (question.getQuestionResourceId() == Resources.ID_NULL)
-                assertEquals(true, false)
-        }
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
 
-        assertEquals(true, true)
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
+    }
+
+    /**
+    * Generates an Māori to English quiz and checks whether the question resource is not null, if there are four
+    * options, and if the answer index is in the correct range.
+    */
+    @Test
+    fun generateMaoriQuiz() {
+        BirdDatabase.compileDatabase()
+        val questions = QuizGenerator.generateQuiz(QuestionType.MAORI, 10, 4)
+
+        for (question in questions) {
+            if (question.getQuestionResourceId() == Resources.ID_NULL) {
+                assertEquals(false, true)
+            }
+
+            if (question.getOptions().size != 4) {
+                assertEquals(false, true)
+            }
+
+            val answerIndex = question.getAnswerIndex()
+            if (!(answerIndex == 0 || answerIndex == 1 || answerIndex == 2 || answerIndex == 3)) {
+                assertEquals(false, true)
+            }
+        }
     }
 
     //Stats.kt file tests
@@ -517,4 +606,5 @@ class ExampleUnitTest {
 
         assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
     }
+
 }
