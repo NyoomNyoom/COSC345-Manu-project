@@ -64,12 +64,32 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
+                // Fill name and song and image
                 intent.putExtra("birdName", birds[i].getBirdName())
                 intent.putExtra("songResourceId", birds[i].getSongResourceId())
-                if(birds[i].getFunFact() == ""){
+
+                // Pass image ID to popup
+                intent.putExtra("imageResourceId", birds[i].getPhotoResourceId())
+
+                // Get maori name
+                if(birds[i].getmaoriName() == "") {
+                    intent.putExtra("translatedName", "")
+                } else {
+                    intent.putExtra("translatedName", "Maori Name: " + birds[i].getmaoriName())
+                }
+
+                // Get Fun fact
+                if(birds[i].getFunFact() == "") {
                     intent.putExtra("birdFact", "More information is yet to come...")
                 } else {
                     intent.putExtra("birdFact", birds[i].getFunFact())
+                }
+
+                // Get Endangerment status
+                if(birds[i].getEndangerment() == "") {
+                    intent.putExtra("endangerment", "Endangerment: N/A")
+                } else {
+                    intent.putExtra("endangerment", "Endangerment: " + birds[i].getEndangerment())
                 }
 
                 startActivity(intent)

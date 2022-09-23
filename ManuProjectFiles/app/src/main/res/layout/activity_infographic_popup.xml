@@ -49,28 +49,47 @@
             android:backgroundTint="@color/black"
             >
 
+            <ImageView
+                android:id="@+id/bird_photo"
+                android:layout_width="200sp"
+                android:layout_height="200sp"
+                android:layout_marginTop="15sp"
+                android:layout_gravity="center_horizontal"
+                ></ImageView>
+
             <TextView
                 android:id="@+id/txt_bird_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tui"
+                android:text="Chatham Island Oystercatcher"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="15sp"
+                android:layout_marginTop="215sp"
                 android:layout_marginHorizontal="15sp"
                 />
+            <TextView
+                android:id="@+id/txt_maori_name"
+                android:text="Alternate Name: Tōrea tai"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="300sp"
+                android:layout_marginLeft="15sp"
+                ></TextView>
 
             <TextView
-                android:id="@+id/bird_endangerment"
+                android:id="@+id/txt_endangerment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Endangerment: Extinct"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:layout_gravity="left"
-                android:layout_marginTop="100sp"
+                android:layout_marginTop="317sp"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginBottom="15sp"
                 />
@@ -84,7 +103,7 @@
                 android:textSize="14sp"
                 android:layout_gravity="left"
                 android:gravity="left"
-                android:layout_marginTop="120sp"
+                android:layout_marginTop="337sp"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginBottom="15sp"
                 />
