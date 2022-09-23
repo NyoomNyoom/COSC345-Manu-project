@@ -1,6 +1,7 @@
 package com.example.manu
 
 import android.content.Intent
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,11 +23,14 @@ class StatsActivity : AppCompatActivity() {
     private lateinit var english_games: String
     private lateinit var english_av: String
     private lateinit var buttonPress: Animation
-
+    private var mediaPlayer = MediaPlayer()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quiz_stats)
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
+        mediaPlayer.start()
 
         getAllValues()
         updateStrings()
@@ -40,6 +44,7 @@ class StatsActivity : AppCompatActivity() {
         loadAnimations()
 
         btn_back.setOnClickListener{
+            mediaPlayer.pause()
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

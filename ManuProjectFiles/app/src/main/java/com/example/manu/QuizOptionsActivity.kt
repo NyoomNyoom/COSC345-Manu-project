@@ -1,6 +1,7 @@
 package com.example.manu
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -22,7 +23,8 @@ import kotlinx.android.synthetic.main.quiz_options.*
 class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
-    private lateinit var buttonPress: Animation 
+    private lateinit var buttonPress: Animation
+    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -37,6 +39,8 @@ class QuizOptionsActivity : AppCompatActivity() {
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
+        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
+        mediaPlayer.start()
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -53,6 +57,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             intent.putExtra("quiztype", "image")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
         }
 
         btn_sound.setOnClickListener {
@@ -61,6 +66,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             intent.putExtra("quiztype", "sound")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
@@ -70,6 +76,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             intent.putExtra("quiztype", "english")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
@@ -79,6 +86,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             intent.putExtra("quiztype", "maori")
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            mediaPlayer.pause()
             // Do nothing.
         }
 
@@ -86,6 +94,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             var intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            mediaPlayer.pause()
         }
 
     }
