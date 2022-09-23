@@ -15,6 +15,9 @@ import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.quiz_stats.*
 
+/**
+ * Creates and fills the stats activity regarding the players scores and play amount.
+ */
 class StatsActivity : AppCompatActivity() {
 
     private lateinit var photo_games: String
@@ -54,6 +57,9 @@ class StatsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Collects the saved user data from StatsAdapter for display within the text boxes
+     */
     fun getAllValues(){
         photo_games = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed().toString()
         photo_av = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getAverage().toString()
@@ -68,6 +74,9 @@ class StatsActivity : AppCompatActivity() {
         english_av = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getAverage().toString()
     }
 
+    /**
+     * Updates the score boards games played and average score for each game.
+     */
     fun updateStrings(){
         photo_total.text = "Games played: " + photo_games
         photo_average.text = "Average score: " + photo_av
