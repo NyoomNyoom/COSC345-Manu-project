@@ -40,7 +40,7 @@ class HintPopupActivity : Activity() {
 
         btn_close.setOnClickListener { closeHintPopup() }
     }
-    
+
     private fun closeHintPopup() {
         btn_close.startAnimation(buttonPress)
         finish()

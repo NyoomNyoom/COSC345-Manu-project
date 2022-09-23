@@ -42,7 +42,7 @@ class InfographicPopupActivity : Activity() {
 
         WindowCompat.setDecorFitsSystemWindows(window, true)  // Places the layout outside the navbar and status bar.
 
-        btn_close.setOnClickListener { closePopup() }
+        btn_close.setOnClickListener { closeInfographicPopup() }
 
         txt_bird_name.text = intent.getStringExtra("birdName")
         txt_bird_fact.text = intent.getStringExtra("birdFact")
@@ -72,10 +72,7 @@ class InfographicPopupActivity : Activity() {
         //txt_bird_fact.setPadding(0,txt_bird_name.lineHeight,0,0)
     }
 
-    /**
-     * Animates the button press and closes this popup.
-     */
-    private fun closePopup() {
+    private fun closeInfographicPopup() {
         // Only pause a bird song if one is playing, otherwise the app crashes.
         if (hasBirdSong) {
             mediaPlayer.pause()
