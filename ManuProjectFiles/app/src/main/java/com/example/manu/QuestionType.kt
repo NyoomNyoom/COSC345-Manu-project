@@ -19,6 +19,7 @@ enum class QuestionType {
 
     /** The quiz will present the Māori name of a bird, and the player must select the English name for that bird. */
     MAORI,
-    /** the quiz will present all types of questions */
+
+    /** The quiz will present all types of questions. */
     ALL
 }

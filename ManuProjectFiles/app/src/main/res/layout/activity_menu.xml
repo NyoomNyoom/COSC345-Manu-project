@@ -38,16 +38,6 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <TextView android:id="@+id/welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
-            android:textColor="#FFFFFF"
-            android:fontFamily="@font/party_confetti_regular"
-            android:gravity="center"
-            android:text="Hello! Welcome to"
-            />
-
         <TextView android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

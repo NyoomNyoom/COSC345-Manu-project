@@ -63,6 +63,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         quizType = intent.getStringExtra("quiztype").toString()
+
         if (quizType == "image") {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
