@@ -126,7 +126,7 @@ class StatsAdapter {
                     writer.write(it.toString().toByteArray())
                 }
                 writer.close()
-            }catch(e: Exception){
+            }catch(e: IOException){
                 e.printStackTrace()
             }
         }
@@ -160,11 +160,6 @@ class StatsAdapter {
          * @return The encrypted or decrypted input.
          */
         private fun cipher(input: String, direction: Int): String {
-            // Only accept the encryption or decryption direction because no other directions exist.
-            if (!(direction == 1 || direction == -1)) {
-                throw IllegalArgumentException()
-            }
-
             val key = "345"
             val strength = 3  // The amount to multiply digits in the key by when altering characters.
             var output = ""
