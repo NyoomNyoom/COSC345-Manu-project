@@ -13,7 +13,9 @@ A feature we are testing is gesture based navigation between the menu and infogr
 
 We are also using codecov in github actions to  check our testing percentages, to see this please follow this [link](https://app.codecov.io/gh/NyoomNyoom/COSC345-Manu-project).
 
-Our source code documentation can be accesed [here](https://nyoomnyoom.github.io/COSC345-Manu-project/). 
+Our source code documentation can be accesed [here](https://nyoomnyoom.github.io/COSC345-Manu-project/).
+
+Our code coverage can be accesed [here](https://app.codecov.io/gh/NyoomNyoom/COSC345-Manu-project).
 
 Please be aware that some tests are failing, these are failing due to there only being "not enough code covereage" or codacy not thinking our code is up to standard.
 
