@@ -10,7 +10,6 @@ package com.example.manu
  * @param numRightIn the total number of questions that the user got right.
  * @param totalPlayedIn the total number of questions played.
  */
-
 class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, totalPlayedIn: Int) {
     private val questionType = questionTypeIn
     private val numQuestions = numQuestionsIn
