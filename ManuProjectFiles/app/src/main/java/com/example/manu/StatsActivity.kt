@@ -31,6 +31,11 @@ class StatsActivity : AppCompatActivity() {
     private lateinit var buttonPress: Animation
     private var mediaPlayer = MediaPlayer()
 
+    /**
+     * This is run when the class is instantiated. It sets up the stats layout.
+     *
+     * @param Bundle Saves information between separate loads of this activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quiz_stats)

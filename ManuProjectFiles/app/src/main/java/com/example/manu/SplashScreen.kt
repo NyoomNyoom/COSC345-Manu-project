@@ -16,6 +16,11 @@ import androidx.appcompat.app.AppCompatActivity
 @Suppress("DEPRECATION")
 class SplashScreen : AppCompatActivity() {
 
+    /**
+     * This is run when the class is instantiated. It sets up the splash screen layout.
+     *
+     * @param Bundle Saves information between separate loads of this activity.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
