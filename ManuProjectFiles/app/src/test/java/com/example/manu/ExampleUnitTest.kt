@@ -589,6 +589,26 @@ class ExampleUnitTest {
     }
 
     /**
+     * Tests average if totalPlayed = 0.
+     */
+    @Test
+    fun getAverageNumZeroCorrect(){
+        val statsObj = Stats(QuestionType.PHOTO, 10, 9, 0)
+
+        assertEquals(0, statsObj.getAverage())
+    }
+
+    /**
+     * Tests getQuizzes if numQuestions = 0.
+     */
+    @Test
+    fun getTotalQuizzesPlayedZero(){
+        val statsObj = Stats(QuestionType.PHOTO, 0, 9, 10)
+
+        assertEquals(0, statsObj.getTotalQuizzesPlayed())
+    }
+
+    /**
      * Checking if resetValues is working.
      */
     @Test
