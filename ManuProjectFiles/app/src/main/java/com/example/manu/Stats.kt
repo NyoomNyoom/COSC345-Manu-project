@@ -1,17 +1,16 @@
-/**
- * @author Jackson North
- */
-
 package com.example.manu
 
 /**
- * @param questionTypeIn the question type
- * @param numQuestionsIn quantity of questions in question type
- * @param numRightIn quantity of correct questions of question type
- * @param totalPlayedIn total questions played of question type
+ * A class that makes an object of type Stats.
  *
- * performs file manipulation with the information of a single question type
+ * @author Jackson North
+ *
+ * @param questionTypeIn the questionType the stats are for.
+ * @param numQuestionsIn the length of the quiz.
+ * @param numRightIn the total number of questions that the user got right.
+ * @param totalPlayedIn the total number of questions played.
  */
+
 class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, totalPlayedIn: Int) {
     private val questionType = questionTypeIn
     private val numQuestions = numQuestionsIn
@@ -19,63 +18,65 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     private var totalPlayed = totalPlayedIn
 
     /**
-     * @param valueIn an int of questsions right
+     * A function that updates the number of correct questions. It takes in a value then increments
+     * numRight by that much.
      *
-     * Updates the quantity of questions the user got right
+     * @param valueIn the amount the user wants to increment the correct number of questions by.
      */
     fun updateNumRight(valueIn: Int) {
         numRight += valueIn
     }
 
     /**
-     * @param valueIn the quantity of games played
+     * A function to update the amount of questions played. The function takes in a value
+     * then increments totalPlayed by that much.
      *
-     * Updates the quantity of games played by the user
+     * @param valueIn the quantity of games played.
      */
     fun updateTotalPlayed(valueIn: Int){
         totalPlayed += valueIn
     }
 
     /**
-     * @return questionType
+     * A function to get the questionType of the object.
      *
-     * The type of quiz requested
+     * @return questionType The type of quiz requested.
      */
     fun getQuestionType(): QuestionType{
         return questionType
     }
 
     /**
-     * @return int numQuestions
+     * A function to get the quiz length of the object.
      *
-     * Returns the quantity of questions a user has played
+     * @return numQuestions The length of the quiz the object represents.
      */
     fun getQuestionLength(): Int {
         return numQuestions
     }
 
     /**
-     * @return int numRight
+     * A function to get the number of right questions.
      *
-     * Returns the quantity of questions a user has gotten right
+     * @return numRight the total number of questions the user got right for the question.
      */
     fun getNumRight(): Int{
         return numRight
     }
 
     /**
-     * @return int totalPlayed
+     * A function to get the total number of questions played.
      *
-     * Get quantity of matches a user has played
+     * @return totalPlayed the total number of questions the user played.
      */
     fun getTotalPlayed(): Int{
         return totalPlayed
     }
 
     /**
-     * @return int average
+     * A function to calculate the average score.
      *
-     * Calculates and returns average score of user
+     * @return numRight/totalPlayed The average score.
      */
     fun getAverage(): Int{
         if (totalPlayed == 0) {
@@ -85,7 +86,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     /**
-     * Resets the games played and recorded score averages back to 0
+     * Resets the totalPlayed and numRight back to 0
      */
     fun resetValues(){
         totalPlayed = 0
@@ -93,7 +94,9 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     /**
-     * @return quantity of quizzes played by the user
+     *A function to get the total number of quizzes played.
+     *
+     * @return totalPlayed%numQuestions The total number of questions.
      */
     fun getTotalQuizzesPlayed(): Int{
         if (numQuestions == 0) {
@@ -103,6 +106,8 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     /**
+     * Rewritten the toString method to return a list of the variables.
+     *
      * @return String the string form of stats
      */
     override fun toString(): String {
