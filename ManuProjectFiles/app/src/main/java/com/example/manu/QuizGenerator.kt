@@ -41,7 +41,7 @@ class QuizGenerator {
             var allNames: ArrayList<String> = ArrayList()
             for (bird: Bird in birds) {
                 if (questionType == QuestionType.ENGLISH) {
-                    allNames.add(bird.getmaoriName())
+                    allNames.add(bird.getMaoriName())
                 } else {
                     allNames.add(bird.getBirdName())
                 }
@@ -57,7 +57,7 @@ class QuizGenerator {
 
                 val answer: String
                 if (questionType == QuestionType.ENGLISH) {
-                    answer = bird.getmaoriName()
+                    answer = bird.getMaoriName()
                 } else {
                     answer = bird.getBirdName()
                 }
