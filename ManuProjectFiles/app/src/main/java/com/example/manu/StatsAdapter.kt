@@ -1,7 +1,6 @@
 package com.example.manu
 
 import android.content.Context
-import android.util.Log
 import java.io.*
 
 /**
@@ -80,19 +79,12 @@ class StatsAdapter {
 
             val path = context.filesDir
             val inputStream = File(path, "stats.txt")
-            val inputStream2 = File(path, "test.txt")
             val reader = FileInputStream(inputStream)
-            val reader2 = FileInputStream(inputStream2)
             var content = ByteArray(inputStream.length().toInt())
-            var content2 = ByteArray(inputStream2.length().toInt())
 
             reader.read(content)
-            reader2.read(content2)
 
             var fileContent = String(content)
-            var fileContent2 = String(content2)
-            Log.d("StatsAdapter", "Undecrpyted: " + fileContent2)
-            Log.d("StatsAdapter", "Decrpyted: " + decrypt(fileContent2))
 
             fileContent.split("\n").forEach {
                 val line = it.split(",")
@@ -159,16 +151,6 @@ class StatsAdapter {
                 stats.forEach {
                     writer.write(it.toString().toByteArray())
                 }
-                val writer2 = FileOutputStream(File(path, "test.txt"))
-                var string = ""
-                stats.forEach {
-                    string += it.toString()
-                    //writer.write(it.toString().toByteArray())
-                }
-                Log.d("StatsAdapter", "Unencrpyted: " + string)
-                Log.d("StatsAdapter", "Encrpyted: " + encrypt(string))
-                writer2.write(encrypt(string).toByteArray())
-                writer2.close()
                 writer.close()
             }catch(e: IOException){
                 e.printStackTrace()
