@@ -59,6 +59,11 @@ $dokka.location:com.example.manu/QuestionType.MAORI///PointingToDeclaration/{"or
 $dokka.location:com.example.manu/QuestionType.PHOTO///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-p-h-o-t-o/index.html
 $dokka.location:com.example.manu/QuestionType.SOUND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}app/com.example.manu/-question-type/-s-o-u-n-d/index.html
 $dokka.location:com.example.manu/QuestionType///PointingToDeclaration/app/com.example.manu/-question-type/index.html
+$dokka.location:com.example.manu/QuestionTypeConverter.Companion///PointingToDeclaration/app/com.example.manu/-question-type-converter/-companion/index.html
+$dokka.location:com.example.manu/QuestionTypeConverter.Companion/intToQuestionType/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-question-type-converter/-companion/int-to-question-type.html
+$dokka.location:com.example.manu/QuestionTypeConverter.Companion/questionTypeToInt/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-question-type-converter/-companion/question-type-to-int.html
+$dokka.location:com.example.manu/QuestionTypeConverter///PointingToDeclaration/app/com.example.manu/-question-type-converter/index.html
+$dokka.location:com.example.manu/QuestionTypeConverter/QuestionTypeConverter/#/PointingToDeclaration/app/com.example.manu/-question-type-converter/-question-type-converter.html
 $dokka.location:com.example.manu/QuizActivity///PointingToDeclaration/app/com.example.manu/-quiz-activity/index.html
 $dokka.location:com.example.manu/QuizActivity/QuizActivity/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/-quiz-activity.html
 $dokka.location:com.example.manu/QuizActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-quiz-activity/on-back-pressed.html
