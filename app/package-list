@@ -7,10 +7,10 @@ $dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/c
 $dokka.location:com.example.manu/Bird/getEndangerment/#/PointingToDeclaration/app/com.example.manu/-bird/get-endangerment.html
 $dokka.location:com.example.manu/Bird/getEnglishNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-english-name-image-resource-id.html
 $dokka.location:com.example.manu/Bird/getFunFact/#/PointingToDeclaration/app/com.example.manu/-bird/get-fun-fact.html
+$dokka.location:com.example.manu/Bird/getMaoriName/#/PointingToDeclaration/app/com.example.manu/-bird/get-maori-name.html
 $dokka.location:com.example.manu/Bird/getMaoriNameImageResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-maori-name-image-resource-id.html
 $dokka.location:com.example.manu/Bird/getPhotoResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-photo-resource-id.html
 $dokka.location:com.example.manu/Bird/getSongResourceId/#/PointingToDeclaration/app/com.example.manu/-bird/get-song-resource-id.html
-$dokka.location:com.example.manu/Bird/getmaoriName/#/PointingToDeclaration/app/com.example.manu/-bird/getmaori-name.html
 $dokka.location:com.example.manu/Bird/toString/#/PointingToDeclaration/app/com.example.manu/-bird/to-string.html
 $dokka.location:com.example.manu/BirdDatabase.Companion///PointingToDeclaration/app/com.example.manu/-bird-database/-companion/index.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/birdFrequencyTest/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/bird-frequency-test.html
