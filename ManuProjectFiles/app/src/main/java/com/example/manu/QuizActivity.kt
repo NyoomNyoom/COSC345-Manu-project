@@ -1,5 +1,6 @@
 /**
- * @author Daniel Robinson and Madeline McCane
+ * @author Daniel Robinson
+ * @author Madeline McCane
  */
 
 package com.example.manu

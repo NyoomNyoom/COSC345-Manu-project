@@ -90,6 +90,10 @@ class BirdDatabase {
                     return bird.getBirdName()
                 else if (bird.getSongResourceId() == resourceId)
                     return bird.getBirdName()
+                else if (bird.getEnglishNameImageResourceId() == resourceId)
+                    return bird.getMaoriName()  // Get the Māori name because the answer is the Māori name.
+                else if (bird.getMaoriNameImageResourceId() == resourceId)
+                    return bird.getBirdName()
             }
 
             return ""

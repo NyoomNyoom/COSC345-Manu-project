@@ -14,30 +14,33 @@ class ExampleUnitTest {
     val numberQuizzes: Int = 100
 
     /**
-     * Checks no individual quiz contains a duplicate question.
+     * Checks no individual quiz contains a duplicate question. This iterates over all quiz types.
      */
     @Test
     fun noDuplicateQuestions() {
         BirdDatabase.compileDatabase()
         var duplicateQuestions: Boolean = false
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 10, 4)
 
-            for (question in questions) {
-                var occurrences: Int = 0
-                for (compareQuestion in questions) {
-                    if (compareQuestion == question)
-                        occurrences++
+                for (question in questions) {
+                    var occurrences: Int = 0
+                    for (compareQuestion in questions) {
+                        if (compareQuestion == question)
+                            occurrences++
+                    }
+                    if (occurrences != 1) {
+                        duplicateQuestions = true
+                        break
+                    }
                 }
-                if (occurrences != 1) {
-                    duplicateQuestions = true
+
+                if (duplicateQuestions)
                     break
-                }
             }
-
-            if (duplicateQuestions)
-                break
         }
 
         assertEquals(false, duplicateQuestions)
@@ -50,29 +53,32 @@ class ExampleUnitTest {
     fun noDuplicateOptions() {
         BirdDatabase.compileDatabase()
         var duplicateOptions: Boolean = false
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 5, 4)
 
-            for (question in questions) {
-                for (option in question.getOptions()) {
-                    var occurrences: Int = 0
-                    for (compareOption in question.getOptions()) {
-                        if (compareOption == option)
-                            occurrences++
+                for (question in questions) {
+                    for (option in question.getOptions()) {
+                        var occurrences: Int = 0
+                        for (compareOption in question.getOptions()) {
+                            if (compareOption == option)
+                                occurrences++
+                        }
+                        if (occurrences != 1) {
+                            duplicateOptions = true
+                            break
+                        }
                     }
-                    if (occurrences != 1) {
-                        duplicateOptions = true
+
+                    if (duplicateOptions)
                         break
-                    }
                 }
 
                 if (duplicateOptions)
                     break
             }
-
-            if (duplicateOptions)
-                break
         }
 
 
@@ -86,16 +92,19 @@ class ExampleUnitTest {
     @Test
     fun answerInOptions() {
         BirdDatabase.compileDatabase()
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 5, 4)
 
-            for (question in questions) {
-                val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
-                val answerIndex: Int = question.getAnswerIndex()
-                if (question.getOptions()[answerIndex] != answer) {
-                    assertEquals(true, false)  // Force a failed test.
-                    return
+                for (question in questions) {
+                    val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
+                    val answerIndex: Int = question.getAnswerIndex()
+                    if (question.getOptions()[answerIndex] != answer) {
+                        assertEquals(true, false)  // Force a failed test.
+                        return
+                    }
                 }
             }
         }
