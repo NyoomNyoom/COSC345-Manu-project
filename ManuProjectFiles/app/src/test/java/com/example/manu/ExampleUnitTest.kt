@@ -723,4 +723,24 @@ class ExampleUnitTest {
         // Does not assertEquals because this is not a proper test.
     }
 
+    @Test
+    fun questionTypeAndIntConverter() {
+        // PHOTO is represented by 0, hence it is in index 0 of this list. This logic applies to all QuestionTypes.
+        val questionTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
+
+        // Check all QuestionType values line up with their respective integer.
+        for (questionType in questionTypes) {
+            assertEquals(questionTypes.indexOf(questionType), QuestionTypeConverter.questionTypeToInt(questionType))
+        }
+
+        // Check all integers are converted back to the correct QuestionType.
+        for (index in 0..3) {
+            assertEquals(questionTypes[index], QuestionTypeConverter.intToQuestionType(index))
+        }
+
+        // Test the invalid cases.
+        assertEquals(QuestionType.ALL, QuestionTypeConverter.intToQuestionType(-1))
+        assertEquals(-1, QuestionTypeConverter.questionTypeToInt(QuestionType.ALL))
+    }
+
 }
