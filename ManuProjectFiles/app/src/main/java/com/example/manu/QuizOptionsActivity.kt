@@ -57,41 +57,22 @@ class QuizOptionsActivity : AppCompatActivity() {
         // Set up all the buttons.
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(QuestionType.PHOTO))
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
+            quizTypeButtonListener(QuestionType.PHOTO)
         }
 
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(QuestionType.SOUND))
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.SOUND)
         }
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(QuestionType.ENGLISH))
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.ENGLISH)
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(QuestionType.MAORI))
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.MAORI)
         }
 
         btn_back_option.setOnClickListener{
@@ -105,6 +86,15 @@ class QuizOptionsActivity : AppCompatActivity() {
 
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+    }
+
+    private fun quizTypeButtonListener(questionType: QuestionType) {
+        val intent = Intent(this, QuizActivity::class.java)
+        intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(questionType))
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        mediaPlayer.pause()
+        // Do nothing.
     }
 
     /**
