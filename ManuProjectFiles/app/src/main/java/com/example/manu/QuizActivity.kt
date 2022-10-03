@@ -46,7 +46,7 @@ class QuizActivity : AppCompatActivity() {
     private val buttonSelectedColourHex:String = "#808080"
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
-    private lateinit var quizType: String
+    private lateinit var quizType: QuestionType
     private val soundQuiz = "sound"
     private var questions: ArrayList<Question> = ArrayList()
     private var mediaPlayer = MediaPlayer()
@@ -64,18 +64,18 @@ class QuizActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        quizType = intent.getStringExtra("quiztype").toString()
+        quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
 
-        if (quizType == "image") {
+        if (quizType == QuestionType.PHOTO) {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
-        } else if (quizType == soundQuiz) {
+        } else if (quizType == QuestionType.SOUND) {
             setContentView(R.layout.sound_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
-        } else if (quizType == "english") {
+        } else if (quizType == QuestionType.ENGLISH) {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.ENGLISH, numQuestions, numOptions)
-        } else if (quizType == "maori") {
+        } else if (quizType == QuestionType.MAORI) {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.MAORI, numQuestions, numOptions)
         }
@@ -129,7 +129,7 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
         }
 
-        if (quizType == soundQuiz) {
+        if (quizType == QuestionType.SOUND) {
             btn_play_audio.setOnClickListener{ playAudio() }
             btn_pause_audio.setOnClickListener { pauseAudio() }
         }
@@ -148,9 +148,9 @@ class QuizActivity : AppCompatActivity() {
      * Resets the screen with the next question.
      */
     private fun presentQuestion(question: Question) {
-        if (quizType == "image" || quizType == "english" || quizType == "maori") {
+        if (quizType == QuestionType.PHOTO || quizType == QuestionType.ENGLISH || quizType == QuestionType.MAORI) {
             img_question.setImageResource(question.getQuestionResourceId())
-        } else if (quizType == soundQuiz) {
+        } else if (quizType == QuestionType.SOUND) {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
             mediaPlayer.start()
         }
@@ -183,7 +183,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun submitButtonClickHandler() {
         btn_submit.startAnimation(buttonPress)
-        if (quizType == soundQuiz){
+        if (quizType == QuestionType.SOUND){
             mediaPlayer.pause()
         }
 
@@ -197,7 +197,7 @@ class QuizActivity : AppCompatActivity() {
                 // Pass the score through to the results screen.
                 resultsScreen.putExtra("score", score)
                 resultsScreen.putExtra("totalQuestions", questions.size)
-                resultsScreen.putExtra("quizType", quizType)
+                resultsScreen.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
 
                 startActivity(resultsScreen)
                 finish()
