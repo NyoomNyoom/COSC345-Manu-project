@@ -1,6 +1,6 @@
 package com.example.manu
 
-import android.util.Log
+//import android.util.Log
 
 /**
  * A class that makes an object of type Stats.
@@ -83,10 +83,10 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         if (totalPlayed == 0) {
             return 0
         }
-        Log.d("Stats f", "" + questionType)
-        Log.d("Stats f", "Average variable " + (numRight/totalPlayed))
-        Log.d("Stats f", "Average forced " + (2/20))
-        Log.d("Stats f", "number questions " + totalPlayed)
+        //Log.d("Stats f", "" + questionType)
+        //Log.d("Stats f", "Average variable " + (numRight/totalPlayed))
+        //Log.d("Stats f", "Average forced " + (2/20))
+        //Log.d("Stats f", "number questions " + totalPlayed)
         return (numRight / totalPlayed)
     }
 

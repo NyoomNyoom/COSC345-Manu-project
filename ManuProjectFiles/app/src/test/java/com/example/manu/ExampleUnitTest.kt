@@ -605,7 +605,7 @@ class ExampleUnitTest {
     fun getTotalQuizzesPlayedZero(){
         val statsObj = Stats(QuestionType.PHOTO, 0, 9, 10)
 
-        assertEquals(0, statsObj.getTotalQuizzesPlayed())
+        assertEquals(1, statsObj.getTotalQuizzesPlayed())
     }
 
     /**
@@ -629,7 +629,7 @@ class ExampleUnitTest {
 
         statsObj.updateTotalPlayed(30)
 
-        assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
+        assertEquals(40/10, statsObj.getTotalQuizzesPlayed())
     }
 
     /**
