@@ -155,7 +155,7 @@ class ExampleUnitTest {
         val birdName = "Bellbird"
         val photoResourceID = R.drawable.bird_bellbird
         val soundResourceId = Resources.ID_NULL
-        val maoriName = bird.getmaoriName()
+        val maoriName = bird.getMaoriName()
 
         assertEquals("($birdName, $photoResourceID, $soundResourceId, $maoriName)", bird.toString())
     }
@@ -168,7 +168,7 @@ class ExampleUnitTest {
         val bird = Bird("Auckland Island Teal", R.drawable.bird_auckland_island_teal, R.raw.aucklandislandteal, Resources.ID_NULL, Resources.ID_NULL, "Tētē kākāriki", "", "")
         val maoriName = "Tētē kākāriki"
 
-        assertEquals(maoriName, bird.getmaoriName())
+        assertEquals(maoriName, bird.getMaoriName())
     }
 
     /**
@@ -319,20 +319,20 @@ class ExampleUnitTest {
         // Check the birds have Maori names (exclusive of their primary name) using the Maori query.
         var birdsQueryMaori = BirdDatabase.getBirdsWithResource(QuestionType.MAORI)
         for (bird in birdsQueryMaori) {
-            assertEquals(false, bird.getmaoriName() == "")
+            assertEquals(false, bird.getMaoriName() == "")
         }
 
         // Check the birds have Maori names (exclusive of their primary name) using the English query.
         var birdsQueryEnglish = BirdDatabase.getBirdsWithResource(QuestionType.ENGLISH)
         for (bird in birdsQueryEnglish) {
-            assertEquals(false, bird.getmaoriName() == "")
+            assertEquals(false, bird.getMaoriName() == "")
         }
 
         // Take all the birds and refine it to the birds with Maori names.
         var allBirds = BirdDatabase.getBirdList()
         var birdsWithMaoriName = ArrayList<Bird>()
         for (bird in allBirds) {
-            if (bird.getmaoriName() != "")
+            if (bird.getMaoriName() != "")
                 birdsWithMaoriName.add(bird)
         }
 
@@ -425,7 +425,7 @@ class ExampleUnitTest {
     fun birdMaoriName() {
         val bird = (Bird("Morepork", R.drawable.bird_morepork, R.raw.morepork, R.drawable.english_morepork,
             R.drawable.maori_morepork, "Ruru", "Not Threatened", ""))
-        if (bird.getmaoriName() != "Ruru") {
+        if (bird.getMaoriName() != "Ruru") {
             assertEquals(false, true)
         } else {
             assertEquals(true, true)

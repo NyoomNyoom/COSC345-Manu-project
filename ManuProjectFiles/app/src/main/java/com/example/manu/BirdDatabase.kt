@@ -70,7 +70,7 @@ class BirdDatabase {
                     if (bird.getSongResourceId() != Resources.ID_NULL)
                         queriedBirds.add(bird)
                 } else if (resourceType == QuestionType.MAORI || resourceType == QuestionType.ENGLISH) {
-                    if (bird.getmaoriName() != "")
+                    if (bird.getMaoriName() != "")
                         queriedBirds.add(bird)
                 }
             }

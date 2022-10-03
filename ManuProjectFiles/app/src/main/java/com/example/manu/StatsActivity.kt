@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -77,6 +78,12 @@ class StatsActivity : AppCompatActivity() {
 
         english_games = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getTotalQuizzesPlayed().toString()
         english_av = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getAverage().toString()
+
+        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).toString())
+        Log.d("Stats activity", "" + StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed())
+        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalPlayed().toString())
+        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getNumRight().toString())
+        Log.d("Stats", (StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalPlayed() / StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getNumRight()).toString())
     }
 
     /**

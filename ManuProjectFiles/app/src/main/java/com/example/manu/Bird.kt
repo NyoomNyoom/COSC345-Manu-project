@@ -80,7 +80,7 @@ class Bird(birdName: String, photoResourceId: Int, soundResourceId: Int, english
      *
      * @return The birds maori name.
      */
-    fun getmaoriName(): String {
+    fun getMaoriName(): String {
         return maoriName
     }
 
