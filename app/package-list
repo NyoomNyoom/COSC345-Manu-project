@@ -1,6 +1,15 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:com.example.manu////PointingToDeclaration/app/com.example.manu/index.html
+$dokka.location:com.example.manu/AudioManager.Companion///PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/index.html
+$dokka.location:com.example.manu/AudioManager.Companion/getMediaPlayer/#/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/get-media-player.html
+$dokka.location:com.example.manu/AudioManager.Companion/pauseAudio/#/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/pause-audio.html
+$dokka.location:com.example.manu/AudioManager.Companion/playAudio/#android.content.Context#kotlin.Int/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/play-audio.html
+$dokka.location:com.example.manu/AudioManager.Companion/resumeAudio/#/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/resume-audio.html
+$dokka.location:com.example.manu/AudioManager.Companion/setMediaPlayer/#android.media.MediaPlayer/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/set-media-player.html
+$dokka.location:com.example.manu/AudioManager.Companion/stopAudio/#/PointingToDeclaration/app/com.example.manu/-audio-manager/-companion/stop-audio.html
+$dokka.location:com.example.manu/AudioManager///PointingToDeclaration/app/com.example.manu/-audio-manager/index.html
+$dokka.location:com.example.manu/AudioManager/AudioManager/#/PointingToDeclaration/app/com.example.manu/-audio-manager/-audio-manager.html
 $dokka.location:com.example.manu/Bird///PointingToDeclaration/app/com.example.manu/-bird/index.html
 $dokka.location:com.example.manu/Bird/Bird/#kotlin.String#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.Int#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/app/com.example.manu/-bird/-bird.html
 $dokka.location:com.example.manu/Bird/getBirdName/#/PointingToDeclaration/app/com.example.manu/-bird/get-bird-name.html
