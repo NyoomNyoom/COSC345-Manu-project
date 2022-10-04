@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.activity_quiz.btn_opt_2
 import kotlinx.android.synthetic.main.activity_quiz.btn_opt_3
 import kotlinx.android.synthetic.main.activity_quiz.btn_submit
 import kotlinx.android.synthetic.main.activity_quiz.progress_bar
-import kotlinx.android.synthetic.main.sound_quiz.*
 
 /**
  * Runs and displays the quiz.
@@ -47,7 +46,6 @@ class QuizActivity : AppCompatActivity() {
     private val buttonCorrectColourHex:String = "#39db39"
     private val buttonIncorrectColourHex:String = "#FF6836"
     private lateinit var quizType: QuestionType
-    private val soundQuiz = "sound"
     private var questions: ArrayList<Question> = ArrayList()
     private var mediaPlayer = MediaPlayer()
     private lateinit var optionButtons: ArrayList<MaterialButton>
@@ -70,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
             setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.PHOTO, numQuestions, numOptions)
         } else if (quizType == QuestionType.SOUND) {
-            setContentView(R.layout.sound_quiz)
+            setContentView(R.layout.activity_quiz)
             questions = QuizGenerator.generateQuiz(QuestionType.SOUND, numQuestions, numOptions)
         } else if (quizType == QuestionType.ENGLISH) {
             setContentView(R.layout.activity_quiz)
@@ -130,8 +128,8 @@ class QuizActivity : AppCompatActivity() {
         }
 
         if (quizType == QuestionType.SOUND) {
-            btn_play_audio.setOnClickListener{ playAudio() }
-            btn_pause_audio.setOnClickListener { pauseAudio() }
+            /*btn_play_audio.setOnClickListener{ playAudio() }
+            btn_pause_audio.setOnClickListener { pauseAudio() }*/
         }
 
         btn_submit.setOnClickListener { submitButtonClickHandler() }
@@ -152,6 +150,7 @@ class QuizActivity : AppCompatActivity() {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == QuestionType.SOUND) {
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
+            mediaPlayer.isLooping = true
             mediaPlayer.start()
         }
 
