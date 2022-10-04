@@ -70,7 +70,7 @@ class MenuActivity : AppCompatActivity() {
             btn_statistics.startAnimation(buttonPress)
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_top, R.anim.slide_out_bottom)
             finishAndAudio()
         }
 
