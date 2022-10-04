@@ -78,7 +78,7 @@ class MenuActivity : AppCompatActivity() {
             btn_credits.startAnimation(buttonPress)
             val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top)
             finishAndAudio()
         }
 

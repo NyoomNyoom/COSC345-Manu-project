@@ -152,7 +152,7 @@ class QuizOptionsActivity : AppCompatActivity() {
     }
 
     /**
-     * Executes code for a right gesture going right to enter infographics.
+     * Executes code for a right gesture going left to go to the menu.
      */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
