@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6f8c2a"
+    android:background="#77a836"
     tools:context=".SplashScreen">
 
     <LinearLayout
@@ -31,7 +31,7 @@
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textStyle="bold"
-        android:text="Flightless Bird Studios Ltd."
+        android:text="Flightless Bird Studios"
         android:layout_marginTop="10sp"
         />
     </LinearLayout>
