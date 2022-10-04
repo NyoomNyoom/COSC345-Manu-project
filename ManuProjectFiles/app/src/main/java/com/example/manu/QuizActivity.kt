@@ -10,6 +10,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
@@ -137,9 +138,10 @@ class QuizActivity : AppCompatActivity() {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == QuestionType.SOUND) {
             img_question.setImageResource(R.drawable.question_mark)
-            mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
-            mediaPlayer.isLooping = true
-            mediaPlayer.start()
+            AudioManager.playAudio(this, question.getQuestionResourceId())
+            //mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
+            //mediaPlayer.isLooping = true
+            //mediaPlayer.start()
         }
 
         val options = question.getOptions()
@@ -202,8 +204,8 @@ class QuizActivity : AppCompatActivity() {
 
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
+        AudioManager.pauseAudio()
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
-        mediaPlayer.pause()
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
