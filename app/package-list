@@ -17,6 +17,7 @@ $dokka.location:com.example.manu/BirdDatabase.Companion/birdFrequencyTest/#kotli
 $dokka.location:com.example.manu/BirdDatabase.Companion/compileDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/compile-database.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/getBirdList/#/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-bird-list.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/getBirdUsingPhotoResourceId/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-bird-using-photo-resource-id.html
+$dokka.location:com.example.manu/BirdDatabase.Companion/getBirdUsingResourceId/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-bird-using-resource-id.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/getBirdsWithResource/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-birds-with-resource.html
 $dokka.location:com.example.manu/BirdDatabase.Companion/getNameUsingResourceId/#kotlin.Int/PointingToDeclaration/app/com.example.manu/-bird-database/-companion/get-name-using-resource-id.html
 $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.example.manu/-bird-database/index.html
