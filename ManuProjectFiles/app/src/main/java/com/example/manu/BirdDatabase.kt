@@ -82,6 +82,8 @@ class BirdDatabase {
          * Given the resource ID (which references the resource used as the question), this will return the name of the
          * matching bird.
          *
+         * @param resourceId The resource ID of the resource that our desired bird owns.
+         *
          * @return The name of the bird that owns that resource.
          */
         fun getNameUsingResourceId(resourceId: Int): String {
@@ -133,6 +135,27 @@ class BirdDatabase {
             }
             return birds.indexOf(matchingBird)
         }*/
+
+        /**
+         * Given a resource ID, this method will return the bird which possesses this resource. This works because no
+         * two birds share any resource.
+         *
+         * @return The name of the bird that owns that resource.
+         */
+        fun getBirdUsingResourceId(resourceId: Int): Bird {
+            for (bird in birds) {
+                if (bird.getPhotoResourceId() == resourceId)
+                    return bird
+                else if (bird.getSongResourceId() == resourceId)
+                    return bird
+                else if (bird.getEnglishNameImageResourceId() == resourceId)
+                    return bird
+                else if (bird.getMaoriNameImageResourceId() == resourceId)
+                    return bird
+            }
+
+            return Bird("EMPTY_NAME", Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "EMPTY_MAORINAME","EMPTY_STATUS", "EMPTY_FACT")
+        }
 
         /**
          * Generates quizzes and calculates the frequency at which each bird in the database appears.

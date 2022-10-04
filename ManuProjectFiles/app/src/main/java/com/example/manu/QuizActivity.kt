@@ -114,22 +114,9 @@ class QuizActivity : AppCompatActivity() {
         answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
-    private fun playAudio() {
-        mediaPlayer.start()
-    }
-
-    private fun pauseAudio() {
-        mediaPlayer.pause()
-    }
-
     private fun setupOnClickListeners() {
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
-        }
-
-        if (quizType == QuestionType.SOUND) {
-            /*btn_play_audio.setOnClickListener{ playAudio() }
-            btn_pause_audio.setOnClickListener { pauseAudio() }*/
         }
 
         btn_submit.setOnClickListener { submitButtonClickHandler() }
@@ -149,6 +136,7 @@ class QuizActivity : AppCompatActivity() {
         if (quizType == QuestionType.PHOTO || quizType == QuestionType.ENGLISH || quizType == QuestionType.MAORI) {
             img_question.setImageResource(question.getQuestionResourceId())
         } else if (quizType == QuestionType.SOUND) {
+            img_question.setImageResource(R.drawable.question_mark)
             mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
             mediaPlayer.isLooping = true
             mediaPlayer.start()
@@ -247,6 +235,14 @@ class QuizActivity : AppCompatActivity() {
             optionButtons[selectedOptionIndex].startAnimation(incorrectAnswerShake)
             mediaPlayer = MediaPlayer.create(this, R.raw.incorrect_answer)
             mediaPlayer.start()
+        }
+
+        /*
+         * Display the correct bird's photo.
+         */
+        if (quizType == QuestionType.SOUND) {
+            val imageResourceId = BirdDatabase.getBirdUsingResourceId(questions[currentQuestionIndex].getQuestionResourceId()).getPhotoResourceId()
+            img_question.setImageResource(imageResourceId)
         }
 
         /*
