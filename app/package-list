@@ -23,6 +23,7 @@ $dokka.location:com.example.manu/BirdDatabase///PointingToDeclaration/app/com.e
 $dokka.location:com.example.manu/BirdDatabase/BirdDatabase/#/PointingToDeclaration/app/com.example.manu/-bird-database/-bird-database.html
 $dokka.location:com.example.manu/CreditActivity///PointingToDeclaration/app/com.example.manu/-credit-activity/index.html
 $dokka.location:com.example.manu/CreditActivity/CreditActivity/#/PointingToDeclaration/app/com.example.manu/-credit-activity/-credit-activity.html
+$dokka.location:com.example.manu/CreditActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-credit-activity/on-back-pressed.html
 $dokka.location:com.example.manu/HintPopupActivity///PointingToDeclaration/app/com.example.manu/-hint-popup-activity/index.html
 $dokka.location:com.example.manu/HintPopupActivity/HintPopupActivity/#/PointingToDeclaration/app/com.example.manu/-hint-popup-activity/-hint-popup-activity.html
 $dokka.location:com.example.manu/HintPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-hint-popup-activity/on-back-pressed.html
@@ -106,6 +107,7 @@ $dokka.location:com.example.manu/Stats/updateTotalPlayed/#kotlin.Int/PointingToD
 $dokka.location:com.example.manu/StatsActivity///PointingToDeclaration/app/com.example.manu/-stats-activity/index.html
 $dokka.location:com.example.manu/StatsActivity/StatsActivity/#/PointingToDeclaration/app/com.example.manu/-stats-activity/-stats-activity.html
 $dokka.location:com.example.manu/StatsActivity/getAllValues/#/PointingToDeclaration/app/com.example.manu/-stats-activity/get-all-values.html
+$dokka.location:com.example.manu/StatsActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-stats-activity/on-back-pressed.html
 $dokka.location:com.example.manu/StatsActivity/updateStrings/#/PointingToDeclaration/app/com.example.manu/-stats-activity/update-strings.html
 $dokka.location:com.example.manu/StatsAdapter.Companion///PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/index.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/decrypt/#kotlin.String/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/decrypt.html
