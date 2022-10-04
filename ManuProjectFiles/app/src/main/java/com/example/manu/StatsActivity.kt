@@ -64,6 +64,13 @@ class StatsActivity : AppCompatActivity() {
     }
 
     /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
+    }
+
+    /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
      */
     fun getAllValues(){

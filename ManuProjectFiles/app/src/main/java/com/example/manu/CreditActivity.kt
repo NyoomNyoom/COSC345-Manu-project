@@ -56,4 +56,11 @@ class CreditActivity : AppCompatActivity() {
     private fun loadButtonPressAnimation() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
+
+    /**
+     * Disables any effects of the Android system's back button.
+     */
+    override fun onBackPressed() {
+        return
+    }
 }
