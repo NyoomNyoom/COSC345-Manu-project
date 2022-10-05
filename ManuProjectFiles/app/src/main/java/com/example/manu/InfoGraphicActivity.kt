@@ -28,7 +28,6 @@ class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
-    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. It sets up the encyclopedia screen.
@@ -38,6 +37,8 @@ class InfoGraphicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.info_graphic_activity)
+
+        AudioManager.resumeAudio()
 
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
@@ -121,6 +122,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         btn_back.setOnClickListener {
             btn_back.startAnimation(buttonPress)
             val intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("soundFlag", true)
+            AudioManager.pauseAudio()
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
@@ -191,9 +194,20 @@ class InfoGraphicActivity : AppCompatActivity() {
 
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("soundFlag", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         finish()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
     }
 
     /**

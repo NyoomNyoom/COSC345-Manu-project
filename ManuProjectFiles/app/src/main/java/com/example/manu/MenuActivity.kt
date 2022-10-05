@@ -66,7 +66,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-            finishAndAudio()
+            finish()
         }
 
         btn_statistics.setOnClickListener {
@@ -146,7 +146,7 @@ class MenuActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@MenuActivity.transitionRight()
+                        this@MenuActivity.onSwipeRight()
                     } else {
                         // left swipe
                         this@MenuActivity.onSwipeLeft()
@@ -171,11 +171,11 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun transitionRight() {
+    private fun onSwipeRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        finishAndAudio()
+        finish()
     }
 
     private fun onSwipeLeft() {
