@@ -72,6 +72,16 @@ class InfographicPopupActivity : Activity() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
 
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
+    }
+
     /**
      * Disables any effects of the Android system's back button.
      */
