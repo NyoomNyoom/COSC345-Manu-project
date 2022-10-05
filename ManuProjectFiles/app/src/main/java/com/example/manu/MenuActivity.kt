@@ -25,6 +25,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var soundFlag: Boolean = false
     private var mediaPlayer = MediaPlayer()
 
     /**
@@ -47,15 +48,18 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
         loadAnimations()
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
-        mediaPlayer.start()
+        soundFlag = intent.getBooleanExtra("soundFlag", false)
+        if (soundFlag == false) {
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        }
 
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
-            val intent = Intent(this, QuizOptionsActivity::class.java)
+            var intent = Intent(this, QuizOptionsActivity::class.java)
+            intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            finishAndAudio()
+            finish()
         }
 
         btn_infographics.setOnClickListener {
@@ -91,7 +95,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun finishAndAudio(){
-        mediaPlayer.pause()
+        AudioManager.pauseAudio()
         finish()
     }
 
@@ -177,9 +181,20 @@ class MenuActivity : AppCompatActivity() {
 
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptionsActivity::class.java)
+        intent.putExtra("soundFlag", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        finishAndAudio()
+        finish()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
     }
 
     /**

@@ -28,7 +28,7 @@ class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
-    private var mediaPlayer = MediaPlayer()
+    private var soundFlag = false
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -43,8 +43,10 @@ class QuizOptionsActivity : AppCompatActivity() {
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
-        mediaPlayer.start()
+        soundFlag = intent.getBooleanExtra("soundFlag", false)
+        if (soundFlag == false) {
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        }
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -77,9 +79,9 @@ class QuizOptionsActivity : AppCompatActivity() {
 
         btn_back_option.setOnClickListener{
             var intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-            mediaPlayer.pause()
         }
 
     }
@@ -93,7 +95,7 @@ class QuizOptionsActivity : AppCompatActivity() {
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(questionType))
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-        mediaPlayer.pause()
+        AudioManager.pauseAudio()
         // Do nothing.
     }
 
@@ -151,11 +153,22 @@ class QuizOptionsActivity : AppCompatActivity() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
+    }
+
     /**
      * Executes code for a right gesture going left to go to the menu.
      */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("soundFlag", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finish()
