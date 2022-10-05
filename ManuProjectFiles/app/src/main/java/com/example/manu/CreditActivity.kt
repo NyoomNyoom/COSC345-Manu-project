@@ -48,7 +48,7 @@ class CreditActivity : AppCompatActivity() {
             btn_quit.startAnimation(buttonPress)
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_top, R.anim.slide_out_bottom)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
         }
     }
