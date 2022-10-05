@@ -26,7 +26,6 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
     private var soundFlag: Boolean = false
-    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
