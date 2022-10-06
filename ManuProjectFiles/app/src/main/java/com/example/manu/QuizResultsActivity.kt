@@ -42,6 +42,15 @@ class QuizResultsActivity : AppCompatActivity() {
         val quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
         lateinit var questionType: QuestionType
 
+        /*
+            Restart or resume the ambience music.
+         */
+        val soundFlag: Boolean = intent.getBooleanExtra("soundFlag", false)
+        if (!soundFlag)
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        else
+            AudioManager.resumeAudio()
+
         text_score.text = "$score / $totalQuestions"
 
         //StatsAdapter.updateValues(this, quizType, totalQuestions, score)

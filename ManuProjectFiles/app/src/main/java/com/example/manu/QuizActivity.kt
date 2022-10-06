@@ -187,6 +187,7 @@ class QuizActivity : AppCompatActivity() {
                 resultsScreen.putExtra("score", score)
                 resultsScreen.putExtra("totalQuestions", questions.size)
                 resultsScreen.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
+                resultsScreen.putExtra("soundFlag", quizType != QuestionType.SOUND)
 
                 startActivity(resultsScreen)
                 finish()
