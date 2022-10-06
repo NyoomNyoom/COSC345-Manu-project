@@ -1,7 +1,10 @@
 package com.example.manu
 
 import android.content.Context
+import android.preference.PreferenceManager
+import android.util.Log
 import java.io.*
+import kotlin.math.roundToInt
 
 /**
  * A class to handle the file handling and compiles a list of stats from the file.
@@ -120,6 +123,16 @@ class StatsAdapter {
             if(questionType == QuestionType.PHOTO){
                 stats[0].updateNumRight(numCorrect)
                 stats[0].updateTotalPlayed(numQuestions)
+                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+                val editor = preferences.edit()
+                val photoGames = preferences.getInt("photoQuizzesPlayed", 0)
+                val photoCorrect = preferences.getInt("photoQuizQuestionsCorrect", 0)
+                var playerStats = getPlayerStats(context)
+                playerStats[0] = playerStats[0] + 1
+                playerStats[1] = playerStats[1] + numCorrect
+                editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
+                editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
+                editor.commit()
             }else if(questionType == QuestionType.SOUND){
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)
@@ -187,52 +200,68 @@ class StatsAdapter {
             return statsOut
         }
 
-        /**
-         * Encrypts or decrypts an input string according to a key held in the function.
-         *
-         * @param input The string to encrypt/decrypt.
-         * @param direction 1 to encrypt, or -1 to decrypt.
-         *
-         * @return The encrypted or decrypted input.
-         */
-        private fun cipher(input: String, direction: Int): String {
-            val key = "345"
-            val strength = 3  // The amount to multiply digits in the key by when altering characters.
-            var output = ""
+        fun getPlayerStats(context: Context): ArrayList<Int> {
+            var playerStatsInts: ArrayList<Int> = ArrayList(8)
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            playerStatsInts.add(preferences.getInt("numPhotoQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numPhotoQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuestionsCorrect", 0))
+            return playerStatsInts
+        }
 
-            /*
-                For each character in the input, find the corresponding character in the key, turn the key's character
-                into a digit, multiply that digit by the strength, and add this value to the input's character. This is
-                the new character for the ciphertext. The direction can be 1 (to perform the operation) or -1 (to undo
-                the operation).
-             */
-            for (index in input.indices) {
-                output += input[index] + (key[index % key.length].digitToInt() * direction * strength)
+
+        fun submitScore(context: Context, quizType: QuestionType, score: Int) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+
+            if (quizType == QuestionType.PHOTO) {
+                val oldTotalPlayed = preferences.getInt("numPhotoQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numPhotoQuestionsCorrect", 0)
+                editor.putInt("numPhotoQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numPhotoQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.SOUND) {
+                val oldTotalPlayed = preferences.getInt("numSoundQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numSoundQuestionsCorrect", 0)
+                editor.putInt("numSoundQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numSoundQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.ENGLISH) {
+                val oldTotalPlayed = preferences.getInt("numEnglishQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numEnglishQuestionsCorrect", 0)
+                editor.putInt("numEnglishQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numEnglishQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.MAORI) {
+                val oldTotalPlayed = preferences.getInt("numMaoriQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numMaoriQuestionsCorrect", 0)
+                editor.putInt("numMaoriQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numMaoriQuestionsCorrect", oldTotalCorrect + score)
             }
 
-            return output
+            editor.commit()
         }
 
         /**
-         * Encrypts a string.
+         * Rounds a Float to the specified number of decimal places.
          *
-         * @param input The string to encrypt.
+         * @param float The Float to round.
+         * @param decimals The number of decimals to retain.
          *
-         * @return The encrypted string.
+         * @return The provided Float rounded to the specified number of decimal places.
          */
-        fun encrypt(input: String): String {
-            return cipher(input, 1)
+        fun round(float: Float, decimals: Int): Double {
+            Log.d("StatsAdapter", float.toString())
+            var multiplier = 10.0
+
+            for (i in 2..decimals) {
+                multiplier *= 10.0
+            }
+
+            return (float * multiplier).roundToInt() / multiplier
         }
 
-        /**
-         * Decrypts a string.
-         *
-         * @param input The string to decrypt.
-         *
-         * @return The decrypted string.
-         */
-        fun decrypt(input: String): String {
-            return cipher(input, -1)
-        }
     }
 }
