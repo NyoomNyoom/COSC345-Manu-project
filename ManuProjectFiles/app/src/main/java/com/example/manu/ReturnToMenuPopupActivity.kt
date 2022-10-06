@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.return_to_menu_popup.*
  */
 class ReturnToMenuPopupActivity : Activity() {
 
+    private lateinit var currentQuizType: QuestionType
     private lateinit var buttonPress: Animation
 
     /**
@@ -29,6 +30,8 @@ class ReturnToMenuPopupActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.return_to_menu_popup)
+
+        currentQuizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
 
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
 
@@ -48,6 +51,17 @@ class ReturnToMenuPopupActivity : Activity() {
     private fun returnToMenu() {
         btn_yes.startAnimation(buttonPress)
         var intent = Intent(this, MenuActivity::class.java)
+
+        /*
+            Instruct the menu to start playing the ambience sound only if we are exiting from the sound quiz (because
+            all other quizzes already have the ambience sounds playing).
+         */
+        if (currentQuizType == QuestionType.SOUND) {
+            intent.putExtra("soundFlag", false)
+        } else {
+            intent.putExtra("soundFlag", true)
+        }
+
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()

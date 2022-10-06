@@ -206,6 +206,7 @@ class QuizActivity : AppCompatActivity() {
         btn_back.startAnimation(buttonPress)
         AudioManager.pauseAudio()
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
+        intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
