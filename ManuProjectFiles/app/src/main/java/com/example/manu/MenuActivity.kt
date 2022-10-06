@@ -74,7 +74,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finishAndAudio()
+            finish()
         }
 
         btn_credits.setOnClickListener{
@@ -82,7 +82,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finishAndAudio()
+            finish()
         }
 
         btn_help.setOnClickListener{
