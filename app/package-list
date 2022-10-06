@@ -123,6 +123,7 @@ $dokka.location:com.example.manu/StatsAdapter.Companion///PointingToDeclaration/
 $dokka.location:com.example.manu/StatsAdapter.Companion/getPlayerStats/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-player-stats.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/getStatsBasedOnType/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-stats-based-on-type.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/makeFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/make-file.html
+$dokka.location:com.example.manu/StatsAdapter.Companion/resetStats/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/reset-stats.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/resetValues/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/reset-values.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/round/#kotlin.Float#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/round.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/saveToFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/save-to-file.html
