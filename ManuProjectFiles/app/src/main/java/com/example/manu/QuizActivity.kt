@@ -190,6 +190,7 @@ class QuizActivity : AppCompatActivity() {
                 resultsScreen.putExtra("soundFlag", quizType != QuestionType.SOUND)
 
                 startActivity(resultsScreen)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
             } else {
                 resetOptionButtons()
