@@ -1,7 +1,9 @@
 package com.example.manu
 
 import android.content.Context
+import android.preference.PreferenceManager
 import java.io.*
+
 
 /**
  * A class to handle the file handling and compiles a list of stats from the file.
@@ -120,6 +122,13 @@ class StatsAdapter {
             if(questionType == QuestionType.PHOTO){
                 stats[0].updateNumRight(numCorrect)
                 stats[0].updateTotalPlayed(numQuestions)
+                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+                val editor = preferences.edit()
+                val photoGames = preferences.getInt("photoQuizzesPlayed", 0)
+                val photoCorrect = preferences.getInt("photoQuizQuestionsCorrect", 0)
+                editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
+                editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
+                editor.commit()
             }else if(questionType == QuestionType.SOUND){
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)

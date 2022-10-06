@@ -5,16 +5,17 @@
 package com.example.manu
 
 import android.content.Intent
-import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.quiz_stats.*
+import kotlin.math.roundToInt
 
 /**
  * Creates and fills the stats activity regarding the players scores and play amount.
@@ -41,6 +42,7 @@ class StatsActivity : AppCompatActivity() {
         setContentView(R.layout.quiz_stats)
 
         getAllValues()
+        getAllValuesTemp()
         updateStrings()
 
         AudioManager.resumeAudio()
@@ -66,6 +68,15 @@ class StatsActivity : AppCompatActivity() {
      */
     override fun onBackPressed() {
         return
+    }
+
+    fun getAllValuesTemp() {
+        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        photo_games = preferences.getInt("photoQuizzesPlayed", 0).toString()
+        if (photo_games.toInt() != 0)  // Avoid divide by zero errors.
+            photo_av = round((preferences.getInt("photoQuizQuestionsCorrect", 0).toFloat() / photo_games.toInt().toFloat()), 1).toString()
+        else
+            photo_av = "0"
     }
 
     /**
@@ -110,5 +121,23 @@ class StatsActivity : AppCompatActivity() {
 
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
+    }
+
+    /**
+     * Rounds a Float to the specified number of decimal places.
+     *
+     * @param float The Float to round.
+     * @param decimals The number of decimals to retain.
+     *
+     * @return The provided Float rounded to the specified number of decimal places.
+     */
+    private fun round(float: Float, decimals: Int): Double {
+        var multiplier = 10.0
+
+        for (i in 2..decimals) {
+            multiplier *= 10
+        }
+
+        return (float * multiplier).roundToInt() / multiplier
     }
 }
