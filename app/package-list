@@ -43,6 +43,7 @@ $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/onFling/#an
 $dokka.location:com.example.manu/InfoGraphicActivity///PointingToDeclaration/app/com.example.manu/-info-graphic-activity/index.html
 $dokka.location:com.example.manu/InfoGraphicActivity/InfoGraphicActivity/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-info-graphic-activity.html
 $dokka.location:com.example.manu/InfoGraphicActivity/dispatchTouchEvent/#android.view.MotionEvent?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/dispatch-touch-event.html
+$dokka.location:com.example.manu/InfoGraphicActivity/getAllTextViews/#android.view.View?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/get-all-text-views.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-back-pressed.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-touch-event.html
 $dokka.location:com.example.manu/InfographicPopupActivity///PointingToDeclaration/app/com.example.manu/-infographic-popup-activity/index.html
