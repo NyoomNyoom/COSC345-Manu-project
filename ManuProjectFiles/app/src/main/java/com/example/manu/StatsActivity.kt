@@ -14,7 +14,6 @@ import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import kotlinx.android.synthetic.main.quiz_stats.*
-import kotlin.math.roundToInt
 
 /**
  * Creates and fills the stats activity regarding the players scores and play amount.
@@ -41,7 +40,6 @@ class StatsActivity : AppCompatActivity() {
         setContentView(R.layout.quiz_stats)
 
         getAllValues()
-        //getAllValuesTemp()
         updateStrings()
 
         AudioManager.resumeAudio()
@@ -68,13 +66,6 @@ class StatsActivity : AppCompatActivity() {
     override fun onBackPressed() {
         return
     }
-
-    /*fun getAllValuesTemp() {
-        val playerStats = StatsAdapter.getPlayerStats(this)
-        quizzesPlayedPhoto = playerStats[0].toString()
-        quizAverageScorePhoto = StatsAdapter.round(playerStats[1].toFloat() / quizzesPlayedPhoto.toFloat(), 1).toString()
-
-    }*/
 
     /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
