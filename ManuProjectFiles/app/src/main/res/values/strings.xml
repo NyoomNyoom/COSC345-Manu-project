@@ -2,4 +2,34 @@
     <string name="app_name">Manu</string>
     <string name="fact_paradise_duck">Often seen by students in Dunedin.</string>
 
+    <string name="doc_link">Department of Conservation \nCC BY 4.0 license\n<a href="https://www.doc.govt.nz/">doc.govt.nz</a></string>
+    <string name="ait_link">Kimberley Collins\nCC BY 2.0 license\n<a href="https://www.flickr.com/people/114706196@N08">K. Collins (Flickr)</a></string>
+    <string name="a_bittern_link">Kym Nicholson\nCC BY 4.0 license\n<a href="https://www.inaturalist.org/photos/65130265">inaturalist.org</a></string>
+    <string name="bellbird_link">Sid Mosdell \nCC BY 2.0 license\n<a href="https://www.flickr.com/people/22357152@N02">S. Mosdell (Flickr)</a></string>
+    <string name="black_stilt_link">SGalla32 (Wikimedia) \nCC BY-SA 4.0 license\n<a href="https://commons.wikimedia.org/wiki/File:Captive_bred_kak%C4%AB,_black_stilt.jpg">Wikimedia Commons</a></string>
+    <string name="oystercatcher_link">Department of Conservation \nCC BY 4.0 license\n<a href="https://www.doc.govt.nz/">doc.govt.nz</a></string>
+    <string name="grey_warbler_link">Dirk Pons\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/dirkpons/">Dirk Pons (Flickr)</a></string>
+    <string name="shearwater_link">Department of Conservation \nCC BY 4.0 license\n<a href="https://www.doc.govt.nz/">doc.govt.nz</a></string>
+    <string name="kakapo_link">Department of Conservation \nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/docnz/">DOC (Flickr)</a></string>
+    <string name="kokako_link">Doug Mak\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/blowback/">Doug Mak (Flickr)</a></string>
+    <string name="morepork_link">"In Paradise"\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/in-paradise/">"In Paradise" (Flickr)</a></string>
+    <string name="nz_dotterel_link">Keerti Siag\nCC BY-SA 2.0 license\n<a href="https://www.flickr.com/photos/keetoo/">Keerti Siag (Flickr)</a></string>
+    <string name="nz_falcon_link">Andy Frost\nCC BY-SA 4.0 license\n<a href="https://commons.wikimedia.org/wiki/File:Fern_k%C4%81rearea_landing_Marlborough_NZ.jpg">Wikimedia Commons</a></string>
+    <string name="nz_pigeon_link">Katja Schulz\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/treegrow/">Katja Schulz (Flickr)</a></string>
+    <string name="orange_parakeet_link">Jon Sullivan\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/mollivan_jon/">Jon Sullivan (Flickr)</a></string>
+    <string name="rock_wren_link">Francesco Veronesi\nCC BY-SA 2.0 license\n<a href="https://www.flickr.com/photos/francesco_veronesi/">Francesco Veronesi (Flickr)</a></string>
+    <string name="stitchbird_link">Geoff McKay\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/129472387@N07/">Geoff McKay (Flickr)</a></string>
+    <string name="takahe_link">"russellstreet"\nCC BY-SA 2.0 license\n<a href="https://www.flickr.com/photos/russellstreet/">"russellstreet" (Flickr)</a></string>
+    <string name="tui_link">Sid Mosdell\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/sidm/">Sid Mosdell (Flickr)</a></string>
+    <string name="weka_link">Sid Mosdell\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/sidm/">Sid Mosdell (Flickr)</a></string>
+    <string name="westland_petrel_link">Helen Cunningham\nCC BY-SA 2.0 license\n<a href="https://www.flickr.com/photos/152241866@N05/">Helen Sullivan (Flickr)</a></string>
+    <string name="white_heron_link">Sid Mosdell\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/sidm/">Sid Mosdell (Flickr)</a></string>
+    <string name="whitehead_link">Francesco Veronesi\nCC BY-SA 2.0 license\n<a href="https://www.flickr.com/photos/francesco_veronesi/">Francesco Veronesi (Flickr)</a></string>
+    <string name="yellow_eyed_link">Sarah Stewart\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/sarahmstewart/">Sarah Stewart (Flickr)</a></string>
+    <string name="yellowhead_link">Jake Osbourne\nCC BY 2.0 license\n<a href="https://www.flickr.com/photos/theylooklikeus/">Jake Osbourne (Flickr)</a></string>
+    <string name="by_2_link"><a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0 License</a></string>
+    <string name="by_4_link"><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 License</a></string>
+    <string name="by_sa_2_link"><a href="https://creativecommons.org/licenses/by-sa/2.0/deed.en">CC BY-SA 2.0 License</a></string>
+    <string name="by_sa_4_link"><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0 License</a></string>
+
 </resources>
