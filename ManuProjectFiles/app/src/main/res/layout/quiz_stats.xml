@@ -111,6 +111,37 @@
             android:text="Score average: nothing :("
             />
 
+        <TextView android:id="@+id/english_stats_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="20sp"
+            android:textStyle="bold"
+            android:text="English quiz"
+            />
+
+        <TextView android:id="@+id/english_total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Games played: nothing :("
+            />
+
+        <TextView android:id="@+id/english_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23sp"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginStart="40sp"
+            android:text="Score average: nothing :("
+            />
+
         <TextView android:id="@+id/maori_stats_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -142,36 +173,7 @@
             android:text="Score average: nothing :("
             />
 
-        <TextView android:id="@+id/english_stats_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="45sp"
-            android:textColor="#FFFFFF"
-            android:gravity="left"
-            android:layout_marginStart="20sp"
-            android:textStyle="bold"
-            android:text="English quiz"
-            />
 
-        <TextView android:id="@+id/english_total"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="23sp"
-            android:textColor="#FFFFFF"
-            android:gravity="left"
-            android:layout_marginStart="40sp"
-            android:text="Games played: nothing :("
-            />
-
-        <TextView android:id="@+id/english_average"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="23sp"
-            android:textColor="#FFFFFF"
-            android:gravity="left"
-            android:layout_marginStart="40sp"
-            android:text="Score average: nothing :("
-            />
 
     </LinearLayout>
 

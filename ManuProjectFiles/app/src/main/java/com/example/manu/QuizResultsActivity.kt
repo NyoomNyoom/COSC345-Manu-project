@@ -44,7 +44,8 @@ class QuizResultsActivity : AppCompatActivity() {
 
         text_score.text = "$score / $totalQuestions"
 
-        StatsAdapter.updateValues(this, quizType, totalQuestions, score)
+        //StatsAdapter.updateValues(this, quizType, totalQuestions, score)
+        StatsAdapter.submitScore(this, quizType, score)
 
         loadAnimations()
 

@@ -6,7 +6,6 @@ package com.example.manu
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -22,14 +21,14 @@ import kotlin.math.roundToInt
  */
 class StatsActivity : AppCompatActivity() {
 
-    private lateinit var photo_games: String
-    private lateinit var photo_av: String
-    private lateinit var sound_games: String
-    private lateinit var sound_av: String
-    private lateinit var maori_games: String
-    private lateinit var maori_av: String
-    private lateinit var english_games: String
-    private lateinit var english_av: String
+    private lateinit var quizzesPlayedPhoto: String
+    private lateinit var quizAverageScorePhoto: String
+    private lateinit var quizzesPlayedSound: String
+    private lateinit var quizAverageScoreSound: String
+    private lateinit var quizzesPlayedMaori: String
+    private lateinit var quizAverageScoreMaori: String
+    private lateinit var quizzesPlayedEnglish: String
+    private lateinit var quizAverageScoreEnglish: String
     private lateinit var buttonPress: Animation
 
     /**
@@ -42,7 +41,7 @@ class StatsActivity : AppCompatActivity() {
         setContentView(R.layout.quiz_stats)
 
         getAllValues()
-        getAllValuesTemp()
+        //getAllValuesTemp()
         updateStrings()
 
         AudioManager.resumeAudio()
@@ -70,74 +69,78 @@ class StatsActivity : AppCompatActivity() {
         return
     }
 
-    fun getAllValuesTemp() {
-        val preferences = PreferenceManager.getDefaultSharedPreferences(this)
-        photo_games = preferences.getInt("photoQuizzesPlayed", 0).toString()
-        if (photo_games.toInt() != 0)  // Avoid divide by zero errors.
-            photo_av = round((preferences.getInt("photoQuizQuestionsCorrect", 0).toFloat() / photo_games.toInt().toFloat()), 1).toString()
-        else
-            photo_av = "0"
-    }
+    /*fun getAllValuesTemp() {
+        val playerStats = StatsAdapter.getPlayerStats(this)
+        quizzesPlayedPhoto = playerStats[0].toString()
+        quizAverageScorePhoto = StatsAdapter.round(playerStats[1].toFloat() / quizzesPlayedPhoto.toFloat(), 1).toString()
+
+    }*/
 
     /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
      */
     fun getAllValues(){
-        photo_games = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed().toString()
-        photo_av = StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getAverage().toString()
+        val returned = StatsAdapter.getPlayerStats(this)
+        for (va in returned) {
+            Log.d("StatsActivity", va.toString())
+        }
+        val playerStats = StatsAdapter.getPlayerStats(this)
+        quizzesPlayedPhoto = playerStats[0].toString()
+        if (playerStats[0] != 0) {
+            quizAverageScorePhoto =
+                StatsAdapter.round(playerStats[1].toFloat() / playerStats[0].toFloat(), 1).toString()
+        }
+        else {
+            quizAverageScorePhoto = "0"
+        }
 
-        sound_games = StatsAdapter.getStatsBasedOnType(QuestionType.SOUND).getTotalQuizzesPlayed().toString()
-        sound_av = StatsAdapter.getStatsBasedOnType(QuestionType.SOUND).getAverage().toString()
+        quizzesPlayedSound = playerStats[2].toString()
+        if (playerStats[2] != 0) {
+            quizAverageScoreSound =
+                StatsAdapter.round(playerStats[3].toFloat() / playerStats[2].toFloat(), 1).toString()
+        }
+        else {
+            quizAverageScoreSound = "0"
+        }
 
-        maori_games = StatsAdapter.getStatsBasedOnType(QuestionType.MAORI).getTotalQuizzesPlayed().toString()
-        maori_av = StatsAdapter.getStatsBasedOnType(QuestionType.MAORI).getAverage().toString()
+        quizzesPlayedEnglish = playerStats[4].toString()
+        if (playerStats[4] != 0) {
+            quizAverageScoreEnglish =
+                StatsAdapter.round(playerStats[5].toFloat() / playerStats[4].toFloat(), 1).toString()
+        }
+        else {
+            quizAverageScoreEnglish= "0"
+        }
 
-        english_games = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getTotalQuizzesPlayed().toString()
-        english_av = StatsAdapter.getStatsBasedOnType(QuestionType.ENGLISH).getAverage().toString()
-
-        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).toString())
-        Log.d("Stats activity", "" + StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalQuizzesPlayed())
-        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalPlayed().toString())
-        Log.d("Stats", StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getNumRight().toString())
-        Log.d("Stats", (StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getTotalPlayed() / StatsAdapter.getStatsBasedOnType(QuestionType.PHOTO).getNumRight()).toString())
+        quizzesPlayedMaori = playerStats[6].toString()
+        if (playerStats[6] != 0) {
+            quizAverageScoreMaori =
+                StatsAdapter.round(playerStats[7].toFloat() / playerStats[6].toFloat(), 1).toString()
+        }
+        else {
+            quizAverageScoreMaori = "0"
+        }
     }
 
     /**
      * Updates the score boards games played and average score for each game.
      */
-    fun updateStrings(){
-        photo_total.text = "Games played: " + photo_games
-        photo_average.text = "Average score: " + photo_av
+    private fun updateStrings() {
+        photo_total.text = "Games Played: " + quizzesPlayedPhoto
+        photo_average.text = "Average Score: " + quizAverageScorePhoto
 
-        sound_total.text = "Games played: " + sound_games
-        sound_average.text = "Average score: " + sound_av
+        sound_total.text = "Games Played: " + quizzesPlayedSound
+        sound_average.text = "Average Score: " + quizAverageScoreSound
 
-        maori_total.text = "Games played: " + maori_games
-        maori_average.text = "Average score: " + maori_av
+        english_total.text = "Games Played: " + quizzesPlayedEnglish
+        english_average.text = "Average Score: " + quizAverageScoreEnglish
 
-        english_total.text = "Games played: " + english_games
-        english_average.text = "Average score: " + english_av
+        maori_total.text = "Games Played: " + quizzesPlayedMaori
+        maori_average.text = "Average Score: " + quizAverageScoreMaori
     }
 
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
-    /**
-     * Rounds a Float to the specified number of decimal places.
-     *
-     * @param float The Float to round.
-     * @param decimals The number of decimals to retain.
-     *
-     * @return The provided Float rounded to the specified number of decimal places.
-     */
-    private fun round(float: Float, decimals: Int): Double {
-        var multiplier = 10.0
-
-        for (i in 2..decimals) {
-            multiplier *= 10
-        }
-
-        return (float * multiplier).roundToInt() / multiplier
-    }
 }

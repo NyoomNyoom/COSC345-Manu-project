@@ -2,7 +2,9 @@ package com.example.manu
 
 import android.content.Context
 import android.preference.PreferenceManager
+import android.util.Log
 import java.io.*
+import kotlin.math.roundToInt
 
 
 /**
@@ -126,6 +128,9 @@ class StatsAdapter {
                 val editor = preferences.edit()
                 val photoGames = preferences.getInt("photoQuizzesPlayed", 0)
                 val photoCorrect = preferences.getInt("photoQuizQuestionsCorrect", 0)
+                var playerStats = getPlayerStats(context)
+                playerStats[0] = playerStats[0] + 1
+                playerStats[1] = playerStats[1] + numCorrect
                 editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
                 editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
                 editor.commit()
@@ -194,6 +199,80 @@ class StatsAdapter {
             }
 
             return statsOut
+        }
+
+        fun getPlayerStats(context: Context): ArrayList<Int> {
+            var playerStatsInts: ArrayList<Int> = ArrayList(8)
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            playerStatsInts.add(preferences.getInt("numPhotoQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numPhotoQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuestionsCorrect", 0))
+            return playerStatsInts
+        }
+
+        fun setPlayerStats(context: Context, playerStats: ArrayList<Int>) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+            var string = ""
+            for (entry in playerStats) {
+                string += "$entry,"
+            }
+            string = string.substring(0, string.length - 1)  // Cut off the extra comma.
+            editor.putString("playerStats", string)
+            editor.commit()
+        }
+
+        fun submitScore(context: Context, quizType: QuestionType, score: Int) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+
+            if (quizType == QuestionType.PHOTO) {
+                val oldTotalPlayed = preferences.getInt("numPhotoQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numPhotoQuestionsCorrect", 0)
+                editor.putInt("numPhotoQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numPhotoQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.SOUND) {
+                val oldTotalPlayed = preferences.getInt("numSoundQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numSoundQuestionsCorrect", 0)
+                editor.putInt("numSoundQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numSoundQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.ENGLISH) {
+                val oldTotalPlayed = preferences.getInt("numEnglishQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numEnglishQuestionsCorrect", 0)
+                editor.putInt("numEnglishQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numEnglishQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.MAORI) {
+                val oldTotalPlayed = preferences.getInt("numMaoriQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numMaoriQuestionsCorrect", 0)
+                editor.putInt("numMaoriQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numMaoriQuestionsCorrect", oldTotalCorrect + score)
+            }
+
+            editor.commit()
+        }
+
+        /**
+         * Rounds a Float to the specified number of decimal places.
+         *
+         * @param float The Float to round.
+         * @param decimals The number of decimals to retain.
+         *
+         * @return The provided Float rounded to the specified number of decimal places.
+         */
+        fun round(float: Float, decimals: Int): Double {
+            Log.d("StatsAdapter", float.toString())
+            var multiplier = 10.0
+
+            for (i in 2..decimals) {
+                multiplier *= 10.0
+            }
+
+            return (float * multiplier).roundToInt() / multiplier
         }
 
         /**
