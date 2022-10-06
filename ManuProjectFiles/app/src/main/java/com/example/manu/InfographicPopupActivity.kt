@@ -74,12 +74,14 @@ class InfographicPopupActivity : Activity() {
 
     override fun onPause() {
         super.onPause()
-        mediaPlayer.pause()
+        if (hasBirdSong)
+            mediaPlayer.pause()
     }
 
     override fun onResume() {
         super.onResume()
-        mediaPlayer.start()
+        if (hasBirdSong)
+            mediaPlayer.start()
     }
 
     /**
