@@ -244,6 +244,22 @@ class StatsAdapter {
             editor.commit()
         }
 
+        fun resetStats(context: Context) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+
+            editor.putInt("numPhotoQuizzesPlayed", 0)
+            editor.putInt("numPhotoQuestionsCorrect", 0)
+            editor.putInt("numSoundQuizzesPlayed", 0)
+            editor.putInt("numSoundQuestionsCorrect", 0)
+            editor.putInt("numEnglishQuizzesPlayed", 0)
+            editor.putInt("numEnglishQuestionsCorrect", 0)
+            editor.putInt("numMaoriQuizzesPlayed", 0)
+            editor.putInt("numMaoriQuestionsCorrect", 0)
+
+            editor.commit()
+        }
+
         /**
          * Rounds a Float to the specified number of decimal places.
          *

@@ -173,7 +173,20 @@
             android:text="Score average: nothing :("
             />
 
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reset_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="46sp"
+            android:layout_marginHorizontal="30sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="10sp"
+            android:text="Reset Stats"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/black"
+            app:strokeWidth="1sp"
+            app:strokeColor="@color/white"
+            app:cornerRadius="7sp"
+            />
 
     </LinearLayout>
 

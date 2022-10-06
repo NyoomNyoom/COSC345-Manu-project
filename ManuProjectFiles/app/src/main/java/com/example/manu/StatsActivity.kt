@@ -52,11 +52,18 @@ class StatsActivity : AppCompatActivity() {
 
         loadAndStoreAnimations()
 
-        btn_back.setOnClickListener{
+        btn_back.setOnClickListener {
             var intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        }
+
+        // Reset the stored statistics, then collect and display these new values.
+        reset_stats.setOnClickListener {
+            StatsAdapter.resetStats(this)
+            getAllValues()
+            updateStrings()
         }
     }
 
