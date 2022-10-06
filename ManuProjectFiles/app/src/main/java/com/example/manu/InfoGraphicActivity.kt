@@ -6,15 +6,12 @@ package com.example.manu
 
 import android.content.Intent
 import android.graphics.Color
-import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.GestureDetector
-import android.view.MotionEvent
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ScrollView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
@@ -54,6 +51,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         allButtons = (findViewById<View>(R.id.scrollView1) as ScrollView).touchables // Size is 48 (birds 47 + 1)
         val size = allButtons.size // Checking how many items there are.
 
+        var allTextViews = getAllTextViews(findViewById(R.id.scrollView1))
+
         var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
         //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
@@ -62,9 +61,14 @@ class InfoGraphicActivity : AppCompatActivity() {
             allButtons[i].setBackgroundColor(Color.RED)
             try {
                 allButtons[i].setBackgroundResource(birds[i].getPhotoResourceId())
+                allTextViews?.get(i)?.setText(birds[i].getBirdName())
+                if(allTextViews?.get(i)?.text == "null") {
+                    allButtons[i].visibility = View.GONE
+                }
             } catch (e: Exception){
                 allButtons[i].visibility = View.GONE
             } // Sets the backgroundColor
+
             allButtons[i].setOnClickListener {
                 allButtons[i].startAnimation(buttonPress)
                 var intent = Intent(this, InfographicPopupActivity::class.java)
@@ -126,6 +130,19 @@ class InfoGraphicActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
+    }
+
+    fun getAllTextViews(v: View?): List<TextView>? {
+        val result: MutableList<TextView> = ArrayList()
+        if (v is ViewGroup) {
+            val viewGroup = v
+            for (i in 0 until viewGroup.childCount) {
+                result.addAll(getAllTextViews(viewGroup.getChildAt(i))!!)
+            }
+        } else if (v is TextView) {
+            result.add(v)
+        }
+        return result
     }
 
     /**

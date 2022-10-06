@@ -99,6 +99,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -115,6 +131,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -136,6 +168,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -152,6 +200,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -173,6 +237,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -189,6 +269,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -210,6 +306,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -226,6 +338,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -247,6 +375,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -263,6 +407,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -284,6 +444,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -300,6 +476,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -321,6 +513,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -337,6 +545,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -358,6 +582,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -374,6 +614,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -395,6 +651,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -411,6 +683,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -432,6 +720,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -448,6 +752,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
                 <TableRow
@@ -468,6 +788,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -484,6 +820,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -505,6 +857,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -521,6 +889,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -542,6 +926,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -558,6 +958,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -579,6 +995,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -595,6 +1027,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -616,6 +1064,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -632,6 +1096,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
@@ -653,6 +1133,22 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
@@ -669,9 +1165,26 @@
                             android:layout_height="175dp"
                             >
                         </ImageButton>
+                        <ImageView
+                            android:layout_marginTop="170dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:background="@color/black"
+                            ></ImageView>
+                        <TextView
+                            android:layout_marginTop="167dp"
+                            android:layout_width="175sp"
+                            android:layout_height="45sp"
+                            android:text="null"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textSize="16dp"
+                            android:textColor="@color/white"
+                            ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
 
+                <!-->Everything below this is to keep the spacing for the final bird correct</!-->
                 <TableRow
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
@@ -738,34 +1251,17 @@
                         android:layout_marginRight="20sp"
                         >
                         <ImageButton
-                            android:id="@+id/imageButton35"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
                             android:id="@+id/imageButton36"
                             android:layout_width="175dp"
                             android:layout_height="175dp"
                             >
                         </ImageButton>
                     </com.google.android.material.card.MaterialCardView>
-
+                </TableRow>
+                <TableRow
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -781,12 +1277,7 @@
                             >
                         </ImageButton>
                     </com.google.android.material.card.MaterialCardView>
-                </TableRow>
 
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -802,7 +1293,12 @@
                             >
                         </ImageButton>
                     </com.google.android.material.card.MaterialCardView>
+                </TableRow>
 
+                <TableRow
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -818,27 +1314,6 @@
                             >
                         </ImageButton>
                     </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton40"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
@@ -849,125 +1324,12 @@
                         android:layout_marginRight="20sp"
                         >
                         <ImageButton
-                            android:id="@+id/imageButton41"
+                            android:id="@+id/imageButton35"
                             android:layout_width="175dp"
                             android:layout_height="175dp"
                             >
                         </ImageButton>
                     </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton42"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton43"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton44"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        app:strokeWidth="3sp"
-                        app:strokeColor="@color/white"
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton45"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    >
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="7sp"
-                    app:strokeWidth="3sp"
-                    app:strokeColor="@color/white"
-                    android:layout_marginRight="20sp"
-                    >
-                    <ImageButton
-                        android:id="@+id/imageButton46"
-                        android:layout_width="175dp"
-                        android:layout_height="175dp"
-                        >
-                    </ImageButton>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="7sp"
-                    app:strokeWidth="3sp"
-                    app:strokeColor="@color/white"
-                    android:layout_marginRight="20sp"
-                    >
-                    <ImageButton
-                        android:id="@+id/imageButton47"
-                        android:layout_width="175dp"
-                        android:layout_height="175dp"
-                        >
-                    </ImageButton>
-                </com.google.android.material.card.MaterialCardView>
-                <!-->The last bird card is flush with the bottom of the screen. This empty TextView
-                creates a gap.</!-->
                 </TableRow>
                 <TableRow>
                     <TextView
