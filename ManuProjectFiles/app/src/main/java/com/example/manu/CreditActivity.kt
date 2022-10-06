@@ -5,7 +5,6 @@
 package com.example.manu
 
 import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -32,7 +31,7 @@ class CreditActivity : AppCompatActivity() {
         setContentView(R.layout.credits)
 
         AudioManager.resumeAudio()
-        
+
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
