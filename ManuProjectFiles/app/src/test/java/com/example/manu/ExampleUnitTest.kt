@@ -644,7 +644,7 @@ class ExampleUnitTest {
     /**
      * Tests encryption for various inputs.
      */
-    @Test
+    /*@Test
     fun encryption() {
         var plaintext = "123456789"
         assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
@@ -656,7 +656,7 @@ class ExampleUnitTest {
         assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
         plaintext = "\n2,3,4,\n"
         assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
-    }
+    }*/
 
     /**
      * Try and retrieve a bird that does not exist.

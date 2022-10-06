@@ -42,6 +42,15 @@ class QuizResultsActivity : AppCompatActivity() {
         val quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
         lateinit var questionType: QuestionType
 
+        /*
+            Restart or resume the ambience music.
+         */
+        val soundFlag: Boolean = intent.getBooleanExtra("soundFlag", false)
+        if (!soundFlag)
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        else
+            AudioManager.resumeAudio()
+
         text_score.text = "$score / $totalQuestions"
 
         //StatsAdapter.updateValues(this, quizType, totalQuestions, score)
@@ -57,7 +66,7 @@ class QuizResultsActivity : AppCompatActivity() {
             var intent = Intent(this, QuizActivity::class.java)
             intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             finish()
         }
 

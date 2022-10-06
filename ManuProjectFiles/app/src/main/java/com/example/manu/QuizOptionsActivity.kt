@@ -94,7 +94,7 @@ class QuizOptionsActivity : AppCompatActivity() {
         val intent = Intent(this, QuizActivity::class.java)
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(questionType))
         startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         AudioManager.pauseAudio()
         // Do nothing.
     }

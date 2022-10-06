@@ -136,4 +136,15 @@ class CreditActivity : AppCompatActivity() {
     override fun onBackPressed() {
         return
     }
+
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
+    }
+
 }
