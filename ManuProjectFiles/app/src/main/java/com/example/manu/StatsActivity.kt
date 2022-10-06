@@ -141,4 +141,14 @@ class StatsActivity : AppCompatActivity() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
+    }
+
 }
