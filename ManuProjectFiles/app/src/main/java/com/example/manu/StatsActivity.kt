@@ -30,7 +30,6 @@ class StatsActivity : AppCompatActivity() {
     private lateinit var english_games: String
     private lateinit var english_av: String
     private lateinit var buttonPress: Animation
-    private var mediaPlayer = MediaPlayer()
 
     /**
      * This is run when the class is instantiated. It sets up the stats layout.
@@ -41,11 +40,10 @@ class StatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.quiz_stats)
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
-        mediaPlayer.start()
-
         getAllValues()
         updateStrings()
+
+        AudioManager.resumeAudio()
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -56,8 +54,8 @@ class StatsActivity : AppCompatActivity() {
         loadAndStoreAnimations()
 
         btn_back.setOnClickListener{
-            mediaPlayer.pause()
             var intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
