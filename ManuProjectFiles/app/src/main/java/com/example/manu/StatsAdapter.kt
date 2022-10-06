@@ -6,7 +6,6 @@ import android.util.Log
 import java.io.*
 import kotlin.math.roundToInt
 
-
 /**
  * A class to handle the file handling and compiles a list of stats from the file.
  *
@@ -215,17 +214,6 @@ class StatsAdapter {
             return playerStatsInts
         }
 
-        fun setPlayerStats(context: Context, playerStats: ArrayList<Int>) {
-            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-            val editor = preferences.edit()
-            var string = ""
-            for (entry in playerStats) {
-                string += "$entry,"
-            }
-            string = string.substring(0, string.length - 1)  // Cut off the extra comma.
-            editor.putString("playerStats", string)
-            editor.commit()
-        }
 
         fun submitScore(context: Context, quizType: QuestionType, score: Int) {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -274,6 +262,6 @@ class StatsAdapter {
 
             return (float * multiplier).roundToInt() / multiplier
         }
-        
+
     }
 }
