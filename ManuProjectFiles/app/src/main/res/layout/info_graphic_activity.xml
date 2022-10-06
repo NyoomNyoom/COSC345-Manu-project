@@ -78,17 +78,18 @@
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="210sp"
                 >
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton0"
@@ -118,9 +119,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton1"
@@ -148,16 +146,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton2"
@@ -187,9 +183,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton3"
@@ -217,16 +210,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton4"
@@ -256,9 +247,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton5"
@@ -286,16 +274,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton6"
@@ -325,9 +311,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton7"
@@ -355,16 +338,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton8"
@@ -394,9 +375,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton9"
@@ -424,16 +402,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton10"
@@ -463,9 +439,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton11"
@@ -493,16 +466,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton12"
@@ -532,9 +503,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton13"
@@ -562,16 +530,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton14"
@@ -601,9 +567,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton15"
@@ -631,16 +594,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton16"
@@ -670,9 +631,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton17"
@@ -700,16 +658,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton18"
@@ -737,11 +693,8 @@
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton19"
@@ -767,17 +720,16 @@
                             ></TextView>
                     </com.google.android.material.card.MaterialCardView>
                 </TableRow>
+
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton20"
@@ -804,12 +756,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton21"
@@ -837,16 +786,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton22"
@@ -873,12 +820,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton23"
@@ -906,16 +850,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton24"
@@ -942,12 +884,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton25"
@@ -975,16 +914,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton26"
@@ -1011,12 +948,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton27"
@@ -1044,16 +978,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton28"
@@ -1080,12 +1012,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton29"
@@ -1113,16 +1042,14 @@
                 </TableRow>
 
                 <TableRow
-                    android:layout_marginStart="20sp"
                     android:layout_marginTop="20sp"
+                    android:gravity="center"
                     >
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
+                        android:layout_marginRight="10sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton30"
@@ -1149,12 +1076,9 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
                         >
                         <ImageButton
                             android:id="@+id/imageButton31"
@@ -1179,159 +1103,6 @@
                             android:textColor="@color/white"
                             ></TextView>
                     </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <!-->Everything below this is to keep the spacing for the final bird correct</!-->
-                <TableRow
-                    android:layout_marginStart="20sp"
-                    android:layout_marginTop="20sp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton32"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton33"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20sp"
-                    android:layout_marginTop="20sp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton34"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton36"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-                <TableRow
-                    android:layout_marginStart="20sp"
-                    android:layout_marginTop="20sp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton37"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton38"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-
-                <TableRow
-                    android:layout_marginStart="20sp"
-                    android:layout_marginTop="20sp"
-                    >
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton39"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="7sp"
-                        
-                        
-                        android:layout_marginRight="20sp"
-                        >
-                        <ImageButton
-                            android:id="@+id/imageButton35"
-                            android:layout_width="175sp"
-                            android:layout_height="175sp"
-                            >
-                        </ImageButton>
-                    </com.google.android.material.card.MaterialCardView>
-                </TableRow>
-                <TableRow>
-                    <TextView
-                        android:text=""
-                        />
                 </TableRow>
 
             </TableLayout>
