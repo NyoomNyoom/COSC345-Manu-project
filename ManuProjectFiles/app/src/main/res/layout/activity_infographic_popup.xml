@@ -53,8 +53,6 @@
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 app:cardCornerRadius="7sp"
-                app:strokeWidth="3sp"
-                app:strokeColor="@color/white"
                 android:backgroundTint="@color/black"
                 android:layout_marginHorizontal="15sp"
                 android:layout_marginTop="45sp"
