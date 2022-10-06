@@ -43,6 +43,7 @@ $dokka.location:com.example.manu/InfoGraphicActivity.GestureListener/onFling/#an
 $dokka.location:com.example.manu/InfoGraphicActivity///PointingToDeclaration/app/com.example.manu/-info-graphic-activity/index.html
 $dokka.location:com.example.manu/InfoGraphicActivity/InfoGraphicActivity/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/-info-graphic-activity.html
 $dokka.location:com.example.manu/InfoGraphicActivity/dispatchTouchEvent/#android.view.MotionEvent?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/dispatch-touch-event.html
+$dokka.location:com.example.manu/InfoGraphicActivity/getAllTextViews/#android.view.View?/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/get-all-text-views.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-back-pressed.html
 $dokka.location:com.example.manu/InfoGraphicActivity/onTouchEvent/#android.view.MotionEvent/PointingToDeclaration/app/com.example.manu/-info-graphic-activity/on-touch-event.html
 $dokka.location:com.example.manu/InfographicPopupActivity///PointingToDeclaration/app/com.example.manu/-infographic-popup-activity/index.html
@@ -117,16 +118,15 @@ $dokka.location:com.example.manu/Stats/updateTotalPlayed/#kotlin.Int/PointingToD
 $dokka.location:com.example.manu/StatsActivity///PointingToDeclaration/app/com.example.manu/-stats-activity/index.html
 $dokka.location:com.example.manu/StatsActivity/StatsActivity/#/PointingToDeclaration/app/com.example.manu/-stats-activity/-stats-activity.html
 $dokka.location:com.example.manu/StatsActivity/getAllValues/#/PointingToDeclaration/app/com.example.manu/-stats-activity/get-all-values.html
-$dokka.location:com.example.manu/StatsActivity/getAllValuesTemp/#/PointingToDeclaration/app/com.example.manu/-stats-activity/get-all-values-temp.html
 $dokka.location:com.example.manu/StatsActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-stats-activity/on-back-pressed.html
-$dokka.location:com.example.manu/StatsActivity/updateStrings/#/PointingToDeclaration/app/com.example.manu/-stats-activity/update-strings.html
 $dokka.location:com.example.manu/StatsAdapter.Companion///PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/index.html
-$dokka.location:com.example.manu/StatsAdapter.Companion/decrypt/#kotlin.String/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/decrypt.html
-$dokka.location:com.example.manu/StatsAdapter.Companion/encrypt/#kotlin.String/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/encrypt.html
+$dokka.location:com.example.manu/StatsAdapter.Companion/getPlayerStats/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-player-stats.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/getStatsBasedOnType/#com.example.manu.QuestionType/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/get-stats-based-on-type.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/makeFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/make-file.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/resetValues/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/reset-values.html
+$dokka.location:com.example.manu/StatsAdapter.Companion/round/#kotlin.Float#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/round.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/saveToFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/save-to-file.html
+$dokka.location:com.example.manu/StatsAdapter.Companion/submitScore/#android.content.Context#com.example.manu.QuestionType#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/submit-score.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/updateValues/#android.content.Context#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/update-values.html
 $dokka.location:com.example.manu/StatsAdapter///PointingToDeclaration/app/com.example.manu/-stats-adapter/index.html
 $dokka.location:com.example.manu/StatsAdapter/StatsAdapter/#/PointingToDeclaration/app/com.example.manu/-stats-adapter/-stats-adapter.html
