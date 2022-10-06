@@ -137,14 +137,4 @@ class CreditActivity : AppCompatActivity() {
         return
     }
 
-    override fun onPause() {
-        super.onPause()
-        AudioManager.pauseAudio()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        AudioManager.resumeAudio()
-    }
-
 }
