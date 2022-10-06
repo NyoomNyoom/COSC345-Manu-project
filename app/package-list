@@ -125,7 +125,6 @@ $dokka.location:com.example.manu/StatsAdapter.Companion/makeFile/#android.conten
 $dokka.location:com.example.manu/StatsAdapter.Companion/resetValues/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/reset-values.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/round/#kotlin.Float#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/round.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/saveToFile/#android.content.Context/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/save-to-file.html
-$dokka.location:com.example.manu/StatsAdapter.Companion/setPlayerStats/#android.content.Context#java.util.ArrayList[kotlin.Int]/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/set-player-stats.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/submitScore/#android.content.Context#com.example.manu.QuestionType#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/submit-score.html
 $dokka.location:com.example.manu/StatsAdapter.Companion/updateValues/#android.content.Context#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/update-values.html
 $dokka.location:com.example.manu/StatsAdapter///PointingToDeclaration/app/com.example.manu/-stats-adapter/index.html
