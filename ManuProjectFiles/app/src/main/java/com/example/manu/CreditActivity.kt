@@ -130,6 +130,9 @@ class CreditActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Loads and stores the button press animation.
+     */
     private fun loadButtonPressAnimation() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
