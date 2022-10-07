@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-    android:id="@+id/lyt_popup"
+    android:id="@+id/stats_popup"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ReturnToMenuPopupActivity"
+    tools:context=".StatsPopupActivity"
     android:theme="@style/Theme.Manu.Popup"
     android:background="#CC000000"
     android:layout_gravity="center"
@@ -35,12 +35,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Return to Menu?"
+                android:text="Are you sure?"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:theme="@style/Theme.Manu.ReturnToMenuPopup"
+                android:theme="@style/Theme.Manu.Popup"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginBottom="55sp"
