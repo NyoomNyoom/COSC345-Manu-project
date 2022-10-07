@@ -50,7 +50,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You can swipe left, right, up, and down to access the different screens."
+                android:text="You can swipe left and right to access the encyclopedia and the quizzes."
                 android:textColor="@color/white"
                 android:textSize="19sp"
                 android:layout_centerVertical="true"
