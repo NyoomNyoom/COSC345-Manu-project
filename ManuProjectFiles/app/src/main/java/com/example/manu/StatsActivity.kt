@@ -57,13 +57,14 @@ class StatsActivity : AppCompatActivity() {
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            finish()
         }
 
         // Reset the stored statistics, then collect and display these new values.
         reset_stats.setOnClickListener {
-            StatsAdapter.resetStats(this)
-            getAllValues()
-            updateStrings()
+            var intent = Intent(this, StatsPopupActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         }
     }
 
@@ -77,7 +78,7 @@ class StatsActivity : AppCompatActivity() {
     /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
      */
-    fun getAllValues(){
+     fun getAllValues(){
         val returned = StatsAdapter.getPlayerStats(this)
         for (va in returned) {
             Log.d("StatsActivity", va.toString())
