@@ -27,7 +27,7 @@
         android:id="@+id/infographicTV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Infographics"
+        android:text="Encyclopedia"
         android:textSize="42sp"
         android:textColor="@color/white"
         android:fontFamily="@font/party_confetti_regular"
