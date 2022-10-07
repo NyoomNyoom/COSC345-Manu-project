@@ -27,7 +27,7 @@
         android:textColor="@color/white"
         android:fontFamily="@font/party_confetti_regular"
         android:layout_marginTop="15sp"
-        android:layout_marginLeft="30sp"
+        android:layout_marginLeft="20sp"
         android:translationZ="2sp" />
 
     <com.google.android.material.button.MaterialButton
