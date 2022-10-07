@@ -28,15 +28,15 @@ class StatsAdapter {
          * a list from the file in our directory. If the file exists the function just calls compileStats to create a
          * list from the given file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        fun makeFile(context: Context){
+        fun makeFile(context: Context) {
             val path = context.filesDir
             val fileName = "stats.txt"
             var file = File(path, fileName)
             var fileExists = file.exists()
 
-            if(fileExists){
+            if (fileExists) {
                 compileStats(context)
             } else {
                 try {
@@ -71,7 +71,7 @@ class StatsAdapter {
                         }
                     }
                     saveToFile(context)
-                }catch(e: IOException){
+                } catch(e: IOException) {
                     println(e)
                 }
             }
@@ -81,9 +81,9 @@ class StatsAdapter {
         /**
          * A function to compile a list of stats from an existing file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        private fun compileStats(context: Context){
+        private fun compileStats(context: Context) {
             stats = mutableListOf<Stats>()
             lateinit var questionType: QuestionType
 
@@ -124,10 +124,8 @@ class StatsAdapter {
          * @param numQuestions The number to increase the number of questions played.
          * @param numCorrect The amount of correct questions to increase the numCorrect value.
          */
-        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
-
-
-            if(questionType == QuestionType.PHOTO){
+        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int) {
+            if (questionType == QuestionType.PHOTO){
                 stats[0].updateNumRight(numCorrect)
                 stats[0].updateTotalPlayed(numQuestions)
                 val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -140,14 +138,14 @@ class StatsAdapter {
                 editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
                 editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
                 editor.commit()
-            }else if(questionType == QuestionType.SOUND){
+            } else if(questionType == QuestionType.SOUND) {
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.MAORI){
+            } else if(questionType == QuestionType.MAORI) {
                 stats[2].updateNumRight(numCorrect)
                 stats[2].updateTotalPlayed(numQuestions)
-            }else if(questionType == QuestionType.ENGLISH){
+            } else if(questionType == QuestionType.ENGLISH) {
                 stats[3].updateNumRight(numCorrect)
                 stats[3].updateTotalPlayed(numQuestions)
             }
@@ -163,7 +161,7 @@ class StatsAdapter {
          *
          * @param context The app context to handle the file management.
          */
-        fun saveToFile(context: Context){
+        fun saveToFile(context: Context) {
             var path = context.filesDir
 
             try {
@@ -172,7 +170,7 @@ class StatsAdapter {
                     writer.write(it.toString().toByteArray())
                 }
                 writer.close()
-            }catch(e: IOException){
+            } catch(e: IOException) {
                 e.printStackTrace()
             }
         }
@@ -180,9 +178,9 @@ class StatsAdapter {
         /**
          * Resets the values of the user stats within the file.
          *
-         * aram context The app context to handle the file management.
+         * @param context The app context to handle the file management.
          */
-        fun resetValues(context: Context){
+        fun resetValues(context: Context) {
             stats.forEach {
                 it.resetValues()
             }
@@ -193,7 +191,7 @@ class StatsAdapter {
         /**
          * Returns the stats regarding the inputted question type.
          *
-         *  @param questionTypeIn the question type stats being retrieved.
+         * @param questionTypeIn the question type stats being retrieved.
          */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
@@ -310,5 +308,5 @@ class StatsAdapter {
         }
 
     }
-    
+
 }
