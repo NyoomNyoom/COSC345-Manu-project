@@ -115,18 +115,21 @@ class MenuActivity : AppCompatActivity() {
 
     /**
      * Executes code for swiping between screens.
+     *
+     * @param event The MotionEvent generated when the user touches/swipes the screen.
+     *
+     * @return True if the touch event was a gesture, or the value of the super function otherwise.
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
-        }
-        else{
+        } else {
             super.onTouchEvent(event)
         }
     }
 
     /**
-     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent.
      */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
@@ -137,7 +140,7 @@ class MenuActivity : AppCompatActivity() {
          * Called when a fling is detected. This performs the calculations to decide whether the fling is an acceptable
          * gesture to change screens.
          *
-         * @param downEvent Not used.
+         * @param downEvent Used to calculate the x and y movements of the swipe.
          * @param moveEvent Reports object movement. Hold either absolute or relative movements and other data,
          * depending on the type of device.
          * @param velocityX The velocity in the left and right direction of the screen (in portrait mode).
@@ -222,4 +225,5 @@ class MenuActivity : AppCompatActivity() {
     override fun onBackPressed() {
         return
     }
+
 }

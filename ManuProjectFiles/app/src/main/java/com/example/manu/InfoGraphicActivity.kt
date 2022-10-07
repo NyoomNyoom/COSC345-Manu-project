@@ -158,8 +158,8 @@ class InfoGraphicActivity : AppCompatActivity() {
      *
      * @param event The MotionEvent generated when a touch event is detected.
      *
-     * @return True if the gesture detector handled the event (because it was a touch gesture), or false if it was not
-     * and the function this function overrides handles it.
+     * @return True if the gesture detector handled the event (because it was a touch gesture), or the value of the
+     * super function otherwise.
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
