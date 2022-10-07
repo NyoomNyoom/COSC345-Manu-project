@@ -154,7 +154,7 @@ class QuizActivity : AppCompatActivity() {
             button.startAnimation(answerOptionAppear)
         }
 
-        // Set buttons to not be clickable
+        // Set buttons to be clickable
         btn_opt_0.isClickable = true
         btn_opt_1.isClickable = true
         btn_opt_2.isClickable = true
@@ -294,6 +294,12 @@ class QuizActivity : AppCompatActivity() {
 
         // Increment the progress bar.
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+
+        //set the buttons to not be clickable.
+        btn_opt_0.isClickable = false
+        btn_opt_1.isClickable = false
+        btn_opt_2.isClickable = false
+        btn_opt_3.isClickable = false
     }
 
     /**
