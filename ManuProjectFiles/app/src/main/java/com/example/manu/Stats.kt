@@ -5,9 +5,7 @@
 package com.example.manu
 
 /**
- * A class that makes an object of type Stats.
- *
- * @author Jackson North
+ * A class representing a record in the player's stats database.
  *
  * @param questionTypeIn the questionType the stats are for.
  * @param numQuestionsIn the length of the quiz.
@@ -36,7 +34,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @param valueIn the quantity of games played.
      */
-    fun updateTotalPlayed(valueIn: Int){
+    fun updateTotalPlayed(valueIn: Int) {
         totalPlayed += valueIn
     }
 
@@ -45,7 +43,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @return questionType The type of quiz requested.
      */
-    fun getQuestionType(): QuestionType{
+    fun getQuestionType(): QuestionType {
         return questionType
     }
 
@@ -63,7 +61,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @return numRight the total number of questions the user got right for the question.
      */
-    fun getNumRight(): Int{
+    fun getNumRight(): Int {
         return numRight
     }
 
@@ -72,7 +70,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @return totalPlayed the total number of questions the user played.
      */
-    fun getTotalPlayed(): Int{
+    fun getTotalPlayed(): Int {
         return totalPlayed
     }
 
@@ -81,7 +79,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @return numRight/totalPlayed The average score.
      */
-    fun getAverage(): Int{
+    fun getAverage(): Int {
         if (totalPlayed == 0) {
             return 0
         }
@@ -90,9 +88,9 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
     }
 
     /**
-     * Resets the totalPlayed and numRight back to 0
+     * Resets the totalPlayed and numRight back to 0.
      */
-    fun resetValues(){
+    fun resetValues() {
         totalPlayed = 0
         numRight = 0
     }
@@ -102,7 +100,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
      *
      * @return totalPlayed%numQuestions The total number of questions.
      */
-    fun getTotalQuizzesPlayed(): Int{
+    fun getTotalQuizzesPlayed(): Int {
         if (numQuestions == 0) {
             return 0
         }

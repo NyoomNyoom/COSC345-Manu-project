@@ -93,7 +93,7 @@ class StatsActivity : AppCompatActivity() {
     /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
      */
-     fun getAllValues(){
+     fun getAllValues() {
         val returned = StatsAdapter.getPlayerStats(this)
         for (va in returned) {
             Log.d("StatsActivity", va.toString())

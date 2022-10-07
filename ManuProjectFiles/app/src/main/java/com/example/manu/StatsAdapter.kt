@@ -192,6 +192,8 @@ class StatsAdapter {
          * Returns the stats regarding the inputted question type.
          *
          * @param questionTypeIn the question type stats being retrieved.
+         *
+         * @return A Stats object containing data on the desired QuestionType (i.e., desired quiz type).
          */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats

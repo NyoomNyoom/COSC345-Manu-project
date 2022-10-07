@@ -706,6 +706,9 @@ class ExampleUnitTest {
         // Does not assertEquals because this is not a proper test.
     }
 
+    /**
+     * Tests whether QuestionTypeConverter appropriately converts (both ways) between QuestionType and Int values.
+     */
     @Test
     fun questionTypeAndIntConverter() {
         // PHOTO is represented by 0, hence it is in index 0 of this list. This logic applies to all QuestionTypes.
