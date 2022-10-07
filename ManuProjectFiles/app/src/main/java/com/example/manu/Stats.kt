@@ -1,6 +1,8 @@
-package com.example.manu
+/**
+ * @author Jackson North
+ */
 
-//import android.util.Log
+package com.example.manu
 
 /**
  * A class that makes an object of type Stats.

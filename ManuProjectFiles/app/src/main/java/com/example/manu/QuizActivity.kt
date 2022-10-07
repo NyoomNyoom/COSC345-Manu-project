@@ -209,6 +209,8 @@ class QuizActivity : AppCompatActivity() {
                 /**
                  * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
                  * time, with the instructions to do nothing.
+                 *
+                 * @param millisUntilFinished The number of milliseconds until the timer expires.
                  */
                 override fun onTick(millisUntilFinished: Long) {}
 
@@ -237,6 +239,7 @@ class QuizActivity : AppCompatActivity() {
                         }
                     }
                 }
+
             }.start()
         }
 
@@ -286,13 +289,27 @@ class QuizActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
 
+        /**
+         * Creates a short delay after this button is pressed to prevent the click being detected, and acted upon,
+         * twice.
+         */
         object : CountDownTimer(300, 100) {
 
+            /**
+             * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
+             * time, with the instructions to do nothing.
+             *
+             * @param millisUntilFinished The number of milliseconds until the timer expires.
+             */
             override fun onTick(millisUntilFinished: Long) {}
 
+            /**
+             * Is called when the timer expires. This function allows the button to be pressed again.
+             */
             override fun onFinish() {
                 btn_back.isClickable = true
             }
+
         }.start()
     }
 
