@@ -11,8 +11,14 @@ import android.content.res.Resources
  */
 class BirdDatabase {
 
+    /**
+     * Contains the bird database and handles queries to it.
+     */
     companion object {  // Makes its embedded functions static.
 
+        /**
+         * The bird database's central structure, a list of all birds.
+         */
         private lateinit var birds: ArrayList<Bird>
 
         /**
@@ -56,6 +62,8 @@ class BirdDatabase {
 
         /**
          * Returns all birds which have the specified resource listed.
+         *
+         * @param resourceType The type of resource to look for in each Bird object.
          *
          * @return A list of all birds which have the specified resource listed.
          */
@@ -129,6 +137,8 @@ class BirdDatabase {
         /**
          * Given a resource ID, this method will return the bird which possesses this resource. This works because no
          * two birds share any resource.
+         *
+         * @param resourceId The resource ID to search for in each Bird object.
          *
          * @return The name of the bird that owns that resource.
          */
