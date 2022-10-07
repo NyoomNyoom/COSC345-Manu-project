@@ -56,6 +56,7 @@ class InfographicPopupActivity : Activity() {
         val songResourceId = intent.getIntExtra("songResourceId", Resources.ID_NULL)
         if (songResourceId != Resources.ID_NULL) {
             mediaPlayer = MediaPlayer.create(this, songResourceId)
+            mediaPlayer.isLooping = true
             mediaPlayer.start()
             hasBirdSong = true
         }
