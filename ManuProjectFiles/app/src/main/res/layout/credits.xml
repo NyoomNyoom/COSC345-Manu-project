@@ -138,7 +138,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Auckland\nIsland Teal"
+                        android:text="Auckland\nIsland Teal\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -166,7 +166,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Australasian\nBittern"
+                        android:text="Australasian\nBittern\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -193,7 +193,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Bellbird"
+                        android:text="Bellbird\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -220,7 +220,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Black Stilt"
+                        android:text="Black Stilt\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -247,7 +247,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Chatham\nIsland\nOystercatcher"
+                        android:text="Chatham\nIsland\nOystercatcher\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -274,7 +274,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Grey\nWarbler"
+                        android:text="Grey\nWarbler\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -301,7 +301,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Hutton's\nShearwater"
+                        android:text="Hutton's\nShearwater\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -328,7 +328,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Kākāpō"
+                        android:text="Kākāpō\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -355,7 +355,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Kōkako"
+                        android:text="Kōkako\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -382,7 +382,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Morepork"
+                        android:text="Morepork\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -409,7 +409,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="NZ Dotterel"
+                        android:text="NZ Dotterel\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -436,7 +436,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="NZ Falcon"
+                        android:text="NZ Falcon\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -463,7 +463,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="NZ Pigeon"
+                        android:text="NZ Pigeon\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -490,7 +490,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Orange\nFronted\nParakeet"
+                        android:text="Orange\nFronted\nParakeet\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -517,7 +517,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Rock Wren"
+                        android:text="Rock Wren\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -544,7 +544,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Stitchbird"
+                        android:text="Stitchbird\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -571,7 +571,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Takahē"
+                        android:text="Takahē\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -598,7 +598,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Tūī"
+                        android:text="Tūī\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -625,7 +625,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Weka"
+                        android:text="Weka\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -652,7 +652,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Westland\nBlack Petrel"
+                        android:text="Westland\nBlack Petrel\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -679,7 +679,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="White Heron"
+                        android:text="White Heron\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -706,7 +706,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Whitehead"
+                        android:text="Whitehead\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -733,7 +733,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Yellow Eyed\nPenguin"
+                        android:text="Yellow Eyed\nPenguin\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
@@ -760,7 +760,7 @@
                 <TableRow android:gravity="center" >
 
                     <TextView
-                        android:text="Yellowhead"
+                        android:text="Yellowhead\n(Adapted)"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textSize="22sp"
