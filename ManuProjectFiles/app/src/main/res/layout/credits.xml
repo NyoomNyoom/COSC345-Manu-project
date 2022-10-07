@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width = "match_parent"
-    android:layout_height = "match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType = "centerCrop"
-        android:src = "@drawable/fern_alt">
-    </ImageView>
+        android:src = "@drawable/fern_alt" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="75sp"
+        android:backgroundTint="@color/black" />
+
+    <TextView
+        android:id="@+id/CreditsTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Credits"
+        android:textSize="42sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/party_confetti_regular"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="20sp"
+        android:translationZ="2sp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_quit"
+        android:id="@+id/btn_back"
         android:layout_width="50sp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30sp"
@@ -22,56 +40,811 @@
         android:textSize="30sp"
         android:textColor="@color/white"
         android:backgroundTint="@color/black"
-        android:gravity="center"
         android:layout_gravity="right"
-        android:layout_marginEnd="10sp"
-        android:layout_marginTop="10sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginTop="12sp"
         app:cornerRadius="7sp"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1sp"
         android:fontFamily="@font/party_confetti_regular"
-        />
+        app:strokeColor="@color/white"
+        app:strokeWidth="1sp" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        tools:context=".MainActivity" >
 
-        <TextView android:id="@+id/credit_title"
-            android:layout_width="match_parent"
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="110sp"
-            android:textColor="#FFFFFF"
-            android:fontFamily="@font/party_confetti_regular"
-            android:gravity="center"
-            android:text="credits"
-            android:layout_marginBottom="20sp"
-            />
+            android:layout_marginTop="75sp"
 
-        <TextView android:id="@+id/doc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:textColor="#FFFFFF"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="Bird Audio Source:\nDepartment of Conservation"
-            android:layout_marginBottom="20sp"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
 
-        <TextView android:id="@+id/photos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:textColor="#FFFFFF"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="Photos:\nDepartment of Conservation"
-            android:layout_marginBottom="20sp"
-            />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="100sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" >
+
+                <TableRow
+                    android:layout_marginTop="20sp"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:text="Creators"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="15sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:text="Madeline McCane\nJackson North\nDaniel Robinson\nWill Rushton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Audio\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="15sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/doc_link"
+                        android:text="@string/doc_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="15sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TextView
+                    android:text="Photos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/party_confetti_regular"
+                    android:layout_marginTop="30sp" />
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Auckland\nIsland Teal\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/ait_link"
+                        android:text="@string/ait_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp"/>
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Australasian\nBittern\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/a_bittern_link"
+                        android:text="@string/a_bittern_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp"/>
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Bellbird\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/bellbird_link"
+                        android:text="@string/bellbird_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp"/>
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Black Stilt\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/black_stilt_link"
+                        android:text="@string/black_stilt_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Chatham\nIsland\nOystercatcher\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/oystercatcher_link"
+                        android:text="@string/oystercatcher_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Grey\nWarbler\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/grey_warbler_link"
+                        android:text="@string/grey_warbler_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Hutton's\nShearwater\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/shearwater_link"
+                        android:text="@string/shearwater_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Kākāpō\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/kakapo_link"
+                        android:text="@string/kakapo_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Kōkako\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/kokako_link"
+                        android:text="@string/kokako_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Morepork\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/morepork_link"
+                        android:text="@string/morepork_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="NZ Dotterel\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/nz_dotterel_link"
+                        android:text="@string/nz_dotterel_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="NZ Falcon\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/nz_falcon_link"
+                        android:text="@string/nz_falcon_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="NZ Pigeon\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/nz_pigeon_link"
+                        android:text="@string/nz_pigeon_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Orange\nFronted\nParakeet\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/orange_parakeet_link"
+                        android:text="@string/orange_parakeet_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Rock Wren\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/rock_wren_link"
+                        android:text="@string/rock_wren_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Stitchbird\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/stitchbird_link"
+                        android:text="@string/stitchbird_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Takahē\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/takahe_link"
+                        android:text="@string/takahe_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Tūī\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/tui_link"
+                        android:text="@string/tui_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Weka\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/weka_link"
+                        android:text="@string/weka_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Westland\nBlack Petrel\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/westland_petrel_link"
+                        android:text="@string/westland_petrel_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="White Heron\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/white_heron_link"
+                        android:text="@string/white_heron_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Whitehead\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/whitehead_link"
+                        android:text="@string/whitehead_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Yellow Eyed\nPenguin\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/yellow_eyed_link"
+                        android:text="@string/yellow_eyed_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TableRow android:gravity="center" >
+
+                    <TextView
+                        android:text="Yellowhead\n(Adapted)"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:translationZ="2sp" />
+
+                    <TextView
+                        android:id="@+id/yellowhead_link"
+                        android:text="@string/yellowhead_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginLeft="20sp"
+                        android:layout_marginBottom="10sp" />
+
+                </TableRow>
+
+                <TextView
+                    android:text="Licenses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="40sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/party_confetti_regular"
+                    android:layout_marginTop="30sp" />
 
 
-</LinearLayout>
+                    <TextView
+                        android:id="@+id/by_2_link"
+                        android:text="@string/by_2_link"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"
+   />
 
+                    <TextView
+                        android:id="@+id/by_4_link"
+                        android:text="@string/by_4_link"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp" />
+
+                    <TextView
+                        android:id="@+id/by_sa_2_link"
+                        android:text="@string/by_sa_2_link"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp" />
+
+                    <TextView
+                        android:id="@+id/by_sa_4_link"
+                        android:text="@string/by_sa_4_link"
+                        android:textAlignment="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="22sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/oswald_light"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp" />
+
+            </TableLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

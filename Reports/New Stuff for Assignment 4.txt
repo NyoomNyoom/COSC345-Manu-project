@@ -1,0 +1,1 @@
+We have fixed a lot of bugs especially involving audio.

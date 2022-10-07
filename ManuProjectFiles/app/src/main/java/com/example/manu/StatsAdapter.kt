@@ -1,16 +1,26 @@
+/**
+ * @author Jackson North
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Context
+import android.preference.PreferenceManager
+import android.util.Log
 import java.io.*
+import kotlin.math.roundToInt
 
 /**
- * A class to handle the file handling and compiles a list of stats from the file.
- *
- * @author Jackson North
+ * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
  */
 class StatsAdapter {
 
-    companion object{
+    /**
+     * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
+     */
+    companion object {
+
         private lateinit var stats: MutableList<Stats>
 
         /**
@@ -18,15 +28,15 @@ class StatsAdapter {
          * a list from the file in our directory. If the file exists the function just calls compileStats to create a
          * list from the given file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        fun makeFile(context: Context){
+        fun makeFile(context: Context) {
             val path = context.filesDir
             val fileName = "stats.txt"
             var file = File(path, fileName)
             var fileExists = file.exists()
 
-            if(fileExists){
+            if (fileExists) {
                 compileStats(context)
             } else {
                 try {
@@ -61,7 +71,7 @@ class StatsAdapter {
                         }
                     }
                     saveToFile(context)
-                }catch(e: IOException){
+                } catch(e: IOException) {
                     println(e)
                 }
             }
@@ -71,9 +81,9 @@ class StatsAdapter {
         /**
          * A function to compile a list of stats from an existing file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        private fun compileStats(context: Context){
+        private fun compileStats(context: Context) {
             stats = mutableListOf<Stats>()
             lateinit var questionType: QuestionType
 
@@ -114,20 +124,28 @@ class StatsAdapter {
          * @param numQuestions The number to increase the number of questions played.
          * @param numCorrect The amount of correct questions to increase the numCorrect value.
          */
-        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
-
-
-            if(questionType == QuestionType.PHOTO){
+        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int) {
+            if (questionType == QuestionType.PHOTO){
                 stats[0].updateNumRight(numCorrect)
                 stats[0].updateTotalPlayed(numQuestions)
-            }else if(questionType == QuestionType.SOUND){
+                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+                val editor = preferences.edit()
+                val photoGames = preferences.getInt("photoQuizzesPlayed", 0)
+                val photoCorrect = preferences.getInt("photoQuizQuestionsCorrect", 0)
+                var playerStats = getPlayerStats(context)
+                playerStats[0] = playerStats[0] + 1
+                playerStats[1] = playerStats[1] + numCorrect
+                editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
+                editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
+                editor.commit()
+            } else if(questionType == QuestionType.SOUND) {
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.MAORI){
+            } else if(questionType == QuestionType.MAORI) {
                 stats[2].updateNumRight(numCorrect)
                 stats[2].updateTotalPlayed(numQuestions)
-            }else if(questionType == QuestionType.ENGLISH){
+            } else if(questionType == QuestionType.ENGLISH) {
                 stats[3].updateNumRight(numCorrect)
                 stats[3].updateTotalPlayed(numQuestions)
             }
@@ -143,7 +161,7 @@ class StatsAdapter {
          *
          * @param context The app context to handle the file management.
          */
-        fun saveToFile(context: Context){
+        fun saveToFile(context: Context) {
             var path = context.filesDir
 
             try {
@@ -152,7 +170,7 @@ class StatsAdapter {
                     writer.write(it.toString().toByteArray())
                 }
                 writer.close()
-            }catch(e: IOException){
+            } catch(e: IOException) {
                 e.printStackTrace()
             }
         }
@@ -160,9 +178,9 @@ class StatsAdapter {
         /**
          * Resets the values of the user stats within the file.
          *
-         * aram context The app context to handle the file management.
+         * @param context The app context to handle the file management.
          */
-        fun resetValues(context: Context){
+        fun resetValues(context: Context) {
             stats.forEach {
                 it.resetValues()
             }
@@ -173,7 +191,9 @@ class StatsAdapter {
         /**
          * Returns the stats regarding the inputted question type.
          *
-         *  @param questionTypeIn the question type stats being retrieved.
+         * @param questionTypeIn the question type stats being retrieved.
+         *
+         * @return A Stats object containing data on the desired QuestionType (i.e., desired quiz type).
          */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
@@ -188,51 +208,107 @@ class StatsAdapter {
         }
 
         /**
-         * Encrypts or decrypts an input string according to a key held in the function.
+         * Retrieves and returns a list of the player's stats.
          *
-         * @param input The string to encrypt/decrypt.
-         * @param direction 1 to encrypt, or -1 to decrypt.
+         * @param context The AppCompatActivity context calling this function.
          *
-         * @return The encrypted or decrypted input.
+         * @return A list containing the player's stats. The list contains eight entries to be read in pairs. Each pair
+         * contains the number of quizzes played, and the total number of questions answered correctly. There are four
+         * pairs, one for each quiz type.
          */
-        private fun cipher(input: String, direction: Int): String {
-            val key = "345"
-            val strength = 3  // The amount to multiply digits in the key by when altering characters.
-            var output = ""
+        fun getPlayerStats(context: Context): ArrayList<Int> {
+            var playerStatsInts: ArrayList<Int> = ArrayList(8)
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
 
-            /*
-                For each character in the input, find the corresponding character in the key, turn the key's character
-                into a digit, multiply that digit by the strength, and add this value to the input's character. This is
-                the new character for the ciphertext. The direction can be 1 (to perform the operation) or -1 (to undo
-                the operation).
-             */
-            for (index in input.indices) {
-                output += input[index] + (key[index % key.length].digitToInt() * direction * strength)
+            playerStatsInts.add(preferences.getInt("numPhotoQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numPhotoQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numSoundQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numEnglishQuestionsCorrect", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuizzesPlayed", 0))
+            playerStatsInts.add(preferences.getInt("numMaoriQuestionsCorrect", 0))
+
+            return playerStatsInts
+        }
+
+        /**
+         * Call this function when you complete a quiz. It takes a quiz score and merges it with the current player
+         * quiz stats.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         * @param quizType The type of quiz completed.
+         * @param score The score attained during the quiz.
+         */
+        fun submitScore(context: Context, quizType: QuestionType, score: Int) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+
+            if (quizType == QuestionType.PHOTO) {
+                val oldTotalPlayed = preferences.getInt("numPhotoQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numPhotoQuestionsCorrect", 0)
+                editor.putInt("numPhotoQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numPhotoQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.SOUND) {
+                val oldTotalPlayed = preferences.getInt("numSoundQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numSoundQuestionsCorrect", 0)
+                editor.putInt("numSoundQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numSoundQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.ENGLISH) {
+                val oldTotalPlayed = preferences.getInt("numEnglishQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numEnglishQuestionsCorrect", 0)
+                editor.putInt("numEnglishQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numEnglishQuestionsCorrect", oldTotalCorrect + score)
+            } else if (quizType == QuestionType.MAORI) {
+                val oldTotalPlayed = preferences.getInt("numMaoriQuizzesPlayed", 0)
+                val oldTotalCorrect = preferences.getInt("numMaoriQuestionsCorrect", 0)
+                editor.putInt("numMaoriQuizzesPlayed", oldTotalPlayed + 1)
+                editor.putInt("numMaoriQuestionsCorrect", oldTotalCorrect + score)
             }
 
-            return output
+            editor.commit()
         }
 
         /**
-         * Encrypts a string.
+         * Resets all stored player stats values.
          *
-         * @param input The string to encrypt.
-         *
-         * @return The encrypted string.
+         * @param context The AppCompatActivity context calling this function.
          */
-        fun encrypt(input: String): String {
-            return cipher(input, 1)
+        fun resetStats(context: Context) {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor = preferences.edit()
+
+            editor.putInt("numPhotoQuizzesPlayed", 0)
+            editor.putInt("numPhotoQuestionsCorrect", 0)
+            editor.putInt("numSoundQuizzesPlayed", 0)
+            editor.putInt("numSoundQuestionsCorrect", 0)
+            editor.putInt("numEnglishQuizzesPlayed", 0)
+            editor.putInt("numEnglishQuestionsCorrect", 0)
+            editor.putInt("numMaoriQuizzesPlayed", 0)
+            editor.putInt("numMaoriQuestionsCorrect", 0)
+
+            editor.commit()
         }
 
         /**
-         * Decrypts a string.
+         * Rounds a Float to the specified number of decimal places.
          *
-         * @param input The string to decrypt.
+         * @param float The Float to round.
+         * @param decimals The number of decimals to retain.
          *
-         * @return The decrypted string.
+         * @return The provided Float rounded to the specified number of decimal places.
          */
-        fun decrypt(input: String): String {
-            return cipher(input, -1)
+        fun round(float: Float, decimals: Int): Double {
+            Log.d("StatsAdapter", float.toString())
+            var multiplier = 10.0
+
+            for (i in 2..decimals) {
+                multiplier *= 10.0
+            }
+
+            return (float * multiplier).roundToInt() / multiplier
         }
+
     }
+
 }

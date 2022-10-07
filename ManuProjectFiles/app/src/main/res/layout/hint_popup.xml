@@ -17,15 +17,15 @@
 
     <LinearLayout
         android:layout_width="250sp"
-        android:layout_height="185sp"
+        android:layout_height="225sp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
         >
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="250sp"
-            android:layout_height="175sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:cardCornerRadius="7sp"
             app:strokeWidth="1sp"
             app:strokeColor="@color/white"
@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Here's a hint!"
+                android:text="Hint"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:layout_centerVertical="true"
@@ -43,22 +43,23 @@
                 android:theme="@style/Theme.Manu.ReturnToMenuPopup"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginBottom="65sp"
+                android:layout_marginBottom="77sp"
                 android:fontFamily="@font/party_confetti_regular"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="You can swipe left and right to access the quiz options and encyclopedia of birds."
+                android:text="You can swipe left and right to access the encyclopedia and the quizzes."
                 android:textColor="@color/white"
                 android:textSize="19sp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:theme="@style/Theme.Manu.ReturnToMenuPopup"
-                android:layout_marginBottom = "15sp"
+                android:layout_marginBottom = "10sp"
                 android:gravity="center"
                 android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -69,13 +70,13 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textSize="15sp"
-                android:layout_marginTop="50sp"
+                android:layout_marginTop="70sp"
                 android:backgroundTint="@color/black"
                 android:textColor="@color/white"
                 app:strokeWidth="1sp"
                 app:strokeColor="@color/white"
                 android:textStyle="italic"
-                android:layout_marginBottom="5sp"
+                android:layout_marginBottom="1sp"
                 app:cornerRadius="7sp"
                 />
 

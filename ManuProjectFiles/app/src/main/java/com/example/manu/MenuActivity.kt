@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -17,6 +18,7 @@ import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_menu.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 
 /**
  * Runs and displays the main menu.
@@ -25,7 +27,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
-    private var mediaPlayer = MediaPlayer()
+    private var soundFlag: Boolean = false
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -47,15 +49,18 @@ class MenuActivity : AppCompatActivity() {
         gestureDetector = GestureDetectorCompat(this, GestureListener())
         loadAnimations()
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
-        mediaPlayer.start()
+        soundFlag = intent.getBooleanExtra("soundFlag", false)
+        if (soundFlag == false) {
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        }
 
         btn_play.setOnClickListener {
             btn_play.startAnimation(buttonPress)
-            val intent = Intent(this, QuizOptionsActivity::class.java)
+            var intent = Intent(this, QuizOptionsActivity::class.java)
+            intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            finishAndAudio()
+            finish()
         }
 
         btn_infographics.setOnClickListener {
@@ -63,7 +68,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, InfoGraphicActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-            finishAndAudio()
+            finish()
         }
 
         btn_statistics.setOnClickListener {
@@ -71,7 +76,7 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finishAndAudio()
+            finish()
         }
 
         btn_credits.setOnClickListener{
@@ -79,20 +84,26 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, CreditActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            finishAndAudio()
+            finish()
         }
 
         btn_help.setOnClickListener{
+            btn_help.isClickable = false
+
             btn_help.startAnimation(buttonPress)
             val intent = Intent(this, HintPopupActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-        }
-    }
 
-    private fun finishAndAudio(){
-        mediaPlayer.pause()
-        finish()
+            object : CountDownTimer(300, 100) {
+
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    btn_help.isClickable = true
+                }
+            }.start()
+        }
     }
 
     /**
@@ -104,18 +115,21 @@ class MenuActivity : AppCompatActivity() {
 
     /**
      * Executes code for swiping between screens.
+     *
+     * @param event The MotionEvent generated when the user touches/swipes the screen.
+     *
+     * @return True if the touch event was a gesture, or the value of the super function otherwise.
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
             true
-        }
-        else{
+        } else {
             super.onTouchEvent(event)
         }
     }
 
     /**
-     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent.
      */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
@@ -126,7 +140,7 @@ class MenuActivity : AppCompatActivity() {
          * Called when a fling is detected. This performs the calculations to decide whether the fling is an acceptable
          * gesture to change screens.
          *
-         * @param downEvent Not used.
+         * @param downEvent Used to calculate the x and y movements of the swipe.
          * @param moveEvent Reports object movement. Hold either absolute or relative movements and other data,
          * depending on the type of device.
          * @param velocityX The velocity in the left and right direction of the screen (in portrait mode).
@@ -143,7 +157,7 @@ class MenuActivity : AppCompatActivity() {
                 if (Math.abs(diffX) > SWIPE_THRESHOLD && Math.abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     if (diffX > 0 ){
                         // right swipe
-                        this@MenuActivity.transitionRight()
+                        this@MenuActivity.onSwipeRight()
                     } else {
                         // left swipe
                         this@MenuActivity.onSwipeLeft()
@@ -168,18 +182,41 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun transitionRight() {
+    /**
+     * Go to Infographics when screen is swiped right
+     */
+    private fun onSwipeRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-        finishAndAudio()
+        finish()
     }
 
+    /**
+     * Go to the quiz options when a left swiping gesture occurs.
+     */
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptionsActivity::class.java)
+        intent.putExtra("soundFlag", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-        finishAndAudio()
+        finish()
+    }
+
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    /**
+     * Resumes audio when the app is opened again.
+     */
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
     }
 
     /**
@@ -188,4 +225,5 @@ class MenuActivity : AppCompatActivity() {
     override fun onBackPressed() {
         return
     }
+
 }

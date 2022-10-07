@@ -14,30 +14,33 @@ class ExampleUnitTest {
     val numberQuizzes: Int = 100
 
     /**
-     * Checks no individual quiz contains a duplicate question.
+     * Checks no individual quiz contains a duplicate question. This iterates over all quiz types.
      */
     @Test
     fun noDuplicateQuestions() {
         BirdDatabase.compileDatabase()
         var duplicateQuestions: Boolean = false
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 10, 4)
 
-            for (question in questions) {
-                var occurrences: Int = 0
-                for (compareQuestion in questions) {
-                    if (compareQuestion == question)
-                        occurrences++
+                for (question in questions) {
+                    var occurrences: Int = 0
+                    for (compareQuestion in questions) {
+                        if (compareQuestion == question)
+                            occurrences++
+                    }
+                    if (occurrences != 1) {
+                        duplicateQuestions = true
+                        break
+                    }
                 }
-                if (occurrences != 1) {
-                    duplicateQuestions = true
+
+                if (duplicateQuestions)
                     break
-                }
             }
-
-            if (duplicateQuestions)
-                break
         }
 
         assertEquals(false, duplicateQuestions)
@@ -50,29 +53,32 @@ class ExampleUnitTest {
     fun noDuplicateOptions() {
         BirdDatabase.compileDatabase()
         var duplicateOptions: Boolean = false
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 5, 4)
 
-            for (question in questions) {
-                for (option in question.getOptions()) {
-                    var occurrences: Int = 0
-                    for (compareOption in question.getOptions()) {
-                        if (compareOption == option)
-                            occurrences++
+                for (question in questions) {
+                    for (option in question.getOptions()) {
+                        var occurrences: Int = 0
+                        for (compareOption in question.getOptions()) {
+                            if (compareOption == option)
+                                occurrences++
+                        }
+                        if (occurrences != 1) {
+                            duplicateOptions = true
+                            break
+                        }
                     }
-                    if (occurrences != 1) {
-                        duplicateOptions = true
+
+                    if (duplicateOptions)
                         break
-                    }
                 }
 
                 if (duplicateOptions)
                     break
             }
-
-            if (duplicateOptions)
-                break
         }
 
 
@@ -86,16 +92,19 @@ class ExampleUnitTest {
     @Test
     fun answerInOptions() {
         BirdDatabase.compileDatabase()
+        val quizTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
 
-        for (quiz in 1..numberQuizzes) {
-            val questions: ArrayList<Question> = QuizGenerator.generateQuiz(QuestionType.PHOTO, 5, 4)
+        for (quizType in quizTypes) {
+            for (quiz in 1..numberQuizzes) {
+                val questions: ArrayList<Question> = QuizGenerator.generateQuiz(quizType, 5, 4)
 
-            for (question in questions) {
-                val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
-                val answerIndex: Int = question.getAnswerIndex()
-                if (question.getOptions()[answerIndex] != answer) {
-                    assertEquals(true, false)  // Force a failed test.
-                    return
+                for (question in questions) {
+                    val answer: String = BirdDatabase.getNameUsingResourceId(question.getQuestionResourceId())
+                    val answerIndex: Int = question.getAnswerIndex()
+                    if (question.getOptions()[answerIndex] != answer) {
+                        assertEquals(true, false)  // Force a failed test.
+                        return
+                    }
                 }
             }
         }
@@ -605,7 +614,7 @@ class ExampleUnitTest {
     fun getTotalQuizzesPlayedZero(){
         val statsObj = Stats(QuestionType.PHOTO, 0, 9, 10)
 
-        assertEquals(0, statsObj.getTotalQuizzesPlayed())
+        assertEquals(1, statsObj.getTotalQuizzesPlayed())
     }
 
     /**
@@ -629,24 +638,7 @@ class ExampleUnitTest {
 
         statsObj.updateTotalPlayed(30)
 
-        assertEquals(40%10, statsObj.getTotalQuizzesPlayed())
-    }
-
-    /**
-     * Tests encryption for various inputs.
-     */
-    @Test
-    fun encryption() {
-        var plaintext = "123456789"
-        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
-        plaintext = "ajsbd8327g4r23u"
-        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
-        plaintext = "abcdefghijklmnopqrstuvwxyz"
-        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
-        plaintext = "HI"
-        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
-        plaintext = "\n2,3,4,\n"
-        assertEquals(true, StatsAdapter.decrypt(StatsAdapter.encrypt(plaintext)) == plaintext)
+        assertEquals(40/10, statsObj.getTotalQuizzesPlayed())
     }
 
     /**
@@ -712,6 +704,29 @@ class ExampleUnitTest {
         BirdDatabase.compileDatabase()
         val database = BirdDatabase()
         // Does not assertEquals because this is not a proper test.
+    }
+
+    /**
+     * Tests whether QuestionTypeConverter appropriately converts (both ways) between QuestionType and Int values.
+     */
+    @Test
+    fun questionTypeAndIntConverter() {
+        // PHOTO is represented by 0, hence it is in index 0 of this list. This logic applies to all QuestionTypes.
+        val questionTypes = listOf(QuestionType.PHOTO, QuestionType.SOUND, QuestionType.ENGLISH, QuestionType.MAORI)
+
+        // Check all QuestionType values line up with their respective integer.
+        for (questionType in questionTypes) {
+            assertEquals(questionTypes.indexOf(questionType), QuestionTypeConverter.questionTypeToInt(questionType))
+        }
+
+        // Check all integers are converted back to the correct QuestionType.
+        for (index in 0..3) {
+            assertEquals(questionTypes[index], QuestionTypeConverter.intToQuestionType(index))
+        }
+
+        // Test the invalid cases.
+        assertEquals(QuestionType.ALL, QuestionTypeConverter.intToQuestionType(-1))
+        assertEquals(-1, QuestionTypeConverter.questionTypeToInt(QuestionType.ALL))
     }
 
 }

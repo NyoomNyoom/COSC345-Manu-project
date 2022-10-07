@@ -7,6 +7,7 @@ package com.example.manu
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -20,7 +21,6 @@ import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
 import kotlinx.android.synthetic.main.quiz_options.*
 
-
 /**
  * Runs and displays the main menu.
  */
@@ -28,7 +28,7 @@ class QuizOptionsActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
-    private var mediaPlayer = MediaPlayer()
+    private var soundFlag = false
 
     /**
      * This is run when the class is instantiated. Hands control to either the infographic screen
@@ -43,8 +43,10 @@ class QuizOptionsActivity : AppCompatActivity() {
 
         gestureDetector = GestureDetectorCompat(this, GestureListener())
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.menu_ambience)
-        mediaPlayer.start()
+        soundFlag = intent.getBooleanExtra("soundFlag", false)
+        if (soundFlag == false) {
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        }
 
         // Hide the navigation and status bars.
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
@@ -57,58 +59,86 @@ class QuizOptionsActivity : AppCompatActivity() {
         // Set up all the buttons.
         btn_image.setOnClickListener {
             btn_image.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quiztype", "image")
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
+            quizTypeButtonListener(QuestionType.PHOTO)
         }
 
         btn_sound.setOnClickListener {
             btn_sound.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quiztype", "sound")
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.SOUND)
         }
 
         btn_to_maori.setOnClickListener {
             btn_to_maori.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quiztype", "english")
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.ENGLISH)
         }
 
         btn_to_eng.setOnClickListener {
             btn_to_eng.startAnimation(buttonPress)
-            val intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quiztype", "maori")
-            startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-            mediaPlayer.pause()
-            // Do nothing.
+            quizTypeButtonListener(QuestionType.MAORI)
         }
 
         btn_back_option.setOnClickListener{
+            btn_back_option.isClickable = false
+
             var intent = Intent(this, MenuActivity::class.java)
+            intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
-            mediaPlayer.pause()
+            finish()
+
+            /**
+             * Creates a short delay after this button is pressed to prevent the click being detected, and acted upon,
+             * twice.
+             */
+            object : CountDownTimer(300, 100) {
+
+                /**
+                 * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
+                 * time, with the instructions to do nothing.
+                 *
+                 * @param millisUntilFinished The number of milliseconds until the timer expires.
+                 */
+                override fun onTick(millisUntilFinished: Long) {}
+
+                /**
+                 * Is called when the timer expires. This function allows the button to be pressed again.
+                 */
+                override fun onFinish() {
+                    btn_back_option.isClickable = true
+                }
+
+            }.start()
         }
 
     }
 
+    /**
+     * Load button press animation
+     */
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
     /**
+     * Store the question type for the quiz and start the relevant activity.
+     *
+     * @param questionType The quiz type that the button represents.
+     */
+    private fun quizTypeButtonListener(questionType: QuestionType) {
+        val intent = Intent(this, QuizActivity::class.java)
+        intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(questionType))
+        startActivity(intent)
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+        AudioManager.pauseAudio()
+    }
+
+    /**
      * Executes code for swiping between screens.
+     *
+     * @param event The MotionEvent generated by the touch event (the user touching the screen).
+     *
+     * @return True if the gesture detector handled the event (because it was a touch gesture), or the value of the
+     * super function otherwise.
      */
     override fun onTouchEvent(event: MotionEvent): Boolean {
         return if (gestureDetector.onTouchEvent(event)) {
@@ -120,7 +150,7 @@ class QuizOptionsActivity : AppCompatActivity() {
     }
 
     /**
-     * Checks if the touch is a left or right swipe - is executed from onTouchEvent
+     * Checks if the touch is a left or right swipe - is executed from onTouchEvent.
      */
     inner class GestureListener : GestureDetector.SimpleOnGestureListener()
     {
@@ -128,6 +158,18 @@ class QuizOptionsActivity : AppCompatActivity() {
         private val SWIPE_THRESHOLD = 100
         private val SWIPE_VELOCITY_THRESHOLD = 100
 
+        /**
+         * Called when a fling is detected. This performs the calculations to decide whether the fling is an acceptable
+         * gesture to change screens.
+         *
+         * @param downEvent Used to calculate the x and y movements of the swipe.
+         * @param moveEvent Reports object movement. Hold either absolute or relative movements and other data,
+         * depending on the type of device.
+         * @param velocityX The velocity in the left and right direction of the screen (in portrait mode).
+         * @param velocityY The velocity in the up and down direction of the screen (in portrait mode).
+         *
+         * @return True if the fling was accepted and acted on as a gesture, or false if it was not.
+         */
         override fun onFling(downEvent: MotionEvent?, moveEvent: MotionEvent?, velocityX: Float, velocityY: Float): Boolean {
             var diffX = moveEvent?.x?.minus(downEvent!!.x) ?: 0.0F
             var diffY = moveEvent?.y?.minus(downEvent!!.y) ?: 0.0F
@@ -162,10 +204,27 @@ class QuizOptionsActivity : AppCompatActivity() {
     }
 
     /**
-     * Executes code for a right gesture going right to enter infographics.
+     * Pauses the audio when the app is quit or the screen closes.
+     */
+    override fun onPause() {
+        super.onPause()
+        AudioManager.pauseAudio()
+    }
+
+    /**
+     * Resumes audio when the app is opened again.
+     */
+    override fun onResume() {
+        super.onResume()
+        AudioManager.resumeAudio()
+    }
+
+    /**
+     * Executes code for a right gesture going left to go to the menu.
      */
     private fun onSwipeRight() {
         var intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("soundFlag", true)
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finish()

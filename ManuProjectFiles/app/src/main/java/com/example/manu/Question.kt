@@ -5,7 +5,7 @@
 package com.example.manu
 
 /**
- * A temporary question class.
+ * Represents a question and the required data.
  *
  * @param questionResourceId The question's resource ID.
  * @param options The possible answers.

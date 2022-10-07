@@ -11,8 +11,14 @@ import android.content.res.Resources
  */
 class BirdDatabase {
 
+    /**
+     * Contains the bird database and handles queries to it.
+     */
     companion object {  // Makes its embedded functions static.
 
+        /**
+         * The bird database's central structure, a list of all birds.
+         */
         private lateinit var birds: ArrayList<Bird>
 
         /**
@@ -36,7 +42,7 @@ class BirdDatabase {
             birds.add(Bird("New Zealand Dotterel", R.drawable.bird_new_zealand_dotterel, R.raw.nzdotterel, R.drawable.english_new_zealand_dotterel, R.drawable.maori_new_zealand_dotterel, "Tūturiwhatu",  "Recovering", "Due to common human interaction with Dotterel nests they have learnt to try distract intruders from their nest by performing ‘rat runs’ or pretending they’re injured. "))
             birds.add(Bird("New Zealand Falcon", R.drawable.bird_new_zealand_falcon, R.raw.nzfalcon, R.drawable.english_new_zealand_falcon, R.drawable.maori_new_zealand_falcon, "Kārearea", "Recovering", "The New Zealand falcon is capable of flying at speeds over 100 km/h, and can catch prey larger than itself. They hunt live prey, mainly by watching from a vantage point and making a fast direct flying attack and either striking or grasping the prey with their feet which are equipped with sharp talons."))
             birds.add(Bird("New Zealand Pigeon", R.drawable.bird_new_zealand_pigeon, R.raw.nzpigeon, R.drawable.english_new_zealand_pigeon, R.drawable.maori_new_zealand_pigeon, "Kererū", "Not Threatened", "They play a very important role in the survival of many of New Zealand’s native trees.  Due to extinctions of other large birds, they are now the only native bird that is able to eat the large fruit of many native trees, including taraire and karaka.  This means they are the only birds able to spread the seeds of these native trees."))
-            birds.add(Bird("North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, Resources.ID_NULL, R.drawable.english_north_island_brown_kiwi, R.drawable.maori_north_island_brown_kiwi, "Kiwi-nui", "Not Threatened", "Brown kiwi are flightless and nocturnal. During the day they rest in a burrow, hollow tree or log, or under thick vegetation and emerge shortly after nightfall."))
+            birds.add(Bird(" North Island Brown Kiwi", R.drawable.bird_north_island_brown_kiwi, Resources.ID_NULL, R.drawable.english_north_island_brown_kiwi, R.drawable.maori_north_island_brown_kiwi, "Kiwi-nui", "Not Threatened", "Brown kiwi are flightless and nocturnal. During the day they rest in a burrow, hollow tree or log, or under thick vegetation and emerge shortly after nightfall."))
             birds.add(Bird("Orange Fronted Parakeet", R.drawable.bird_orange_fronted_parakeet, R.raw.orangefrontedparakeet, R.drawable.english_orange_fronted_parakeet, R.drawable.maori_orange_fronted_parakeet, "Kākāriki karaka", "Nationally Critical", "The orange-fronted parakeet typically feeds in the canopy of NZ beech trees, but will also forage in low vegetation and on the ground. They are typically observed feeding in flocks of mixed species, eating various seeds, beech flowers, buds and invertebrates."))
             birds.add(Bird("Paradise Duck", R.drawable.bird_paradise_duck, R.raw.paradiseduck, R.drawable.english_paradise_duck, R.drawable.maori_paradise_duck, "Pūtangitangi","Not Threatened", "Paradise Ducks start breeding in their second or third year of life. They mate for life and return to the same nesting area every year."))
             birds.add(Bird("Pūkeko", R.drawable.bird_pukeko, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "", "Not Threatened", "Pukeko are capable fliers, as indicated by their presence on many offshore islands around New Zealand. However, their flying does appear awkward and laboured at times, especially when taking off and landing, and, given a choice, they seem to prefer to walk or run than fly."))
@@ -56,6 +62,8 @@ class BirdDatabase {
 
         /**
          * Returns all birds which have the specified resource listed.
+         *
+         * @param resourceType The type of resource to look for in each Bird object.
          *
          * @return A list of all birds which have the specified resource listed.
          */
@@ -82,6 +90,8 @@ class BirdDatabase {
          * Given the resource ID (which references the resource used as the question), this will return the name of the
          * matching bird.
          *
+         * @param resourceId The resource ID of the resource that our desired bird owns.
+         *
          * @return The name of the bird that owns that resource.
          */
         fun getNameUsingResourceId(resourceId: Int): String {
@@ -89,6 +99,10 @@ class BirdDatabase {
                 if (bird.getPhotoResourceId() == resourceId)
                     return bird.getBirdName()
                 else if (bird.getSongResourceId() == resourceId)
+                    return bird.getBirdName()
+                else if (bird.getEnglishNameImageResourceId() == resourceId)
+                    return bird.getMaoriName()  // Get the Māori name because the answer is the Māori name.
+                else if (bird.getMaoriNameImageResourceId() == resourceId)
                     return bird.getBirdName()
             }
 
@@ -120,15 +134,28 @@ class BirdDatabase {
             return birds
         }
 
-        /*fun getIndexUsingName(name: String): Int {
-            var matchingBird: Bird = null
+        /**
+         * Given a resource ID, this method will return the bird which possesses this resource. This works because no
+         * two birds share any resource.
+         *
+         * @param resourceId The resource ID to search for in each Bird object.
+         *
+         * @return The name of the bird that owns that resource.
+         */
+        fun getBirdUsingResourceId(resourceId: Int): Bird {
             for (bird in birds) {
-                if (bird.getBirdName() == name) {
-                    matchingBird = bird
-                }
+                if (bird.getPhotoResourceId() == resourceId)
+                    return bird
+                else if (bird.getSongResourceId() == resourceId)
+                    return bird
+                else if (bird.getEnglishNameImageResourceId() == resourceId)
+                    return bird
+                else if (bird.getMaoriNameImageResourceId() == resourceId)
+                    return bird
             }
-            return birds.indexOf(matchingBird)
-        }*/
+
+            return Bird("EMPTY_NAME", Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, Resources.ID_NULL, "EMPTY_MAORINAME","EMPTY_STATUS", "EMPTY_FACT")
+        }
 
         /**
          * Generates quizzes and calculates the frequency at which each bird in the database appears.

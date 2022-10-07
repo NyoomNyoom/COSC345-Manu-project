@@ -39,40 +39,33 @@ class QuizResultsActivity : AppCompatActivity() {
         // Collect the results that the quiz will pass through.
         val score: Int = intent.getIntExtra("score", -1)
         val totalQuestions: Int = intent.getIntExtra("totalQuestions", -1)
-        val quizType: String? = intent.getStringExtra("quizType")
-        lateinit var questionType: QuestionType
+        val quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
+        //lateinit var questionType: QuestionType
+
+        // Restart or resume the ambience music.
+        val soundFlag: Boolean = intent.getBooleanExtra("soundFlag", false)
+        if (!soundFlag)
+            AudioManager.playAudio(this, R.raw.menu_ambience)
+        else
+            AudioManager.resumeAudio()
 
         text_score.text = "$score / $totalQuestions"
 
-        if(quizType == "image"){
-            questionType = QuestionType.PHOTO
-        }else if(quizType == "sound"){
-            questionType = QuestionType.SOUND
-        }else if(quizType == "maori"){
-            questionType = QuestionType.MAORI
-        }else if(quizType == "english"){
-            questionType = QuestionType.ENGLISH
-        }
-
-        StatsAdapter.updateValues(this, questionType, totalQuestions, score)
+        StatsAdapter.submitScore(this, quizType, score)
 
         loadAnimations()
 
-        /*
-         * Play again.
-         */
+        // Play again.
         btn_play_again.setOnClickListener {
             btn_play_again.startAnimation(buttonPress)
             var intent = Intent(this, QuizActivity::class.java)
-            intent.putExtra("quiztype", quizType)
+            intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
             startActivity(intent)
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             finish()
         }
 
-        /*
-         * Go to the menu.
-         */
+        // Go to the menu.
         btn_menu.setOnClickListener {
             btn_menu.startAnimation(buttonPress)
             var intent = Intent(this, MenuActivity::class.java)
@@ -82,6 +75,9 @@ class QuizResultsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Load the button pressed animation
+     */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
