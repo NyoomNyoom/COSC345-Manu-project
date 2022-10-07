@@ -92,6 +92,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card0"
                         >
                         <ImageButton
                             android:id="@+id/imageButton0"
@@ -124,6 +125,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card1"
                         >
                         <ImageButton
                             android:id="@+id/imageButton1"
@@ -162,6 +164,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card2"
                         >
                         <ImageButton
                             android:id="@+id/imageButton2"
@@ -194,6 +197,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card3"
                         >
                         <ImageButton
                             android:id="@+id/imageButton3"
@@ -232,6 +236,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card4"
                         >
                         <ImageButton
                             android:id="@+id/imageButton4"
@@ -264,6 +269,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card5"
                         >
                         <ImageButton
                             android:id="@+id/imageButton5"
@@ -302,6 +308,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card6"
                         >
                         <ImageButton
                             android:id="@+id/imageButton6"
@@ -334,6 +341,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card7"
                         >
                         <ImageButton
                             android:id="@+id/imageButton7"
@@ -372,6 +380,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card8"
                         >
                         <ImageButton
                             android:id="@+id/imageButton8"
@@ -404,6 +413,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card9"
                         >
                         <ImageButton
                             android:id="@+id/imageButton9"
@@ -442,6 +452,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card10"
                         >
                         <ImageButton
                             android:id="@+id/imageButton10"
@@ -474,6 +485,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card11"
                         >
                         <ImageButton
                             android:id="@+id/imageButton11"
@@ -512,6 +524,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card12"
                         >
                         <ImageButton
                             android:id="@+id/imageButton12"
@@ -544,6 +557,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card13"
                         >
                         <ImageButton
                             android:id="@+id/imageButton13"
@@ -582,6 +596,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card14"
                         >
                         <ImageButton
                             android:id="@+id/imageButton14"
@@ -614,6 +629,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card15"
                         >
                         <ImageButton
                             android:id="@+id/imageButton15"
@@ -652,6 +668,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card16"
                         >
                         <ImageButton
                             android:id="@+id/imageButton16"
@@ -684,6 +701,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card17"
                         >
                         <ImageButton
                             android:id="@+id/imageButton17"
@@ -722,6 +740,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card18"
                         >
                         <ImageButton
                             android:id="@+id/imageButton18"
@@ -754,6 +773,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card19"
                         >
                         <ImageButton
                             android:id="@+id/imageButton19"
@@ -792,6 +812,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card20"
                         >
                         <ImageButton
                             android:id="@+id/imageButton20"
@@ -824,6 +845,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card21"
                         >
                         <ImageButton
                             android:id="@+id/imageButton21"
@@ -862,6 +884,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card22"
                         >
                         <ImageButton
                             android:id="@+id/imageButton22"
@@ -894,6 +917,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card23"
                         >
                         <ImageButton
                             android:id="@+id/imageButton23"
@@ -932,6 +956,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card24"
                         >
                         <ImageButton
                             android:id="@+id/imageButton24"
@@ -964,6 +989,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card25"
                         >
                         <ImageButton
                             android:id="@+id/imageButton25"
@@ -1002,6 +1028,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card26"
                         >
                         <ImageButton
                             android:id="@+id/imageButton26"
@@ -1034,6 +1061,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card27"
                         >
                         <ImageButton
                             android:id="@+id/imageButton27"
@@ -1072,6 +1100,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card28"
                         >
                         <ImageButton
                             android:id="@+id/imageButton28"
@@ -1104,6 +1133,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card29"
                         >
                         <ImageButton
                             android:id="@+id/imageButton29"
@@ -1142,6 +1172,7 @@
                         android:layout_marginRight="10sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card30"
                         >
                         <ImageButton
                             android:id="@+id/imageButton30"
@@ -1174,6 +1205,7 @@
                         app:cardCornerRadius="7sp"
                         app:strokeColor="@color/white"
                         app:strokeWidth="1sp"
+                        android:id="@+id/card31"
                         >
                         <ImageButton
                             android:id="@+id/imageButton31"

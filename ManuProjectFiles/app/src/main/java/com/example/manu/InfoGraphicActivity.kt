@@ -7,6 +7,7 @@ package com.example.manu
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
@@ -25,6 +26,7 @@ class InfoGraphicActivity : AppCompatActivity() {
 
     private lateinit var gestureDetector: GestureDetectorCompat
     private lateinit var buttonPress: Animation
+    private var cardViews: ArrayList<View> = ArrayList()
 
     /**
      * This is run when the class is instantiated. It sets up the encyclopedia screen.
@@ -56,6 +58,8 @@ class InfoGraphicActivity : AppCompatActivity() {
         var birds: ArrayList<Bird> = BirdDatabase.getBirdsWithResource(QuestionType.PHOTO)
         //var cardViews: ArrayList<MaterialCardView> = ArrayList()
 
+        storeCardViews()
+
         for(i in 0 until size){
             // Get bird image and add it to button
             allButtons[i].setBackgroundColor(Color.RED)
@@ -70,7 +74,9 @@ class InfoGraphicActivity : AppCompatActivity() {
             } // Sets the backgroundColor
 
             allButtons[i].setOnClickListener {
-                allButtons[i].startAnimation(buttonPress)
+                //allButtons[i].startAnimation(buttonPress)  // To animate image only, use this and delete next line.
+                cardViews[i].startAnimation(buttonPress)
+                
                 var intent = Intent(this, InfographicPopupActivity::class.java)
                 // Fill name and song and image
                 intent.putExtra("birdName", birds[i].getBirdName())
@@ -232,5 +238,44 @@ class InfoGraphicActivity : AppCompatActivity() {
      */
     override fun onBackPressed() {
         return
+    }
+
+    /**
+     * Stores all card views for easy indexing. This is clearly a poor way of doing this, but was easier than collecting
+     * all card
+     */
+    private fun storeCardViews() {
+        cardViews.add(card0)
+        cardViews.add(card1)
+        cardViews.add(card2)
+        cardViews.add(card3)
+        cardViews.add(card4)
+        cardViews.add(card5)
+        cardViews.add(card6)
+        cardViews.add(card7)
+        cardViews.add(card8)
+        cardViews.add(card9)
+        cardViews.add(card10)
+        cardViews.add(card11)
+        cardViews.add(card12)
+        cardViews.add(card13)
+        cardViews.add(card14)
+        cardViews.add(card15)
+        cardViews.add(card16)
+        cardViews.add(card17)
+        cardViews.add(card18)
+        cardViews.add(card19)
+        cardViews.add(card20)
+        cardViews.add(card21)
+        cardViews.add(card22)
+        cardViews.add(card23)
+        cardViews.add(card24)
+        cardViews.add(card25)
+        cardViews.add(card26)
+        cardViews.add(card27)
+        cardViews.add(card28)
+        cardViews.add(card29)
+        cardViews.add(card30)
+        cardViews.add(card31)
     }
 }
