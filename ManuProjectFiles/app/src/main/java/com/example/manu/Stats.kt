@@ -83,10 +83,7 @@ class Stats(questionTypeIn: QuestionType, numQuestionsIn: Int, numRightIn: Int, 
         if (totalPlayed == 0) {
             return 0
         }
-        //Log.d("Stats f", "" + questionType)
-        //Log.d("Stats f", "Average variable " + (numRight/totalPlayed))
-        //Log.d("Stats f", "Average forced " + (2/20))
-        //Log.d("Stats f", "number questions " + totalPlayed)
+
         return (numRight / totalPlayed)
     }
 

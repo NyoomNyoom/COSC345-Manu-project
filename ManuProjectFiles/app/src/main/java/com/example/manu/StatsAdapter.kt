@@ -13,6 +13,11 @@ import kotlin.math.roundToInt
  */
 class StatsAdapter {
 
+    /**
+     * A class to handle the file handling and compiles a list of stats from the file.
+     *
+     * @author Jackson North
+     */
     companion object{
         private lateinit var stats: MutableList<Stats>
 

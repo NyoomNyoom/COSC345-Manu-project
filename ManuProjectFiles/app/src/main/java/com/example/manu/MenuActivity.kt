@@ -166,6 +166,9 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Go to Infographics when screen is swiped right
+     */
     private fun onSwipeRight() {
         var intent = Intent(this, InfoGraphicActivity::class.java)
         startActivity(intent)
@@ -173,6 +176,9 @@ class MenuActivity : AppCompatActivity() {
         finish()
     }
 
+    /**
+     * Go to the quiz options when a left swiping gesture occurs.
+     */
     private fun onSwipeLeft() {
         var intent = Intent(this, QuizOptionsActivity::class.java)
         intent.putExtra("soundFlag", true)
@@ -181,11 +187,17 @@ class MenuActivity : AppCompatActivity() {
         finish()
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

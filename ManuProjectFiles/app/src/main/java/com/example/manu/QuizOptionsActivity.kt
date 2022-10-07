@@ -87,10 +87,16 @@ class QuizOptionsActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Load button press animation
+     */
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    /**
+     * Store the question type for the quiz and start the relevant activity.
+     */
     private fun quizTypeButtonListener(questionType: QuestionType) {
         val intent = Intent(this, QuizActivity::class.java)
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(questionType))
@@ -153,11 +159,17 @@ class QuizOptionsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

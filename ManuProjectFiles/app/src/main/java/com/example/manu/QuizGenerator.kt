@@ -11,6 +11,9 @@ import java.util.Random
  */
 class QuizGenerator {
 
+    /**
+     * Generates quizzes from the information in the birds database.
+     */
     companion object {
 
         val maxShuffles: Int = 10

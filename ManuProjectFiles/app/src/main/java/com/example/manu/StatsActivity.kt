@@ -138,15 +138,24 @@ class StatsActivity : AppCompatActivity() {
         maori_average.text = "Average Score: " + quizAverageScoreMaori
     }
 
+    /**
+     * Load the button press animation.
+     */
     private fun loadAndStoreAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

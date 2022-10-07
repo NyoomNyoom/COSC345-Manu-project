@@ -42,9 +42,7 @@ class QuizResultsActivity : AppCompatActivity() {
         val quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
         //lateinit var questionType: QuestionType
 
-        /*
-            Restart or resume the ambience music.
-         */
+        // Restart or resume the ambience music.
         val soundFlag: Boolean = intent.getBooleanExtra("soundFlag", false)
         if (!soundFlag)
             AudioManager.playAudio(this, R.raw.menu_ambience)
@@ -53,14 +51,11 @@ class QuizResultsActivity : AppCompatActivity() {
 
         text_score.text = "$score / $totalQuestions"
 
-        //StatsAdapter.updateValues(this, quizType, totalQuestions, score)
         StatsAdapter.submitScore(this, quizType, score)
 
         loadAnimations()
 
-        /*
-         * Play again.
-         */
+        // Play again.
         btn_play_again.setOnClickListener {
             btn_play_again.startAnimation(buttonPress)
             var intent = Intent(this, QuizActivity::class.java)
@@ -70,9 +65,7 @@ class QuizResultsActivity : AppCompatActivity() {
             finish()
         }
 
-        /*
-         * Go to the menu.
-         */
+        // Go to the menu.
         btn_menu.setOnClickListener {
             btn_menu.startAnimation(buttonPress)
             var intent = Intent(this, MenuActivity::class.java)
@@ -82,6 +75,9 @@ class QuizResultsActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Load the button pressed animation
+     */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }

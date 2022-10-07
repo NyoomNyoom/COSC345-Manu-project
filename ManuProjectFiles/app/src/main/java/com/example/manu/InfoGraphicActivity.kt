@@ -108,24 +108,6 @@ class InfoGraphicActivity : AppCompatActivity() {
 
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                // Create a pop up window and pass it the text information
-                /*val popupWindow = PopupWindow(this)
-                val popupView = layoutInflater.inflate(R.layout.info_graphic_popup, null)
-
-                try{
-                    popupView.fun_fact.text = birds[i].getFunFact()
-                    if (popupView.fun_fact.text == "") {
-                        popupView.fun_fact.text = "Oh no this fact wasn't found, someone should really get Will onto it..."
-                    }
-                } catch (e: Exception){
-                    popupView.fun_fact.text = "Oh no this fact wasn't found, someone should really get Will onto it..."
-                }
-
-                popupWindow.contentView = popupView
-                popupWindow.isOutsideTouchable = true
-                popupWindow.isFocusable = true
-                popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)*/
             }
         }
 
@@ -135,10 +117,13 @@ class InfoGraphicActivity : AppCompatActivity() {
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            //don't finish, saves reloading
+            //don't finish the activity, saves reloading
         }
     }
 
+    /**
+     * Add all the TextViews to the Infographic screen.
+     */
     fun getAllTextViews(v: View?): List<TextView>? {
         val result: MutableList<TextView> = ArrayList()
         if (v is ViewGroup) {
@@ -215,6 +200,9 @@ class InfoGraphicActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Returns to menu when left gesture initiatied.
+     */
     private fun onSwipeLeft() {
         var intent = Intent(this, MenuActivity::class.java)
         intent.putExtra("soundFlag", true)
@@ -223,11 +211,17 @@ class InfoGraphicActivity : AppCompatActivity() {
         finish()
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

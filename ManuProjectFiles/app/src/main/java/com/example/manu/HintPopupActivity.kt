@@ -41,6 +41,9 @@ class HintPopupActivity : Activity() {
         btn_close.setOnClickListener { closeHintPopup() }
     }
 
+    /**
+     * Returns to the main menu, and closes the hint.
+     */
     private fun closeHintPopup() {
         btn_close.startAnimation(buttonPress)
         finish()

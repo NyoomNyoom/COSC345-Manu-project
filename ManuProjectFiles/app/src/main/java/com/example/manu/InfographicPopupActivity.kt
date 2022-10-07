@@ -62,6 +62,9 @@ class InfographicPopupActivity : Activity() {
         }
     }
 
+    /**
+     * Closes the bird info, and stops the bird call. Returns to scrolling infographic.
+     */
     private fun closeInfographicPopup() {
         // Only pause a bird song if one is playing, otherwise the app crashes.
         if (hasBirdSong) {
@@ -73,12 +76,18 @@ class InfographicPopupActivity : Activity() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         if (hasBirdSong)
             mediaPlayer.pause()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         if (hasBirdSong)

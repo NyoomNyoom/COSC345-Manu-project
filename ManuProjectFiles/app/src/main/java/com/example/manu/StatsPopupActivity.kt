@@ -55,6 +55,9 @@ class StatsPopupActivity : Activity() {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
     }
 
+    /**
+     * Animates the yes button press and resets all stats to 0. Closes the popup.
+     */
     private fun yes_closePopup() {
         StatsAdapter.resetStats(this)
         btn_yes.startAnimation(buttonPress)

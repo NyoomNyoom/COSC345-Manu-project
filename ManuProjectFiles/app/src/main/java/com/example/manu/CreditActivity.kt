@@ -120,11 +120,17 @@ class CreditActivity : AppCompatActivity() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

@@ -233,6 +233,9 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Returns to the Menu. The Quiz is quit.
+     */
     private fun returnToMenu() {
         btn_back.startAnimation(buttonPress)
         AudioManager.pauseAudio()
@@ -249,9 +252,7 @@ class QuizActivity : AppCompatActivity() {
      */
     @SuppressLint("ResourceAsColor")
     private fun markAnswer() {
-        /*
-         * If correct.
-         */
+        // If correct.
         if (selectedOptionIndex == questions[currentQuestionIndex].getAnswerIndex()) {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
             optionButtons[selectedOptionIndex].startAnimation(answerPop)
@@ -260,9 +261,7 @@ class QuizActivity : AppCompatActivity() {
             mediaPlayer.start()
         }
 
-        /*
-         * If incorrect.
-         */
+        // If incorrect.
         else {
             optionButtons[selectedOptionIndex].setBackgroundColor(Color.parseColor(buttonIncorrectColourHex))
             optionButtons[questions[currentQuestionIndex].getAnswerIndex()].setBackgroundColor(Color.parseColor(buttonCorrectColourHex))
@@ -271,9 +270,7 @@ class QuizActivity : AppCompatActivity() {
             mediaPlayer.start()
         }
 
-        /*
-         * Display the correct bird's photo.
-         */
+        // Display the correct bird's photo.
         if (quizType == QuestionType.SOUND) {
             val imageResourceId = BirdDatabase.getBirdUsingResourceId(questions[currentQuestionIndex].getQuestionResourceId()).getPhotoResourceId()
             img_question.setImageResource(imageResourceId)
@@ -290,11 +287,17 @@ class QuizActivity : AppCompatActivity() {
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
     }
 
+    /**
+     * Pauses the audio when the app is quit or the screen closes.
+     */
     override fun onPause() {
         super.onPause()
         AudioManager.pauseAudio()
     }
 
+    /**
+     * Resumes audio when the app is opened again.
+     */
     override fun onResume() {
         super.onResume()
         AudioManager.resumeAudio()

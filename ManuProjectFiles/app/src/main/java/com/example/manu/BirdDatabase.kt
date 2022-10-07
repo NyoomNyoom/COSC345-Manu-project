@@ -126,16 +126,6 @@ class BirdDatabase {
             return birds
         }
 
-        /*fun getIndexUsingName(name: String): Int {
-            var matchingBird: Bird = null
-            for (bird in birds) {
-                if (bird.getBirdName() == name) {
-                    matchingBird = bird
-                }
-            }
-            return birds.indexOf(matchingBird)
-        }*/
-
         /**
          * Given a resource ID, this method will return the bird which possesses this resource. This works because no
          * two birds share any resource.
