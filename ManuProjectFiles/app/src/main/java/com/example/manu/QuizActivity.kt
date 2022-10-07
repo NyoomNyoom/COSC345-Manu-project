@@ -173,18 +173,35 @@ class QuizActivity : AppCompatActivity() {
 
     private fun submitButtonClickHandler() {
 
-        object : CountDownTimer(1400, 100) {
+        if(optionSelected) {
+            object : CountDownTimer(1600, 100) {
 
-            // Callback function, fired on regular interval
-            override fun onTick(millisUntilFinished: Long) {
-            }
+                override fun onTick(millisUntilFinished: Long) {}
 
-            // Callback function, fired
-            // when the time is up
-            override fun onFinish() {
-                presentQuestion(questions[currentQuestionIndex])
-            }
-        }.start()
+                override fun onFinish() {
+                    if(markedCurrentQuestion == true) {
+                        markedCurrentQuestion = false
+                        currentQuestionIndex++
+                        if (currentQuestionIndex == questions.size) {  // If this was the last question.
+                            var resultsScreen = Intent(this@QuizActivity, QuizResultsActivity::class.java)
+
+                            // Pass the score through to the results screen.
+                            resultsScreen.putExtra("score", score)
+                            resultsScreen.putExtra("totalQuestions", questions.size)
+                            resultsScreen.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
+                            resultsScreen.putExtra("soundFlag", quizType != QuestionType.SOUND)
+
+                            startActivity(resultsScreen)
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                            finish()
+                        } else {
+                            resetOptionButtons()
+                            presentQuestion(questions[currentQuestionIndex])
+                        }
+                    }
+                }
+            }.start()
+        }
 
         btn_submit.startAnimation(buttonPress)
         if (quizType == QuestionType.SOUND){
