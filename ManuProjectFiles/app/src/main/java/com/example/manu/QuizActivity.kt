@@ -244,6 +244,8 @@ class QuizActivity : AppCompatActivity() {
      * Returns to the Menu. The Quiz is quit.
      */
     private fun returnToMenu() {
+        btn_back.isClickable = false
+
         btn_back.startAnimation(buttonPress)
         AudioManager.pauseAudio()
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
@@ -251,7 +253,14 @@ class QuizActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
 
+        object : CountDownTimer(300, 100) {
 
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {
+                btn_back.isClickable = true
+            }
+        }.start()
     }
 
     /**
