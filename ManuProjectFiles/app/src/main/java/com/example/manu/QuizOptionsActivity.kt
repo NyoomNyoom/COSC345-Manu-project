@@ -7,6 +7,7 @@ package com.example.manu
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -78,11 +79,22 @@ class QuizOptionsActivity : AppCompatActivity() {
         }
 
         btn_back_option.setOnClickListener{
+            btn_back_option.isClickable = false
+
             var intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
             finish()
+
+            object : CountDownTimer(300, 100) {
+
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    btn_back_option.isClickable = true
+                }
+            }.start()
         }
 
     }

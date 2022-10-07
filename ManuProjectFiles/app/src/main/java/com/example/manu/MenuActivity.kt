@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -17,6 +18,7 @@ import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_menu.*
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 
 /**
  * Runs and displays the main menu.
@@ -86,10 +88,21 @@ class MenuActivity : AppCompatActivity() {
         }
 
         btn_help.setOnClickListener{
+            btn_help.isClickable = false
+
             btn_help.startAnimation(buttonPress)
             val intent = Intent(this, HintPopupActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+
+            object : CountDownTimer(300, 100) {
+
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    btn_help.isClickable = true
+                }
+            }.start()
         }
     }
 

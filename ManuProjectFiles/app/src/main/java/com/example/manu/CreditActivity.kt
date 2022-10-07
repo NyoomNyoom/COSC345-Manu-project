@@ -7,6 +7,7 @@ package com.example.manu
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.method.LinkMovementMethod
 import android.widget.TextView
 import android.view.View
@@ -14,7 +15,9 @@ import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.credits.*
+import kotlinx.android.synthetic.main.credits.btn_back
 
 /**
  * Loads and controls the credits screen.
@@ -43,12 +46,23 @@ class CreditActivity : AppCompatActivity() {
         loadButtonPressAnimation()
 
         btn_back.setOnClickListener {
+            btn_back.isClickable = false
+
             btn_back.startAnimation(buttonPress)
             val intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
+
+            object : CountDownTimer(300, 100) {
+
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    btn_back.isClickable = true
+                }
+            }.start()
         }
 
         // Declaring and Initializing the TextViews from the layout file
