@@ -153,6 +153,13 @@ class QuizActivity : AppCompatActivity() {
         for (button in optionButtons) {
             button.startAnimation(answerOptionAppear)
         }
+
+        // Set buttons to be clickable
+        btn_opt_0.isClickable = true
+        btn_opt_1.isClickable = true
+        btn_opt_2.isClickable = true
+        btn_opt_3.isClickable = true
+
     }
 
     private fun selectOption(optionNumber: Int) {
@@ -237,12 +244,23 @@ class QuizActivity : AppCompatActivity() {
      * Returns to the Menu. The Quiz is quit.
      */
     private fun returnToMenu() {
+        btn_back.isClickable = false
+
         btn_back.startAnimation(buttonPress)
         AudioManager.pauseAudio()
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+
+        object : CountDownTimer(300, 100) {
+
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {
+                btn_back.isClickable = true
+            }
+        }.start()
     }
 
     /**
@@ -285,6 +303,12 @@ class QuizActivity : AppCompatActivity() {
 
         // Increment the progress bar.
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+
+        //set the buttons to not be clickable.
+        btn_opt_0.isClickable = false
+        btn_opt_1.isClickable = false
+        btn_opt_2.isClickable = false
+        btn_opt_3.isClickable = false
     }
 
     /**
