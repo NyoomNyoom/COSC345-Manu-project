@@ -131,5 +131,8 @@ $dokka.location:com.example.manu/StatsAdapter.Companion/submitScore/#android.con
 $dokka.location:com.example.manu/StatsAdapter.Companion/updateValues/#android.content.Context#com.example.manu.QuestionType#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.example.manu/-stats-adapter/-companion/update-values.html
 $dokka.location:com.example.manu/StatsAdapter///PointingToDeclaration/app/com.example.manu/-stats-adapter/index.html
 $dokka.location:com.example.manu/StatsAdapter/StatsAdapter/#/PointingToDeclaration/app/com.example.manu/-stats-adapter/-stats-adapter.html
+$dokka.location:com.example.manu/StatsPopupActivity///PointingToDeclaration/app/com.example.manu/-stats-popup-activity/index.html
+$dokka.location:com.example.manu/StatsPopupActivity/StatsPopupActivity/#/PointingToDeclaration/app/com.example.manu/-stats-popup-activity/-stats-popup-activity.html
+$dokka.location:com.example.manu/StatsPopupActivity/onBackPressed/#/PointingToDeclaration/app/com.example.manu/-stats-popup-activity/on-back-pressed.html
 com.example.manu
 
