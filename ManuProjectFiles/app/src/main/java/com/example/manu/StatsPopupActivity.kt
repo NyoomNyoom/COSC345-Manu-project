@@ -61,9 +61,8 @@ class StatsPopupActivity : Activity() {
         AudioManager.resumeAudio()
         val intent = Intent(this, StatsActivity::class.java)
         startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
         finish()
-        //overridePendingTransition(R.anim.fade_in, R.anim.fade_out)  // Must occur after we close the popup.
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 
     /**

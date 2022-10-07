@@ -93,11 +93,6 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun finishAndAudio(){
-        AudioManager.pauseAudio()
-        finish()
-    }
-
     /**
      * Loads and stores the animations.
      */

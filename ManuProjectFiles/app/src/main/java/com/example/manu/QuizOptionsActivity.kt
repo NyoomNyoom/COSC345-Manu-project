@@ -82,6 +82,7 @@ class QuizOptionsActivity : AppCompatActivity() {
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+            finish()
         }
 
     }
@@ -96,7 +97,6 @@ class QuizOptionsActivity : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         AudioManager.pauseAudio()
-        // Do nothing.
     }
 
     /**

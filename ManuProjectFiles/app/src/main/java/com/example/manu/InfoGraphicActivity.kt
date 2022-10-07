@@ -129,6 +129,7 @@ class InfoGraphicActivity : AppCompatActivity() {
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            //don't finish, saves reloading
         }
     }
 

@@ -40,7 +40,7 @@ class QuizResultsActivity : AppCompatActivity() {
         val score: Int = intent.getIntExtra("score", -1)
         val totalQuestions: Int = intent.getIntExtra("totalQuestions", -1)
         val quizType = QuestionTypeConverter.intToQuestionType(intent.getIntExtra("quizType", -1))
-        lateinit var questionType: QuestionType
+        //lateinit var questionType: QuestionType
 
         /*
             Restart or resume the ambience music.
