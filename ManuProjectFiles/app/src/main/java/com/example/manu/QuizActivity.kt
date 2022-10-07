@@ -10,6 +10,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -171,6 +172,20 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun submitButtonClickHandler() {
+
+        object : CountDownTimer(1400, 100) {
+
+            // Callback function, fired on regular interval
+            override fun onTick(millisUntilFinished: Long) {
+            }
+
+            // Callback function, fired
+            // when the time is up
+            override fun onFinish() {
+                presentQuestion(questions[currentQuestionIndex])
+            }
+        }.start()
+
         btn_submit.startAnimation(buttonPress)
         if (quizType == QuestionType.SOUND){
             mediaPlayer.pause()
