@@ -153,6 +153,13 @@ class QuizActivity : AppCompatActivity() {
         for (button in optionButtons) {
             button.startAnimation(answerOptionAppear)
         }
+
+        // Set buttons to not be clickable
+        btn_opt_0.isClickable = true
+        btn_opt_1.isClickable = true
+        btn_opt_2.isClickable = true
+        btn_opt_3.isClickable = true
+
     }
 
     private fun selectOption(optionNumber: Int) {
@@ -243,6 +250,8 @@ class QuizActivity : AppCompatActivity() {
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+
+
     }
 
     /**
