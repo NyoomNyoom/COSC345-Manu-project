@@ -140,9 +140,6 @@ class QuizActivity : AppCompatActivity() {
         } else if (quizType == QuestionType.SOUND) {
             img_question.setImageResource(R.drawable.question_mark)
             AudioManager.playAudio(this, question.getQuestionResourceId())
-            //mediaPlayer = MediaPlayer.create(this, question.getQuestionResourceId())
-            //mediaPlayer.isLooping = true
-            //mediaPlayer.start()
         }
 
         val options = question.getOptions()
@@ -173,7 +170,7 @@ class QuizActivity : AppCompatActivity() {
 
     private fun submitButtonClickHandler() {
 
-        if(optionSelected) {
+        if (optionSelected) {
             object : CountDownTimer(1600, 100) {
 
                 override fun onTick(millisUntilFinished: Long) {}
