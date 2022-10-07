@@ -7,6 +7,7 @@ package com.example.manu
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.*
 import android.view.animation.Animation
@@ -16,7 +17,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
 import kotlinx.android.synthetic.main.info_graphic_activity.*
+import kotlinx.android.synthetic.main.info_graphic_activity.btn_back
 
 /**
  * Collects and adds the bird information into the infographic scene.
@@ -104,6 +107,31 @@ class InfoGraphicActivity : AppCompatActivity() {
                 } else {
                     intent.putExtra("endangerment", "Endangerment: " + birds[i].getEndangerment())
                 }
+
+                allButtons[i].isClickable = false // Make it un-clickable for a short while so you cannot double tap.
+
+                /**
+                 * Creates a short delay after this button is pressed to prevent the click being detected, and acted upon,
+                 * twice.
+                 */
+                object : CountDownTimer(300, 100) {
+
+                    /**
+                     * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
+                     * time, with the instructions to do nothing.
+                     *
+                     * @param millisUntilFinished The number of milliseconds until the timer expires.
+                     */
+                    override fun onTick(millisUntilFinished: Long) {}
+
+                    /**
+                     * Is called when the timer expires. This function allows the button to be pressed again.
+                     */
+                    override fun onFinish() {
+                        allButtons[i].isClickable = true
+                    }
+
+                }.start()
 
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
