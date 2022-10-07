@@ -1,3 +1,8 @@
+/**
+ * @author Jackson North
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Context
@@ -7,18 +12,15 @@ import java.io.*
 import kotlin.math.roundToInt
 
 /**
- * A class to handle the file handling and compiles a list of stats from the file.
- *
- * @author Jackson North
+ * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
  */
 class StatsAdapter {
 
     /**
-     * A class to handle the file handling and compiles a list of stats from the file.
-     *
-     * @author Jackson North
+     * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
      */
-    companion object{
+    companion object {
+
         private lateinit var stats: MutableList<Stats>
 
         /**
@@ -205,9 +207,19 @@ class StatsAdapter {
             return statsOut
         }
 
+        /**
+         * Retrieves and returns a list of the player's stats.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         *
+         * @return A list containing the player's stats. The list contains eight entries to be read in pairs. Each pair
+         * contains the number of quizzes played, and the total number of questions answered correctly. There are four
+         * pairs, one for each quiz type.
+         */
         fun getPlayerStats(context: Context): ArrayList<Int> {
             var playerStatsInts: ArrayList<Int> = ArrayList(8)
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+
             playerStatsInts.add(preferences.getInt("numPhotoQuizzesPlayed", 0))
             playerStatsInts.add(preferences.getInt("numPhotoQuestionsCorrect", 0))
             playerStatsInts.add(preferences.getInt("numSoundQuizzesPlayed", 0))
@@ -216,10 +228,18 @@ class StatsAdapter {
             playerStatsInts.add(preferences.getInt("numEnglishQuestionsCorrect", 0))
             playerStatsInts.add(preferences.getInt("numMaoriQuizzesPlayed", 0))
             playerStatsInts.add(preferences.getInt("numMaoriQuestionsCorrect", 0))
+
             return playerStatsInts
         }
 
-
+        /**
+         * Call this function when you complete a quiz. It takes a quiz score and merges it with the current player
+         * quiz stats.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         * @param quizType The type of quiz completed.
+         * @param score The score attained during the quiz.
+         */
         fun submitScore(context: Context, quizType: QuestionType, score: Int) {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             val editor = preferences.edit()
@@ -249,6 +269,11 @@ class StatsAdapter {
             editor.commit()
         }
 
+        /**
+         * Resets all stored player stats values.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         */
         fun resetStats(context: Context) {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             val editor = preferences.edit()
@@ -285,4 +310,5 @@ class StatsAdapter {
         }
 
     }
+    
 }
