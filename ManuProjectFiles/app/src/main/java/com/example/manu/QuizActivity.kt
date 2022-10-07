@@ -242,7 +242,6 @@ class QuizActivity : AppCompatActivity() {
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
         startActivity(intent)
-        finish()
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 
