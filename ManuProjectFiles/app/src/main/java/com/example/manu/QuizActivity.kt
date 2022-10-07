@@ -282,16 +282,6 @@ class QuizActivity : AppCompatActivity() {
             img_question.setImageResource(imageResourceId)
         }
 
-        /*
-         * Start the answer option exit animation for all buttons that are not the correct answer, or the player's
-         * incorrect selection.
-         */
-        for (buttonIndex in 0 until optionButtons.size) {
-            if (selectedOptionIndex != buttonIndex && questions[currentQuestionIndex].getAnswerIndex() != buttonIndex) {
-                optionButtons[buttonIndex].startAnimation(answerOptionDisappear)
-            }
-        }
-
         if (currentQuestionIndex == questions.size - 1)  // If this was the last question.
             btn_submit.text = finishText
         else

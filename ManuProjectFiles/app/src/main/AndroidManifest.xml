@@ -68,6 +68,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StatsPopupActivity"
+            android:theme="@style/Translucent"
+            />
     </application>
 
 </manifest>
