@@ -29,24 +29,33 @@ class AudioManager {
          * @param audioResourceId The desired audio resource's resource ID.
          */
         fun playAudio(context: Context, audioResourceId: Int) {
-            mediaPlayer.pause()
+            if(mediaPlayer.isPlaying){
+                mediaPlayer.pause()
+            }
             mediaPlayer = MediaPlayer.create(context, audioResourceId)
             mediaPlayer.isLooping = true
-            mediaPlayer.start()
+
+            if(!mediaPlayer.isPlaying){
+                mediaPlayer.start()
+            }
         }
 
         /**
          * Resumes playing the current audio resource.
          */
         fun resumeAudio() {
-            mediaPlayer.start()
+            if(!mediaPlayer.isPlaying){
+                mediaPlayer.start()
+            }
         }
 
         /**
          * Pauses the current playing audio track such that it can be resumed from the same place in the track.
          */
         fun pauseAudio() {
-            mediaPlayer.pause()
+            if(mediaPlayer.isPlaying){
+                mediaPlayer.pause()
+            }
         }
 
         /**
@@ -54,8 +63,12 @@ class AudioManager {
          * track, instead you must call playAudio again.
          */
         fun stopAudio() {
-            mediaPlayer.stop()
+            if(mediaPlayer.isPlaying) {
+                mediaPlayer.stop()
+            }
         }
+
+
 
     }
 

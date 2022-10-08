@@ -9,6 +9,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -50,7 +51,8 @@ class MenuActivity : AppCompatActivity() {
         loadAnimations()
 
         soundFlag = intent.getBooleanExtra("soundFlag", false)
-        if (soundFlag == false) {
+        if (!soundFlag) {
+            Log.d("Media", "playing sound.")
             AudioManager.playAudio(this, R.raw.menu_ambience)
         }
 
