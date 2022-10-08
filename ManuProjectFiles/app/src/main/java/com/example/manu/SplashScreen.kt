@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 
 /**
- * creates a splash screen for the app
+ * Creates a splash screen for the app. This screen shows for several seconds when the app launches.
  */
 @Suppress("DEPRECATION")
 class SplashScreen : AppCompatActivity() {

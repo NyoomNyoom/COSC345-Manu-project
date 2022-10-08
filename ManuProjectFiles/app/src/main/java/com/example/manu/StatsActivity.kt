@@ -6,6 +6,7 @@ package com.example.manu
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -13,7 +14,10 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import kotlinx.android.synthetic.main.activity_quiz.*
+import kotlinx.android.synthetic.main.credits.*
 import kotlinx.android.synthetic.main.quiz_stats.*
+import kotlinx.android.synthetic.main.quiz_stats.btn_back
 
 /**
  * Creates and fills the stats activity regarding the players scores and play amount.
@@ -53,11 +57,22 @@ class StatsActivity : AppCompatActivity() {
         loadAndStoreAnimations()
 
         btn_back.setOnClickListener {
+            btn_back.isClickable = false
+
             var intent = Intent(this, MenuActivity::class.java)
             intent.putExtra("soundFlag", true)
             startActivity(intent)
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             finish()
+
+            object : CountDownTimer(300, 100) {
+
+                override fun onTick(millisUntilFinished: Long) {}
+
+                override fun onFinish() {
+                    btn_back.isClickable = true
+                }
+            }.start()
         }
 
         // Reset the stored statistics, then collect and display these new values.
@@ -78,7 +93,7 @@ class StatsActivity : AppCompatActivity() {
     /**
      * Collects the saved user data from StatsAdapter for display within the text boxes
      */
-     fun getAllValues(){
+     fun getAllValues() {
         val returned = StatsAdapter.getPlayerStats(this)
         for (va in returned) {
             Log.d("StatsActivity", va.toString())

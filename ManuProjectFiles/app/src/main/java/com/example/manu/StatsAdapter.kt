@@ -1,3 +1,8 @@
+/**
+ * @author Jackson North
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Context
@@ -7,18 +12,15 @@ import java.io.*
 import kotlin.math.roundToInt
 
 /**
- * A class to handle the file handling and compiles a list of stats from the file.
- *
- * @author Jackson North
+ * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
  */
 class StatsAdapter {
 
     /**
-     * A class to handle the file handling and compiles a list of stats from the file.
-     *
-     * @author Jackson North
+     * Handles retrieving and editing the player's quiz statistics on a non-volatile medium.
      */
-    companion object{
+    companion object {
+
         private lateinit var stats: MutableList<Stats>
 
         /**
@@ -26,15 +28,15 @@ class StatsAdapter {
          * a list from the file in our directory. If the file exists the function just calls compileStats to create a
          * list from the given file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        fun makeFile(context: Context){
+        fun makeFile(context: Context) {
             val path = context.filesDir
             val fileName = "stats.txt"
             var file = File(path, fileName)
             var fileExists = file.exists()
 
-            if(fileExists){
+            if (fileExists) {
                 compileStats(context)
             } else {
                 try {
@@ -69,7 +71,7 @@ class StatsAdapter {
                         }
                     }
                     saveToFile(context)
-                }catch(e: IOException){
+                } catch(e: IOException) {
                     println(e)
                 }
             }
@@ -79,9 +81,9 @@ class StatsAdapter {
         /**
          * A function to compile a list of stats from an existing file.
          *
-         * @param context the app context which makes file handling possible.
+         * @param context The app context which makes file handling possible.
          */
-        private fun compileStats(context: Context){
+        private fun compileStats(context: Context) {
             stats = mutableListOf<Stats>()
             lateinit var questionType: QuestionType
 
@@ -122,10 +124,8 @@ class StatsAdapter {
          * @param numQuestions The number to increase the number of questions played.
          * @param numCorrect The amount of correct questions to increase the numCorrect value.
          */
-        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int){
-
-
-            if(questionType == QuestionType.PHOTO){
+        fun updateValues(context: Context, questionType: QuestionType, numQuestions: Int, numCorrect: Int) {
+            if (questionType == QuestionType.PHOTO){
                 stats[0].updateNumRight(numCorrect)
                 stats[0].updateTotalPlayed(numQuestions)
                 val preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -138,14 +138,14 @@ class StatsAdapter {
                 editor.putInt("photoQuizzesPlayed", photoGames + 1).toString()
                 editor.putInt("photoQuizQuestionsCorrect", photoCorrect + numCorrect).toString()
                 editor.commit()
-            }else if(questionType == QuestionType.SOUND){
+            } else if(questionType == QuestionType.SOUND) {
                 stats[1].updateNumRight(numCorrect)
                 stats[1].updateTotalPlayed(numQuestions)
 
-            }else if(questionType == QuestionType.MAORI){
+            } else if(questionType == QuestionType.MAORI) {
                 stats[2].updateNumRight(numCorrect)
                 stats[2].updateTotalPlayed(numQuestions)
-            }else if(questionType == QuestionType.ENGLISH){
+            } else if(questionType == QuestionType.ENGLISH) {
                 stats[3].updateNumRight(numCorrect)
                 stats[3].updateTotalPlayed(numQuestions)
             }
@@ -161,7 +161,7 @@ class StatsAdapter {
          *
          * @param context The app context to handle the file management.
          */
-        fun saveToFile(context: Context){
+        fun saveToFile(context: Context) {
             var path = context.filesDir
 
             try {
@@ -170,7 +170,7 @@ class StatsAdapter {
                     writer.write(it.toString().toByteArray())
                 }
                 writer.close()
-            }catch(e: IOException){
+            } catch(e: IOException) {
                 e.printStackTrace()
             }
         }
@@ -178,9 +178,9 @@ class StatsAdapter {
         /**
          * Resets the values of the user stats within the file.
          *
-         * aram context The app context to handle the file management.
+         * @param context The app context to handle the file management.
          */
-        fun resetValues(context: Context){
+        fun resetValues(context: Context) {
             stats.forEach {
                 it.resetValues()
             }
@@ -191,7 +191,9 @@ class StatsAdapter {
         /**
          * Returns the stats regarding the inputted question type.
          *
-         *  @param questionTypeIn the question type stats being retrieved.
+         * @param questionTypeIn the question type stats being retrieved.
+         *
+         * @return A Stats object containing data on the desired QuestionType (i.e., desired quiz type).
          */
         fun getStatsBasedOnType(questionTypeIn: QuestionType): Stats {
             lateinit var statsOut: Stats
@@ -205,9 +207,19 @@ class StatsAdapter {
             return statsOut
         }
 
+        /**
+         * Retrieves and returns a list of the player's stats.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         *
+         * @return A list containing the player's stats. The list contains eight entries to be read in pairs. Each pair
+         * contains the number of quizzes played, and the total number of questions answered correctly. There are four
+         * pairs, one for each quiz type.
+         */
         fun getPlayerStats(context: Context): ArrayList<Int> {
             var playerStatsInts: ArrayList<Int> = ArrayList(8)
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+
             playerStatsInts.add(preferences.getInt("numPhotoQuizzesPlayed", 0))
             playerStatsInts.add(preferences.getInt("numPhotoQuestionsCorrect", 0))
             playerStatsInts.add(preferences.getInt("numSoundQuizzesPlayed", 0))
@@ -216,10 +228,18 @@ class StatsAdapter {
             playerStatsInts.add(preferences.getInt("numEnglishQuestionsCorrect", 0))
             playerStatsInts.add(preferences.getInt("numMaoriQuizzesPlayed", 0))
             playerStatsInts.add(preferences.getInt("numMaoriQuestionsCorrect", 0))
+
             return playerStatsInts
         }
 
-
+        /**
+         * Call this function when you complete a quiz. It takes a quiz score and merges it with the current player
+         * quiz stats.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         * @param quizType The type of quiz completed.
+         * @param score The score attained during the quiz.
+         */
         fun submitScore(context: Context, quizType: QuestionType, score: Int) {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             val editor = preferences.edit()
@@ -249,6 +269,11 @@ class StatsAdapter {
             editor.commit()
         }
 
+        /**
+         * Resets all stored player stats values.
+         *
+         * @param context The AppCompatActivity context calling this function.
+         */
         fun resetStats(context: Context) {
             val preferences = PreferenceManager.getDefaultSharedPreferences(context)
             val editor = preferences.edit()
@@ -285,4 +310,5 @@ class StatsAdapter {
         }
 
     }
+
 }

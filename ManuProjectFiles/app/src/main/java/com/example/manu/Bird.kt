@@ -9,8 +9,15 @@ package com.example.manu
  *
  * @param birdName The bird's primary name.
  * @param photoResourceId The photo's resource ID (a drawable resource).
+ * @param soundResourceId The resource ID of the bird's song.
+ * @param englishNameImageResourceId The resource ID of the picture of the bird's English name.
+ * @param maoriNameImageResourceId The resource ID of the picture of the bird's Māori name.
+ * @param maoriName The bird's Māori name.
+ * @param endangermentStatusIn The bird's current endangerment status.
+ * @param funFact A short fun fact about the bird.
  */
-class Bird(birdName: String, photoResourceId: Int, soundResourceId: Int, englishNameImageResourceId: Int, maoriNameImageResourceId: Int, maoriName: String, endangermentStatusIn: String, funFact: String) {
+class Bird(birdName: String, photoResourceId: Int, soundResourceId: Int, englishNameImageResourceId: Int,
+           maoriNameImageResourceId: Int, maoriName: String, endangermentStatusIn: String, funFact: String) {
 
     private val birdName: String = birdName
     private val photoResourceId: Int = photoResourceId
@@ -90,14 +97,12 @@ class Bird(birdName: String, photoResourceId: Int, soundResourceId: Int, english
      * @return the endangerment status of the bird.
      */
 
-    fun getEndangerment(): String{
+    fun getEndangerment(): String {
         return endangermentStatus
     }
 
-
-
     /**
-     * Our toString method for the bird temp, that just returns the values of bird separated by commas.
+     * Our toString method for the bird, that just returns the values of bird separated by commas.
      *
      * @return bird values separated by commas.
      */

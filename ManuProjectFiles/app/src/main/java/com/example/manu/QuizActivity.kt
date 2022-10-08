@@ -100,6 +100,9 @@ class QuizActivity : AppCompatActivity() {
         return
     }
 
+    /**
+     * Stores the quiz's option buttons into a list.
+     */
     private fun storeOptionButtons() {
         optionButtons = ArrayList()
         optionButtons.add(btn_opt_0)
@@ -108,6 +111,9 @@ class QuizActivity : AppCompatActivity() {
         optionButtons.add(btn_opt_3)
     }
 
+    /**
+     * Loads the animations so we can call them.
+     */
     private fun loadAnimations() {
         buttonPress = AnimationUtils.loadAnimation(this, R.anim.button_press)
         incorrectAnswerShake = AnimationUtils.loadAnimation(this, R.anim.incorrect_answer_shake)
@@ -116,6 +122,9 @@ class QuizActivity : AppCompatActivity() {
         answerPop = AnimationUtils.loadAnimation(this, R.anim.answer_pop)
     }
 
+    /**
+     * Sets up listeners for all buttons in the quiz activity layout.
+     */
     private fun setupOnClickListeners() {
         for (buttonIndex in 0 until numOptions) {
             optionButtons[buttonIndex].setOnClickListener { selectOption(buttonIndex) }
@@ -125,6 +134,9 @@ class QuizActivity : AppCompatActivity() {
         btn_back.setOnClickListener { returnToMenu() }
     }
 
+    /**
+     * Resets the appearance of all option buttons. Call this when you are presenting a new question.
+     */
     private fun resetOptionButtons() {
         for (button in optionButtons) {
             button.setBackgroundColor(Color.parseColor(buttonColourHex))
@@ -133,6 +145,8 @@ class QuizActivity : AppCompatActivity() {
 
     /**
      * Resets the screen with the next question.
+     *
+     * @param question The question to present on screen to the player.
      */
     private fun presentQuestion(question: Question) {
         if (quizType == QuestionType.PHOTO || quizType == QuestionType.ENGLISH || quizType == QuestionType.MAORI) {
@@ -153,8 +167,20 @@ class QuizActivity : AppCompatActivity() {
         for (button in optionButtons) {
             button.startAnimation(answerOptionAppear)
         }
+
+        // Set buttons to be clickable
+        btn_opt_0.isClickable = true
+        btn_opt_1.isClickable = true
+        btn_opt_2.isClickable = true
+        btn_opt_3.isClickable = true
+
     }
 
+    /**
+     * When the player selects an option, call this function and it will highlight the respective option button.
+     *
+     * @param optionNumber The option button's index (starting at zero).
+     */
     private fun selectOption(optionNumber: Int) {
         // Only select the option if we haven't marked the answer.
         if (markedCurrentQuestion)
@@ -168,15 +194,31 @@ class QuizActivity : AppCompatActivity() {
         optionButtons[selectedOptionIndex].startAnimation(buttonPress)
     }
 
+    /**
+     * The on-click handler for the submit button.
+     */
     private fun submitButtonClickHandler() {
 
         if (optionSelected) {
+            /**
+             * Creates a short countdown after the player's answer is marked which, upon expiration, automatically
+             * progresses to the next question.
+             */
             object : CountDownTimer(1600, 100) {
 
+                /**
+                 * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
+                 * time, with the instructions to do nothing.
+                 *
+                 * @param millisUntilFinished The number of milliseconds until the timer expires.
+                 */
                 override fun onTick(millisUntilFinished: Long) {}
 
+                /**
+                 * Is called when the timer expires. This function automatically moves to the next question.
+                 */
                 override fun onFinish() {
-                    if(markedCurrentQuestion == true) {
+                    if (markedCurrentQuestion == true) {
                         markedCurrentQuestion = false
                         currentQuestionIndex++
                         if (currentQuestionIndex == questions.size) {  // If this was the last question.
@@ -197,6 +239,7 @@ class QuizActivity : AppCompatActivity() {
                         }
                     }
                 }
+
             }.start()
         }
 
@@ -234,15 +277,40 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /**
-     * Returns to the Menu. The Quiz is quit.
+     * Opens the return to menu popup and pauses the quiz.
      */
     private fun returnToMenu() {
+        btn_back.isClickable = false
+
         btn_back.startAnimation(buttonPress)
         AudioManager.pauseAudio()
         var intent = Intent(this, ReturnToMenuPopupActivity::class.java)
         intent.putExtra("quizType", QuestionTypeConverter.questionTypeToInt(quizType))
         startActivity(intent)
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+
+        /**
+         * Creates a short delay after this button is pressed to prevent the click being detected, and acted upon,
+         * twice.
+         */
+        object : CountDownTimer(300, 100) {
+
+            /**
+             * Override the onTick function, which is called whenever the countdown timer ticks down by an amount of
+             * time, with the instructions to do nothing.
+             *
+             * @param millisUntilFinished The number of milliseconds until the timer expires.
+             */
+            override fun onTick(millisUntilFinished: Long) {}
+
+            /**
+             * Is called when the timer expires. This function allows the button to be pressed again.
+             */
+            override fun onFinish() {
+                btn_back.isClickable = true
+            }
+
+        }.start()
     }
 
     /**
@@ -285,6 +353,12 @@ class QuizActivity : AppCompatActivity() {
 
         // Increment the progress bar.
         progress_bar.progress = ((currentQuestionIndex + 1).toFloat() / questions.size.toFloat() * 100).toInt()
+
+        //set the buttons to not be clickable.
+        btn_opt_0.isClickable = false
+        btn_opt_1.isClickable = false
+        btn_opt_2.isClickable = false
+        btn_opt_3.isClickable = false
     }
 
     /**

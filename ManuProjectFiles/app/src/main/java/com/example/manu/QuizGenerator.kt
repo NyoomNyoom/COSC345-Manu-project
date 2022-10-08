@@ -1,5 +1,6 @@
 /**
- * @author Daniel Robinson and Madeline McCane
+ * @author Daniel Robinson
+ * @author Madeline McCane
  */
 
 package com.example.manu
@@ -16,14 +17,14 @@ class QuizGenerator {
      */
     companion object {
 
-        val maxShuffles: Int = 10
+        private val maxShuffles: Int = 10
 
         /**
          * Index of the previous correct option.
          */
-        var lastCorrectOptionIndex: Int = -1
+        private var lastCorrectOptionIndex: Int = -1
 
-        val random = Random()
+        private val random = Random()
 
         /**
          * Generates a quiz from the information in the birds database.
@@ -118,6 +119,7 @@ class QuizGenerator {
          *
          * @param quizzes The number of quizzes to run.
          * @param questionsPerQuiz The number of questions per quiz.
+         * @param optionsPerQuestion The number of possible answers (A.K.A. options) per quiz question.
          *
          * @return An array of integers where each integer represents the number of times that option was the answer.
          * The integer's index corresponds the option's index.

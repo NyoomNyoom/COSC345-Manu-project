@@ -17,7 +17,7 @@
 
     <LinearLayout
         android:layout_width="250sp"
-        android:layout_height="205sp"
+        android:layout_height="225sp"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
@@ -43,7 +43,7 @@
                 android:theme="@style/Theme.Manu.ReturnToMenuPopup"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginBottom="67sp"
+                android:layout_marginBottom="77sp"
                 android:fontFamily="@font/party_confetti_regular"
                 />
 
@@ -59,6 +59,7 @@
                 android:layout_marginBottom = "10sp"
                 android:gravity="center"
                 android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
                 />
 
             <com.google.android.material.button.MaterialButton
@@ -69,7 +70,7 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textSize="15sp"
-                android:layout_marginTop="60sp"
+                android:layout_marginTop="70sp"
                 android:backgroundTint="@color/black"
                 android:textColor="@color/white"
                 app:strokeWidth="1sp"

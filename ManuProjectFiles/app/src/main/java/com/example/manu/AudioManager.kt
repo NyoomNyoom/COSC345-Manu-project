@@ -1,3 +1,7 @@
+/**
+ * @author Daniel Robinson
+ */
+
 package com.example.manu
 
 import android.content.Context
@@ -13,7 +17,10 @@ class AudioManager {
      */
     companion object {
 
-        var mediaPlayer = MediaPlayer()
+        /**
+         * The persistent media player for playing sounds across all activities in the app.
+         */
+        private var mediaPlayer = MediaPlayer()
 
         /**
          * Plays, on loop, the audio resource provided.
