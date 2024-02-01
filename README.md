@@ -33,7 +33,7 @@ Manu currently has the first four birds with fun facts, with the remainder to be
       <li>The phone to be emulated is the Pixel 4. </li>
       <li>The app must be run on Android Version 11. </li>
     </ul></li>
-  <li>Run our app using the Pixel 4 and enjoy our app!</li>
+  <li>Run our app using the Pixel 4 and please enjoy our app!</li>
 </ol>
 
 ## Latest release
